@@ -46,6 +46,21 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   }
   const ctx = { saveMedia, stats };
 
+  // ---- videos stored in the repository: videos/<slug>.mp4 (+ optional videos/<slug>.txt caption) ----
+  async function localVideo(slug) {
+    for (const ext of ['.mp4', '.webm', '.mov']) {
+      const src = path.join(ROOT, 'videos', slug + ext);
+      try { await access(src); } catch { continue; }
+      await mkdir(path.join(outDir, 'videos'), { recursive: true });
+      await copyFile(src, path.join(outDir, 'videos', slug + ext));
+      let cap = '';
+      try { cap = (await readFile(path.join(ROOT, 'videos', slug + '.txt'), 'utf8')).trim(); } catch {}
+      stats.videos++;
+      return `<figure class="video"><video controls preload="metadata" playsinline src="${base}videos/${slug}${ext}"></video>${cap ? `<figcaption>${cap.replace(/</g, '&lt;')}</figcaption>` : ''}</figure>`;
+    }
+    return '';
+  }
+
   // ---- discover pages under the main Notion page ----
   const rootId = process.env.NOTION_ROOT_PAGE_ID || config.notionRootPageId;
   const rootChildren = await client.children(rootId);
@@ -122,7 +137,8 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       let html = await renderBlocks(s.blocks, ctx);
       const t = s.title.toLowerCase();
       if (/video/.test(t) && !/3d|extra/.test(t) && !contains(s.blocks, ['video'])) {
-        html = `<div class="placeholder">Video coming soon. I am recording my explanation of ${topic.name}.</div>` + html;
+        const vid = await localVideo(topic.slug);
+        html = (vid || `<div class="placeholder">Video coming soon. I am recording my explanation of ${topic.name}.</div>`) + html;
       }
       if (/cadaver/.test(t) && !contains(s.blocks, ['image'])) {
         html = `<div class="placeholder">Cadaver photos coming soon, straight from the dissection hall.</div>` + html;
