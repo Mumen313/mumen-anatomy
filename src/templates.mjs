@@ -18,7 +18,7 @@ export function layout({ site, title, description, body, active = '', depthBase 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(description || site.tagline)}">
-<meta property="og:title" content="${esc(pageTitle)}">
+${site.googleVerification ? `<meta name="google-site-verification" content="${esc(site.googleVerification)}">\n` : ''}<meta property="og:title" content="${esc(pageTitle)}">
 <meta property="og:description" content="${esc(description || site.tagline)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

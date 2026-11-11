@@ -55,7 +55,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   if (!topicsDb) throw new Error(`No database called "${config.pages.topics}" found on the main Notion page.`);
 
   // ---- settings ----
-  const site = { base, name: 'Mumen Anatomy', tagline: '', intro: '', footer: '', logo: '' , ...config.defaults };
+  const site = { base, name: 'Mumen Anatomy', tagline: '', intro: '', footer: '', logo: '', ...config.defaults, googleVerification: config.googleVerification || '' };
   const settingsPage = find('child_page', config.pages.settings);
   if (settingsPage) {
     const blocks = await loadBlocks(client, settingsPage.id);
@@ -162,6 +162,18 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   await write('index.html', layout({ site, active: 'home', body: homePage({ site, regions, topics }) }));
   await write('404.html', layout({ site, title: 'Not found', body: notFoundPage({ site }) }));
   await writeFile(path.join(outDir, '.nojekyll'), '');
+
+  // ---- sitemap + robots (helps Google find every page) ----
+  const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
+  if (origin) {
+    const urls = ['', 'about/', 'membership/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`)];
+    const today = new Date().toISOString().slice(0, 10);
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+      .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)
+      .join('\n')}\n</urlset>\n`;
+    await writeFile(path.join(outDir, 'sitemap.xml'), xml);
+    await writeFile(path.join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${origin}${base}sitemap.xml\n`);
+  }
 
   log(`Done: ${stats.pages} pages, ${topics.length} topics, ${stats.images} images, ${stats.videos} videos.`);
   for (const w of stats.warnings) log((process.env.GITHUB_ACTIONS ? '::warning::' : '  ! ') + w);
