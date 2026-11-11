@@ -1,0 +1,24 @@
+{
+  "notionRootPageId": "413d43edb34f81189afaf9d67fa30215",
+  "pages": {
+    "topics": "Topics",
+    "about": "About Me",
+    "settings": "Website settings"
+  },
+  "defaults": {
+    "name": "Mumen Anatomy",
+    "tagline": "Anatomy explained simply, made for exam day.",
+    "intro": "Every topic follows the same plan: a short explanation, my own video, real cadaver photos, 3D models, clinical cases, the five questions examiners ask most, and the histology you need.",
+    "footer": "© Mumen Anatomy. All cadaver photos and videos are my own."
+  },
+  "regions": [
+    { "name": "Head", "intro": "Skull, face, cranial nerves and the structures of the head." },
+    { "name": "Neck", "intro": "Triangles, fascia, vessels and nerves of the neck." },
+    { "name": "Thorax", "intro": "Chest wall, heart, lungs and the mediastinum." },
+    { "name": "Abdomen", "intro": "Abdominal wall, peritoneum and the abdominal organs." },
+    { "name": "Pelvis & Perineum", "intro": "Pelvic walls, pelvic organs and the perineum." },
+    { "name": "Back", "intro": "Vertebral column, back muscles and the spinal cord." },
+    { "name": "Upper Limb", "intro": "Nerves, vessels, muscles and joints from the shoulder to the hand." },
+    { "name": "Lower Limb", "intro": "Nerves, vessels, muscles and joints from the hip to the foot." }
+  ]
+}
