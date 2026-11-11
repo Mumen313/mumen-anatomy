@@ -164,7 +164,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   await writeFile(path.join(outDir, '.nojekyll'), '');
 
   log(`Done: ${stats.pages} pages, ${topics.length} topics, ${stats.images} images, ${stats.videos} videos.`);
-  for (const w of stats.warnings) log('  ! ' + w);
+  for (const w of stats.warnings) log((process.env.GITHUB_ACTIONS ? '::warning::' : '  ! ') + w);
   return { stats, topics, regions, site };
 }
 
@@ -172,6 +172,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   build({ client: createNotionClient(process.env.NOTION_TOKEN) }).catch((e) => {
     console.error('Build failed:', e.message);
+    if (process.env.GITHUB_ACTIONS) console.log(`::error title=Build failed::${String(e.message).replace(/\n/g, ' ')}`);
     process.exit(1);
   });
 }
