@@ -155,3 +155,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .topic-row{flex-direction:column;align-items:flex-start;gap:4px}
 }
 @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* visitor tracker */
+.feel{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:22px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.feel-end{margin-top:32px}
+.feel-label{font-weight:700;font-size:.92rem}
+.feel-btns{display:flex;flex-wrap:wrap;gap:6px}
+.feel-btns button{font:inherit;font-size:.88rem;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.feel-btns button:hover{border-color:var(--nerve)}
+.feel-btns button[aria-pressed="true"]{background:var(--nerve);border-color:var(--nerve);color:#16202c;font-weight:700}
+.feel-note{font-size:.8rem;color:var(--muted)}
+.feel-badge{font-size:1.1rem}
+.progress-summary{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.sum{padding:6px 12px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:.9rem}
+.progress-group{margin-top:28px}
+.progress-group h2{font-size:1.5rem}
+/* physiology boxes */
+.topic-intro{margin-top:20px}
+.note-question,.note-answer{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--nerve);border-radius:8px;padding:12px 16px;color:var(--ink)}
+.note-takeaway{border-left-color:var(--nerve);color:var(--ink)}
+.note-ask{border-left-color:var(--artery);color:var(--ink)}
+.note-teller{border-left-color:var(--posterior);font-style:italic}
+.note-words{font-size:.92rem}
+.note ul{margin:6px 0 0;padding-left:20px}
+.note p{margin:6px 0 0}

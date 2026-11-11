@@ -6,8 +6,8 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
-import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage } from './src/templates.mjs';
+import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -136,7 +136,9 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       if (!html.trim()) continue; // section still empty in Notion: leave it out
       sections.push({ ...s, html });
     }
-    await write(`topics/${topic.slug}/index.html`, layout({ site, title: topic.name, description: topic.summary, body: topicPage({ site, topic, region, sections }) }));
+    const crumbs = [{ label: 'Regions', href: '' }, { label: region.name, href: `regions/${region.slug}/` }];
+    const chips = [topic.priority && `${topic.priority} Exam priority`, region.name, topic.lastReviewed && `Reviewed ${formatDate(topic.lastReviewed)}`];
+    await write(`topics/${topic.slug}/index.html`, layout({ site, title: topic.name, description: topic.summary, body: topicPage({ site, topic, crumbs, chips, sections, feelKey: `anatomy/${topic.slug}` }) }));
     log(`  ✓ ${topic.name}  (${sections.length} sections)`);
   }
 
@@ -144,6 +146,51 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     const list = topics.filter((t) => t.region === region.name);
     await write(`regions/${region.slug}/index.html`, layout({ site, title: region.name, description: region.intro, body: regionPage({ site, region, topics: list }) }));
   }
+
+  // ---- physiology (separate Notion database: the lecture tracker) ----
+  const phys = [];
+  const P_CFG = config.physiology;
+  if (P_CFG?.databaseId) {
+    try {
+      const prow = await client.queryDatabase(P_CFG.databaseId, {
+        filter: { property: 'Website', select: { equals: 'Published' } },
+        sorts: [{ property: 'No.', direction: 'ascending' }],
+      });
+      for (const p of prow) {
+        const P = p.properties;
+        const full = prop.text(P.Lecture);
+        const no = prop.number(P['No.']);
+        const name = full.replace(/^\s*L\d+\s*[·:.\-–]\s*/, '').trim() || full;
+        phys.push({ id: p.id, name, no, block: prop.select(P['Topic block']) || 'Other', slug: slugify(name) });
+      }
+    } catch (e) {
+      stats.warnings.push(`Physiology skipped – share the Physiology lecture tracker with the Notion connection (${e.message.slice(0, 120)})`);
+    }
+  }
+  const PRIVATE_SECTION = /in the practical|class sheet|close the session/i;
+  for (const lec of phys) {
+    const blocks = await loadBlocks(client, lec.id);
+    const sections = [];
+    for (const s of splitSections(blocks)) {
+      if (/^\s*(🔬|🖨|✅)/u.test(s.raw) || PRIVATE_SECTION.test(s.raw)) continue;
+      const html = await renderBlocks(s.blocks, { ...ctx, skipTextbookFigures: true });
+      if (!html.trim()) continue;
+      sections.push({ ...s, html });
+    }
+    const intro = await renderBlocks((splitSections(blocks).intro || []).filter((b) => b.type === 'callout' && /^(❓|🌍)/u.test(b.callout.icon?.emoji || '')), ctx);
+    const crumbs = [{ label: 'Physiology', href: 'physiology/' }, { label: lec.block, href: `physiology/#${slugify(lec.block)}` }];
+    const chips = [lec.no != null && `Lecture ${lec.no}`, lec.block];
+    await write(`physiology/${lec.slug}/index.html`, layout({ site, title: lec.name, active: 'physiology', description: `${lec.name} – physiology explained simply.`, body: topicPage({ site, topic: lec, crumbs, chips, sections, intro, feelKey: `physiology/${lec.slug}` }) }));
+    log(`  ✓ Physiology: ${lec.name}  (${sections.length} sections)`);
+  }
+  await write('physiology/index.html', layout({ site, title: 'Physiology', active: 'physiology', body: physiologyIndexPage({ site, lectures: phys }) }));
+
+  // ---- visitor progress page ----
+  const allTopics = [
+    ...topics.map((t) => ({ key: `anatomy/${t.slug}`, name: t.name, group: `Anatomy · ${t.region}`, href: `topics/${t.slug}/` })),
+    ...phys.map((l) => ({ key: `physiology/${l.slug}`, name: l.name, group: `Physiology · ${l.block}`, href: `physiology/${l.slug}/` })),
+  ];
+  await write('progress/index.html', layout({ site, title: 'My progress', active: 'progress', body: progressPage({ site, allTopics }) }));
 
   // ---- about ----
   let aboutHtml = '';
@@ -159,14 +206,14 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   }
   await write('about/index.html', layout({ site, title: 'About me', active: 'about', body: aboutPage({ site, html: aboutHtml }) }));
   await write('membership/index.html', layout({ site, title: 'Membership', active: 'membership', body: membershipPage({ site }) }));
-  await write('index.html', layout({ site, active: 'home', body: homePage({ site, regions, topics }) }));
+  await write('index.html', layout({ site, active: 'home', body: homePage({ site, regions, topics, phys }) }));
   await write('404.html', layout({ site, title: 'Not found', body: notFoundPage({ site }) }));
   await writeFile(path.join(outDir, '.nojekyll'), '');
 
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'about/', 'membership/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`)];
+    const urls = ['', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)
@@ -177,7 +224,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
 
   log(`Done: ${stats.pages} pages, ${topics.length} topics, ${stats.images} images, ${stats.videos} videos.`);
   for (const w of stats.warnings) log((process.env.GITHUB_ACTIONS ? '::warning::' : '  ! ') + w);
-  return { stats, topics, regions, site };
+  return { stats, topics, regions, site, phys };
 }
 
 // Run from the command line

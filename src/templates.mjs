@@ -1,10 +1,30 @@
-import { esc, formatDate } from './render.mjs';
+import { esc, formatDate, slugify } from './render.mjs';
+
+export const FEELINGS = [
+  ['bad', '😟', 'Bad'],
+  ['unsure', '😕', 'Unsure'],
+  ['ok', '😐', 'OK'],
+  ['good', '🙂', 'Good'],
+  ['strong', '💪', 'Strong'],
+];
+
+function feelWidget(key, name, href) {
+  return `<div class="feel" data-key="${esc(key)}" data-name="${esc(name)}" data-href="${esc(href)}">
+  <span class="feel-label">How well do you know this?</span>
+  <div class="feel-btns" role="group" aria-label="How well do you know this topic?">
+    ${FEELINGS.map(([v, e, l]) => `<button type="button" data-v="${v}" aria-pressed="false"><span aria-hidden="true">${e}</span> ${l}</button>`).join('')}
+  </div>
+  <span class="feel-note">Saved only in this browser · <a href="__BASE__progress/">My progress</a></span>
+</div>`;
+}
 
 export function layout({ site, title, description, body, active = '', depthBase }) {
   const u = (p = '') => site.base + p;
   const pageTitle = title ? `${title} · ${site.name}` : site.name;
   const nav = [
-    ['', 'Regions', 'home'],
+    ['', 'Anatomy', 'home'],
+    ['physiology/', 'Physiology', 'physiology'],
+    ['progress/', 'My progress', 'progress'],
     ['about/', 'About me', 'about'],
     ['membership/', 'Membership', 'membership'],
   ];
@@ -37,7 +57,7 @@ ${site.logo ? `<link rel="icon" href="${esc(site.logo)}">` : ''}
   </div>
 </header>
 <main id="main" class="wrap">
-${body}
+${body.replace(/__BASE__/g, site.base)}
 </main>
 <footer>
   <div class="wrap"><span>${esc(site.footer)}</span><span>Images are credited with source and license on every figure.</span></div>
@@ -47,7 +67,7 @@ ${body}
 </html>`;
 }
 
-export function homePage({ site, regions, topics }) {
+export function homePage({ site, regions, topics, phys = [] }) {
   const u = (p = '') => site.base + p;
   const latest = [...topics].sort((a, b) => (b.lastReviewed || '').localeCompare(a.lastReviewed || '')).slice(0, 4);
   const live = topics.length;
@@ -76,7 +96,7 @@ export function homePage({ site, regions, topics }) {
 </div>
 
 <section class="block" aria-labelledby="h-regions">
-  <div class="section-head"><h2 id="h-regions">Regions</h2><span class="eyebrow">${regions.length} regions · ${live} topic${live === 1 ? '' : 's'} live</span></div>
+  <div class="section-head"><h2 id="h-regions">Anatomy regions</h2><span class="eyebrow">${regions.length} regions · ${live} topic${live === 1 ? '' : 's'} live</span></div>
   <div class="regions">
     ${regions
       .map((r, i) => {
@@ -85,6 +105,16 @@ export function homePage({ site, regions, topics }) {
       })
       .join('\n    ')}
   </div>
+</section>
+
+<section class="block" aria-labelledby="h-phys">
+  <div class="section-head"><h2 id="h-phys">Physiology</h2><span class="eyebrow">${phys.length} lecture${phys.length === 1 ? '' : 's'} live</span></div>
+  <div class="topic-list">${
+    phys.length
+      ? phys.slice(0, 6).map((l) => `<a class="topic-row" href="${u(`physiology/${l.slug}/`)}"><span><span class="t">${esc(l.name)}</span><span class="s">${esc(l.block)}</span></span><span class="m">Lecture ${l.no ?? ''}</span></a>`).join('')
+      : '<p class="empty">Coming soon.</p>'
+  }</div>
+  ${phys.length ? `<div class="btns"><a class="btn" href="${u('physiology/')}">All physiology lectures</a></div>` : ''}
 </section>
 
 <section class="block" aria-labelledby="h-plan">
@@ -108,7 +138,7 @@ export function regionPage({ site, region, topics }) {
   const u = (p = '') => site.base + p;
   const rows = topics.length
     ? topics
-        .map((t) => `<a class="topic-row" href="${u(`topics/${t.slug}/`)}"><span><span class="t">${esc(t.name)}</span>${t.summary ? `<span class="s">${esc(t.summary)}</span>` : ''}</span><span class="m">${t.priority ? `${esc(t.priority)} exam priority` : ''}</span></a>`)
+        .map((t) => `<a class="topic-row" href="${u(`topics/${t.slug}/`)}" data-key="anatomy/${t.slug}"><span><span class="t">${esc(t.name)}</span>${t.summary ? `<span class="s">${esc(t.summary)}</span>` : ''}</span><span class="m"><span class="feel-badge"></span> ${t.priority ? `${esc(t.priority)} exam priority` : ''}</span></a>`)
         .join('\n')
     : `<p class="empty">Topics for this region are being written. Check back soon.</p>`;
   return `
@@ -118,7 +148,7 @@ ${region.intro ? `<p class="lede">${esc(region.intro)}</p>` : ''}
 <div class="topic-list">${rows}</div>`;
 }
 
-export function topicPage({ site, topic, region, sections }) {
+export function topicPage({ site, topic, crumbs, chips, sections, intro = '', feelKey }) {
   const u = (p = '') => site.base + p;
   const toc = sections.map((s, i) => `<li><a href="#${s.id}">${i + 1} · ${esc(s.title)}</a></li>`).join('');
   const body = sections
@@ -131,19 +161,54 @@ export function topicPage({ site, topic, region, sections }) {
       </section>`
     )
     .join('');
+  const href = feelKey.startsWith('physiology/') ? `physiology/${topic.slug}/` : `topics/${topic.slug}/`;
   return `
-<div class="crumbs"><a href="${u()}">Regions</a> / <a href="${u(`regions/${region.slug}/`)}">${esc(region.name)}</a> / ${esc(topic.name)}</div>
+<div class="crumbs">${crumbs.map((c) => `<a href="${u(c.href)}">${esc(c.label)}</a>`).join(' / ')} / ${esc(topic.name)}</div>
 <h1>${esc(topic.name)}</h1>
 <div class="chips">
-  ${topic.priority ? `<span class="chip prio">${esc(topic.priority)} Exam priority</span>` : ''}
-  <span class="chip">${esc(region.name)}</span>
-  ${topic.lastReviewed ? `<span class="chip">Reviewed ${esc(formatDate(topic.lastReviewed))}</span>` : ''}
+  ${chips.filter(Boolean).map((c, i) => `<span class="chip${i === 0 && /★/.test(c) ? ' prio' : ''}">${esc(c)}</span>`).join('\n  ')}
 </div>
+${intro ? `<div class="topic-intro">${intro}</div>` : ''}
+${feelWidget(feelKey, topic.name, href)}
 <div class="topic">
   <nav class="toc" aria-label="On this page"><span class="eyebrow">On this page</span><ol>${toc}</ol></nav>
   <article>${body}
   </article>
-</div>`;
+</div>
+${feelWidget(feelKey, topic.name, href).replace('class="feel"', 'class="feel feel-end"')}`;
+}
+
+export function physiologyIndexPage({ site, lectures }) {
+  const u = (p = '') => site.base + p;
+  const blocks = [...new Set(lectures.map((l) => l.block))];
+  const groups = blocks
+    .map(
+      (b) => `<section class="block" id="${slugify(b)}">
+  <div class="section-head"><h2>${esc(b)}</h2><span class="eyebrow">${lectures.filter((l) => l.block === b).length} lecture(s)</span></div>
+  <div class="topic-list">${lectures
+    .filter((l) => l.block === b)
+    .map((l) => `<a class="topic-row" href="${u(`physiology/${l.slug}/`)}" data-key="physiology/${l.slug}"><span><span class="t">${esc(l.name)}</span><span class="s">Lecture ${l.no ?? ''}</span></span><span class="m feel-badge"></span></a>`)
+    .join('\n')}</div>
+</section>`
+    )
+    .join('\n');
+  return `
+<div class="eyebrow">Physiology</div>
+<h1>Physiology, one mechanism at a time.</h1>
+<p class="lede">Every lecture is told as a cause-and-effect story, with an everyday comparison, takeaways, the questions examiners ask and flashcards to test yourself.</p>
+${groups || '<p class="empty">The first lectures are being prepared.</p>'}`;
+}
+
+export function progressPage({ site, allTopics }) {
+  return `
+<div class="eyebrow">My progress</div>
+<h1>How well do you know each topic?</h1>
+<p class="lede">Rate any topic with the buttons on its page. Your ratings are saved only in this browser, so nobody else sees them.</p>
+<div class="progress-summary" id="progressSummary" aria-live="polite"></div>
+<div id="progressList" class="progress-list"></div>
+<p class="empty" id="progressEmpty">You have not rated any topic yet. Open a topic and choose how well you know it.</p>
+<div class="btns"><button type="button" class="btn" id="progressReset">Clear my ratings</button></div>
+<script type="application/json" id="allTopics">${JSON.stringify(allTopics.map((t) => ({ ...t, href: site.base + t.href }))).replace(/</g, '\\u003c')}</script>`;
 }
 
 export function aboutPage({ site, html }) {

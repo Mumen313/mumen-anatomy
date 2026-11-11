@@ -78,14 +78,59 @@ const pages = [
   { id: 'video', properties: { Name: { title: [rt('Video Test Topic')] }, Region: { select: { name: 'Upper Limb' } }, Slug: { rich_text: [] }, 'Exam priority': { select: null }, Summary: { rich_text: [] }, Order: { number: 2 }, 'Last reviewed': { date: null } } },
 ];
 
+const h1 = (t) => blk('heading_1', { rich_text: [rt(t)], is_toggleable: false });
+const todo = (t) => blk('to_do', { rich_text: [rt(t)], checked: false });
+const toggle = (q, a) => blk('toggle', { rich_text: [rt(q)] }, [p(rt(a))]);
+const fileImg = (name) => blk('image', { type: 'file', file: { url: `https://example.invalid/secure/${name}?X-Amz=1` }, caption: [] });
+tree.l1 = [
+  callout('❓', 'The big question of this lecture: how does the body stay stable?'),
+  callout('🧭', 'Roadmap'),
+  callout('📚', 'Sources'),
+  blk('table_of_contents', {}),
+  h1('Part A — The idea of physiology'),
+  h2('1 · What physiology is  ⏱ 5 min'),
+  p(rt('Physiology is how the body works.')),
+  callout('📌', 'TAKEAWAYS'),
+  callout('❗', 'THEY ASK'),
+  callout('🗣️', 'THE TELLER'),
+  todo('I can explain section 1 without looking'),
+  h2('5 · Negative feedback  ⏱ 10 min'),
+  fileImg('L1_fox_fig1_4.svg'),
+  p(rt('Fox Fig. 1.4 — body temperature oscillates around 37 °C.', { italic: true })),
+  callout('📘', 'Fox Fig. 1.6 (p. 9) shows this'),
+  p(rt('Fox calls this dynamic constancy.')),
+  h2('🔬 In the practical — P1 Homeostasis (Lab Manual p. 7)'),
+  p(rt('MODEL ANSWERS FROM LAB MANUAL')),
+  h2('📝 Open exam questions  ⏱ 15 min'),
+  toggle('Q1. Define physiology.', 'How the body works.'),
+  toggle('Q2. Define homeostasis.', 'Nearly constant internal environment.'),
+  h2('🖨️ 2-page class sheet'),
+  p(rt('CLASS SHEET PDF')),
+  h2('✅ Close the session'),
+  todo('All sections ticked'),
+];
+const physPages = [{ id: 'l1', properties: { Lecture: { title: [rt('L1 · Homeostasis & control systems')] }, 'No.': { number: 1 }, 'Topic block': { select: { name: 'Foundations' } } } }];
+
 const fake = {
   children: async (id) => (id === '413d43edb34f81189afaf9d67fa30215' ? tree.root : tree[id] || reg.get(id) || []),
   queryDatabase: async (id, body) => {
     if (body.filter.select.equals !== 'Published') throw new Error('filter wrong');
+    if (body.filter.property === 'Website') return physPages;
     return pages;
   },
 };
 
 const res = await build({ client: fake, outDir: path.join(here, 'out'), base: '/mumen-anatomy/' });
 if (res.topics.length !== 2) throw new Error('expected 2 topics');
+if (res.phys.length !== 1) throw new Error('expected 1 physiology lecture');
+const { readFile } = await import('node:fs/promises');
+const html = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'index.html'), 'utf8');
+const must = ['What physiology is', 'Negative feedback', 'Fox calls this dynamic constancy', 'Open exam questions', 'note-takeaway', 'note-ask', 'note-teller', 'The big question', 'class="feel"', 'Lecture 1'];
+const mustNot = ['MODEL ANSWERS', 'CLASS SHEET', 'Close the session', 'fox_fig', 'Fox Fig.', 'without looking', 'Roadmap', '⏱', '__BASE__', 'Part A'];
+for (const m of must) if (!html.includes(m)) throw new Error('missing: ' + m);
+for (const m of mustNot) if (html.includes(m)) throw new Error('leaked: ' + m);
+const prog = await readFile(path.join(here, 'out', 'progress', 'index.html'), 'utf8');
+if (!prog.includes('physiology/homeostasis-and-control-systems')) throw new Error('progress list incomplete');
+const home = await readFile(path.join(here, 'out', 'index.html'), 'utf8');
+if (!home.includes('Homeostasis &amp; control systems')) throw new Error('home missing physiology');
 console.log('TEST OK');

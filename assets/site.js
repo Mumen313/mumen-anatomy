@@ -85,3 +85,65 @@
   }
   buttons.forEach((b) => b.addEventListener('click', () => trace(b.dataset.root === 'clear' ? null : b.dataset.root)));
 })();
+
+// ---- Visitor tracker: "How well do you know this?" (saved only in this browser) ----
+(function () {
+  const STORE = 'mumen-anatomy-feelings';
+  const FEEL = { bad: ['😟', 'Bad'], unsure: ['😕', 'Unsure'], ok: ['😐', 'OK'], good: ['🙂', 'Good'], strong: ['💪', 'Strong'] };
+  const ORDER = ['bad', 'unsure', 'ok', 'good', 'strong'];
+  const load = () => { try { return JSON.parse(localStorage.getItem(STORE) || '{}'); } catch { return {}; } };
+  const save = (d) => { try { localStorage.setItem(STORE, JSON.stringify(d)); return true; } catch { return false; } };
+  let data = load();
+
+  function paint() {
+    document.querySelectorAll('.feel').forEach((w) => {
+      const cur = data[w.dataset.key]?.v;
+      w.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === cur)));
+    });
+    document.querySelectorAll('[data-key] .feel-badge').forEach((el) => {
+      const v = data[el.closest('[data-key]').dataset.key]?.v;
+      el.textContent = v ? FEEL[v][0] : '';
+      el.title = v ? FEEL[v][1] : '';
+    });
+  }
+  document.querySelectorAll('.feel').forEach((w) => {
+    w.querySelectorAll('button').forEach((b) =>
+      b.addEventListener('click', () => {
+        const key = w.dataset.key;
+        if (data[key]?.v === b.dataset.v) delete data[key];
+        else data[key] = { v: b.dataset.v, name: w.dataset.name, at: new Date().toISOString().slice(0, 10) };
+        if (!save(data)) w.querySelector('.feel-note').textContent = 'Your browser does not allow saving here.';
+        paint();
+      })
+    );
+  });
+  paint();
+
+  // My progress page
+  const list = document.getElementById('progressList');
+  const all = document.getElementById('allTopics');
+  if (!list || !all) return;
+  const topics = JSON.parse(all.textContent);
+  function render() {
+    data = load();
+    const rated = topics.filter((t) => data[t.key]);
+    document.getElementById('progressEmpty').hidden = rated.length > 0;
+    document.getElementById('progressSummary').innerHTML = rated.length
+      ? ORDER.map((v) => `<span class="sum sum-${v}"><b>${rated.filter((t) => data[t.key].v === v).length}</b> ${FEEL[v][0]} ${FEEL[v][1]}</span>`).join('') +
+        `<span class="sum"><b>${topics.length - rated.length}</b> not rated yet</span>`
+      : '';
+    list.innerHTML = ORDER.map((v) => {
+      const items = rated.filter((t) => data[t.key].v === v);
+      if (!items.length) return '';
+      return `<section class="progress-group"><h2>${FEEL[v][0]} ${FEEL[v][1]}</h2>${items
+        .map((t) => `<a class="topic-row" href="${t.href}"><span><span class="t">${t.name.replace(/</g, '&lt;')}</span><span class="s">${t.group}</span></span><span class="m">rated ${data[t.key].at || ''}</span></a>`)
+        .join('')}</section>`;
+    }).join('');
+  }
+  document.getElementById('progressReset').addEventListener('click', () => {
+    data = {};
+    save(data);
+    render();
+  });
+  render();
+})();

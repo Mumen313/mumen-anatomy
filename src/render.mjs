@@ -3,7 +3,7 @@ export const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // Callouts with these icons are private notes for Mumen and never appear on the website.
-const PRIVATE_ICONS = ['✍', '⚖', '🔒', '🌐', '🧩'];
+const PRIVATE_ICONS = ['✍', '⚖', '🔒', '🌐', '🧩', '📘'];
 const norm = (s = '') => s.replace(/️/g, '');
 export const isPrivateCallout = (b) =>
   b.type === 'callout' && b.callout.icon?.type === 'emoji' && PRIVATE_ICONS.includes(norm(b.callout.icon.emoji));
@@ -12,7 +12,7 @@ export const plain = (rt = []) => rt.map((t) => t.plain_text).join('');
 
 // Removes "2. " numbering and a leading emoji from headings ("2. 🎬 My video" -> "My video").
 export const cleanTitle = (s) =>
-  s.replace(/^\s*\d+[.)]\s*/, '').replace(/^[\p{Extended_Pictographic}️‍\s]+/u, '').trim();
+  s.replace(/\s*⏱.*$/u, '').replace(/^\s*\d+\s*[.)·:]\s*/u, '').replace(/^[\p{Extended_Pictographic}️‍\s]+/u, '').trim();
 
 export const slugify = (s) =>
   s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ')
@@ -85,6 +85,7 @@ async function renderBlock(b, ctx) {
     case 'paragraph': {
       const t = plain(v.rich_text).trim();
       if (!t || t.startsWith('/')) return ''; // empty lines and leftover "/image" hints
+      if (ctx.skipTextbookFigures && /^(fox|guyton)\b.*fig/i.test(t)) return ''; // captions of textbook figures stay private
       return `<p>${richText(v.rich_text)}</p>`;
     }
     case 'heading_1':
@@ -104,7 +105,9 @@ async function renderBlock(b, ctx) {
       return `<blockquote>${richText(v.rich_text)}${await kids()}</blockquote>`;
     case 'callout':
       if (isPrivateCallout(b)) return '';
-      return `<div class="note">${richText(v.rich_text)}${await kids()}</div>`;
+      const icon = norm(v.icon?.emoji || '');
+      const kind = { '📌': 'takeaway', '❗': 'ask', '🗣': 'teller', '❓': 'question', '🔑': 'answer', '🎯': 'goal', '🌍': 'words' }[icon] || '';
+      return `<div class="note${kind ? ' note-' + kind : ''}">${richText(v.rich_text)}${await kids()}</div>`;
     case 'code':
       return `<pre><code>${esc(plain(v.rich_text))}</code></pre>`;
     case 'equation':
@@ -137,6 +140,7 @@ async function renderBlock(b, ctx) {
     case 'image': {
       const src = fileUrl(v);
       if (!src) return '';
+      if (ctx.skipTextbookFigures && /fox|guyton/i.test(decodeURIComponent(src.split('?')[0]) + ' ' + plain(v.caption))) return ''; // redrawn textbook figures stay private
       const local = await ctx.saveMedia(src, { notionFile: v.type === 'file', kind: 'image' });
       const cap = richText(v.caption);
       ctx.stats.images++;
