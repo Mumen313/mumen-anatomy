@@ -167,7 +167,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       stats.warnings.push(`Physiology skipped – share the Physiology lecture tracker with the Notion connection (${e.message.slice(0, 120)})`);
     }
   }
-  const PRIVATE_SECTION = /in the practical|class sheet|close the session/i;
+  const PRIVATE_SECTION = /practical|lab manual|the experiment for this lecture|colloquium|class sheet|close the session/i;
   for (const lec of phys) {
     const blocks = await loadBlocks(client, lec.id);
     const sections = [];

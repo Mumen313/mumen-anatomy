@@ -101,6 +101,10 @@ tree.l1 = [
   p(rt('Fox calls this dynamic constancy.')),
   h2('🔬 In the practical — P1 Homeostasis (Lab Manual p. 7)'),
   p(rt('MODEL ANSWERS FROM LAB MANUAL')),
+  h2('13 · Practical 2 — Membrane physiology (Lab Manual p. 8–11)'),
+  p(rt('PRACTICAL TWO ANSWERS')),
+  h2('The experiment for this lecture — frog nerve–muscle preparation'),
+  p(rt('FROG EXPERIMENT')),
   h2('📝 Open exam questions  ⏱ 15 min'),
   toggle('Q1. Define physiology.', 'How the body works.'),
   toggle('Q2. Define homeostasis.', 'Nearly constant internal environment.'),
@@ -126,7 +130,7 @@ if (res.phys.length !== 1) throw new Error('expected 1 physiology lecture');
 const { readFile } = await import('node:fs/promises');
 const html = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'index.html'), 'utf8');
 const must = ['What physiology is', 'Negative feedback', 'Fox calls this dynamic constancy', 'Open exam questions', 'note-takeaway', 'note-ask', 'note-teller', 'The big question', 'class="feel"', 'Lecture 1'];
-const mustNot = ['MODEL ANSWERS', 'CLASS SHEET', 'Close the session', 'fox_fig', 'Fox Fig.', 'without looking', 'Roadmap', '⏱', '__BASE__', 'Part A'];
+const mustNot = ['PRACTICAL TWO', 'FROG EXPERIMENT', 'MODEL ANSWERS', 'CLASS SHEET', 'Close the session', 'fox_fig', 'Fox Fig.', 'without looking', 'Roadmap', '⏱', '__BASE__', 'Part A'];
 for (const m of must) if (!html.includes(m)) throw new Error('missing: ' + m);
 for (const m of mustNot) if (html.includes(m)) throw new Error('leaked: ' + m);
 const prog = await readFile(path.join(here, 'out', 'progress', 'index.html'), 'utf8');
