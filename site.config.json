@@ -2,7 +2,9 @@
   "siteOrigin": "https://mumen313.github.io",
   "googleVerification": "LKczKvP2B5I2zKVVtOp-cc29Q1oLaV6RLbL-564LpDw",
   "notionRootPageId": "413d43edb34f81189afaf9d67fa30215",
-  "physiology": { "databaseId": "a1a8055ab8ac4b8796b1e19c7149f179" },
+  "physiology": {
+    "databaseId": "a1a8055ab8ac4b8796b1e19c7149f179"
+  },
   "pages": {
     "topics": "Topics",
     "about": "About Me",
@@ -15,13 +17,132 @@
     "footer": "© Mumen Anatomy. All cadaver photos and videos are my own."
   },
   "regions": [
-    { "name": "Head", "intro": "Skull, face, cranial nerves and the structures of the head." },
-    { "name": "Neck", "intro": "Triangles, fascia, vessels and nerves of the neck." },
-    { "name": "Thorax", "intro": "Chest wall, heart, lungs and the mediastinum." },
-    { "name": "Abdomen", "intro": "Abdominal wall, peritoneum and the abdominal organs." },
-    { "name": "Pelvis & Perineum", "intro": "Pelvic walls, pelvic organs and the perineum." },
-    { "name": "Back", "intro": "Vertebral column, back muscles and the spinal cord." },
-    { "name": "Upper Limb", "intro": "Nerves, vessels, muscles and joints from the shoulder to the hand." },
-    { "name": "Lower Limb", "intro": "Nerves, vessels, muscles and joints from the hip to the foot." }
-  ]
+    {
+      "name": "Head",
+      "intro": "Skull, face, cranial nerves and the structures of the head.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sobo_1909_260.png/500px-Sobo_1909_260.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Organs",
+        "Joints",
+        "Cranial nerves"
+      ]
+    },
+    {
+      "name": "Neck",
+      "intro": "Triangles, fascia, vessels and nerves of the neck.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sobo_1909_267.png/500px-Sobo_1909_267.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Organs",
+        "Lymphatics"
+      ]
+    },
+    {
+      "name": "Thorax",
+      "intro": "Chest wall, heart, lungs and the mediastinum.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Gray965.png",
+      "imageCredit": "Gray's Anatomy (1918) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Organs",
+        "Lymphatics"
+      ]
+    },
+    {
+      "name": "Abdomen",
+      "intro": "Abdominal wall, peritoneum and the abdominal organs.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Sobo_1906_408.png/500px-Sobo_1906_408.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1906) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Organs",
+        "Lymphatics"
+      ]
+    },
+    {
+      "name": "Pelvis & Perineum",
+      "intro": "Pelvic walls, pelvic organs and the perineum.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Sobo_1909_206.png/500px-Sobo_1909_206.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Organs"
+      ]
+    },
+    {
+      "name": "Back",
+      "intro": "Vertebral column, back muscles and the spinal cord.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Sobo_1909_238.png/500px-Sobo_1909_238.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Joints"
+      ]
+    },
+    {
+      "name": "Upper Limb",
+      "intro": "Nerves, vessels, muscles and joints from the shoulder to the hand.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Sobo_1909_270.png/500px-Sobo_1909_270.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Joints"
+      ]
+    },
+    {
+      "name": "Lower Limb",
+      "intro": "Nerves, vessels, muscles and joints from the hip to the foot.",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sobo_1909_318.png/500px-Sobo_1909_318.png",
+      "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
+      "sections": [
+        "Areas & regions",
+        "Osteology",
+        "Muscles",
+        "Nerves",
+        "Vessels",
+        "Joints"
+      ]
+    }
+  ],
+  "sectionIntro": {
+    "Areas & regions": "Spaces, fossae and surface areas",
+    "Osteology": "Bones, landmarks and foramina",
+    "Muscles": "Origins, insertions, actions and innervation",
+    "Nerves": "Nerve courses, branches and injuries",
+    "Vessels": "Arteries, veins and their branches",
+    "Organs": "Structure, relations and supply of the organs",
+    "Joints": "Articulations, ligaments and movements",
+    "Cranial nerves": "CN I to CN XII, one by one",
+    "Lymphatics": "Lymph nodes and drainage"
+  }
 }

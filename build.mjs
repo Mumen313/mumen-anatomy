@@ -99,7 +99,8 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       const p = blocks.find((b) => b.type === 'paragraph' && plain(b.paragraph.rich_text).trim() && !plain(b.paragraph.rich_text).trim().startsWith('/'));
       if (p) intro = plain(p.paragraph.rich_text).trim();
     }
-    regions.push({ ...r, slug: slugify(r.name), intro });
+    const image = r.image ? await saveMedia(r.image, { notionFile: false }) : '';
+    regions.push({ ...r, slug: slugify(r.name), intro, image });
   }
 
   // ---- topics ----
@@ -114,6 +115,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       id: p.id,
       name,
       region: prop.select(P.Region),
+      section: prop.select(P.Section) || 'Other topics',
       slug: slugify(prop.text(P.Slug) || name),
       priority: prop.select(P['Exam priority']),
       summary: prop.text(P.Summary),
@@ -152,15 +154,15 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       if (!html.trim()) continue; // section still empty in Notion: leave it out
       sections.push({ ...s, html });
     }
-    const crumbs = [{ label: 'Regions', href: '' }, { label: region.name, href: `regions/${region.slug}/` }];
-    const chips = [topic.priority && `${topic.priority} Exam priority`, region.name, topic.lastReviewed && `Reviewed ${formatDate(topic.lastReviewed)}`];
+    const crumbs = [{ label: 'Anatomy', href: '' }, { label: region.name, href: `regions/${region.slug}/` }, { label: topic.section, href: `regions/${region.slug}/#${slugify(topic.section)}` }];
+    const chips = [topic.priority && `${topic.priority} Exam priority`, `${region.name} · ${topic.section}`, topic.lastReviewed && `Reviewed ${formatDate(topic.lastReviewed)}`];
     await write(`topics/${topic.slug}/index.html`, layout({ site, title: topic.name, description: topic.summary, body: topicPage({ site, topic, crumbs, chips, sections, feelKey: `anatomy/${topic.slug}` }) }));
     log(`  ✓ ${topic.name}  (${sections.length} sections)`);
   }
 
   for (const region of regions) {
     const list = topics.filter((t) => t.region === region.name);
-    await write(`regions/${region.slug}/index.html`, layout({ site, title: region.name, description: region.intro, body: regionPage({ site, region, topics: list }) }));
+    await write(`regions/${region.slug}/index.html`, layout({ site, title: region.name, description: region.intro, body: regionPage({ site, region, topics: list, sectionIntro: config.sectionIntro || {} }) }));
   }
 
   // ---- physiology (separate Notion database: the lecture tracker) ----

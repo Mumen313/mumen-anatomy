@@ -179,3 +179,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .note-words{font-size:.92rem}
 .note ul{margin:6px 0 0;padding-left:20px}
 .note p{margin:6px 0 0}
+
+/* Kenhub-style region cards */
+.regions{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;background:none;border:0;border-radius:0;overflow:visible}
+.region{display:flex;flex-direction:row;gap:0;min-height:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;transition:border-color .15s}
+a.region:hover{border-color:var(--nerve);background:var(--surface)}
+.region-thumb{flex:none;width:104px;background:#f3efe8;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.region-thumb img{width:100%;height:120px;object-fit:cover;object-position:center top;border:0;border-radius:0}
+.region-text{display:flex;flex-direction:column;gap:4px;padding:14px 16px}
+.region .t{font-family:var(--display);font-size:1.45rem;line-height:1.1;color:var(--ink)}
+.region .d{font-size:.88rem;color:var(--muted);line-height:1.35}
+.region .c{margin-top:auto;font-size:.82rem;color:var(--muted)}
+.region.live .c{color:var(--nerve-ink);font-weight:700}
+/* region page */
+.region-hero{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start;margin-bottom:12px}
+.region-img{margin:0}
+.region-img img{width:100%;max-height:300px;object-fit:cover;object-position:center top;border-radius:10px;background:#f3efe8}
+.region-img figcaption{font-size:.75rem}
+.secnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.secnav-item{font-size:.88rem;font-weight:600;padding:5px 12px;border:1px solid var(--line);border-radius:99px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.secnav-item span{color:var(--nerve-ink);margin-left:4px}
+.secnav-item.empty{color:var(--muted)}
+.secnav-item.empty span{color:var(--muted)}
+.secnav-item:hover{border-color:var(--nerve)}
+.region-section{padding:28px 0 8px;border-top:1px solid var(--line);margin-top:20px;scroll-margin-top:16px}
+.region-section .section-head{margin-bottom:4px}
+.sec-intro{color:var(--muted);margin:0 0 6px}
+.sec-empty{margin:8px 0 0;font-size:.92rem}
+@media (max-width:640px){.region-hero{grid-template-columns:1fr}.region-img img{max-height:220px}}

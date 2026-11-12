@@ -99,9 +99,9 @@ export function homePage({ site, regions, topics, phys = [] }) {
   <div class="section-head"><h2 id="h-regions">Anatomy regions</h2><span class="eyebrow">${regions.length} regions · ${live} topic${live === 1 ? '' : 's'} live</span></div>
   <div class="regions">
     ${regions
-      .map((r, i) => {
+      .map((r) => {
         const n = topics.filter((t) => t.region === r.name).length;
-        return `<a class="region${n ? ' live' : ''}" href="${u(`regions/${r.slug}/`)}"><span class="n">${String(i + 1).padStart(2, '0')}</span><span class="t">${esc(r.name)}</span><span class="c">${n ? `${n} topic${n === 1 ? '' : 's'}` : 'Coming soon'}</span></a>`;
+        return `<a class="region${n ? ' live' : ''}" href="${u(`regions/${r.slug}/`)}">${r.image ? `<span class="region-thumb"><img src="${esc(r.image)}" alt="" loading="lazy"></span>` : ''}<span class="region-text"><span class="t">${esc(r.name)}</span><span class="d">${esc(r.intro || '')}</span><span class="c">${n ? `${n} topic${n === 1 ? '' : 's'}` : 'Coming soon'}</span></span></a>`;
       })
       .join('\n    ')}
   </div>
@@ -134,18 +134,41 @@ export function homePage({ site, regions, topics, phys = [] }) {
 </section>`;
 }
 
-export function regionPage({ site, region, topics }) {
+export function regionPage({ site, region, topics, sectionIntro = {} }) {
   const u = (p = '') => site.base + p;
-  const rows = topics.length
-    ? topics
-        .map((t) => `<a class="topic-row" href="${u(`topics/${t.slug}/`)}" data-key="anatomy/${t.slug}"><span><span class="t">${esc(t.name)}</span>${t.summary ? `<span class="s">${esc(t.summary)}</span>` : ''}</span><span class="m"><span class="feel-badge"></span> ${t.priority ? `${esc(t.priority)} exam priority` : ''}</span></a>`)
-        .join('\n')
-    : `<p class="empty">Topics for this region are being written. Check back soon.</p>`;
+  const order = [...(region.sections || []), ...[...new Set(topics.map((t) => t.section))].filter((x) => !(region.sections || []).includes(x))];
+  const nav = order
+    .map((sec) => {
+      const n = topics.filter((t) => t.section === sec).length;
+      return `<a href="#${slugify(sec)}" class="secnav-item${n ? '' : ' empty'}">${esc(sec)} <span>${n}</span></a>`;
+    })
+    .join('');
+  const groups = order
+    .map((sec) => {
+      const list = topics.filter((t) => t.section === sec);
+      const rows = list.length
+        ? list
+            .map((t) => `<a class="topic-row" href="${u(`topics/${t.slug}/`)}" data-key="anatomy/${t.slug}"><span><span class="t">${esc(t.name)}</span>${t.summary ? `<span class="s">${esc(t.summary)}</span>` : ''}</span><span class="m"><span class="feel-badge"></span> ${t.priority ? `${esc(t.priority)} exam priority` : ''}</span></a>`)
+            .join('\n')
+        : `<p class="empty sec-empty">Coming soon.</p>`;
+      return `<section class="region-section" id="${slugify(sec)}">
+  <div class="section-head"><h2>${esc(sec)}</h2><span class="eyebrow">${list.length} topic${list.length === 1 ? '' : 's'}</span></div>
+  ${sectionIntro[sec] ? `<p class="sec-intro">${esc(sectionIntro[sec])}</p>` : ''}
+  <div class="topic-list">${rows}</div>
+</section>`;
+    })
+    .join('\n');
   return `
-<div class="crumbs"><a href="${u()}">Regions</a> / ${esc(region.name)}</div>
-<h1>${esc(region.name)}</h1>
-${region.intro ? `<p class="lede">${esc(region.intro)}</p>` : ''}
-<div class="topic-list">${rows}</div>`;
+<div class="crumbs"><a href="${u()}">Anatomy</a> / ${esc(region.name)}</div>
+<div class="region-hero">
+  ${region.image ? `<figure class="region-img"><img src="${esc(region.image)}" alt="${esc(region.name)} – anatomical illustration"><figcaption>${esc(region.imageCredit || '')}</figcaption></figure>` : ''}
+  <div>
+    <h1>${esc(region.name)}</h1>
+    ${region.intro ? `<p class="lede">${esc(region.intro)}</p>` : ''}
+    <nav class="secnav" aria-label="Sections of ${esc(region.name)}">${nav}</nav>
+  </div>
+</div>
+${groups}`;
 }
 
 export function topicPage({ site, topic, crumbs, chips, sections, intro = '', feelKey }) {

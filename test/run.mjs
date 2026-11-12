@@ -74,7 +74,7 @@ tree.video = [
 ];
 
 const pages = [
-  { id: 'bp', properties: { Name: { title: [rt('Brachial Plexus')] }, Region: { select: { name: 'Upper Limb' } }, Slug: { rich_text: [rt('brachial-plexus')] }, 'Exam priority': { select: { name: '★★★' } }, Summary: { rich_text: [rt('Nerve network C5–T1.')] }, Order: { number: 1 }, 'Last reviewed': { date: { start: '2026-11-10' } } } },
+  { id: 'bp', properties: { Name: { title: [rt('Brachial Plexus')] }, Region: { select: { name: 'Upper Limb' } }, Section: { select: { name: 'Nerves' } }, Slug: { rich_text: [rt('brachial-plexus')] }, 'Exam priority': { select: { name: '★★★' } }, Summary: { rich_text: [rt('Nerve network C5–T1.')] }, Order: { number: 1 }, 'Last reviewed': { date: { start: '2026-11-10' } } } },
   { id: 'video', properties: { Name: { title: [rt('Video Test Topic')] }, Region: { select: { name: 'Upper Limb' } }, Slug: { rich_text: [] }, 'Exam priority': { select: null }, Summary: { rich_text: [] }, Order: { number: 2 }, 'Last reviewed': { date: null } } },
 ];
 
@@ -137,4 +137,8 @@ const prog = await readFile(path.join(here, 'out', 'progress', 'index.html'), 'u
 if (!prog.includes('physiology/homeostasis-and-control-systems')) throw new Error('progress list incomplete');
 const home = await readFile(path.join(here, 'out', 'index.html'), 'utf8');
 if (!home.includes('Homeostasis &amp; control systems')) throw new Error('home missing physiology');
+const ul = await readFile(path.join(here, 'out', 'regions', 'upper-limb', 'index.html'), 'utf8');
+for (const m of ['id="nerves"', 'id="osteology"', 'Brachial Plexus', 'Other topics', 'secnav']) if (!ul.includes(m)) throw new Error('region page missing ' + m);
+const bp = await readFile(path.join(here, 'out', 'topics', 'brachial-plexus', 'index.html'), 'utf8');
+if (!bp.includes('Upper Limb · Nerves')) throw new Error('topic chip missing section');
 console.log('TEST OK');
