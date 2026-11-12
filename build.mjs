@@ -100,7 +100,8 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       if (p) intro = plain(p.paragraph.rich_text).trim();
     }
     const image = r.image ? await saveMedia(r.image, { notionFile: false }) : '';
-    regions.push({ ...r, slug: slugify(r.name), intro, image });
+    const imageLarge = r.imageLarge ? await saveMedia(r.imageLarge, { notionFile: false }) : image;
+    regions.push({ ...r, slug: slugify(r.name), intro, image, imageLarge });
   }
 
   // ---- topics ----

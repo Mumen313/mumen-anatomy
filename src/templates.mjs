@@ -101,7 +101,7 @@ export function homePage({ site, regions, topics, phys = [] }) {
     ${regions
       .map((r) => {
         const n = topics.filter((t) => t.region === r.name).length;
-        return `<a class="region${n ? ' live' : ''}" href="${u(`regions/${r.slug}/`)}">${r.image ? `<span class="region-thumb"><img src="${esc(r.image)}" alt="" loading="lazy"></span>` : ''}<span class="region-text"><span class="t">${esc(r.name)}</span><span class="d">${esc(r.intro || '')}</span><span class="c">${n ? `${n} topic${n === 1 ? '' : 's'}` : 'Coming soon'}</span></span></a>`;
+        return `<a class="region${n ? ' live' : ''}" href="${u(`regions/${r.slug}/`)}">${r.image ? `<span class="region-thumb"><img src="${esc(r.image)}" alt="" width="104" height="120"></span>` : ''}<span class="region-text"><span class="t">${esc(r.name)}</span><span class="d">${esc(r.intro || '')}</span><span class="c">${n ? `${n} topic${n === 1 ? '' : 's'}` : 'Coming soon'}</span></span></a>`;
       })
       .join('\n    ')}
   </div>
@@ -161,7 +161,7 @@ export function regionPage({ site, region, topics, sectionIntro = {} }) {
   return `
 <div class="crumbs"><a href="${u()}">Anatomy</a> / ${esc(region.name)}</div>
 <div class="region-hero">
-  ${region.image ? `<figure class="region-img"><img src="${esc(region.image)}" alt="${esc(region.name)} – anatomical illustration"><figcaption>${esc(region.imageCredit || '')}</figcaption></figure>` : ''}
+  ${region.image ? `<figure class="region-img"><img src="${esc(region.imageLarge || region.image)}" alt="${esc(region.name)} – anatomical illustration"><figcaption>${esc(region.imageCredit || '')}</figcaption></figure>` : ''}
   <div>
     <h1>${esc(region.name)}</h1>
     ${region.intro ? `<p class="lede">${esc(region.intro)}</p>` : ''}

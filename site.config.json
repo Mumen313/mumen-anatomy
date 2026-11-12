@@ -20,7 +20,7 @@
     {
       "name": "Head",
       "intro": "Skull, face, cranial nerves and the structures of the head.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sobo_1909_260.png/500px-Sobo_1909_260.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sobo_1909_260.png/250px-Sobo_1909_260.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -31,12 +31,13 @@
         "Organs",
         "Joints",
         "Cranial nerves"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sobo_1909_260.png/500px-Sobo_1909_260.png"
     },
     {
       "name": "Neck",
       "intro": "Triangles, fascia, vessels and nerves of the neck.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sobo_1909_267.png/500px-Sobo_1909_267.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sobo_1909_267.png/250px-Sobo_1909_267.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -46,7 +47,8 @@
         "Vessels",
         "Organs",
         "Lymphatics"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Sobo_1909_267.png/500px-Sobo_1909_267.png"
     },
     {
       "name": "Thorax",
@@ -61,12 +63,13 @@
         "Vessels",
         "Organs",
         "Lymphatics"
-      ]
+      ],
+      "imageLarge": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Gray965.png"
     },
     {
       "name": "Abdomen",
       "intro": "Abdominal wall, peritoneum and the abdominal organs.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Sobo_1906_408.png/500px-Sobo_1906_408.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Sobo_1906_408.png/250px-Sobo_1906_408.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1906) · Public domain",
       "sections": [
         "Areas & regions",
@@ -75,12 +78,13 @@
         "Vessels",
         "Organs",
         "Lymphatics"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Sobo_1906_408.png/500px-Sobo_1906_408.png"
     },
     {
       "name": "Pelvis & Perineum",
       "intro": "Pelvic walls, pelvic organs and the perineum.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Sobo_1909_206.png/500px-Sobo_1909_206.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Sobo_1909_206.png/250px-Sobo_1909_206.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -89,12 +93,13 @@
         "Nerves",
         "Vessels",
         "Organs"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Sobo_1909_206.png/500px-Sobo_1909_206.png"
     },
     {
       "name": "Back",
       "intro": "Vertebral column, back muscles and the spinal cord.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Sobo_1909_238.png/500px-Sobo_1909_238.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Sobo_1909_238.png/250px-Sobo_1909_238.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -103,12 +108,13 @@
         "Nerves",
         "Vessels",
         "Joints"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Sobo_1909_238.png/500px-Sobo_1909_238.png"
     },
     {
       "name": "Upper Limb",
       "intro": "Nerves, vessels, muscles and joints from the shoulder to the hand.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Sobo_1909_270.png/500px-Sobo_1909_270.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Sobo_1909_270.png/250px-Sobo_1909_270.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -117,12 +123,13 @@
         "Nerves",
         "Vessels",
         "Joints"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Sobo_1909_270.png/500px-Sobo_1909_270.png"
     },
     {
       "name": "Lower Limb",
       "intro": "Nerves, vessels, muscles and joints from the hip to the foot.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sobo_1909_318.png/500px-Sobo_1909_318.png",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sobo_1909_318.png/250px-Sobo_1909_318.png",
       "imageCredit": "Sobotta, Atlas of Human Anatomy (1909) · Public domain",
       "sections": [
         "Areas & regions",
@@ -131,7 +138,8 @@
         "Nerves",
         "Vessels",
         "Joints"
-      ]
+      ],
+      "imageLarge": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sobo_1909_318.png/500px-Sobo_1909_318.png"
     }
   ],
   "sectionIntro": {
