@@ -253,6 +253,860 @@
     }
    ],
    "category": "muscles"
+  },
+  {
+   "id": "neck-muscles-lateral",
+   "region": "Neck",
+   "category": "muscles",
+   "title": "Neck \u2013 muscles, lateral view",
+   "layer": "Superficial muscles after removing platysma",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 256 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "neck-muscles-lateral.jpg",
+   "pins": [
+    {
+     "x": 56.56,
+     "y": 36.04,
+     "answer": "digastric posterior belly",
+     "also": [
+      "digastricus posterior belly",
+      "posterior belly of digastric",
+      "digastric",
+      "digastricus"
+     ]
+    },
+    {
+     "x": 30.75,
+     "y": 29.17,
+     "answer": "digastric anterior belly",
+     "also": [
+      "digastricus anterior belly",
+      "anterior belly of digastric",
+      "digastric",
+      "digastricus"
+     ]
+    },
+    {
+     "x": 30.75,
+     "y": 36.47,
+     "answer": "mylohyoid",
+     "also": [
+      "mylohyoideus"
+     ]
+    },
+    {
+     "x": 38.44,
+     "y": 38.82,
+     "answer": "stylohyoid",
+     "also": [
+      "stylohyoideus"
+     ]
+    },
+    {
+     "x": 32.4,
+     "y": 46.76,
+     "answer": "thyrohyoid",
+     "also": [
+      "thyrohyoideus",
+      "thyreohyoideus"
+     ]
+    },
+    {
+     "x": 27.46,
+     "y": 56.84,
+     "answer": "omohyoid superior belly",
+     "also": [
+      "omohyoideus",
+      "omohyoid",
+      "superior belly of omohyoid"
+     ]
+    },
+    {
+     "x": 31.58,
+     "y": 59.42,
+     "answer": "sternothyroid",
+     "also": [
+      "sternothyroideus",
+      "sternothyreoideus"
+     ]
+    },
+    {
+     "x": 24.16,
+     "y": 69.93,
+     "answer": "sternohyoid",
+     "also": [
+      "sternohyoideus"
+     ]
+    },
+    {
+     "x": 49.42,
+     "y": 57.49,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    },
+    {
+     "x": 57.11,
+     "y": 64.56,
+     "answer": "levator scapulae"
+    },
+    {
+     "x": 48.33,
+     "y": 73.57,
+     "answer": "scalenus medius",
+     "also": [
+      "scaleni",
+      "scalene",
+      "middle scalene",
+      "scalenus medius et posterior"
+     ],
+     "note": "Scalene group \u2013 middle scalene"
+    },
+    {
+     "x": 69.19,
+     "y": 73.79,
+     "answer": "trapezius"
+    },
+    {
+     "x": 47.23,
+     "y": 79.37,
+     "answer": "omohyoid inferior belly",
+     "also": [
+      "omohyoideus",
+      "omohyoid",
+      "inferior belly of omohyoid"
+     ]
+    },
+    {
+     "x": 69.19,
+     "y": 51.48,
+     "answer": "splenius capitis"
+    }
+   ]
+  },
+  {
+   "id": "neck-muscles-anterior",
+   "region": "Neck",
+   "category": "muscles",
+   "title": "Neck \u2013 muscles, anterior view",
+   "layer": "Suprahyoid & infrahyoid muscles",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 255 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "neck-muscles-anterior.jpg",
+   "pins": [
+    {
+     "x": 42.78,
+     "y": 23.84,
+     "answer": "digastric anterior belly",
+     "also": [
+      "digastricus anterior belly",
+      "anterior belly of digastric",
+      "digastric",
+      "digastricus"
+     ]
+    },
+    {
+     "x": 39.65,
+     "y": 29.8,
+     "answer": "mylohyoid",
+     "also": [
+      "mylohyoideus"
+     ]
+    },
+    {
+     "x": 35.99,
+     "y": 40.23,
+     "answer": "hyoglossus"
+    },
+    {
+     "x": 60.51,
+     "y": 45.89,
+     "answer": "digastric posterior belly",
+     "also": [
+      "digastricus posterior belly",
+      "posterior belly of digastric",
+      "digastric",
+      "digastricus"
+     ]
+    },
+    {
+     "x": 40.17,
+     "y": 51.64,
+     "answer": "thyrohyoid",
+     "also": [
+      "thyrohyoideus",
+      "thyreohyoideus"
+     ]
+    },
+    {
+     "x": 54.51,
+     "y": 55.77,
+     "answer": "omohyoid superior belly",
+     "also": [
+      "omohyoideus",
+      "omohyoid",
+      "superior belly of omohyoid"
+     ]
+    },
+    {
+     "x": 52.16,
+     "y": 60.03,
+     "answer": "sternohyoid",
+     "also": [
+      "sternohyoideus"
+     ]
+    },
+    {
+     "x": 43.3,
+     "y": 70.75,
+     "answer": "sternothyroid",
+     "also": [
+      "sternothyroideus",
+      "sternothyreoideus"
+     ]
+    },
+    {
+     "x": 33.39,
+     "y": 61.3,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    },
+    {
+     "x": 71.05,
+     "y": 66.62,
+     "answer": "scalenus medius",
+     "also": [
+      "scaleni",
+      "scalene",
+      "middle scalene",
+      "scalenus medius et posterior"
+     ]
+    },
+    {
+     "x": 73.81,
+     "y": 71.95,
+     "answer": "levator scapulae"
+    },
+    {
+     "x": 79.81,
+     "y": 74.07,
+     "answer": "trapezius"
+    },
+    {
+     "x": 79.29,
+     "y": 78.12,
+     "answer": "omohyoid inferior belly",
+     "also": [
+      "omohyoideus",
+      "omohyoid",
+      "inferior belly of omohyoid"
+     ]
+    },
+    {
+     "x": 70.42,
+     "y": 92.38,
+     "answer": "pectoralis major"
+    }
+   ]
+  },
+  {
+   "id": "back-muscles-superficial",
+   "region": "Back",
+   "category": "muscles",
+   "title": "Back \u2013 superficial muscles",
+   "layer": "First layer, posterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 236 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "back-muscles-superficial.jpg",
+   "pins": [
+    {
+     "x": 36.0,
+     "y": 35.0,
+     "answer": "trapezius"
+    },
+    {
+     "x": 28.0,
+     "y": 60.2,
+     "answer": "latissimus dorsi",
+     "also": [
+      "latissimus"
+     ]
+    },
+    {
+     "x": 53.75,
+     "y": 18.73,
+     "answer": "levator scapulae"
+    },
+    {
+     "x": 54.25,
+     "y": 15.05,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    },
+    {
+     "x": 35.25,
+     "y": 13.83,
+     "answer": "splenius capitis"
+    },
+    {
+     "x": 37.0,
+     "y": 8.75,
+     "answer": "semispinalis capitis"
+    },
+    {
+     "x": 53.0,
+     "y": 6.13,
+     "answer": "occipitalis",
+     "also": [
+      "occipital belly",
+      "occipitofrontalis"
+     ]
+    },
+    {
+     "x": 72.0,
+     "y": 29.05,
+     "answer": "deltoid",
+     "also": [
+      "deltoideus"
+     ]
+    },
+    {
+     "x": 72.0,
+     "y": 32.9,
+     "answer": "infraspinatus"
+    },
+    {
+     "x": 24.0,
+     "y": 39.2,
+     "answer": "rhomboid major",
+     "also": [
+      "rhomboideus major"
+     ]
+    },
+    {
+     "x": 57.5,
+     "y": 42.0,
+     "answer": "erector spinae",
+     "also": [
+      "sacrospinalis",
+      "erector spinae muscle"
+     ],
+     "note": "Seen through the thoracolumbar fascia"
+    },
+    {
+     "x": 68.5,
+     "y": 72.8,
+     "answer": "external oblique",
+     "also": [
+      "obliquus externus abdominis",
+      "obliquus externus",
+      "external abdominal oblique"
+     ]
+    },
+    {
+     "x": 47.5,
+     "y": 78.75,
+     "answer": "thoracolumbar fascia",
+     "also": [
+      "lumbar fascia",
+      "lumbodorsal fascia"
+     ],
+     "note": "Posterior layer"
+    }
+   ]
+  },
+  {
+   "id": "back-muscles-deep",
+   "region": "Back",
+   "category": "muscles",
+   "title": "Back \u2013 deep muscles",
+   "layer": "Erector spinae & splenius, posterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 239 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "back-muscles-deep.jpg",
+   "pins": [
+    {
+     "x": 58.0,
+     "y": 13.92,
+     "answer": "splenius capitis"
+    },
+    {
+     "x": 48.0,
+     "y": 17.27,
+     "answer": "semispinalis capitis"
+    },
+    {
+     "x": 40.5,
+     "y": 15.51,
+     "answer": "longissimus capitis"
+    },
+    {
+     "x": 58.5,
+     "y": 21.15,
+     "answer": "splenius cervicis"
+    },
+    {
+     "x": 41.5,
+     "y": 24.67,
+     "answer": "iliocostalis cervicis",
+     "also": [
+      "iliocostalis"
+     ]
+    },
+    {
+     "x": 62.5,
+     "y": 22.56,
+     "answer": "levator scapulae"
+    },
+    {
+     "x": 61.75,
+     "y": 16.57,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    },
+    {
+     "x": 69.0,
+     "y": 31.37,
+     "answer": "serratus posterior superior",
+     "also": [
+      "serratus posterior superior muscle"
+     ]
+    },
+    {
+     "x": 75.0,
+     "y": 35.25,
+     "answer": "rhomboids",
+     "also": [
+      "rhomboid major",
+      "rhomboid minor",
+      "rhomboideus major",
+      "rhomboidei"
+     ],
+     "note": "Cut and reflected"
+    },
+    {
+     "x": 31.0,
+     "y": 42.65,
+     "answer": "iliocostalis",
+     "also": [
+      "iliocostalis thoracis",
+      "iliocostalis dorsi"
+     ],
+     "note": "Lateral column of erector spinae"
+    },
+    {
+     "x": 42.0,
+     "y": 50.41,
+     "answer": "longissimus",
+     "also": [
+      "longissimus thoracis",
+      "longissimus dorsi"
+     ],
+     "note": "Middle column of erector spinae"
+    },
+    {
+     "x": 52.5,
+     "y": 46.53,
+     "answer": "spinalis",
+     "also": [
+      "spinalis thoracis",
+      "spinalis dorsi"
+     ],
+     "note": "Medial column of erector spinae"
+    },
+    {
+     "x": 61.5,
+     "y": 61.68,
+     "answer": "iliocostalis",
+     "also": [
+      "iliocostalis lumborum"
+     ],
+     "note": "Lateral column of erector spinae"
+    },
+    {
+     "x": 69.0,
+     "y": 64.15,
+     "answer": "serratus posterior inferior"
+    },
+    {
+     "x": 76.5,
+     "y": 58.16,
+     "answer": "serratus anterior"
+    },
+    {
+     "x": 77.75,
+     "y": 51.46,
+     "answer": "latissimus dorsi",
+     "also": [
+      "latissimus"
+     ],
+     "note": "Cut"
+    },
+    {
+     "x": 25.0,
+     "y": 75.78,
+     "answer": "external oblique",
+     "also": [
+      "obliquus externus abdominis",
+      "obliquus externus"
+     ]
+    },
+    {
+     "x": 33.5,
+     "y": 76.49,
+     "answer": "internal oblique",
+     "also": [
+      "obliquus internus abdominis",
+      "obliquus internus"
+     ]
+    },
+    {
+     "x": 40.5,
+     "y": 77.55,
+     "answer": "quadratus lumborum"
+    }
+   ]
+  },
+  {
+   "id": "thorax-abdomen-anterior",
+   "region": "Thorax",
+   "category": "muscles",
+   "title": "Thorax & abdomen \u2013 anterior wall",
+   "layer": "Superficial and second layer, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 245 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "thorax-abdomen-anterior.jpg",
+   "pins": [
+    {
+     "x": 77.0,
+     "y": 8.74,
+     "answer": "deltoid",
+     "also": [
+      "deltoideus"
+     ]
+    },
+    {
+     "x": 70.0,
+     "y": 13.29,
+     "answer": "pectoralis major",
+     "note": "Clavicular part"
+    },
+    {
+     "x": 60.0,
+     "y": 21.68,
+     "answer": "pectoralis major",
+     "note": "Sternocostal part"
+    },
+    {
+     "x": 36.0,
+     "y": 21.33,
+     "answer": "pectoralis minor"
+    },
+    {
+     "x": 68.5,
+     "y": 59.44,
+     "answer": "external oblique",
+     "also": [
+      "obliquus externus abdominis",
+      "obliquus externus",
+      "external abdominal oblique"
+     ]
+    },
+    {
+     "x": 30.0,
+     "y": 63.64,
+     "answer": "internal oblique",
+     "also": [
+      "obliquus internus abdominis",
+      "obliquus internus",
+      "internal abdominal oblique"
+     ],
+     "note": "External oblique removed on this side"
+    },
+    {
+     "x": 57.5,
+     "y": 59.44,
+     "answer": "rectus sheath",
+     "also": [
+      "sheath of rectus abdominis",
+      "anterior layer of rectus sheath"
+     ],
+     "note": "Anterior layer"
+    },
+    {
+     "x": 49.0,
+     "y": 55.94,
+     "answer": "linea alba"
+    }
+   ]
+  },
+  {
+   "id": "thorax-muscles-lateral",
+   "region": "Thorax",
+   "category": "muscles",
+   "title": "Thorax \u2013 lateral wall",
+   "layer": "Serratus anterior & pectoral muscles, lateral view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 247 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "thorax-muscles-lateral.jpg",
+   "pins": [
+    {
+     "x": 65.0,
+     "y": 13.47,
+     "answer": "deltoid",
+     "also": [
+      "deltoideus"
+     ]
+    },
+    {
+     "x": 45.0,
+     "y": 35.1,
+     "answer": "serratus anterior",
+     "note": "Middle portion"
+    },
+    {
+     "x": 45.0,
+     "y": 54.69,
+     "answer": "serratus anterior",
+     "note": "Inferior portion"
+    },
+    {
+     "x": 60.5,
+     "y": 60.0,
+     "answer": "latissimus dorsi",
+     "also": [
+      "latissimus"
+     ]
+    },
+    {
+     "x": 63.5,
+     "y": 28.98,
+     "answer": "teres major"
+    },
+    {
+     "x": 59.5,
+     "y": 23.88,
+     "answer": "subscapularis"
+    },
+    {
+     "x": 39.5,
+     "y": 30.41,
+     "answer": "external intercostal",
+     "also": [
+      "intercostales externi",
+      "external intercostals",
+      "intercostalis externus"
+     ]
+    },
+    {
+     "x": 26.25,
+     "y": 39.18,
+     "answer": "pectoralis minor"
+    },
+    {
+     "x": 20.5,
+     "y": 48.98,
+     "answer": "pectoralis major",
+     "note": "Cut"
+    },
+    {
+     "x": 39.5,
+     "y": 18.57,
+     "answer": "scalenus anterior",
+     "also": [
+      "anterior scalene"
+     ]
+    },
+    {
+     "x": 47.25,
+     "y": 10.61,
+     "answer": "scalenus medius",
+     "also": [
+      "middle scalene"
+     ]
+    },
+    {
+     "x": 40.0,
+     "y": 86.12,
+     "answer": "external oblique",
+     "also": [
+      "obliquus externus abdominis",
+      "obliquus externus",
+      "external abdominal oblique"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abdomen-wall-deep",
+   "region": "Abdomen",
+   "category": "muscles",
+   "title": "Abdominal wall \u2013 deep layers",
+   "layer": "Rectus, transversus & internal oblique, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 250 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "abdomen-wall-deep.jpg",
+   "pins": [
+    {
+     "x": 56.0,
+     "y": 54.37,
+     "answer": "rectus abdominis",
+     "also": [
+      "rectus"
+     ]
+    },
+    {
+     "x": 30.0,
+     "y": 58.87,
+     "answer": "transversus abdominis",
+     "also": [
+      "transverse abdominis",
+      "transversus"
+     ]
+    },
+    {
+     "x": 71.5,
+     "y": 64.49,
+     "answer": "internal oblique",
+     "also": [
+      "obliquus internus abdominis",
+      "obliquus internus",
+      "internal abdominal oblique"
+     ]
+    },
+    {
+     "x": 42.0,
+     "y": 49.49,
+     "answer": "rectus sheath",
+     "also": [
+      "sheath of rectus abdominis",
+      "posterior layer of rectus sheath"
+     ],
+     "note": "Posterior layer"
+    },
+    {
+     "x": 42.5,
+     "y": 66.74,
+     "answer": "transversalis fascia",
+     "also": [
+      "fascia transversalis"
+     ]
+    },
+    {
+     "x": 52.5,
+     "y": 80.99,
+     "answer": "pyramidalis"
+    },
+    {
+     "x": 70.0,
+     "y": 9.0,
+     "answer": "internal intercostal",
+     "also": [
+      "intercostales interni",
+      "internal intercostals",
+      "intercostalis internus"
+     ]
+    },
+    {
+     "x": 71.0,
+     "y": 28.5,
+     "answer": "external intercostal",
+     "also": [
+      "intercostales externi",
+      "external intercostals",
+      "intercostalis externus"
+     ]
+    },
+    {
+     "x": 75.0,
+     "y": 17.62,
+     "answer": "serratus anterior"
+    }
+   ]
+  },
+  {
+   "id": "abdomen-posterior-wall",
+   "region": "Abdomen",
+   "category": "muscles",
+   "title": "Posterior abdominal wall & diaphragm",
+   "layer": "Anterior view after removing the organs",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 252 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "abdomen-posterior-wall.jpg",
+   "pins": [
+    {
+     "x": 80.0,
+     "y": 26.49,
+     "answer": "diaphragm",
+     "also": [
+      "diaphragma"
+     ],
+     "note": "Costal part"
+    },
+    {
+     "x": 50.0,
+     "y": 27.62,
+     "answer": "right crus of diaphragm",
+     "also": [
+      "crus of diaphragm",
+      "diaphragm crus",
+      "crus diaphragmaticus",
+      "right crus",
+      "lumbar part of diaphragm",
+      "crus"
+     ],
+     "note": "Lumbar part \u2013 inner crus"
+    },
+    {
+     "x": 56.5,
+     "y": 12.49,
+     "answer": "central tendon",
+     "also": [
+      "central tendon of diaphragm",
+      "centrum tendineum"
+     ]
+    },
+    {
+     "x": 66.5,
+     "y": 59.02,
+     "answer": "psoas major"
+    },
+    {
+     "x": 44.0,
+     "y": 44.65,
+     "answer": "psoas minor"
+    },
+    {
+     "x": 36.0,
+     "y": 47.29,
+     "answer": "quadratus lumborum"
+    },
+    {
+     "x": 78.5,
+     "y": 62.05,
+     "answer": "iliacus"
+    },
+    {
+     "x": 83.0,
+     "y": 45.97,
+     "answer": "transversus abdominis",
+     "also": [
+      "transverse abdominis",
+      "transversus"
+     ]
+    },
+    {
+     "x": 47.5,
+     "y": 85.13,
+     "answer": "rectus abdominis",
+     "also": [
+      "rectus"
+     ]
+    }
+   ]
   }
  ]
 }
