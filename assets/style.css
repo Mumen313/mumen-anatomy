@@ -386,3 +386,6 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .exam-btn:hover{background:var(--nerve-ink)}
 .pt-none{margin:0}
 .pt-where{color:var(--nerve-ink)!important;font-weight:600}
+.pt-stage{width:fit-content;max-width:100%;margin:0 auto}
+.pt-stage img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 140px);object-fit:fill}
+@media (max-width:900px){.pt-stage img{max-height:none}}
