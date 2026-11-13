@@ -24,6 +24,7 @@ export function layout({ site, title, description, body, active = '', depthBase 
   const nav = [
     ['', 'Anatomy', 'home'],
     ['physiology/', 'Physiology', 'physiology'],
+    ['games/', 'Games', 'games'],
     ['progress/', 'My progress', 'progress'],
     ['about/', 'About me', 'about'],
     ['membership/', 'Membership', 'membership'],
@@ -260,4 +261,51 @@ export function membershipPage({ site }) {
 
 export function notFoundPage({ site }) {
   return `<h1>Page not found</h1><p class="lede">This page does not exist (yet). <a href="${site.base}">Go to all regions</a>.</p>`;
+}
+
+export function gamesPage({ site, decks }) {
+  const cards = decks.map((d) => `
+  <button type="button" class="deck" data-deck="${esc(d.id)}">
+    <span class="deck-region">${esc(d.region || '')}</span>
+    <span class="deck-title">${esc(d.title)}</span>
+    <span class="deck-meta">${d.items.length} terms · <span class="deck-best" data-best="${esc(d.id)}">no score yet</span></span>
+  </button>`).join('');
+  return `
+<div class="eyebrow">Games</div>
+<h1>Speed anatomy: type the term.</h1>
+<p class="lede">Read the clue and type the anatomical name as fast and as correctly as you can. Practise first with the answer shown, then test yourself without it.</p>
+<div class="game" id="game">
+  <div class="game-pick" id="gamePick">
+    <div class="game-modes" role="radiogroup" aria-label="Mode">
+      <label><input type="radio" name="mode" value="learn" checked> <b>Practise</b> – answer shown, type over it</label>
+      <label><input type="radio" name="mode" value="test"> <b>Test</b> – answer hidden</label>
+    </div>
+    <div class="decks">${cards}</div>
+  </div>
+  <div class="game-play" id="gamePlay" hidden>
+    <div class="game-bar">
+      <button type="button" class="link" id="gameQuit">‹ All games</button>
+      <span class="game-title" id="gameTitle"></span>
+      <span class="game-stats"><span id="gWpm">0</span> wpm · <span id="gAcc">100</span>% · <span id="gTime">0:00</span> · <span id="gCount">0/0</span></span>
+    </div>
+    <div class="game-meter"><span id="gMeter"></span></div>
+    <p class="game-clue" id="gClue"></p>
+    <div class="game-word" id="gWord" aria-hidden="true"></div>
+    <input class="game-input" id="gInput" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type the answer">
+    <div class="game-help">
+      <button type="button" class="btn" id="gHint">Hint <kbd>Tab</kbd></button>
+      <button type="button" class="btn" id="gSkip">Show answer <kbd>Esc</kbd></button>
+      <span class="game-msg" id="gMsg" aria-live="polite"></span>
+    </div>
+  </div>
+  <div class="game-end" id="gameEnd" hidden>
+    <h2 id="gEndTitle">Done!</h2>
+    <div class="game-score" id="gEndStats"></div>
+    <div id="gEndMissed"></div>
+    <div class="btns"><button type="button" class="btn primary" id="gAgain">Play again</button> <button type="button" class="btn" id="gBack">All games</button></div>
+  </div>
+</div>
+<p class="empty game-note">Scores are saved only in this browser. Clues are written by me; terms follow standard anatomical nomenclature.</p>
+<script type="application/json" id="gameDecks">${JSON.stringify(decks).replace(/</g, '\\u003c')}</script>
+<script src="__BASE__assets/game.js" defer></script>`;
 }

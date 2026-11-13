@@ -207,3 +207,42 @@ a.region:hover{border-color:var(--nerve);background:var(--surface)}
 .sec-intro{color:var(--muted);margin:0 0 6px}
 .sec-empty{margin:8px 0 0;font-size:.92rem}
 @media (max-width:640px){.region-hero{grid-template-columns:1fr}.region-img img{max-height:220px}}
+
+/* ---- games ---- */
+.game{margin:28px 0}
+.game-modes{display:flex;flex-wrap:wrap;gap:10px 24px;margin-bottom:18px;color:var(--muted)}
+.game-modes b{color:var(--ink)}
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.deck{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;min-height:110px}
+.deck:hover,.deck:focus-visible{border-color:var(--nerve);box-shadow:inset 4px 0 0 var(--nerve)}
+.deck-region{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.deck-title{font-family:var(--display);font-size:1.4rem;line-height:1.15}
+.deck-meta{margin-top:auto;font-size:.85rem;color:var(--muted)}
+.game-play,.game-end{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px}
+.game-bar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.92rem}
+.game-title{font-weight:700}
+.game-stats{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+.link{all:unset;cursor:pointer;color:var(--muted);font-weight:600}
+.link:hover{color:var(--ink)}
+.game-meter{height:4px;background:var(--line);border-radius:4px;margin:14px 0 26px;overflow:hidden}
+.game-meter span{display:block;height:100%;width:0;background:var(--nerve);transition:width .25s}
+.game-clue{font-size:1.3rem;margin:0 0 18px;text-align:center}
+.game-word{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(1.4rem,4vw,2.2rem);text-align:center;letter-spacing:.04em;min-height:1.6em;cursor:text;word-break:break-word}
+.game-word .todo{color:var(--muted);opacity:.45}
+.game-word .ok{color:var(--ink)}
+.game-word .bad{color:var(--artery);text-decoration:underline}
+.game-word.flash .ok{color:#2e8b57}
+.game-input{display:block;margin:18px auto 0;width:min(100%,420px);font:inherit;font-size:1.1rem;padding:10px 14px;border:2px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);text-align:center}
+.game-input:focus{border-color:var(--nerve);outline:none}
+.game-help{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-top:18px}
+.game-help .btn{padding:6px 12px;font-size:.9rem}
+.game-help kbd{font-size:.75rem;border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted)}
+.game-msg{width:100%;text-align:center;color:var(--muted);min-height:1.5em}
+.game-score{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.game-score div{border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
+.game-score b{display:block;font-family:var(--display);font-size:2rem;font-weight:400}
+.game-score span{color:var(--muted);font-size:.85rem}
+.game-missed{padding-left:18px}
+.game-missed span{color:var(--muted)}
+.game-note{font-size:.85rem}
+@media (max-width:640px){.game-score{grid-template-columns:repeat(2,1fr)}.game-stats{margin-left:0}}

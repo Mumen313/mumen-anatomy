@@ -141,4 +141,7 @@ const ul = await readFile(path.join(here, 'out', 'regions', 'upper-limb', 'index
 for (const m of ['id="nerves"', 'id="osteology"', 'Brachial Plexus', 'Other topics', 'secnav']) if (!ul.includes(m)) throw new Error('region page missing ' + m);
 const bp = await readFile(path.join(here, 'out', 'topics', 'brachial-plexus', 'index.html'), 'utf8');
 if (!bp.includes('Upper Limb · Nerves')) throw new Error('topic chip missing section');
+const games = await readFile(path.join(here, 'out', 'games', 'index.html'), 'utf8');
+for (const m of ['id="gameDecks"', 'skull-foramina', 'foramen ovale', 'assets/game.js', 'aria-current="page"']) if (!games.includes(m)) throw new Error('games page missing ' + m);
+if (games.includes('__BASE__')) throw new Error('games base not replaced');
 console.log('TEST OK');

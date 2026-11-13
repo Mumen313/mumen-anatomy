@@ -1,0 +1,102 @@
+{
+  "_help": "Each deck: id, title, region, intro, items. Each item: clue (the question) and answer (what to type). Optional 'also': other accepted spellings. Edit freely – the website rebuilds automatically.",
+  "decks": [
+    {
+      "id": "skull-foramina",
+      "title": "Skull base: what passes where?",
+      "region": "Head",
+      "intro": "Read what passes through, then type the opening.",
+      "items": [
+        { "clue": "Olfactory nerve fibres (CN I)", "answer": "cribriform plate" },
+        { "clue": "Optic nerve and ophthalmic artery", "answer": "optic canal" },
+        { "clue": "CN III, IV, V1 and VI with the superior ophthalmic vein", "answer": "superior orbital fissure" },
+        { "clue": "Maxillary nerve (V2)", "answer": "foramen rotundum", "also": ["rotundum"] },
+        { "clue": "Mandibular nerve (V3) and the lesser petrosal nerve", "answer": "foramen ovale", "also": ["ovale"] },
+        { "clue": "Middle meningeal artery", "answer": "foramen spinosum", "also": ["spinosum"] },
+        { "clue": "Filled with cartilage in life; the internal carotid artery passes over it", "answer": "foramen lacerum", "also": ["lacerum"] },
+        { "clue": "Emissary vein from the nasal cavity to the superior sagittal sinus", "answer": "foramen caecum", "also": ["foramen cecum", "caecum", "cecum"] },
+        { "clue": "Facial (CN VII) and vestibulocochlear (CN VIII) nerves", "answer": "internal acoustic meatus", "also": ["internal auditory meatus"] },
+        { "clue": "CN IX, X and XI with the internal jugular vein", "answer": "jugular foramen" },
+        { "clue": "Hypoglossal nerve (CN XII)", "answer": "hypoglossal canal" },
+        { "clue": "Medulla oblongata and both vertebral arteries", "answer": "foramen magnum" },
+        { "clue": "Internal carotid artery entering the skull", "answer": "carotid canal" }
+      ]
+    },
+    {
+      "id": "cranial-nerves",
+      "title": "The 12 cranial nerves",
+      "region": "Head",
+      "intro": "Type the name of each cranial nerve.",
+      "items": [
+        { "clue": "CN I – smell", "answer": "olfactory", "also": ["olfactory nerve"] },
+        { "clue": "CN II – vision", "answer": "optic", "also": ["optic nerve"] },
+        { "clue": "CN III – most eye muscles, pupil constriction", "answer": "oculomotor", "also": ["oculomotor nerve"] },
+        { "clue": "CN IV – superior oblique", "answer": "trochlear", "also": ["trochlear nerve"] },
+        { "clue": "CN V – sensation of the face, muscles of mastication", "answer": "trigeminal", "also": ["trigeminal nerve"] },
+        { "clue": "CN VI – lateral rectus", "answer": "abducens", "also": ["abducent", "abducens nerve", "abducent nerve"] },
+        { "clue": "CN VII – muscles of facial expression", "answer": "facial", "also": ["facial nerve"] },
+        { "clue": "CN VIII – hearing and balance", "answer": "vestibulocochlear", "also": ["vestibulocochlear nerve"] },
+        { "clue": "CN IX – stylopharyngeus, taste of the posterior third of the tongue", "answer": "glossopharyngeal", "also": ["glossopharyngeal nerve"] },
+        { "clue": "CN X – parasympathetic supply to thoracic and abdominal organs", "answer": "vagus", "also": ["vagus nerve"] },
+        { "clue": "CN XI – sternocleidomastoid and trapezius", "answer": "accessory", "also": ["accessory nerve", "spinal accessory"] },
+        { "clue": "CN XII – muscles of the tongue", "answer": "hypoglossal", "also": ["hypoglossal nerve"] }
+      ]
+    },
+    {
+      "id": "skull-bones",
+      "title": "Bones of the skull",
+      "region": "Head",
+      "intro": "Name the bone from its description.",
+      "items": [
+        { "clue": "Forms the forehead and the roof of the orbits", "answer": "frontal", "also": ["frontal bone"] },
+        { "clue": "Paired bones forming the roof and sides of the vault", "answer": "parietal", "also": ["parietal bone", "parietal bones"] },
+        { "clue": "Contains the foramen magnum", "answer": "occipital", "also": ["occipital bone"] },
+        { "clue": "Houses the middle and inner ear", "answer": "temporal", "also": ["temporal bone"] },
+        { "clue": "Butterfly-shaped bone in the middle of the skull base", "answer": "sphenoid", "also": ["sphenoid bone"] },
+        { "clue": "Carries the cribriform plate and crista galli", "answer": "ethmoid", "also": ["ethmoid bone"] },
+        { "clue": "The only movable bone of the skull", "answer": "mandible" },
+        { "clue": "Upper jaw, carries the upper teeth", "answer": "maxilla" },
+        { "clue": "Cheek bone", "answer": "zygomatic", "also": ["zygomatic bone"] },
+        { "clue": "Forms the bridge of the nose", "answer": "nasal", "also": ["nasal bone", "nasal bones"] },
+        { "clue": "Small bone in the medial wall of the orbit with the fossa for the tear sac", "answer": "lacrimal", "also": ["lacrimal bone"] },
+        { "clue": "Forms the lower, posterior part of the nasal septum", "answer": "vomer" },
+        { "clue": "L-shaped bones at the back of the hard palate", "answer": "palatine", "also": ["palatine bone", "palatine bones"] },
+        { "clue": "Separate scroll-shaped bone on the lateral wall of the nose", "answer": "inferior nasal concha", "also": ["inferior concha"] }
+      ]
+    },
+    {
+      "id": "scalp",
+      "title": "The scalp",
+      "region": "Head",
+      "intro": "Remember S-C-A-L-P from outside to inside.",
+      "items": [
+        { "clue": "Layer 1 of the scalp (S)", "answer": "skin" },
+        { "clue": "Layer 2 (C) – carries the vessels and nerves", "answer": "connective tissue", "also": ["dense connective tissue"] },
+        { "clue": "Layer 3 (A) – tendon sheet joining frontalis and occipitalis", "answer": "aponeurosis", "also": ["epicranial aponeurosis", "galea aponeurotica"] },
+        { "clue": "Layer 4 (L) – the 'danger layer'", "answer": "loose areolar tissue", "also": ["loose connective tissue"] },
+        { "clue": "Layer 5 (P) – periosteum of the skull", "answer": "pericranium" },
+        { "clue": "Muscle belly at the front of occipitofrontalis", "answer": "frontalis" },
+        { "clue": "Muscle belly at the back of occipitofrontalis", "answer": "occipitalis" },
+        { "clue": "Nerve supplying occipitofrontalis", "answer": "facial nerve", "also": ["facial", "cn vii"] }
+      ]
+    },
+    {
+      "id": "brachial-plexus",
+      "title": "Brachial plexus",
+      "region": "Upper Limb",
+      "intro": "Name the nerve.",
+      "items": [
+        { "clue": "Posterior cord nerve to deltoid and teres minor", "answer": "axillary", "also": ["axillary nerve"] },
+        { "clue": "Largest branch of the posterior cord – extensors of arm and forearm", "answer": "radial", "also": ["radial nerve"] },
+        { "clue": "Lateral cord nerve that pierces coracobrachialis", "answer": "musculocutaneous", "also": ["musculocutaneous nerve"] },
+        { "clue": "Medial cord nerve passing behind the medial epicondyle", "answer": "ulnar", "also": ["ulnar nerve"] },
+        { "clue": "Formed by roots from the lateral and medial cords; passes through the carpal tunnel", "answer": "median", "also": ["median nerve"] },
+        { "clue": "Upper trunk nerve to supraspinatus and infraspinatus", "answer": "suprascapular", "also": ["suprascapular nerve"] },
+        { "clue": "From roots C5–C7, supplies serratus anterior", "answer": "long thoracic", "also": ["long thoracic nerve"] },
+        { "clue": "From root C5, supplies the rhomboids", "answer": "dorsal scapular", "also": ["dorsal scapular nerve"] },
+        { "clue": "Posterior cord nerve to latissimus dorsi", "answer": "thoracodorsal", "also": ["thoracodorsal nerve"] },
+        { "clue": "The five roots of the plexus come from these spinal nerves", "answer": "c5 to t1", "also": ["c5-t1", "c5 t1", "c5–t1"] }
+      ]
+    }
+  ]
+}

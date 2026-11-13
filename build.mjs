@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
 import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage } from './src/templates.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage, gamesPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -223,6 +223,14 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       if (h.trim()) aboutHtml += `<h2>${s.title}</h2>${h}`;
     }
   }
+  // ---- games (decks live in games/decks.json) ----
+  try {
+    const { decks = [] } = JSON.parse(await readFile(path.join(ROOT, 'games', 'decks.json'), 'utf8'));
+    const ok = decks.filter((d) => d.id && d.title && Array.isArray(d.items) && d.items.length);
+    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: 'Speed anatomy typing games – read the clue, type the term.', body: gamesPage({ site, decks: ok }) }));
+  } catch (e) {
+    stats.warnings.push('games skipped: ' + e.message);
+  }
   await write('about/index.html', layout({ site, title: 'About me', active: 'about', body: aboutPage({ site, html: aboutHtml }) }));
   await write('membership/index.html', layout({ site, title: 'Membership', active: 'membership', body: membershipPage({ site }) }));
   await write('index.html', layout({ site, active: 'home', body: homePage({ site, regions, topics, phys }) }));
@@ -232,7 +240,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)
