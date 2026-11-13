@@ -19,7 +19,11 @@ jobs:
         run: |
           mkdir -p games/plates-src
           for n in $NAMES; do
-            curl -sSfL -A "MumenAnatomyBot/1.0 (https://mumen313.github.io/mumen-anatomy/)" -o "games/plates-src/$n" "https://commons.wikimedia.org/wiki/Special:FilePath/$n" || echo "::warning::failed $n"
+            case "$n" in
+              http*) out="games/plates-src/$(echo "$n" | sed 's#^https\?://##; s#[^A-Za-z0-9._-]#_#g' | tail -c 120)"; url="$n" ;;
+              *) out="games/plates-src/$n"; url="https://commons.wikimedia.org/wiki/Special:FilePath/$n" ;;
+            esac
+            curl -sSfL -A "MumenAnatomyBot/1.0 (https://mumen313.github.io/mumen-anatomy/)" -o "$out" "$url" || echo "::warning::failed $n"
             sleep 1
           done
           ls -la games/plates-src
