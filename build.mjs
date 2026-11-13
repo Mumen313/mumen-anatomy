@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
 import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage, gamesPage } from './src/templates.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -223,11 +223,16 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
       if (h.trim()) aboutHtml += `<h2>${s.title}</h2>${h}`;
     }
   }
-  // ---- games (decks live in games/decks.json) ----
+  // ---- games (decks in games/decks.json, pin plates in games/pins.json + games/plates/) ----
   try {
-    const { decks = [] } = JSON.parse(await readFile(path.join(ROOT, 'games', 'decks.json'), 'utf8'));
-    const ok = decks.filter((d) => d.id && d.title && Array.isArray(d.items) && d.items.length);
-    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: 'Speed anatomy typing games – read the clue, type the term.', body: gamesPage({ site, decks: ok }) }));
+    const readJson = async (f) => JSON.parse(await readFile(path.join(ROOT, 'games', f), 'utf8'));
+    const decks = ((await readJson('decks.json')).decks || []).filter((d) => d.id && d.title && Array.isArray(d.items) && d.items.length);
+    const plates = ((await readJson('pins.json')).plates || []).filter((p) => p.id && p.image && Array.isArray(p.pins) && p.pins.length);
+    await cp(path.join(ROOT, 'games', 'plates'), path.join(outDir, 'games', 'plates'), { recursive: true });
+    const gdesc = 'Anatomy games – spelling challenge and clip-test pin practice.';
+    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates }) }));
+    await write('games/name-it/index.html', layout({ site, title: 'Name it! – anatomy spelling game', active: 'games', description: 'Read the clue, type the anatomical term.', body: nameItPage({ site, decks }) }));
+    await write('games/pin-test/index.html', layout({ site, title: 'Pin test – clip-test practice', active: 'games', description: 'Name the pinned muscle – practise for the anatomy clip test.', body: pinTestPage({ site, plates }) }));
   } catch (e) {
     stats.warnings.push('games skipped: ' + e.message);
   }
@@ -240,7 +245,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)

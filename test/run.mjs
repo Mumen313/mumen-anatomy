@@ -141,7 +141,9 @@ const ul = await readFile(path.join(here, 'out', 'regions', 'upper-limb', 'index
 for (const m of ['id="nerves"', 'id="osteology"', 'Brachial Plexus', 'Other topics', 'secnav']) if (!ul.includes(m)) throw new Error('region page missing ' + m);
 const bp = await readFile(path.join(here, 'out', 'topics', 'brachial-plexus', 'index.html'), 'utf8');
 if (!bp.includes('Upper Limb · Nerves')) throw new Error('topic chip missing section');
-const games = await readFile(path.join(here, 'out', 'games', 'index.html'), 'utf8');
-for (const m of ['id="gameDecks"', 'skull-foramina', 'foramen ovale', 'assets/game.js', 'aria-current="page"']) if (!games.includes(m)) throw new Error('games page missing ' + m);
-if (games.includes('__BASE__')) throw new Error('games base not replaced');
+for (const [f, ms] of [['games/index.html', ['g-card', 'pin-test/', 'name-it/']], ['games/name-it/index.html', ['id="gameDecks"', 'skull-foramina', 'name-it.js']], ['games/pin-test/index.html', ['id="ptPlates"', 'head-face-superficial', 'pin-test.js', 'buccinator']], ['games/plates/head-face-deep.jpg', []]]) {
+  const t = await readFile(path.join(here, 'out', f), 'utf8');
+  for (const m of ms) if (!t.includes(m)) throw new Error(f + ' missing ' + m);
+  if (t.includes('__BASE__')) throw new Error(f + ' base not replaced');
+}
 console.log('TEST OK');

@@ -1,0 +1,256 @@
+{
+ "_help": "Pin test plates. x/y are percent of the image. answer = what to type; also = other accepted names.",
+ "plates": [
+  {
+   "id": "head-face-superficial",
+   "region": "Head",
+   "title": "Face & scalp \u2013 superficial muscles",
+   "layer": "Superficial layer, lateral view",
+   "image": "head-face-superficial.jpg",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 260 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "pins": [
+    {
+     "x": 41.04,
+     "y": 14.26,
+     "answer": "frontalis",
+     "also": [
+      "frontal belly",
+      "occipitofrontalis frontal belly",
+      "venter frontalis"
+     ],
+     "note": "Frontal belly of occipitofrontalis"
+    },
+    {
+     "x": 62.19,
+     "y": 12.55,
+     "answer": "epicranial aponeurosis",
+     "also": [
+      "galea aponeurotica",
+      "galea"
+     ]
+    },
+    {
+     "x": 76.12,
+     "y": 25.67,
+     "answer": "auricularis superior",
+     "also": [
+      "superior auricular"
+     ]
+    },
+    {
+     "x": 64.05,
+     "y": 32.79,
+     "answer": "auricularis anterior",
+     "also": [
+      "anterior auricular"
+     ]
+    },
+    {
+     "x": 45.4,
+     "y": 43.49,
+     "answer": "orbicularis oculi",
+     "note": "Orbital part"
+    },
+    {
+     "x": 27.61,
+     "y": 38.21,
+     "answer": "procerus"
+    },
+    {
+     "x": 27.11,
+     "y": 43.06,
+     "answer": "nasalis"
+    },
+    {
+     "x": 31.72,
+     "y": 48.48,
+     "answer": "levator labii superioris alaeque nasi",
+     "also": [
+      "lev lab sup alaeque nasi"
+     ]
+    },
+    {
+     "x": 36.07,
+     "y": 53.9,
+     "answer": "levator labii superioris",
+     "also": [
+      "quadratus labii superioris"
+     ]
+    },
+    {
+     "x": 38.31,
+     "y": 59.46,
+     "answer": "levator anguli oris",
+     "also": [
+      "caninus"
+     ]
+    },
+    {
+     "x": 47.89,
+     "y": 56.32,
+     "answer": "zygomaticus major",
+     "also": [
+      "zygomaticus"
+     ]
+    },
+    {
+     "x": 34.58,
+     "y": 65.3,
+     "answer": "orbicularis oris"
+    },
+    {
+     "x": 45.4,
+     "y": 71.29,
+     "answer": "risorius"
+    },
+    {
+     "x": 37.31,
+     "y": 78.42,
+     "answer": "depressor labii inferioris",
+     "also": [
+      "quadratus labii inferioris"
+     ]
+    },
+    {
+     "x": 44.15,
+     "y": 79.14,
+     "answer": "depressor anguli oris",
+     "also": [
+      "triangularis"
+     ]
+    },
+    {
+     "x": 55.97,
+     "y": 86.41,
+     "answer": "platysma"
+    },
+    {
+     "x": 70.9,
+     "y": 71.29,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    },
+    {
+     "x": 85.2,
+     "y": 41.35,
+     "answer": "occipitalis",
+     "also": [
+      "occipital belly",
+      "venter occipitalis"
+     ],
+     "note": "Occipital belly of occipitofrontalis"
+    },
+    {
+     "x": 63.43,
+     "y": 57.32,
+     "answer": "masseter",
+     "note": "Covered here by the parotideomasseteric fascia"
+    }
+   ]
+  },
+  {
+   "id": "head-face-deep",
+   "region": "Head",
+   "title": "Face \u2013 deeper muscles & mastication",
+   "layer": "Deeper layer, lateral view",
+   "image": "head-face-deep.jpg",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 264 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "pins": [
+    {
+     "x": 30.53,
+     "y": 24.22,
+     "answer": "frontalis",
+     "also": [
+      "frontal belly",
+      "occipitofrontalis frontal belly"
+     ]
+    },
+    {
+     "x": 27.88,
+     "y": 35.31,
+     "answer": "corrugator supercilii",
+     "also": [
+      "corrugator"
+     ]
+    },
+    {
+     "x": 22.83,
+     "y": 42.5,
+     "answer": "procerus"
+    },
+    {
+     "x": 25.22,
+     "y": 51.56,
+     "answer": "nasalis"
+    },
+    {
+     "x": 30.53,
+     "y": 58.13,
+     "answer": "levator anguli oris",
+     "also": [
+      "caninus"
+     ]
+    },
+    {
+     "x": 33.19,
+     "y": 71.56,
+     "answer": "buccinator"
+    },
+    {
+     "x": 46.73,
+     "y": 75.31,
+     "answer": "masseter",
+     "note": "Cut and turned down"
+    },
+    {
+     "x": 27.61,
+     "y": 91.41,
+     "answer": "mentalis"
+    },
+    {
+     "x": 58.41,
+     "y": 29.69,
+     "answer": "temporalis"
+    },
+    {
+     "x": 84.96,
+     "y": 37.5,
+     "answer": "occipitalis",
+     "also": [
+      "occipital belly"
+     ]
+    },
+    {
+     "x": 78.98,
+     "y": 51.88,
+     "answer": "auricularis posterior",
+     "also": [
+      "posterior auricular"
+     ]
+    },
+    {
+     "x": 84.96,
+     "y": 60.62,
+     "answer": "trapezius"
+    },
+    {
+     "x": 77.66,
+     "y": 64.06,
+     "answer": "splenius capitis"
+    },
+    {
+     "x": 69.03,
+     "y": 64.84,
+     "answer": "sternocleidomastoid",
+     "also": [
+      "sternocleidomastoideus",
+      "scm"
+     ]
+    }
+   ]
+  }
+ ]
+}

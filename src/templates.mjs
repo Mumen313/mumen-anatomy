@@ -263,49 +263,155 @@ export function notFoundPage({ site }) {
   return `<h1>Page not found</h1><p class="lede">This page does not exist (yet). <a href="${site.base}">Go to all regions</a>.</p>`;
 }
 
-export function gamesPage({ site, decks }) {
-  const cards = decks.map((d) => `
-  <button type="button" class="deck" data-deck="${esc(d.id)}">
-    <span class="deck-region">${esc(d.region || '')}</span>
-    <span class="deck-title">${esc(d.title)}</span>
-    <span class="deck-meta">${d.items.length} terms · <span class="deck-best" data-best="${esc(d.id)}">no score yet</span></span>
-  </button>`).join('');
+
+const GAME_ICONS = {
+  'name-it': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="22" width="12" height="16" rx="3"/><rect x="21" y="22" width="12" height="16" rx="3"/><rect x="36" y="22" width="12" height="16" rx="3" class="hl"/><rect x="51" y="22" width="8" height="16" rx="3" class="dim"/><path d="M10 46h44" class="ln"/></svg>`,
+  'pin-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 52c-4-14 2-34 18-38 14-3 22 8 20 20-1 9-8 12-8 18" class="ln"/><circle cx="26" cy="28" r="5" class="hl"/><circle cx="40" cy="38" r="4"/><circle cx="22" cy="44" r="4"/></svg>`,
+};
+
+function gameShellTop(title, eyebrow, lede) {
+  return `<div class="g-head"><a class="g-back" href="__BASE__games/">‹ All games</a><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p class="lede">${lede}</p></div>`;
+}
+
+export function gamesHubPage({ site, decks, plates }) {
+  const terms = decks.reduce((n, d) => n + d.items.length, 0);
+  const pins = plates.reduce((n, p) => n + p.pins.length, 0);
+  const card = (id, title, text, meta, tag, ids) => `
+  <a class="g-card" href="__BASE__games/${id}/">
+    <span class="g-icon">${GAME_ICONS[id]}</span>
+    <span class="g-tag">${tag}</span>
+    <span class="g-title">${title}</span>
+    <span class="g-text">${text}</span>
+    <span class="g-meta">${meta}<span class="g-best" data-hub-ids="${esc(ids.join(','))}"></span></span>
+    <span class="g-play">Play ›</span>
+  </a>`;
   return `
 <div class="eyebrow">Games</div>
-<h1>Speed anatomy: type the term.</h1>
-<p class="lede">Read the clue and type the anatomical name as fast and as correctly as you can. Practise first with the answer shown, then test yourself without it.</p>
-<div class="game" id="game">
-  <div class="game-pick" id="gamePick">
-    <div class="game-modes" role="radiogroup" aria-label="Mode">
-      <label><input type="radio" name="mode" value="learn" checked> <b>Practise</b> – answer shown, type over it</label>
-      <label><input type="radio" name="mode" value="test"> <b>Test</b> – answer hidden</label>
+<h1>Learn anatomy by playing.</h1>
+<p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
+<div class="g-cards">
+  ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
+  ${card('pin-test', 'Pin test', 'A pin points at a muscle – you name it, just like in the clip test. Or find the muscle yourself on the plate.', `${plates.length} plates · ${pins} pins`, 'Clip-test practice', plates.map((p) => p.id))}
+</div>
+<p class="empty game-note">More games are coming with every region.</p>
+<script src="__BASE__assets/games-hub.js" defer></script>`;
+}
+
+export function nameItPage({ site, decks }) {
+  const cards = decks.map((d) => `
+    <button type="button" class="deck" data-deck="${esc(d.id)}">
+      <span class="deck-region">${esc(d.region || '')}</span>
+      <span class="deck-title">${esc(d.title)}</span>
+      <span class="deck-meta">${d.items.length} terms <span class="deck-best" data-best="${esc(d.id)}"></span></span>
+    </button>`).join('');
+  return `
+${gameShellTop('Name it!', 'Games', 'Read the clue, type the term. Perfect answers build your streak – mistakes cost points, giving up costs a heart.')}
+<div class="ni" id="ni">
+  <section class="ni-pick" id="niPick">
+    <div class="seg" role="radiogroup" aria-label="Mode">
+      <label><input type="radio" name="nimode" value="learn" checked><span><b>Practise</b><small>letters shown</small></span></label>
+      <label><input type="radio" name="nimode" value="test"><span><b>Challenge</b><small>letters hidden</small></span></label>
     </div>
     <div class="decks">${cards}</div>
-  </div>
-  <div class="game-play" id="gamePlay" hidden>
-    <div class="game-bar">
-      <button type="button" class="link" id="gameQuit">‹ All games</button>
-      <span class="game-title" id="gameTitle"></span>
-      <span class="game-stats"><span id="gWpm">0</span> wpm · <span id="gAcc">100</span>% · <span id="gTime">0:00</span> · <span id="gCount">0/0</span></span>
+  </section>
+
+  <section class="ni-play" id="niPlay" hidden>
+    <div class="hud">
+      <button type="button" class="hud-btn" id="niQuit" aria-label="Back to decks">✕</button>
+      <span class="hearts" id="niHearts" aria-label="Lives"></span>
+      <span class="dots" id="niDots" aria-hidden="true"></span>
+      <span class="streak" id="niStreak" aria-live="polite"></span>
+      <span class="score" id="niScore">0</span>
+      <button type="button" class="hud-btn" id="niSound" aria-label="Sound on/off">🔊</button>
     </div>
-    <div class="game-meter"><span id="gMeter"></span></div>
-    <p class="game-clue" id="gClue"></p>
-    <div class="game-word" id="gWord" aria-hidden="true"></div>
-    <input class="game-input" id="gInput" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type the answer">
-    <div class="game-help">
-      <button type="button" class="btn" id="gHint">Hint <kbd>Tab</kbd></button>
-      <button type="button" class="btn" id="gSkip">Show answer <kbd>Esc</kbd></button>
-      <span class="game-msg" id="gMsg" aria-live="polite"></span>
+    <div class="ni-card" id="niCard">
+      <div class="ni-deck" id="niDeckName"></div>
+      <p class="ni-clue" id="niClue"></p>
+      <div class="tiles" id="niTiles" aria-hidden="true"></div>
+      <input class="ni-input" id="niInput" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Type here…" aria-label="Your answer">
+      <div class="ni-float" id="niFloat" aria-hidden="true"></div>
+      <div class="ni-actions">
+        <button type="button" class="chip" id="niHint">💡 Hint <kbd>Tab</kbd></button>
+        <button type="button" class="chip" id="niGive">🏳 Show answer <kbd>Esc</kbd></button>
+      </div>
+      <p class="ni-msg" id="niMsg" aria-live="polite"></p>
     </div>
-  </div>
-  <div class="game-end" id="gameEnd" hidden>
-    <h2 id="gEndTitle">Done!</h2>
-    <div class="game-score" id="gEndStats"></div>
-    <div id="gEndMissed"></div>
-    <div class="btns"><button type="button" class="btn primary" id="gAgain">Play again</button> <button type="button" class="btn" id="gBack">All games</button></div>
-  </div>
+  </section>
+
+  <section class="ni-end" id="niEnd" hidden>
+    <div class="stars" id="niStars"></div>
+    <h2 id="niEndTitle"></h2>
+    <div class="end-stats" id="niEndStats"></div>
+    <div id="niReview"></div>
+    <div class="btns"><button type="button" class="btn primary" id="niAgain">Play again</button> <button type="button" class="btn" id="niBack">Other deck</button></div>
+  </section>
 </div>
 <p class="empty game-note">Scores are saved only in this browser. Clues are written by me; terms follow standard anatomical nomenclature.</p>
 <script type="application/json" id="gameDecks">${JSON.stringify(decks).replace(/</g, '\\u003c')}</script>
-<script src="__BASE__assets/game.js" defer></script>`;
+<script src="__BASE__assets/game-sound.js" defer></script>
+<script src="__BASE__assets/name-it.js" defer></script>`;
+}
+
+export function pinTestPage({ site, plates }) {
+  const regions = [...new Set(plates.map((p) => p.region))];
+  const cards = regions.map((r) => `
+    <div class="pt-region"><h3>${esc(r)}</h3><div class="decks">${plates.filter((p) => p.region === r).map((p) => `
+      <button type="button" class="deck plate" data-plate="${esc(p.id)}">
+        <img src="__BASE__games/plates/${esc(p.image)}" alt="" loading="lazy">
+        <span class="deck-title">${esc(p.title)}</span>
+        <span class="deck-meta">${esc(p.layer || '')} · ${p.pins.length} pins <span class="deck-best" data-best="${esc(p.id)}"></span></span>
+      </button>`).join('')}</div></div>`).join('');
+  return `
+${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it. Train exactly like the clip test, region by region.')}
+<div class="pt" id="pt">
+  <section class="pt-pick" id="ptPick">
+    <div class="seg seg4" role="radiogroup" aria-label="Mode">
+      <label><input type="radio" name="ptmode" value="type" checked><span><b>Clip test</b><small>type the name</small></span></label>
+      <label><input type="radio" name="ptmode" value="choose"><span><b>Choose</b><small>4 options</small></span></label>
+      <label><input type="radio" name="ptmode" value="find"><span><b>Find it</b><small>click the pin</small></span></label>
+      <label><input type="radio" name="ptmode" value="study"><span><b>Study</b><small>tap to reveal</small></span></label>
+    </div>
+    ${cards}
+  </section>
+
+  <section class="pt-play" id="ptPlay" hidden>
+    <div class="hud">
+      <button type="button" class="hud-btn" id="ptQuit" aria-label="Back to plates">✕</button>
+      <span class="pt-title" id="ptTitle"></span>
+      <span class="dots" id="ptDots" aria-hidden="true"></span>
+      <span class="streak" id="ptStreak"></span>
+      <span class="score" id="ptScore">0</span>
+      <button type="button" class="hud-btn" id="ptSound" aria-label="Sound on/off">🔊</button>
+    </div>
+    <div class="pt-grid">
+      <figure class="pt-fig">
+        <div class="pt-stage" id="ptStage"><img id="ptImg" alt=""><div class="pt-pins" id="ptPins"></div></div>
+        <figcaption id="ptCredit"></figcaption>
+      </figure>
+      <div class="pt-panel" id="ptPanel">
+        <div class="pt-q" id="ptQ"></div>
+        <form class="pt-form" id="ptForm" autocomplete="off">
+          <input class="ni-input" id="ptInput" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Name of the pinned structure…" aria-label="Your answer">
+          <div class="pt-btns"><button class="btn primary" type="submit">Check <kbd>Enter</kbd></button><button class="btn" type="button" id="ptDunno">I don't know</button></div>
+        </form>
+        <div class="pt-options" id="ptOptions"></div>
+        <div class="pt-feedback" id="ptFeedback" aria-live="polite"></div>
+        <button class="btn primary pt-next" type="button" id="ptNext" hidden>Next ›</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ni-end" id="ptEnd" hidden>
+    <div class="stars" id="ptStars"></div>
+    <h2 id="ptEndTitle"></h2>
+    <div class="end-stats" id="ptEndStats"></div>
+    <div id="ptReview"></div>
+    <div class="btns"><button type="button" class="btn primary" id="ptAgain">Play again</button> <button type="button" class="btn" id="ptBack">Other plate</button></div>
+  </section>
+</div>
+<p class="empty game-note">Plates: Sobotta's atlas (1909), public domain – labels removed and pins added by Mumen Anatomy. Scores are saved only in this browser.</p>
+<script type="application/json" id="ptPlates">${JSON.stringify(plates).replace(/</g, '\\u003c')}</script>
+<script>window.PT_BASE = ${JSON.stringify(site.base)};</script>
+<script src="__BASE__assets/game-sound.js" defer></script>
+<script src="__BASE__assets/pin-test.js" defer></script>`;
 }
