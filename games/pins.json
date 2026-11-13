@@ -1107,6 +1107,371 @@
      ]
     }
    ]
+  },
+  {
+   "id": "neck-thorax-great-vessels",
+   "region": "Neck",
+   "category": "vessels",
+   "title": "Neck & upper thorax \u2013 great vessels",
+   "layer": "Deep vessels of the neck, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 588 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "neck-thorax-great-vessels.jpg",
+   "pins": [
+    {
+     "x": 65.22,
+     "y": 54.59,
+     "answer": "internal jugular vein",
+     "also": [
+      "vena jugularis interna",
+      "ijv",
+      "left internal jugular vein",
+      "v jugularis interna"
+     ],
+     "note": "Left side"
+    },
+    {
+     "x": 55.9,
+     "y": 64.05,
+     "answer": "common carotid artery",
+     "also": [
+      "arteria carotis communis",
+      "a carotis communis",
+      "left common carotid artery",
+      "carotis communis"
+     ],
+     "note": "Left side"
+    },
+    {
+     "x": 41.26,
+     "y": 58.22,
+     "answer": "common carotid artery",
+     "also": [
+      "arteria carotis communis",
+      "a carotis communis",
+      "right common carotid artery",
+      "carotis communis"
+     ],
+     "note": "Right side"
+    },
+    {
+     "x": 58.92,
+     "y": 75.18,
+     "answer": "brachiocephalic vein",
+     "also": [
+      "left brachiocephalic vein",
+      "innominate vein",
+      "vena brachiocephalica",
+      "left innominate vein"
+     ],
+     "note": "Left brachiocephalic (innominate) vein"
+    },
+    {
+     "x": 35.49,
+     "y": 85.88,
+     "answer": "superior vena cava",
+     "also": [
+      "svc",
+      "vena cava superior"
+     ]
+    },
+    {
+     "x": 53.24,
+     "y": 87.34,
+     "answer": "aortic arch",
+     "also": [
+      "arch of aorta",
+      "arcus aortae"
+     ]
+    },
+    {
+     "x": 76.31,
+     "y": 73.51,
+     "answer": "subclavian vein",
+     "also": [
+      "vena subclavia",
+      "left subclavian vein"
+     ]
+    },
+    {
+     "x": 75.42,
+     "y": 66.59,
+     "answer": "subclavian artery",
+     "also": [
+      "arteria subclavia",
+      "a subclavia",
+      "left subclavian artery"
+     ]
+    },
+    {
+     "x": 46.58,
+     "y": 64.05,
+     "answer": "inferior thyroid vein",
+     "also": [
+      "vena thyroidea inferior",
+      "inferior thyroid veins"
+     ]
+    },
+    {
+     "x": 59.89,
+     "y": 83.7,
+     "answer": "vagus nerve",
+     "also": [
+      "vagus",
+      "cn x",
+      "nervus vagus",
+      "left vagus nerve",
+      "n vagus"
+     ],
+     "note": "Left vagus crossing the aortic arch"
+    },
+    {
+     "x": 74.53,
+     "y": 60.41,
+     "answer": "brachial plexus",
+     "also": [
+      "plexus brachialis"
+     ]
+    },
+    {
+     "x": 34.61,
+     "y": 47.82,
+     "answer": "internal jugular vein",
+     "also": [
+      "vena jugularis interna",
+      "ijv",
+      "right internal jugular vein",
+      "v jugularis interna"
+     ],
+     "note": "Right side"
+    }
+   ]
+  },
+  {
+   "id": "head-vessels-nerves",
+   "region": "Head",
+   "category": "vessels",
+   "title": "Head \u2013 vessels & nerves of the face",
+   "layer": "Lateral view, masseter reflected",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 591 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "head-vessels-nerves.jpg",
+   "pins": [
+    {
+     "x": 42.71,
+     "y": 44.2,
+     "answer": "superficial temporal artery",
+     "also": [
+      "arteria temporalis superficialis",
+      "a temporalis superficialis",
+      "superficial temporal"
+     ]
+    },
+    {
+     "x": 43.25,
+     "y": 52.49,
+     "answer": "retromandibular vein",
+     "also": [
+      "vena retromandibularis",
+      "posterior facial vein",
+      "v retromandibularis"
+     ]
+    },
+    {
+     "x": 43.71,
+     "y": 70.53,
+     "answer": "external carotid artery",
+     "also": [
+      "arteria carotis externa",
+      "a carotis externa",
+      "external carotid",
+      "carotis externa"
+     ]
+    },
+    {
+     "x": 62.42,
+     "y": 70.53,
+     "answer": "facial vein",
+     "also": [
+      "vena facialis",
+      "anterior facial vein",
+      "v facialis"
+     ]
+    },
+    {
+     "x": 52.99,
+     "y": 87.94,
+     "answer": "common facial vein",
+     "also": [
+      "facial vein",
+      "vena facialis communis"
+     ]
+    },
+    {
+     "x": 69.4,
+     "y": 66.94,
+     "answer": "facial artery",
+     "also": [
+      "arteria facialis",
+      "a facialis",
+      "external maxillary artery"
+     ]
+    },
+    {
+     "x": 64.42,
+     "y": 76.8,
+     "answer": "inferior alveolar nerve",
+     "also": [
+      "nervus alveolaris inferior",
+      "n alveolaris inferior",
+      "inferior alveolar artery",
+      "inferior alveolar"
+     ],
+     "note": "Opened mandibular canal \u2013 nerve with its artery"
+    },
+    {
+     "x": 71.4,
+     "y": 76.52,
+     "answer": "mental nerve",
+     "also": [
+      "nervus mentalis",
+      "n mentalis"
+     ]
+    },
+    {
+     "x": 72.85,
+     "y": 50.18,
+     "answer": "infraorbital nerve",
+     "also": [
+      "nervus infraorbitalis",
+      "n infraorbitalis"
+     ]
+    },
+    {
+     "x": 53.45,
+     "y": 68.14,
+     "answer": "masseter",
+     "note": "Cut and turned down"
+    }
+   ]
+  },
+  {
+   "id": "abdomen-sma",
+   "region": "Abdomen",
+   "category": "vessels",
+   "title": "Abdomen \u2013 superior mesenteric vessels",
+   "layer": "Transverse colon lifted, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 566 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "abdomen-sma.jpg",
+   "pins": [
+    {
+     "x": 52.8,
+     "y": 37.13,
+     "answer": "superior mesenteric artery",
+     "also": [
+      "sma",
+      "arteria mesenterica superior",
+      "a mesenterica superior"
+     ]
+    },
+    {
+     "x": 49.52,
+     "y": 50.25,
+     "answer": "superior mesenteric vein",
+     "also": [
+      "smv",
+      "vena mesenterica superior",
+      "v mesenterica superior"
+     ]
+    },
+    {
+     "x": 32.96,
+     "y": 40.22,
+     "answer": "middle colic artery",
+     "also": [
+      "arteria colica media",
+      "a colica media"
+     ]
+    },
+    {
+     "x": 32.96,
+     "y": 63.43,
+     "answer": "right colic artery",
+     "also": [
+      "arteria colica dextra",
+      "a colica dextra"
+     ]
+    },
+    {
+     "x": 60.0,
+     "y": 60.33,
+     "answer": "jejunal arteries",
+     "also": [
+      "intestinal arteries",
+      "jejunal and ileal arteries",
+      "aa jejunales",
+      "jejunal artery"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "abdomen-ima",
+   "region": "Abdomen",
+   "category": "vessels",
+   "title": "Abdomen \u2013 inferior mesenteric vessels",
+   "layer": "Small intestine moved to the right, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 567 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "abdomen-ima.jpg",
+   "pins": [
+    {
+     "x": 55.47,
+     "y": 56.85,
+     "answer": "inferior mesenteric artery",
+     "also": [
+      "ima",
+      "arteria mesenterica inferior",
+      "a mesenterica inferior"
+     ]
+    },
+    {
+     "x": 56.27,
+     "y": 44.56,
+     "answer": "inferior mesenteric vein",
+     "also": [
+      "imv",
+      "vena mesenterica inferior",
+      "v mesenterica inferior"
+     ]
+    },
+    {
+     "x": 66.4,
+     "y": 46.58,
+     "answer": "left colic artery",
+     "also": [
+      "arteria colica sinistra",
+      "a colica sinistra"
+     ]
+    },
+    {
+     "x": 68.01,
+     "y": 79.83,
+     "answer": "sigmoid arteries",
+     "also": [
+      "sigmoid artery",
+      "aa sigmoideae",
+      "sigmoid vessels"
+     ]
+    },
+    {
+     "x": 55.47,
+     "y": 87.41,
+     "answer": "superior rectal artery",
+     "also": [
+      "superior haemorrhoidal artery",
+      "superior hemorrhoidal artery",
+      "arteria rectalis superior"
+     ]
+    }
+   ]
   }
  ]
 }
