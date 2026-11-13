@@ -1,0 +1,32 @@
+name: Fetch public-domain plates
+# Manual helper: downloads Wikimedia Commons files (public domain) into games/plates-src/
+on:
+  workflow_dispatch:
+    inputs:
+      names:
+        description: Space-separated Commons file names, e.g. "Gray378.png Gray409.png"
+        required: true
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        env:
+          NAMES: ${{ inputs.names }}
+        run: |
+          mkdir -p games/plates-src
+          for n in $NAMES; do
+            curl -sSfL -A "MumenAnatomyBot/1.0 (https://mumen313.github.io/mumen-anatomy/)" -o "games/plates-src/$n" "https://commons.wikimedia.org/wiki/Special:FilePath/$n" || echo "::warning::failed $n"
+            sleep 1
+          done
+          ls -la games/plates-src
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add games/plates-src
+          git commit -m "Fetch plates: $(echo ${{ inputs.names }} | head -c 200) [skip ci]" || echo nothing
+          git push
