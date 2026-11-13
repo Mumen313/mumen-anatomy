@@ -1472,6 +1472,107 @@
      ]
     }
    ]
+  },
+  {
+   "id": "abdomen-coeliac-trunk",
+   "region": "Abdomen",
+   "category": "vessels",
+   "title": "Abdomen \u2013 coeliac trunk & portal vein",
+   "layer": "Stomach turned up, anterior view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 565 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "abdomen-coeliac-trunk.jpg",
+   "pins": [
+    {
+     "x": 48.45,
+     "y": 33.82,
+     "answer": "coeliac trunk",
+     "also": [
+      "celiac trunk",
+      "truncus coeliacus",
+      "truncus celiacus",
+      "celiac artery",
+      "coeliac artery"
+     ]
+    },
+    {
+     "x": 42.17,
+     "y": 32.42,
+     "answer": "common hepatic artery",
+     "also": [
+      "arteria hepatica communis",
+      "a hepatica communis",
+      "hepatic artery"
+     ]
+    },
+    {
+     "x": 61.94,
+     "y": 32.6,
+     "answer": "splenic artery",
+     "also": [
+      "arteria splenica",
+      "arteria lienalis",
+      "a splenica",
+      "a lienalis"
+     ]
+    },
+    {
+     "x": 52.56,
+     "y": 27.72,
+     "answer": "left gastric artery",
+     "also": [
+      "arteria gastrica sinistra",
+      "a gastrica sinistra"
+     ]
+    },
+    {
+     "x": 42.71,
+     "y": 39.56,
+     "answer": "portal vein",
+     "also": [
+      "vena portae",
+      "hepatic portal vein",
+      "v portae hepatis",
+      "portal vein of liver"
+     ]
+    },
+    {
+     "x": 56.74,
+     "y": 36.69,
+     "answer": "splenic vein",
+     "also": [
+      "vena splenica",
+      "vena lienalis",
+      "v splenica"
+     ]
+    },
+    {
+     "x": 47.36,
+     "y": 48.53,
+     "answer": "superior mesenteric vein",
+     "also": [
+      "smv",
+      "vena mesenterica superior"
+     ]
+    },
+    {
+     "x": 50.54,
+     "y": 46.09,
+     "answer": "superior mesenteric artery",
+     "also": [
+      "sma",
+      "arteria mesenterica superior"
+     ]
+    },
+    {
+     "x": 37.52,
+     "y": 40.35,
+     "answer": "gastroduodenal artery",
+     "also": [
+      "arteria gastroduodenalis",
+      "a gastroduodenalis"
+     ]
+    }
+   ]
   }
  ]
 }
