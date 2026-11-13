@@ -149,7 +149,8 @@
      "answer": "masseter",
      "note": "Covered here by the parotideomasseteric fascia"
     }
-   ]
+   ],
+   "category": "muscles"
   },
   {
    "id": "head-face-deep",
@@ -250,7 +251,8 @@
       "scm"
      ]
     }
-   ]
+   ],
+   "category": "muscles"
   }
  ]
 }

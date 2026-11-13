@@ -352,26 +352,43 @@ ${gameShellTop('Name it!', 'Games', 'Read the clue, type the term. Perfect answe
 <script src="__BASE__assets/name-it.js" defer></script>`;
 }
 
+export const PT_CATEGORIES = [['muscles', 'Muscles'], ['vessels', 'Arteries & veins'], ['nerves', 'Nerves']];
+export const PT_REGIONS = ['Head', 'Neck', 'Back', 'Thorax', 'Abdomen'];
+
 export function pinTestPage({ site, plates }) {
-  const regions = [...new Set(plates.map((p) => p.region))];
-  const cards = regions.map((r) => `
-    <div class="pt-region"><h3>${esc(r)}</h3><div class="decks">${plates.filter((p) => p.region === r).map((p) => `
-      <button type="button" class="deck plate" data-plate="${esc(p.id)}">
+  const regions = [...PT_REGIONS, ...new Set(plates.map((p) => p.region).filter((r) => !PT_REGIONS.includes(r)))];
+  const count = (f) => plates.filter(f).reduce((n, p) => n + p.pins.length, 0);
+  const plateCard = (p) => `
+      <button type="button" class="deck plate" data-plate="${esc(p.id)}" data-cat="${esc(p.category)}">
         <img src="__BASE__games/plates/${esc(p.image)}" alt="" loading="lazy">
         <span class="deck-title">${esc(p.title)}</span>
         <span class="deck-meta">${esc(p.layer || '')} · ${p.pins.length} pins <span class="deck-best" data-best="${esc(p.id)}"></span></span>
-      </button>`).join('')}</div></div>`).join('');
+      </button>`;
+  const tabs = PT_CATEGORIES.map(([k, l], n) => `<label><input type="radio" name="ptcat" value="${k}"${n ? '' : ' checked'}><span><b>${l}</b><small>${count((p) => p.category === k)} pins</small></span></label>`).join('');
+  const sections = regions.filter((r) => plates.some((p) => p.region === r)).map((r) => {
+    const rp = plates.filter((p) => p.region === r);
+    return `
+    <div class="pt-region" data-region="${esc(r)}">
+      <div class="pt-region-head"><h3>${esc(r)}</h3>
+        <button type="button" class="exam-btn" data-exam="${esc(r)}">🎯 Mixed clip test · ${esc(r)} <small>${Math.min(20, count((p) => p.region === r))} random pins from muscles, vessels & nerves</small><span class="deck-best" data-best="exam:${esc(r)}"></span></button>
+      </div>
+      ${PT_CATEGORIES.map(([k]) => `<div class="decks" data-cat-group="${k}">${rp.filter((p) => p.category === k).map(plateCard).join('') || '<p class="empty pt-none">Coming soon.</p>'}</div>`).join('')}
+    </div>`;
+  }).join('');
   return `
-${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it. Train exactly like the clip test, region by region.')}
+${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it. Muscles, vessels and nerves for every region of the clip test.')}
 <div class="pt" id="pt">
   <section class="pt-pick" id="ptPick">
-    <div class="seg seg4" role="radiogroup" aria-label="Mode">
-      <label><input type="radio" name="ptmode" value="type" checked><span><b>Clip test</b><small>type the name</small></span></label>
-      <label><input type="radio" name="ptmode" value="choose"><span><b>Choose</b><small>4 options</small></span></label>
-      <label><input type="radio" name="ptmode" value="find"><span><b>Find it</b><small>click the pin</small></span></label>
-      <label><input type="radio" name="ptmode" value="study"><span><b>Study</b><small>tap to reveal</small></span></label>
+    <div class="pt-controls">
+      <div class="seg seg-cat" role="radiogroup" aria-label="What to practise">${tabs}</div>
+      <div class="seg seg4" role="radiogroup" aria-label="Mode">
+        <label><input type="radio" name="ptmode" value="type" checked><span><b>Clip test</b><small>type the name</small></span></label>
+        <label><input type="radio" name="ptmode" value="choose"><span><b>Choose</b><small>4 options</small></span></label>
+        <label><input type="radio" name="ptmode" value="find"><span><b>Find it</b><small>click the pin</small></span></label>
+        <label><input type="radio" name="ptmode" value="study"><span><b>Study</b><small>tap to reveal</small></span></label>
+      </div>
     </div>
-    ${cards}
+    ${sections}
   </section>
 
   <section class="pt-play" id="ptPlay" hidden>
@@ -409,7 +426,7 @@ ${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a str
     <div class="btns"><button type="button" class="btn primary" id="ptAgain">Play again</button> <button type="button" class="btn" id="ptBack">Other plate</button></div>
   </section>
 </div>
-<p class="empty game-note">Plates: Sobotta's atlas (1909), public domain – labels removed and pins added by Mumen Anatomy. Scores are saved only in this browser.</p>
+<p class="empty game-note">Plates: Sobotta's Atlas and Text-book of Human Anatomy (1909), public domain via Wikimedia Commons – labels removed and pins added by Mumen Anatomy. Latin and English names are both accepted. Scores are saved only in this browser.</p>
 <script type="application/json" id="ptPlates">${JSON.stringify(plates).replace(/</g, '\\u003c')}</script>
 <script>window.PT_BASE = ${JSON.stringify(site.base)};</script>
 <script src="__BASE__assets/game-sound.js" defer></script>
