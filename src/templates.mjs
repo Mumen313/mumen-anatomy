@@ -27,7 +27,7 @@ export function layout({ site, title, description, body, active = '', depthBase 
     ['games/', 'Games', 'games'],
     ['progress/', 'My progress', 'progress'],
     ['about/', 'About me', 'about'],
-    ['membership/', 'Membership', 'membership'],
+    ['donate/', 'Donate ☕', 'donate'],
   ];
   const brandMark = site.logo
     ? `<img class="logo" src="${esc(site.logo)}" alt="">`
@@ -242,21 +242,43 @@ export function aboutPage({ site, html }) {
 <div class="prose">${html || '<p class="empty">This page is being written.</p>'}</div>`;
 }
 
-export function membershipPage({ site }) {
+export function donatePage({ site }) {
+  const pay = (purpose) => `
+      <div class="pay">
+        <a class="btn primary" href="https://revolut.me/mumen313" target="_blank" rel="noopener">Donate with Revolut</a>
+        <span class="pay-alt">revolut.me/mumen313 · or in the Revolut app: <b>Mumen Uthman</b> · PayPal: <b>@mumenU</b></span>
+        <span class="pay-ref">Please add “${purpose}” as the note, so I know what it is for.</span>
+      </div>`;
   return `
-<div class="eyebrow">Membership</div>
-<h1>Free to learn, more for members.</h1>
-<p class="lede">Membership is in preparation. Here is the plan for what will be free and what members will get.</p>
-<div class="plans">
-  <div class="plan">
-    <h3>Free</h3>
-    <ul><li>Explanation and diagrams for every topic</li><li>Sources and 3D model links</li><li>Key takeaways</li></ul>
-  </div>
-  <div class="plan member">
-    <h3>Member <span class="tag">Coming soon</span></h3>
-    <ul><li>All my video explanations</li><li>Full cadaver photo gallery with labels</li><li>All five exam questions with answers</li><li>Printable one-page summaries</li></ul>
-  </div>
-</div>`;
+<div class="eyebrow">Donate</div>
+<h1>A small thank-you – only if you want.</h1>
+<p class="lede">Mumen Anatomy is free and stays free. If it helped you, you can give a small amount of your choice. Nothing here is required – every option is voluntary.</p>
+<div class="donate-grid">
+  <section class="donate-card">
+    <div class="donate-ico" aria-hidden="true">☕</div>
+    <h2>Buy me a coffee</h2>
+    <p>I love coffee. A coffee from you is a small thank-you and helps me pay for the books, atlases and materials I use to make this site.</p>
+    ${pay('Coffee')}
+  </section>
+  <section class="donate-card help">
+    <div class="donate-ico" aria-hidden="true">🤲</div>
+    <h2>Help women and children in Sbeineh camp</h2>
+    <p>In the Palestinian refugee camp Sbeineh near Damascus, Syria, many orphaned children, elderly women and mothers live completely alone and without any support – often not even for food, and not for the operations, treatment or medicine they need and cannot afford.</p>
+    <p>Donations with this note are not kept by me: I pass them on personally to women and families in need there.</p>
+    ${pay('Sbeineh')}
+  </section>
+  <section class="donate-card">
+    <div class="donate-ico" aria-hidden="true">🎓</div>
+    <h2>Support me and my studies</h2>
+    <p>I am a medical student with a family to provide for. Your support helps me take care of my family and continue my studies – and keep building Mumen Anatomy.</p>
+    ${pay('Support')}
+  </section>
+</div>
+<p class="empty game-note">Payments go directly to my personal Revolut or PayPal account. They are private gifts, not purchases – you get nothing in return except my sincere thanks. Jazakum Allahu khairan.</p>`;
+}
+
+export function membershipPage({ site }) {
+  return `<p class="lede">This page has moved: <a href="${site.base}donate/">Donate</a>.</p><script>location.replace(${JSON.stringify(site.base + 'donate/')})</script>`;
 }
 
 export function notFoundPage({ site }) {

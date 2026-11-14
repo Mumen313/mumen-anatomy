@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
 import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, notFoundPage, physiologyIndexPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, donatePage, notFoundPage, physiologyIndexPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -244,7 +244,8 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     stats.warnings.push('games skipped: ' + e.message);
   }
   await write('about/index.html', layout({ site, title: 'About me', active: 'about', body: aboutPage({ site, html: aboutHtml }) }));
-  await write('membership/index.html', layout({ site, title: 'Membership', active: 'membership', body: membershipPage({ site }) }));
+  await write('donate/index.html', layout({ site, title: 'Donate', active: 'donate', description: 'Support Mumen Anatomy with a coffee, help women and children in Sbeineh camp, or support my studies.', body: donatePage({ site }) }));
+  await write('membership/index.html', layout({ site, title: 'Donate', active: 'donate', body: membershipPage({ site }) }));
   await write('index.html', layout({ site, active: 'home', body: homePage({ site, regions, topics, phys }) }));
   await write('404.html', layout({ site, title: 'Not found', body: notFoundPage({ site }) }));
   await writeFile(path.join(outDir, '.nojekyll'), '');
@@ -252,7 +253,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'about/', 'donate/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)

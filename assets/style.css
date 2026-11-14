@@ -401,3 +401,12 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .g-playing .hy-btn{display:none}
 .g-locked{border-style:dashed;background:linear-gradient(135deg,var(--surface),var(--nerve-soft))}
 .g-locked .g-play{text-decoration:none}
+.donate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:28px 0}
+.donate-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.donate-card.help{border-color:var(--nerve);box-shadow:inset 0 4px 0 var(--nerve)}
+.donate-card h2{font-size:1.6rem;margin:6px 0 10px}
+.donate-ico{font-size:2.4rem}
+.pay{margin-top:auto;padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.pay .btn{text-align:center;text-decoration:none}
+.pay-alt{font-size:.9rem;color:var(--muted)}
+.pay-ref{font-size:.82rem;color:var(--muted);font-style:italic}
