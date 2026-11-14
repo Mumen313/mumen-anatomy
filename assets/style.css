@@ -399,3 +399,5 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .pt-fig.zoomed .pt-stage img{width:100%;max-height:none;max-width:none}
 .pt-fig{position:relative}
 .g-playing .hy-btn{display:none}
+.g-locked{border-style:dashed;background:linear-gradient(135deg,var(--surface),var(--nerve-soft))}
+.g-locked .g-play{text-decoration:none}

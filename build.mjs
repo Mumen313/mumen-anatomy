@@ -252,7 +252,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)

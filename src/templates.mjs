@@ -292,6 +292,14 @@ export function gamesHubPage({ site, decks, plates, cadaver = [] }) {
 <p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
 <div class="g-cards">
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
+  <div class="g-card g-locked">
+    <span class="g-icon">${GAME_ICONS['cadaver-clip-test']}</span>
+    <span class="g-tag">🔒 Members only</span>
+    <span class="g-title">Real cadaver clip test</span>
+    <span class="g-text">Real photos from the dissection hall with clips on the structures – the most realistic practice for the clip test. Available to members.</span>
+    <span class="g-meta">Request access by email: <a href="mailto:Mumen.Uthman&#64;uni-duesseldorf.de?subject=Mumen%20Anatomy%20%E2%80%93%20cadaver%20clip%20test%20membership">Mumen.Uthman&#64;uni-duesseldorf.de</a></span>
+    <a class="g-play" href="__BASE__membership/">Become a member ›</a>
+  </div>
   ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real photos from the dissection hall with clips on the structures – exactly what you see in the exam.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
   ${card('pin-test', 'Pin test', 'A pin points at a muscle – you name it, just like in the clip test. Or find the muscle yourself on the plate.', `${plates.length} plates · ${pins} pins`, 'Clip-test practice', plates.map((p) => p.id))}
 </div>
