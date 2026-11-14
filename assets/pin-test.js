@@ -27,7 +27,7 @@
     $('ptPlay').dataset.mode = mode;
     history.replaceState(null, '', '#' + run.id);
     if (mode === 'study') return studyMode(run.plates[0]);
-    const all = run.plates.flatMap((p) => plates[p].pins.map((_, i) => ({ p, i })));
+    const all = run.plates.flatMap((p) => plates[p].pins.map((pin, i) => ({ p, i, hy: pin.hy }))).filter((x) => !run.hy || x.hy);
     qs = G.shuffle(all).slice(0, run.exam ? EXAM_SIZE : all.length);
     next();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,14 +38,15 @@
     if (p >= 0) begin({ id, title: plates[p].title, plates: [p] });
   }
   function startExam(region) {
-    const ps = plates.map((x, n) => (x.region === region ? n : -1)).filter((n) => n >= 0);
-    if (ps.length) begin({ id: 'exam:' + region, title: `Mixed clip test · ${region}`, plates: ps, exam: true });
+    const hy = region === '__HY__';
+    const ps = plates.map((x, n) => (hy || x.region === region ? n : -1)).filter((n) => n >= 0);
+    if (ps.length) begin({ id: 'exam:' + region, title: hy ? 'Most asked in real clip tests' : `Mixed clip test · ${region}`, plates: ps, exam: true, hy });
   }
 
   function showPlate(p) {
     if (shownPlate === p) return;
     shownPlate = p;
-    $('ptImg').src = `${BASE}games/plates/${plates[p].image}`;
+    $('ptImg').src = `${BASE}games/${plates[p].dir || 'plates'}/${plates[p].image}`;
     $('ptImg').alt = plates[p].title;
     $('ptCredit').textContent = plates[p].credit || '';
   }
@@ -113,7 +114,7 @@
     results.push({ q, state, typed });
     const fb = $('ptFeedback');
     fb.className = 'pt-feedback ' + state;
-    const name = `<b>${G.esc(title(pin.answer))}</b>`;
+    const name = `<b>${G.esc(title(pin.answer))}</b>${pin.english ? ` <small class="pt-en">(${G.esc(pin.english)})</small>` : ''}${pin.hy ? ' <span class="hy-tag">⭐ often asked</span>' : ''}`;
     if (state === 'perfect') { fb.innerHTML = `✓ Correct – ${name} <span class="combo">+${gain}${gain > 10 ? ' ×' + gain / 10 : ''}</span>`; (gain > 10 ? G.sfx.great : G.sfx.good)(); }
     else if (state === 'ok') { fb.innerHTML = `≈ Almost – check the spelling: ${name} <span class="combo">+5</span>`; G.sfx.good(); }
     else { fb.innerHTML = `✗ ${typed ? `Not “${G.esc(typed)}”. ` : ''}This is ${name}`; G.sfx.bad(); }
@@ -231,6 +232,7 @@
   $('ptQuit').addEventListener('click', back);
   $('ptBack').addEventListener('click', back);
   $('ptAgain').addEventListener('click', () => begin(run));
+  $('ptZoom').addEventListener('click', () => { const z = $('ptFig').classList.toggle('zoomed'); $('ptZoom').textContent = z ? '↙ Fit' : '🔍 Zoom'; const a = $('ptPins').querySelector('.pin.active'); if (z && a) a.scrollIntoView({ block: 'center', inline: 'center' }); });
   G.sound($('ptSound'));
   G.paintBest();
   const h = decodeURIComponent(location.hash.slice(1));

@@ -1,0 +1,546 @@
+{
+ "plates": [
+  {
+   "id": "cad-back-deep",
+   "region": "Back",
+   "title": "Back \u2013 erector spinae & splenius",
+   "layer": "Real cadaver, posterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-back-deep.jpg",
+   "pins": [
+    {
+     "x": 50.8,
+     "y": 11.1,
+     "answer": "musculus splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis",
+      "splenius"
+     ]
+    },
+    {
+     "x": 43.33,
+     "y": 19.05,
+     "answer": "musculus semispinalis capitis",
+     "also": [
+      "m semispinalis capitis",
+      "semispinalis capitis",
+      "semispinalis"
+     ]
+    },
+    {
+     "x": 40.0,
+     "y": 39.5,
+     "answer": "musculus iliocostalis",
+     "also": [
+      "m iliocostalis",
+      "iliocostalis"
+     ],
+     "note": "Lateral column of the erector spinae"
+    },
+    {
+     "x": 47.47,
+     "y": 54.8,
+     "answer": "musculus spinalis",
+     "also": [
+      "m spinalis",
+      "spinalis"
+     ],
+     "note": "Medial column of the erector spinae"
+    },
+    {
+     "x": 50.67,
+     "y": 66.5,
+     "answer": "musculus longissimus",
+     "also": [
+      "m longissimus",
+      "longissimus"
+     ],
+     "note": "Middle column of the erector spinae"
+    }
+   ]
+  },
+  {
+   "id": "cad-suboccipital-1",
+   "region": "Back",
+   "title": "Suboccipital triangle (1)",
+   "layer": "Real cadaver, posterior view of the neck",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-suboccipital-1.jpg",
+   "pins": [
+    {
+     "x": 34.87,
+     "y": 47.15,
+     "answer": "musculus rectus capitis posterior minor",
+     "also": [
+      "m rectus capitis posterior minor",
+      "rectus capitis posterior minor",
+      "rectus capitis minor"
+     ]
+    },
+    {
+     "x": 41.13,
+     "y": 45.15,
+     "answer": "musculus rectus capitis posterior major",
+     "also": [
+      "m rectus capitis posterior major",
+      "rectus capitis posterior major",
+      "rectus capitis major"
+     ]
+    },
+    {
+     "x": 42.47,
+     "y": 35.5,
+     "answer": "arteria vertebralis",
+     "also": [
+      "a vertebralis",
+      "vertebral artery"
+     ]
+    },
+    {
+     "x": 46.0,
+     "y": 36.85,
+     "answer": "nervus suboccipitalis",
+     "also": [
+      "n suboccipitalis",
+      "suboccipital nerve"
+     ]
+    },
+    {
+     "x": 45.53,
+     "y": 51.85,
+     "answer": "musculus obliquus capitis inferior",
+     "also": [
+      "m obliquus capitis inferior",
+      "obliquus capitis inferior"
+     ]
+    },
+    {
+     "x": 42.0,
+     "y": 59.15,
+     "answer": "musculus obliquus capitis superior",
+     "also": [
+      "m obliquus capitis superior",
+      "obliquus capitis superior"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-suboccipital-2",
+   "region": "Back",
+   "title": "Suboccipital triangle (2)",
+   "layer": "Real cadaver, posterior view of the neck",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-suboccipital-2.jpg",
+   "pins": [
+    {
+     "x": 40.0,
+     "y": 46.0,
+     "answer": "musculus rectus capitis posterior minor",
+     "also": [
+      "m rectus capitis posterior minor",
+      "rectus capitis posterior minor",
+      "rectus capitis minor"
+     ]
+    },
+    {
+     "x": 57.25,
+     "y": 44.0,
+     "answer": "musculus rectus capitis posterior major",
+     "also": [
+      "m rectus capitis posterior major",
+      "rectus capitis posterior major",
+      "rectus capitis major"
+     ]
+    },
+    {
+     "x": 68.5,
+     "y": 49.67,
+     "answer": "musculus obliquus capitis superior",
+     "also": [
+      "m obliquus capitis superior",
+      "obliquus capitis superior"
+     ]
+    },
+    {
+     "x": 51.5,
+     "y": 64.0,
+     "answer": "musculus obliquus capitis inferior",
+     "also": [
+      "m obliquus capitis inferior",
+      "obliquus capitis inferior"
+     ]
+    },
+    {
+     "x": 58.5,
+     "y": 48.33,
+     "answer": "trigonum suboccipitale",
+     "also": [
+      "suboccipital triangle",
+      "nervus suboccipitalis",
+      "n suboccipitalis",
+      "arteria vertebralis"
+     ],
+     "note": "Area bounded by rectus capitis posterior major and both oblique muscles"
+    }
+   ]
+  },
+  {
+   "id": "cad-back-superficial",
+   "region": "Back",
+   "title": "Back \u2013 superficial layer",
+   "layer": "Real cadaver, lateral view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-back-superficial.jpg",
+   "pins": [
+    {
+     "x": 21.0,
+     "y": 31.33,
+     "answer": "musculus trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
+    },
+    {
+     "x": 35.0,
+     "y": 39.33,
+     "answer": "musculus rhomboideus major",
+     "also": [
+      "m rhomboideus major",
+      "rhomboid major",
+      "rhomboideus major"
+     ]
+    },
+    {
+     "x": 50.0,
+     "y": 58.67,
+     "answer": "musculus latissimus dorsi",
+     "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
+      "latissimus"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-back-iliocostalis",
+   "region": "Back",
+   "title": "Back \u2013 iliocostalis",
+   "layer": "Real cadaver, posterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-back-iliocostalis.jpg",
+   "pins": [
+    {
+     "x": 39.33,
+     "y": 28.5,
+     "answer": "musculus iliocostalis cervicis",
+     "also": [
+      "m iliocostalis cervicis",
+      "iliocostalis cervicis",
+      "iliocostalis"
+     ]
+    },
+    {
+     "x": 44.0,
+     "y": 66.0,
+     "answer": "musculus iliocostalis thoracis",
+     "also": [
+      "m iliocostalis thoracis",
+      "iliocostalis thoracis",
+      "iliocostalis"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-neck-thorax-anterior",
+   "region": "Thorax",
+   "title": "Neck & thorax \u2013 anterior opening",
+   "layer": "Real cadaver, anterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-neck-thorax-anterior.jpg",
+   "pins": [
+    {
+     "x": 52.64,
+     "y": 27.88,
+     "answer": "glandula parotidea",
+     "also": [
+      "parotid gland",
+      "parotis"
+     ]
+    },
+    {
+     "x": 50.0,
+     "y": 36.15,
+     "answer": "glandula submandibularis",
+     "also": [
+      "submandibular gland",
+      "glandula submaxillaris"
+     ]
+    },
+    {
+     "x": 41.49,
+     "y": 42.45,
+     "answer": "glandula thyroidea",
+     "also": [
+      "thyroid gland",
+      "lobus sinister glandulae thyroideae"
+     ],
+     "note": "Left lobe"
+    },
+    {
+     "x": 51.44,
+     "y": 49.46,
+     "answer": "arteria subclavia",
+     "also": [
+      "a subclavia",
+      "subclavian artery"
+     ]
+    },
+    {
+     "x": 46.64,
+     "y": 73.02,
+     "answer": "oesophagus",
+     "also": [
+      "esophagus",
+      "oesophagus thoracicus"
+     ]
+    },
+    {
+     "x": 59.83,
+     "y": 79.77,
+     "answer": "pleura",
+     "also": [
+      "pleura parietalis",
+      "pleura costalis"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-thorax-pectoral",
+   "region": "Thorax",
+   "title": "Thorax \u2013 pectoral region",
+   "layer": "Real cadaver, anterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-thorax-pectoral.jpg",
+   "pins": [
+    {
+     "x": 97.24,
+     "y": 37.07,
+     "answer": "musculus pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ],
+     "note": "Reflected"
+    },
+    {
+     "x": 91.49,
+     "y": 32.76,
+     "answer": "musculus pectoralis minor",
+     "also": [
+      "m pectoralis minor",
+      "pectoralis minor"
+     ]
+    },
+    {
+     "x": 39.2,
+     "y": 44.4,
+     "answer": "vena cava superior",
+     "also": [
+      "superior vena cava",
+      "v cava superior",
+      "svc"
+     ]
+    },
+    {
+     "x": 72.53,
+     "y": 65.95,
+     "answer": "musculus serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior"
+     ]
+    },
+    {
+     "x": 65.06,
+     "y": 84.05,
+     "answer": "musculus obliquus externus abdominis",
+     "also": [
+      "m obliquus externus abdominis",
+      "obliquus externus abdominis",
+      "external oblique"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-back-nuchal",
+   "region": "Back",
+   "title": "Back & nuchal region",
+   "layer": "Real cadaver, posterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-back-nuchal.jpg",
+   "pins": [
+    {
+     "x": 30.47,
+     "y": 28.7,
+     "answer": "musculus splenius cervicis",
+     "also": [
+      "m splenius cervicis",
+      "splenius cervicis"
+     ]
+    },
+    {
+     "x": 52.9,
+     "y": 20.6,
+     "answer": "nervus occipitalis major",
+     "also": [
+      "n occipitalis major",
+      "greater occipital nerve"
+     ]
+    },
+    {
+     "x": 51.82,
+     "y": 23.3,
+     "answer": "arteria occipitalis",
+     "also": [
+      "a occipitalis",
+      "occipital artery"
+     ]
+    },
+    {
+     "x": 47.26,
+     "y": 31.58,
+     "answer": "musculus semispinalis capitis",
+     "also": [
+      "m semispinalis capitis",
+      "semispinalis capitis",
+      "semispinalis"
+     ]
+    },
+    {
+     "x": 42.7,
+     "y": 33.82,
+     "answer": "musculus splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis",
+      "splenius"
+     ]
+    },
+    {
+     "x": 28.43,
+     "y": 57.66,
+     "answer": "musculus iliocostalis",
+     "also": [
+      "m iliocostalis",
+      "iliocostalis"
+     ]
+    },
+    {
+     "x": 52.06,
+     "y": 57.93,
+     "answer": "musculi levatores costarum breves",
+     "also": [
+      "levatores costarum breves",
+      "mm levatores costarum breves",
+      "levator costae brevis"
+     ]
+    },
+    {
+     "x": 22.07,
+     "y": 69.99,
+     "answer": "musculi levatores costarum longi",
+     "also": [
+      "levatores costarum longi",
+      "levator costae longus",
+      "mm levatores costarum longi"
+     ]
+    },
+    {
+     "x": 33.82,
+     "y": 68.91,
+     "answer": "musculus longissimus",
+     "also": [
+      "m longissimus",
+      "longissimus"
+     ]
+    },
+    {
+     "x": 41.62,
+     "y": 65.31,
+     "answer": "dura mater spinalis",
+     "also": [
+      "dura mater"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cad-abdomen-pelvis",
+   "region": "Abdomen",
+   "title": "Abdomen \u2013 aortic bifurcation",
+   "layer": "Real cadaver, anterior view",
+   "credit": "Dissection-hall photo, Medical University of Varna \u2013 shared with permission. Labels removed, pins added by Mumen Anatomy.",
+   "category": "cadaver",
+   "image": "cad-abdomen-pelvis.jpg",
+   "pins": [
+    {
+     "x": 48.39,
+     "y": 66.92,
+     "answer": "arteria mesenterica inferior",
+     "also": [
+      "a mesenterica inferior",
+      "ima",
+      "inferior mesenteric artery"
+     ]
+    },
+    {
+     "x": 50.18,
+     "y": 74.41,
+     "answer": "arteria iliaca communis sinistra",
+     "also": [
+      "a iliaca communis sinistra",
+      "arteria iliaca communis",
+      "a iliaca communis",
+      "left common iliac artery"
+     ]
+    },
+    {
+     "x": 28.29,
+     "y": 70.09,
+     "answer": "musculus obliquus externus abdominis",
+     "also": [
+      "m obliquus externus abdominis",
+      "obliquus externus abdominis",
+      "external oblique"
+     ]
+    },
+    {
+     "x": 31.24,
+     "y": 30.73,
+     "answer": "plexus brachialis",
+     "also": [
+      "truncus superior",
+      "brachial plexus",
+      "trunci plexus brachialis"
+     ],
+     "note": "Trunks of the brachial plexus"
+    }
+   ]
+  }
+ ]
+}

@@ -58,5 +58,5 @@ if 'crop' in spec:
 mw = int(sys.argv[4]) if len(sys.argv) > 4 else 1400
 if out.shape[1] > mw:
     out = cv2.resize(out, (mw, int(out.shape[0] * mw / out.shape[1])), interpolation=cv2.INTER_AREA)
-cv2.imwrite(sys.argv[3], out, [cv2.IMWRITE_JPEG_QUALITY, 85])
+cv2.imwrite(sys.argv[3], out, [cv2.IMWRITE_JPEG_QUALITY, 90])
 print(sys.argv[3], out.shape[1], out.shape[0])

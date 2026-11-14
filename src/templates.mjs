@@ -266,6 +266,7 @@ export function notFoundPage({ site }) {
 
 const GAME_ICONS = {
   'name-it': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="22" width="12" height="16" rx="3"/><rect x="21" y="22" width="12" height="16" rx="3"/><rect x="36" y="22" width="12" height="16" rx="3" class="hl"/><rect x="51" y="22" width="8" height="16" rx="3" class="dim"/><path d="M10 46h44" class="ln"/></svg>`,
+  'cadaver-clip-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="12" width="44" height="40" rx="6"/><path d="M18 44l10-14 8 9 6-7 6 12" class="ln"/><circle cx="40" cy="24" r="5" class="hl"/></svg>`,
   'pin-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 52c-4-14 2-34 18-38 14-3 22 8 20 20-1 9-8 12-8 18" class="ln"/><circle cx="26" cy="28" r="5" class="hl"/><circle cx="40" cy="38" r="4"/><circle cx="22" cy="44" r="4"/></svg>`,
 };
 
@@ -273,7 +274,7 @@ function gameShellTop(title, eyebrow, lede) {
   return `<div class="g-head"><a class="g-back" href="__BASE__games/">‹ All games</a><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p class="lede">${lede}</p></div>`;
 }
 
-export function gamesHubPage({ site, decks, plates }) {
+export function gamesHubPage({ site, decks, plates, cadaver = [] }) {
   const terms = decks.reduce((n, d) => n + d.items.length, 0);
   const pins = plates.reduce((n, p) => n + p.pins.length, 0);
   const card = (id, title, text, meta, tag, ids) => `
@@ -291,6 +292,7 @@ export function gamesHubPage({ site, decks, plates }) {
 <p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
 <div class="g-cards">
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
+  ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real photos from the dissection hall with clips on the structures – exactly what you see in the exam.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
   ${card('pin-test', 'Pin test', 'A pin points at a muscle – you name it, just like in the clip test. Or find the muscle yourself on the plate.', `${plates.length} plates · ${pins} pins`, 'Clip-test practice', plates.map((p) => p.id))}
 </div>
 <p class="empty game-note">More games are coming with every region.</p>
@@ -355,16 +357,17 @@ ${gameShellTop('Name it!', 'Games', 'Read the clue, type the term. Perfect answe
 export const PT_CATEGORIES = [['muscles', 'Muscles'], ['vessels', 'Arteries & veins'], ['nerves', 'Nerves']];
 export const PT_REGIONS = ['Head', 'Neck', 'Back', 'Thorax', 'Abdomen'];
 
-export function pinTestPage({ site, plates }) {
+export function pinTestPage({ site, plates, cadaver = false }) {
   const regions = [...PT_REGIONS, ...new Set(plates.map((p) => p.region).filter((r) => !PT_REGIONS.includes(r)))];
   const count = (f) => plates.filter(f).reduce((n, p) => n + p.pins.length, 0);
   const plateCard = (p) => `
       <button type="button" class="deck plate" data-plate="${esc(p.id)}" data-cat="${esc(p.category)}">
-        <img src="__BASE__games/plates/${esc(p.image)}" alt="" loading="lazy">
+        <img src="__BASE__games/${esc(p.dir || 'plates')}/${esc(p.image)}" alt="" loading="lazy">
         <span class="deck-title">${esc(p.title)}</span>
         <span class="deck-meta">${esc(p.layer || '')} · ${p.pins.length} pins <span class="deck-best" data-best="${esc(p.id)}"></span></span>
       </button>`;
-  const tabs = PT_CATEGORIES.map(([k, l], n) => `<label><input type="radio" name="ptcat" value="${k}"${n ? '' : ' checked'}><span><b>${l}</b><small>${count((p) => p.category === k)} pins</small></span></label>`).join('');
+  const cats = cadaver ? [['cadaver', 'Real cadaver']] : PT_CATEGORIES;
+  const tabs = cadaver ? '' : PT_CATEGORIES.map(([k, l], n) => `<label><input type="radio" name="ptcat" value="${k}"${n ? '' : ' checked'}><span><b>${l}</b><small>${count((p) => p.category === k)} pins</small></span></label>`).join('');
   const sections = regions.filter((r) => plates.some((p) => p.region === r)).map((r) => {
     const rp = plates.filter((p) => p.region === r);
     return `
@@ -372,15 +375,18 @@ export function pinTestPage({ site, plates }) {
       <div class="pt-region-head"><h3>${esc(r)}</h3>
         <button type="button" class="exam-btn" data-exam="${esc(r)}">🎯 Mixed clip test · ${esc(r)} <small>${Math.min(20, count((p) => p.region === r))} random pins from muscles, vessels & nerves</small><span class="deck-best" data-best="exam:${esc(r)}"></span></button>
       </div>
-      ${PT_CATEGORIES.map(([k]) => `<div class="decks" data-cat-group="${k}">${rp.filter((p) => p.category === k).map(plateCard).join('') || '<p class="empty pt-none">Coming soon.</p>'}</div>`).join('')}
+      ${cats.map(([k]) => `<div class="decks" data-cat-group="${k}">${rp.filter((p) => p.category === k).map(plateCard).join('') || '<p class="empty pt-none">Coming soon.</p>'}</div>`).join('')}
     </div>`;
   }).join('');
   return `
-${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it. Muscles, vessels and nerves for every region of the clip test.')}
+${cadaver
+  ? gameShellTop('Real cadaver clip test', 'Games · Real dissection photos', 'Real photos from the dissection hall. A pin sits where the clip was – name the structure in Latin, just like in the exam.')
+  : gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it in Latin. Muscles, vessels and nerves for every region of the clip test.')}
+<button type="button" class="exam-btn hy-btn" data-exam="__HY__">⭐ Most asked in real clip tests <small>${plates.reduce((n, p) => n + p.pins.filter((q) => q.hy).length, 0)} pins taken from the whiteboard lists of past clip tests – random 20</small><span class="deck-best" data-best="exam:__HY__"></span></button>
 <div class="pt" id="pt">
   <section class="pt-pick" id="ptPick">
     <div class="pt-controls">
-      <div class="seg seg-cat" role="radiogroup" aria-label="What to practise">${tabs}</div>
+      ${tabs ? `<div class="seg seg-cat" role="radiogroup" aria-label="What to practise">${tabs}</div>` : ''}
       <div class="seg seg4" role="radiogroup" aria-label="Mode">
         <label><input type="radio" name="ptmode" value="type" checked><span><b>Clip test</b><small>type the name</small></span></label>
         <label><input type="radio" name="ptmode" value="choose"><span><b>Choose</b><small>4 options</small></span></label>
@@ -401,7 +407,8 @@ ${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a str
       <button type="button" class="hud-btn" id="ptSound" aria-label="Sound on/off">🔊</button>
     </div>
     <div class="pt-grid">
-      <figure class="pt-fig">
+      <figure class="pt-fig" id="ptFig">
+        <button type="button" class="btn pt-zoom" id="ptZoom">🔍 Zoom</button>
         <div class="pt-stage" id="ptStage"><img id="ptImg" alt=""><div class="pt-pins" id="ptPins"></div></div>
         <figcaption id="ptCredit"></figcaption>
       </figure>
@@ -426,7 +433,7 @@ ${gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a str
     <div class="btns"><button type="button" class="btn primary" id="ptAgain">Play again</button> <button type="button" class="btn" id="ptBack">Other plate</button></div>
   </section>
 </div>
-<p class="empty game-note">Plates: Sobotta's Atlas and Text-book of Human Anatomy (1909), public domain via Wikimedia Commons – labels removed and pins added by Mumen Anatomy. Latin and English names are both accepted. Scores are saved only in this browser.</p>
+<p class="empty game-note">${cadaver ? 'Photos from the dissection hall of the Medical University of Varna, shared with permission. Labels removed and pins added by Mumen Anatomy. Answers in Latin (English accepted).' : ''} Plates: Sobotta's Atlas and Text-book of Human Anatomy (1909), public domain via Wikimedia Commons – labels removed and pins added by Mumen Anatomy. Latin and English names are both accepted. Scores are saved only in this browser.</p>
 <script type="application/json" id="ptPlates">${JSON.stringify(plates).replace(/</g, '\\u003c')}</script>
 <script>window.PT_BASE = ${JSON.stringify(site.base)};</script>
 <script src="__BASE__assets/game-sound.js" defer></script>

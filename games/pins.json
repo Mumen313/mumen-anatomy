@@ -12,142 +12,208 @@
     {
      "x": 41.04,
      "y": 14.26,
-     "answer": "frontalis",
+     "answer": "venter frontalis musculi occipitofrontalis",
      "also": [
+      "frontalis",
       "frontal belly",
       "occipitofrontalis frontal belly",
       "venter frontalis"
      ],
-     "note": "Frontal belly of occipitofrontalis"
+     "note": "Frontal belly of occipitofrontalis",
+     "english": "frontalis"
     },
     {
      "x": 62.19,
      "y": 12.55,
-     "answer": "epicranial aponeurosis",
+     "answer": "galea aponeurotica",
      "also": [
-      "galea aponeurotica",
+      "epicranial aponeurosis",
       "galea"
-     ]
+     ],
+     "english": "epicranial aponeurosis"
     },
     {
      "x": 76.12,
      "y": 25.67,
-     "answer": "auricularis superior",
+     "answer": "musculus auricularis superior",
      "also": [
+      "m auricularis superior",
+      "auricularis superior",
       "superior auricular"
-     ]
+     ],
+     "english": "auricularis superior"
     },
     {
      "x": 64.05,
      "y": 32.79,
-     "answer": "auricularis anterior",
+     "answer": "musculus auricularis anterior",
      "also": [
+      "m auricularis anterior",
+      "auricularis anterior",
       "anterior auricular"
-     ]
+     ],
+     "english": "auricularis anterior"
     },
     {
      "x": 45.4,
      "y": 43.49,
-     "answer": "orbicularis oculi",
-     "note": "Orbital part"
+     "answer": "musculus orbicularis oculi",
+     "note": "Orbital part",
+     "english": "orbicularis oculi",
+     "also": [
+      "m orbicularis oculi",
+      "orbicularis oculi"
+     ]
     },
     {
      "x": 27.61,
      "y": 38.21,
-     "answer": "procerus"
+     "answer": "musculus procerus",
+     "english": "procerus",
+     "also": [
+      "m procerus",
+      "procerus"
+     ]
     },
     {
      "x": 27.11,
      "y": 43.06,
-     "answer": "nasalis"
+     "answer": "musculus nasalis",
+     "english": "nasalis",
+     "also": [
+      "m nasalis",
+      "nasalis"
+     ]
     },
     {
      "x": 31.72,
      "y": 48.48,
-     "answer": "levator labii superioris alaeque nasi",
+     "answer": "musculus levator labii superioris alaeque nasi",
      "also": [
+      "m levator labii superioris alaeque nasi",
+      "levator labii superioris alaeque nasi",
       "lev lab sup alaeque nasi"
-     ]
+     ],
+     "english": "levator labii superioris alaeque nasi"
     },
     {
      "x": 36.07,
      "y": 53.9,
-     "answer": "levator labii superioris",
+     "answer": "musculus levator labii superioris",
      "also": [
+      "m levator labii superioris",
+      "levator labii superioris",
       "quadratus labii superioris"
-     ]
+     ],
+     "english": "levator labii superioris"
     },
     {
      "x": 38.31,
      "y": 59.46,
-     "answer": "levator anguli oris",
+     "answer": "musculus levator anguli oris",
      "also": [
+      "m levator anguli oris",
+      "levator anguli oris",
       "caninus"
-     ]
+     ],
+     "english": "levator anguli oris"
     },
     {
      "x": 47.89,
      "y": 56.32,
-     "answer": "zygomaticus major",
+     "answer": "musculus zygomaticus major",
      "also": [
+      "m zygomaticus major",
+      "zygomaticus major",
       "zygomaticus"
-     ]
+     ],
+     "english": "zygomaticus major"
     },
     {
      "x": 34.58,
      "y": 65.3,
-     "answer": "orbicularis oris"
+     "answer": "musculus orbicularis oris",
+     "english": "orbicularis oris",
+     "also": [
+      "m orbicularis oris",
+      "orbicularis oris"
+     ]
     },
     {
      "x": 45.4,
      "y": 71.29,
-     "answer": "risorius"
+     "answer": "musculus risorius",
+     "english": "risorius",
+     "also": [
+      "m risorius",
+      "risorius"
+     ]
     },
     {
      "x": 37.31,
      "y": 78.42,
-     "answer": "depressor labii inferioris",
+     "answer": "musculus depressor labii inferioris",
      "also": [
+      "m depressor labii inferioris",
+      "depressor labii inferioris",
       "quadratus labii inferioris"
-     ]
+     ],
+     "english": "depressor labii inferioris"
     },
     {
      "x": 44.15,
      "y": 79.14,
-     "answer": "depressor anguli oris",
+     "answer": "musculus depressor anguli oris",
      "also": [
+      "m depressor anguli oris",
+      "depressor anguli oris",
       "triangularis"
-     ]
+     ],
+     "english": "depressor anguli oris"
     },
     {
      "x": 55.97,
      "y": 86.41,
-     "answer": "platysma"
+     "answer": "platysma",
+     "english": "platysma",
+     "also": [
+      "platysma"
+     ]
     },
     {
      "x": 70.9,
      "y": 71.29,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     },
     {
      "x": 85.2,
      "y": 41.35,
-     "answer": "occipitalis",
+     "answer": "venter occipitalis musculi occipitofrontalis",
      "also": [
+      "occipitalis",
       "occipital belly",
       "venter occipitalis"
      ],
-     "note": "Occipital belly of occipitofrontalis"
+     "note": "Occipital belly of occipitofrontalis",
+     "english": "occipitalis"
     },
     {
      "x": 63.43,
      "y": 57.32,
-     "answer": "masseter",
-     "note": "Covered here by the parotideomasseteric fascia"
+     "answer": "musculus masseter",
+     "note": "Covered here by the parotideomasseteric fascia",
+     "english": "masseter",
+     "also": [
+      "m masseter",
+      "masseter"
+     ]
     }
    ],
    "category": "muscles"
@@ -163,93 +229,149 @@
     {
      "x": 30.53,
      "y": 24.22,
-     "answer": "frontalis",
+     "answer": "venter frontalis musculi occipitofrontalis",
      "also": [
+      "frontalis",
       "frontal belly",
       "occipitofrontalis frontal belly"
-     ]
+     ],
+     "english": "frontalis"
     },
     {
      "x": 27.88,
      "y": 35.31,
-     "answer": "corrugator supercilii",
+     "answer": "musculus corrugator supercilii",
      "also": [
+      "m corrugator supercilii",
+      "corrugator supercilii",
       "corrugator"
-     ]
+     ],
+     "english": "corrugator supercilii"
     },
     {
      "x": 22.83,
      "y": 42.5,
-     "answer": "procerus"
+     "answer": "musculus procerus",
+     "english": "procerus",
+     "also": [
+      "m procerus",
+      "procerus"
+     ]
     },
     {
      "x": 25.22,
      "y": 51.56,
-     "answer": "nasalis"
+     "answer": "musculus nasalis",
+     "english": "nasalis",
+     "also": [
+      "m nasalis",
+      "nasalis"
+     ]
     },
     {
      "x": 30.53,
      "y": 58.13,
-     "answer": "levator anguli oris",
+     "answer": "musculus levator anguli oris",
      "also": [
+      "m levator anguli oris",
+      "levator anguli oris",
       "caninus"
-     ]
+     ],
+     "english": "levator anguli oris"
     },
     {
      "x": 33.19,
      "y": 71.56,
-     "answer": "buccinator"
+     "answer": "musculus buccinator",
+     "english": "buccinator",
+     "also": [
+      "m buccinator",
+      "buccinator"
+     ]
     },
     {
      "x": 46.73,
      "y": 75.31,
-     "answer": "masseter",
-     "note": "Cut and turned down"
+     "answer": "musculus masseter",
+     "note": "Cut and turned down",
+     "english": "masseter",
+     "also": [
+      "m masseter",
+      "masseter"
+     ]
     },
     {
      "x": 27.61,
      "y": 91.41,
-     "answer": "mentalis"
+     "answer": "musculus mentalis",
+     "english": "mentalis",
+     "also": [
+      "m mentalis",
+      "mentalis"
+     ]
     },
     {
      "x": 58.41,
      "y": 29.69,
-     "answer": "temporalis"
+     "answer": "musculus temporalis",
+     "english": "temporalis",
+     "also": [
+      "m temporalis",
+      "temporalis"
+     ]
     },
     {
      "x": 84.96,
      "y": 37.5,
-     "answer": "occipitalis",
+     "answer": "venter occipitalis musculi occipitofrontalis",
      "also": [
+      "occipitalis",
       "occipital belly"
-     ]
+     ],
+     "english": "occipitalis"
     },
     {
      "x": 78.98,
      "y": 51.88,
-     "answer": "auricularis posterior",
+     "answer": "musculus auricularis posterior",
      "also": [
+      "m auricularis posterior",
+      "auricularis posterior",
       "posterior auricular"
-     ]
+     ],
+     "english": "auricularis posterior"
     },
     {
      "x": 84.96,
      "y": 60.62,
-     "answer": "trapezius"
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
     },
     {
      "x": 77.66,
      "y": 64.06,
-     "answer": "splenius capitis"
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis"
+     ]
     },
     {
      "x": 69.03,
      "y": 64.84,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     }
    ],
    "category": "muscles"
@@ -266,52 +388,71 @@
     {
      "x": 41.98,
      "y": 13.26,
-     "answer": "temporalis",
+     "answer": "musculus temporalis",
      "also": [
+      "m temporalis",
+      "temporalis",
       "temporal muscle"
-     ]
+     ],
+     "english": "temporalis"
     },
     {
      "x": 65.97,
      "y": 56.7,
-     "answer": "buccinator"
+     "answer": "musculus buccinator",
+     "english": "buccinator",
+     "also": [
+      "m buccinator",
+      "buccinator"
+     ]
     },
     {
      "x": 24.74,
      "y": 70.95,
-     "answer": "masseter",
-     "note": "Cut and turned down"
+     "answer": "musculus masseter",
+     "note": "Cut and turned down",
+     "english": "masseter",
+     "also": [
+      "m masseter",
+      "masseter"
+     ]
     },
     {
      "x": 56.52,
      "y": 71.02,
-     "answer": "inferior alveolar nerve",
+     "answer": "nervus alveolaris inferior",
      "also": [
-      "nervus alveolaris inferior",
       "n alveolaris inferior",
+      "alveolaris inferior",
+      "inferior alveolar nerve",
       "inferior alveolar"
      ],
-     "note": "Inside the opened mandibular canal"
+     "note": "Inside the opened mandibular canal",
+     "english": "inferior alveolar nerve"
     },
     {
      "x": 73.84,
      "y": 59.68,
-     "answer": "facial artery",
+     "answer": "arteria facialis",
      "also": [
-      "arteria facialis",
       "a facialis",
+      "facialis",
+      "facial artery",
       "external maxillary artery"
-     ]
+     ],
+     "english": "facial artery"
     },
     {
      "x": 21.59,
      "y": 47.75,
-     "answer": "external carotid artery",
+     "answer": "arteria carotis externa",
      "also": [
-      "arteria carotis externa",
       "a carotis externa",
+      "carotis externa",
+      "external carotid artery",
       "external carotid"
-     ]
+     ],
+     "english": "external carotid artery"
     }
    ]
   },
@@ -327,98 +468,122 @@
     {
      "x": 42.71,
      "y": 44.2,
-     "answer": "superficial temporal artery",
+     "answer": "arteria temporalis superficialis",
      "also": [
-      "arteria temporalis superficialis",
       "a temporalis superficialis",
+      "temporalis superficialis",
+      "superficial temporal artery",
       "superficial temporal"
-     ]
+     ],
+     "english": "superficial temporal artery"
     },
     {
      "x": 43.25,
      "y": 52.49,
-     "answer": "retromandibular vein",
+     "answer": "vena retromandibularis",
      "also": [
-      "vena retromandibularis",
-      "posterior facial vein",
-      "v retromandibularis"
-     ]
+      "v retromandibularis",
+      "retromandibularis",
+      "retromandibular vein",
+      "posterior facial vein"
+     ],
+     "english": "retromandibular vein"
     },
     {
      "x": 43.71,
      "y": 70.53,
-     "answer": "external carotid artery",
+     "answer": "arteria carotis externa",
      "also": [
-      "arteria carotis externa",
       "a carotis externa",
-      "external carotid",
-      "carotis externa"
-     ]
+      "carotis externa",
+      "external carotid artery",
+      "external carotid"
+     ],
+     "english": "external carotid artery"
     },
     {
      "x": 62.42,
      "y": 70.53,
-     "answer": "facial vein",
+     "answer": "vena facialis",
      "also": [
-      "vena facialis",
-      "anterior facial vein",
-      "v facialis"
-     ]
+      "v facialis",
+      "facialis",
+      "facial vein",
+      "anterior facial vein"
+     ],
+     "english": "facial vein"
     },
     {
      "x": 52.99,
      "y": 87.94,
-     "answer": "common facial vein",
+     "answer": "vena facialis",
      "also": [
+      "v facialis",
+      "facialis",
+      "common facial vein",
       "facial vein",
       "vena facialis communis"
-     ]
+     ],
+     "english": "common facial vein"
     },
     {
      "x": 69.4,
      "y": 66.94,
-     "answer": "facial artery",
+     "answer": "arteria facialis",
      "also": [
-      "arteria facialis",
       "a facialis",
+      "facialis",
+      "facial artery",
       "external maxillary artery"
-     ]
+     ],
+     "english": "facial artery"
     },
     {
      "x": 64.42,
      "y": 76.8,
-     "answer": "inferior alveolar nerve",
+     "answer": "nervus alveolaris inferior",
      "also": [
-      "nervus alveolaris inferior",
       "n alveolaris inferior",
+      "alveolaris inferior",
+      "inferior alveolar nerve",
       "inferior alveolar artery",
       "inferior alveolar"
      ],
-     "note": "Opened mandibular canal \u2013 nerve with its artery"
+     "note": "Opened mandibular canal \u2013 nerve with its artery",
+     "english": "inferior alveolar nerve"
     },
     {
      "x": 71.4,
      "y": 76.52,
-     "answer": "mental nerve",
+     "answer": "nervus mentalis",
      "also": [
-      "nervus mentalis",
-      "n mentalis"
-     ]
+      "n mentalis",
+      "mentalis",
+      "mental nerve"
+     ],
+     "english": "mental nerve"
     },
     {
      "x": 72.85,
      "y": 50.18,
-     "answer": "infraorbital nerve",
+     "answer": "nervus infraorbitalis",
      "also": [
-      "nervus infraorbitalis",
-      "n infraorbitalis"
-     ]
+      "n infraorbitalis",
+      "infraorbitalis",
+      "infraorbital nerve"
+     ],
+     "english": "infraorbital nerve"
     },
     {
      "x": 53.45,
      "y": 68.14,
-     "answer": "masseter",
-     "note": "Cut and turned down"
+     "answer": "musculus masseter",
+     "note": "Cut and turned down",
+     "english": "masseter",
+     "also": [
+      "m masseter",
+      "masseter"
+     ]
     }
    ]
   },
@@ -434,71 +599,83 @@
     {
      "x": 35.46,
      "y": 56.94,
-     "answer": "inferior alveolar nerve",
+     "answer": "nervus alveolaris inferior",
      "also": [
-      "nervus alveolaris inferior",
       "n alveolaris inferior",
       "alveolaris inferior",
+      "inferior alveolar nerve",
       "inferior alveolar"
      ],
-     "note": "Cut where it enters the mandibular canal"
+     "note": "Cut where it enters the mandibular canal",
+     "english": "inferior alveolar nerve"
     },
     {
      "x": 39.67,
      "y": 59.27,
-     "answer": "lingual nerve",
+     "answer": "nervus lingualis",
      "also": [
-      "nervus lingualis",
       "n lingualis",
-      "lingualis"
-     ]
+      "lingualis",
+      "lingual nerve"
+     ],
+     "english": "lingual nerve"
     },
     {
      "x": 21.02,
      "y": 13.19,
-     "answer": "auriculotemporal nerve",
+     "answer": "nervus auriculotemporalis",
      "also": [
-      "auriculotemporal",
-      "nervus auriculotemporalis",
       "n auriculotemporalis",
-      "auriculotemporalis"
-     ]
+      "auriculotemporalis",
+      "auriculotemporal nerve",
+      "auriculotemporal"
+     ],
+     "english": "auriculotemporal nerve"
     },
     {
      "x": 25.04,
      "y": 16.68,
-     "answer": "superficial temporal artery",
+     "answer": "arteria temporalis superficialis",
      "also": [
-      "arteria temporalis superficialis",
-      "a temporalis superficialis"
-     ]
+      "a temporalis superficialis",
+      "temporalis superficialis",
+      "superficial temporal artery"
+     ],
+     "english": "superficial temporal artery"
     },
     {
      "x": 42.56,
      "y": 49.65,
-     "answer": "lateral pterygoid",
+     "answer": "musculus pterygoideus lateralis",
      "also": [
+      "m pterygoideus lateralis",
       "pterygoideus lateralis",
+      "lateral pterygoid",
       "lateral pterygoid muscle",
       "external pterygoid"
-     ]
+     ],
+     "english": "lateral pterygoid"
     },
     {
      "x": 49.04,
      "y": 17.84,
-     "answer": "temporalis",
+     "answer": "musculus temporalis",
      "also": [
+      "m temporalis",
+      "temporalis",
       "temporal muscle"
-     ]
+     ],
+     "english": "temporalis"
     },
     {
      "x": 36.78,
      "y": 69.05,
-     "answer": "submandibular gland",
+     "answer": "glandula submandibularis",
      "also": [
-      "submaxillary gland",
-      "glandula submandibularis"
-     ]
+      "submandibular gland",
+      "submaxillary gland"
+     ],
+     "english": "submandibular gland"
     }
    ]
   },
@@ -514,122 +691,166 @@
     {
      "x": 56.56,
      "y": 36.04,
-     "answer": "digastric posterior belly",
+     "answer": "venter posterior musculi digastrici",
      "also": [
+      "digastric posterior belly",
       "digastricus posterior belly",
       "posterior belly of digastric",
       "digastric",
       "digastricus"
-     ]
+     ],
+     "english": "digastric posterior belly"
     },
     {
      "x": 30.75,
      "y": 29.17,
-     "answer": "digastric anterior belly",
+     "answer": "venter anterior musculi digastrici",
      "also": [
+      "digastric anterior belly",
       "digastricus anterior belly",
       "anterior belly of digastric",
       "digastric",
       "digastricus"
-     ]
+     ],
+     "english": "digastric anterior belly"
     },
     {
      "x": 30.75,
      "y": 36.47,
-     "answer": "mylohyoid",
+     "answer": "musculus mylohyoideus",
      "also": [
-      "mylohyoideus"
-     ]
+      "m mylohyoideus",
+      "mylohyoideus",
+      "mylohyoid"
+     ],
+     "english": "mylohyoid"
     },
     {
      "x": 38.44,
      "y": 38.82,
-     "answer": "stylohyoid",
+     "answer": "musculus stylohyoideus",
      "also": [
-      "stylohyoideus"
-     ]
+      "m stylohyoideus",
+      "stylohyoideus",
+      "stylohyoid"
+     ],
+     "english": "stylohyoid"
     },
     {
      "x": 32.4,
      "y": 46.76,
-     "answer": "thyrohyoid",
+     "answer": "musculus thyrohyoideus",
      "also": [
+      "m thyrohyoideus",
       "thyrohyoideus",
+      "thyrohyoid",
       "thyreohyoideus"
-     ]
+     ],
+     "english": "thyrohyoid"
     },
     {
      "x": 27.46,
      "y": 56.84,
-     "answer": "omohyoid superior belly",
+     "answer": "venter superior musculi omohyoidei",
      "also": [
+      "omohyoid superior belly",
       "omohyoideus",
       "omohyoid",
       "superior belly of omohyoid"
-     ]
+     ],
+     "english": "omohyoid superior belly"
     },
     {
      "x": 31.58,
      "y": 59.42,
-     "answer": "sternothyroid",
+     "answer": "musculus sternothyroideus",
      "also": [
+      "m sternothyroideus",
       "sternothyroideus",
+      "sternothyroid",
       "sternothyreoideus"
-     ]
+     ],
+     "english": "sternothyroid"
     },
     {
      "x": 24.16,
      "y": 69.93,
-     "answer": "sternohyoid",
+     "answer": "musculus sternohyoideus",
      "also": [
-      "sternohyoideus"
-     ]
+      "m sternohyoideus",
+      "sternohyoideus",
+      "sternohyoid"
+     ],
+     "english": "sternohyoid"
     },
     {
      "x": 49.42,
      "y": 57.49,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     },
     {
      "x": 57.11,
      "y": 64.56,
-     "answer": "levator scapulae"
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae"
+     ]
     },
     {
      "x": 48.33,
      "y": 73.57,
-     "answer": "scalenus medius",
+     "answer": "musculus scalenus medius",
      "also": [
+      "m scalenus medius",
+      "scalenus medius",
       "scaleni",
       "scalene",
       "middle scalene",
       "scalenus medius et posterior"
      ],
-     "note": "Scalene group \u2013 middle scalene"
+     "note": "Scalene group \u2013 middle scalene",
+     "english": "scalenus medius"
     },
     {
      "x": 69.19,
      "y": 73.79,
-     "answer": "trapezius"
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
     },
     {
      "x": 47.23,
      "y": 79.37,
-     "answer": "omohyoid inferior belly",
+     "answer": "venter inferior musculi omohyoidei",
      "also": [
+      "omohyoid inferior belly",
       "omohyoideus",
       "omohyoid",
       "inferior belly of omohyoid"
-     ]
+     ],
+     "english": "omohyoid inferior belly"
     },
     {
      "x": 69.19,
      "y": 51.48,
-     "answer": "splenius capitis"
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis"
+     ]
     }
    ]
   },
@@ -645,118 +866,164 @@
     {
      "x": 42.78,
      "y": 23.84,
-     "answer": "digastric anterior belly",
+     "answer": "venter anterior musculi digastrici",
      "also": [
+      "digastric anterior belly",
       "digastricus anterior belly",
       "anterior belly of digastric",
       "digastric",
       "digastricus"
-     ]
+     ],
+     "english": "digastric anterior belly"
     },
     {
      "x": 39.65,
      "y": 29.8,
-     "answer": "mylohyoid",
+     "answer": "musculus mylohyoideus",
      "also": [
-      "mylohyoideus"
-     ]
+      "m mylohyoideus",
+      "mylohyoideus",
+      "mylohyoid"
+     ],
+     "english": "mylohyoid"
     },
     {
      "x": 35.99,
      "y": 40.23,
-     "answer": "hyoglossus"
+     "answer": "musculus hyoglossus",
+     "english": "hyoglossus",
+     "also": [
+      "m hyoglossus",
+      "hyoglossus"
+     ]
     },
     {
      "x": 60.51,
      "y": 45.89,
-     "answer": "digastric posterior belly",
+     "answer": "venter posterior musculi digastrici",
      "also": [
+      "digastric posterior belly",
       "digastricus posterior belly",
       "posterior belly of digastric",
       "digastric",
       "digastricus"
-     ]
+     ],
+     "english": "digastric posterior belly"
     },
     {
      "x": 40.17,
      "y": 51.64,
-     "answer": "thyrohyoid",
+     "answer": "musculus thyrohyoideus",
      "also": [
+      "m thyrohyoideus",
       "thyrohyoideus",
+      "thyrohyoid",
       "thyreohyoideus"
-     ]
+     ],
+     "english": "thyrohyoid"
     },
     {
      "x": 54.51,
      "y": 55.77,
-     "answer": "omohyoid superior belly",
+     "answer": "venter superior musculi omohyoidei",
      "also": [
+      "omohyoid superior belly",
       "omohyoideus",
       "omohyoid",
       "superior belly of omohyoid"
-     ]
+     ],
+     "english": "omohyoid superior belly"
     },
     {
      "x": 52.16,
      "y": 60.03,
-     "answer": "sternohyoid",
+     "answer": "musculus sternohyoideus",
      "also": [
-      "sternohyoideus"
-     ]
+      "m sternohyoideus",
+      "sternohyoideus",
+      "sternohyoid"
+     ],
+     "english": "sternohyoid"
     },
     {
      "x": 43.3,
      "y": 70.75,
-     "answer": "sternothyroid",
+     "answer": "musculus sternothyroideus",
      "also": [
+      "m sternothyroideus",
       "sternothyroideus",
+      "sternothyroid",
       "sternothyreoideus"
-     ]
+     ],
+     "english": "sternothyroid"
     },
     {
      "x": 33.39,
      "y": 61.3,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     },
     {
      "x": 71.05,
      "y": 66.62,
-     "answer": "scalenus medius",
+     "answer": "musculus scalenus medius",
      "also": [
+      "m scalenus medius",
+      "scalenus medius",
       "scaleni",
       "scalene",
       "middle scalene",
       "scalenus medius et posterior"
-     ]
+     ],
+     "english": "scalenus medius"
     },
     {
      "x": 73.81,
      "y": 71.95,
-     "answer": "levator scapulae"
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae"
+     ]
     },
     {
      "x": 79.81,
      "y": 74.07,
-     "answer": "trapezius"
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
     },
     {
      "x": 79.29,
      "y": 78.12,
-     "answer": "omohyoid inferior belly",
+     "answer": "venter inferior musculi omohyoidei",
      "also": [
+      "omohyoid inferior belly",
       "omohyoideus",
       "omohyoid",
       "inferior belly of omohyoid"
-     ]
+     ],
+     "english": "omohyoid inferior belly"
     },
     {
      "x": 70.42,
      "y": 92.38,
-     "answer": "pectoralis major"
+     "answer": "musculus pectoralis major",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ]
     }
    ]
   },
@@ -772,129 +1039,152 @@
     {
      "x": 65.22,
      "y": 54.59,
-     "answer": "internal jugular vein",
+     "answer": "vena jugularis interna",
      "also": [
-      "vena jugularis interna",
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein",
       "ijv",
-      "left internal jugular vein",
-      "v jugularis interna"
+      "left internal jugular vein"
      ],
-     "note": "Left side"
+     "note": "Left side",
+     "english": "internal jugular vein"
     },
     {
      "x": 55.9,
      "y": 64.05,
-     "answer": "common carotid artery",
+     "answer": "arteria carotis communis",
      "also": [
-      "arteria carotis communis",
       "a carotis communis",
-      "left common carotid artery",
-      "carotis communis"
+      "carotis communis",
+      "common carotid artery",
+      "left common carotid artery"
      ],
-     "note": "Left side"
+     "note": "Left side",
+     "english": "common carotid artery"
     },
     {
      "x": 41.26,
      "y": 58.22,
-     "answer": "common carotid artery",
+     "answer": "arteria carotis communis",
      "also": [
-      "arteria carotis communis",
       "a carotis communis",
-      "right common carotid artery",
-      "carotis communis"
+      "carotis communis",
+      "common carotid artery",
+      "right common carotid artery"
      ],
-     "note": "Right side"
+     "note": "Right side",
+     "english": "common carotid artery"
     },
     {
      "x": 58.92,
      "y": 75.18,
-     "answer": "brachiocephalic vein",
+     "answer": "vena brachiocephalica",
      "also": [
+      "v brachiocephalica",
+      "brachiocephalica",
+      "brachiocephalic vein",
       "left brachiocephalic vein",
       "innominate vein",
-      "vena brachiocephalica",
       "left innominate vein"
      ],
-     "note": "Left brachiocephalic (innominate) vein"
+     "note": "Left brachiocephalic (innominate) vein",
+     "english": "brachiocephalic vein"
     },
     {
      "x": 35.49,
      "y": 85.88,
-     "answer": "superior vena cava",
+     "answer": "vena cava superior",
      "also": [
-      "svc",
-      "vena cava superior"
-     ]
+      "v cava superior",
+      "cava superior",
+      "superior vena cava",
+      "svc"
+     ],
+     "english": "superior vena cava"
     },
     {
      "x": 53.24,
      "y": 87.34,
-     "answer": "aortic arch",
+     "answer": "arcus aortae",
      "also": [
-      "arch of aorta",
-      "arcus aortae"
-     ]
+      "aortic arch",
+      "arch of aorta"
+     ],
+     "english": "aortic arch"
     },
     {
      "x": 76.31,
      "y": 73.51,
-     "answer": "subclavian vein",
+     "answer": "vena subclavia",
      "also": [
-      "vena subclavia",
+      "v subclavia",
+      "subclavia",
+      "subclavian vein",
       "left subclavian vein"
-     ]
+     ],
+     "english": "subclavian vein"
     },
     {
      "x": 75.42,
      "y": 66.59,
-     "answer": "subclavian artery",
+     "answer": "arteria subclavia",
      "also": [
-      "arteria subclavia",
       "a subclavia",
+      "subclavia",
+      "subclavian artery",
       "left subclavian artery"
-     ]
+     ],
+     "english": "subclavian artery"
     },
     {
      "x": 46.58,
      "y": 64.05,
-     "answer": "inferior thyroid vein",
+     "answer": "vena thyroidea inferior",
      "also": [
-      "vena thyroidea inferior",
+      "v thyroidea inferior",
+      "thyroidea inferior",
+      "inferior thyroid vein",
       "inferior thyroid veins"
-     ]
+     ],
+     "english": "inferior thyroid vein"
     },
     {
      "x": 59.89,
      "y": 83.7,
-     "answer": "vagus nerve",
+     "answer": "nervus vagus",
      "also": [
+      "n vagus",
       "vagus",
+      "vagus nerve",
       "cn x",
-      "nervus vagus",
-      "left vagus nerve",
-      "n vagus"
+      "left vagus nerve"
      ],
-     "note": "Left vagus crossing the aortic arch"
+     "note": "Left vagus crossing the aortic arch",
+     "english": "vagus nerve"
     },
     {
      "x": 74.53,
      "y": 60.41,
-     "answer": "brachial plexus",
+     "answer": "plexus brachialis",
      "also": [
-      "plexus brachialis"
-     ]
+      "brachial plexus"
+     ],
+     "english": "brachial plexus"
     },
     {
      "x": 34.61,
      "y": 47.82,
-     "answer": "internal jugular vein",
+     "answer": "vena jugularis interna",
      "also": [
-      "vena jugularis interna",
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein",
       "ijv",
-      "right internal jugular vein",
-      "v jugularis interna"
+      "right internal jugular vein"
      ],
-     "note": "Right side"
+     "note": "Right side",
+     "english": "internal jugular vein"
     }
    ]
   },
@@ -910,73 +1200,87 @@
     {
      "x": 50.97,
      "y": 48.08,
-     "answer": "great auricular nerve",
+     "answer": "nervus auricularis magnus",
      "also": [
-      "nervus auricularis magnus",
       "n auricularis magnus",
-      "great auricular",
-      "auricularis magnus"
+      "auricularis magnus",
+      "great auricular nerve",
+      "great auricular"
      ],
-     "note": "C2\u2013C3, ascends on sternocleidomastoid"
+     "note": "C2\u2013C3, ascends on sternocleidomastoid",
+     "english": "great auricular nerve"
     },
     {
      "x": 60.04,
      "y": 44.82,
-     "answer": "lesser occipital nerve",
+     "answer": "nervus occipitalis minor",
      "also": [
-      "nervus occipitalis minor",
       "n occipitalis minor",
-      "lesser occipital",
-      "occipitalis minor"
+      "occipitalis minor",
+      "lesser occipital nerve",
+      "lesser occipital"
      ],
-     "note": "C2"
+     "note": "C2",
+     "english": "lesser occipital nerve"
     },
     {
      "x": 67.99,
      "y": 63.27,
-     "answer": "accessory nerve",
+     "answer": "nervus accessorius",
      "also": [
+      "n accessorius",
+      "accessorius",
+      "accessory nerve",
       "cn xi",
       "spinal accessory nerve",
-      "nervus accessorius",
-      "n accessorius",
       "accessory"
-     ]
+     ],
+     "english": "accessory nerve"
     },
     {
      "x": 39.76,
      "y": 86.53,
-     "answer": "supraclavicular nerves",
+     "answer": "nervi supraclaviculares",
      "also": [
-      "nervi supraclaviculares",
-      "supraclavicular nerve",
-      "nn supraclaviculares"
+      "nn supraclaviculares",
+      "supraclavicular nerves",
+      "supraclavicular nerve"
      ],
-     "note": "C3\u2013C4"
+     "note": "C3\u2013C4",
+     "english": "supraclavicular nerves"
     },
     {
      "x": 45.36,
      "y": 42.45,
-     "answer": "external jugular vein",
+     "answer": "vena jugularis externa",
      "also": [
-      "vena jugularis externa",
       "v jugularis externa",
+      "jugularis externa",
+      "external jugular vein",
       "ejv"
-     ]
+     ],
+     "english": "external jugular vein"
     },
     {
      "x": 33.03,
      "y": 64.08,
-     "answer": "platysma"
+     "answer": "platysma",
+     "english": "platysma",
+     "also": [
+      "platysma"
+     ]
     },
     {
      "x": 48.01,
      "y": 46.45,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     }
    ]
   },
@@ -992,60 +1296,215 @@
     {
      "x": 52.72,
      "y": 44.09,
-     "answer": "cervical plexus",
+     "answer": "plexus cervicalis",
      "also": [
-      "plexus cervicalis",
+      "cervical plexus",
       "erb's point",
       "erbs point",
       "punctum nervosum"
      ],
-     "note": "Where the cutaneous branches emerge behind sternocleidomastoid"
+     "note": "Where the cutaneous branches emerge behind sternocleidomastoid",
+     "english": "cervical plexus"
     },
     {
      "x": 52.82,
      "y": 73.48,
-     "answer": "brachial plexus",
+     "answer": "plexus brachialis",
      "also": [
-      "plexus brachialis"
-     ]
+      "brachial plexus"
+     ],
+     "english": "brachial plexus"
     },
     {
      "x": 43.72,
      "y": 44.59,
-     "answer": "internal jugular vein",
+     "answer": "vena jugularis interna",
      "also": [
-      "vena jugularis interna",
-      "ijv",
-      "v jugularis interna"
-     ]
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein",
+      "ijv"
+     ],
+     "english": "internal jugular vein"
     },
     {
      "x": 37.76,
      "y": 49.92,
-     "answer": "common carotid artery",
+     "answer": "arteria carotis communis",
      "also": [
-      "arteria carotis communis",
       "a carotis communis",
-      "carotis communis"
-     ]
+      "carotis communis",
+      "common carotid artery"
+     ],
+     "english": "common carotid artery"
     },
     {
      "x": 59.1,
      "y": 70.27,
-     "answer": "omohyoid inferior belly",
+     "answer": "venter inferior musculi omohyoidei",
      "also": [
+      "omohyoid inferior belly",
       "omohyoideus",
       "omohyoid",
       "inferior belly of omohyoid"
-     ]
+     ],
+     "english": "omohyoid inferior belly"
     },
     {
      "x": 43.93,
      "y": 64.19,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
+     ],
+     "english": "sternocleidomastoid"
+    }
+   ]
+  },
+  {
+   "id": "neck-ansa-hypoglossus",
+   "region": "Neck",
+   "category": "nerves",
+   "title": "Neck \u2013 ansa cervicalis & hypoglossal nerve",
+   "layer": "Fourth layer, lateral view",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 700 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "neck-ansa-hypoglossus.jpg",
+   "pins": [
+    {
+     "x": 38.76,
+     "y": 39.19,
+     "answer": "nervus hypoglossus",
+     "english": "hypoglossal nerve",
+     "also": [
+      "n hypoglossus",
+      "hypoglossus",
+      "hypoglossal nerve"
+     ]
+    },
+    {
+     "x": 37.1,
+     "y": 53.83,
+     "answer": "ansa cervicalis",
+     "also": [
+      "ansa cervicalis",
+      "radix superior ansae cervicalis",
+      "descending branch of hypoglossal"
+     ],
+     "note": "Superior root running down on the vessels",
+     "english": "ansa cervicalis"
+    },
+    {
+     "x": 39.17,
+     "y": 57.53,
+     "answer": "vena jugularis interna",
+     "english": "internal jugular vein",
+     "also": [
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein"
+     ]
+    },
+    {
+     "x": 34.72,
+     "y": 72.33,
+     "answer": "arteria carotis communis",
+     "english": "common carotid artery",
+     "also": [
+      "a carotis communis",
+      "carotis communis",
+      "common carotid artery"
+     ]
+    },
+    {
+     "x": 29.84,
+     "y": 54.25,
+     "answer": "venter superior musculi omohyoidei",
+     "english": "omohyoid superior belly",
+     "also": [
+      "omohyoid superior belly"
+     ]
+    },
+    {
+     "x": 52.12,
+     "y": 69.3,
+     "answer": "venter inferior musculi omohyoidei",
+     "english": "omohyoid inferior belly",
+     "also": [
+      "omohyoid inferior belly"
+     ]
+    },
+    {
+     "x": 47.88,
+     "y": 74.01,
+     "answer": "arteria subclavia",
+     "english": "subclavian artery",
+     "also": [
+      "a subclavia",
+      "subclavia",
+      "subclavian artery"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "neck-pharynx-posterior",
+   "region": "Neck",
+   "category": "nerves",
+   "title": "Neck \u2013 pharynx from behind: vagus & vessels",
+   "layer": "Posterior view of the pharynx",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 693 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "neck-pharynx-posterior.jpg",
+   "pins": [
+    {
+     "x": 67.27,
+     "y": 61.5,
+     "answer": "vena jugularis interna",
+     "english": "internal jugular vein",
+     "also": [
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein"
+     ]
+    },
+    {
+     "x": 65.46,
+     "y": 67.63,
+     "answer": "nervus vagus",
+     "english": "vagus nerve",
+     "also": [
+      "n vagus",
+      "vagus",
+      "vagus nerve"
+     ]
+    },
+    {
+     "x": 40.89,
+     "y": 73.0,
+     "answer": "musculus constrictor pharyngis inferior",
+     "also": [
+      "constrictor pharyngis inferior",
+      "inferior constrictor"
+     ]
+    },
+    {
+     "x": 43.61,
+     "y": 23.08,
+     "answer": "musculus constrictor pharyngis superior",
+     "also": [
+      "constrictor pharyngis superior",
+      "superior constrictor"
+     ]
+    },
+    {
+     "x": 39.07,
+     "y": 46.08,
+     "answer": "musculus constrictor pharyngis medius",
+     "also": [
+      "constrictor pharyngis medius",
+      "middle constrictor"
      ]
     }
    ]
@@ -1062,99 +1521,146 @@
     {
      "x": 36.0,
      "y": 35.0,
-     "answer": "trapezius"
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
     },
     {
      "x": 28.0,
      "y": 60.2,
-     "answer": "latissimus dorsi",
+     "answer": "musculus latissimus dorsi",
      "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
       "latissimus"
-     ]
+     ],
+     "english": "latissimus dorsi"
     },
     {
      "x": 53.75,
      "y": 18.73,
-     "answer": "levator scapulae"
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae"
+     ]
     },
     {
      "x": 54.25,
      "y": 15.05,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     },
     {
      "x": 35.25,
      "y": 13.83,
-     "answer": "splenius capitis"
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis"
+     ]
     },
     {
      "x": 37.0,
      "y": 8.75,
-     "answer": "semispinalis capitis"
+     "answer": "musculus semispinalis capitis",
+     "english": "semispinalis capitis",
+     "also": [
+      "m semispinalis capitis",
+      "semispinalis capitis"
+     ]
     },
     {
      "x": 53.0,
      "y": 6.13,
-     "answer": "occipitalis",
+     "answer": "venter occipitalis musculi occipitofrontalis",
      "also": [
+      "occipitalis",
       "occipital belly",
       "occipitofrontalis"
-     ]
+     ],
+     "english": "occipitalis"
     },
     {
      "x": 72.0,
      "y": 29.05,
-     "answer": "deltoid",
+     "answer": "musculus deltoideus",
      "also": [
-      "deltoideus"
-     ]
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ],
+     "english": "deltoid"
     },
     {
      "x": 72.0,
      "y": 32.9,
-     "answer": "infraspinatus"
+     "answer": "musculus infraspinatus",
+     "english": "infraspinatus",
+     "also": [
+      "m infraspinatus",
+      "infraspinatus"
+     ]
     },
     {
      "x": 24.0,
      "y": 39.2,
-     "answer": "rhomboid major",
+     "answer": "musculus rhomboideus major",
      "also": [
-      "rhomboideus major"
-     ]
+      "m rhomboideus major",
+      "rhomboideus major",
+      "rhomboid major"
+     ],
+     "english": "rhomboid major"
     },
     {
      "x": 57.5,
      "y": 42.0,
-     "answer": "erector spinae",
+     "answer": "musculus erector spinae",
      "also": [
+      "m erector spinae",
+      "erector spinae",
       "sacrospinalis",
       "erector spinae muscle"
      ],
-     "note": "Seen through the thoracolumbar fascia"
+     "note": "Seen through the thoracolumbar fascia",
+     "english": "erector spinae"
     },
     {
      "x": 68.5,
      "y": 72.8,
-     "answer": "external oblique",
+     "answer": "musculus obliquus externus abdominis",
      "also": [
+      "m obliquus externus abdominis",
       "obliquus externus abdominis",
+      "external oblique",
       "obliquus externus",
       "external abdominal oblique"
-     ]
+     ],
+     "english": "external oblique"
     },
     {
      "x": 47.5,
      "y": 78.75,
-     "answer": "thoracolumbar fascia",
+     "answer": "fascia thoracolumbalis",
      "also": [
+      "thoracolumbar fascia",
       "lumbar fascia",
       "lumbodorsal fascia"
      ],
-     "note": "Posterior layer"
+     "note": "Posterior layer",
+     "english": "thoracolumbar fascia"
     }
    ]
   },
@@ -1170,145 +1676,218 @@
     {
      "x": 58.0,
      "y": 13.92,
-     "answer": "splenius capitis"
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis"
+     ]
     },
     {
      "x": 48.0,
      "y": 17.27,
-     "answer": "semispinalis capitis"
+     "answer": "musculus semispinalis capitis",
+     "english": "semispinalis capitis",
+     "also": [
+      "m semispinalis capitis",
+      "semispinalis capitis"
+     ]
     },
     {
      "x": 40.5,
      "y": 15.51,
-     "answer": "longissimus capitis"
+     "answer": "musculus longissimus capitis",
+     "english": "longissimus capitis",
+     "also": [
+      "m longissimus capitis",
+      "longissimus capitis"
+     ]
     },
     {
      "x": 58.5,
      "y": 21.15,
-     "answer": "splenius cervicis"
+     "answer": "musculus splenius cervicis",
+     "english": "splenius cervicis",
+     "also": [
+      "m splenius cervicis",
+      "splenius cervicis"
+     ]
     },
     {
      "x": 41.5,
      "y": 24.67,
-     "answer": "iliocostalis cervicis",
+     "answer": "musculus iliocostalis cervicis",
      "also": [
+      "m iliocostalis cervicis",
+      "iliocostalis cervicis",
       "iliocostalis"
-     ]
+     ],
+     "english": "iliocostalis cervicis"
     },
     {
      "x": 62.5,
      "y": 22.56,
-     "answer": "levator scapulae"
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae"
+     ]
     },
     {
      "x": 61.75,
      "y": 16.57,
-     "answer": "sternocleidomastoid",
+     "answer": "musculus sternocleidomastoideus",
      "also": [
+      "m sternocleidomastoideus",
       "sternocleidomastoideus",
+      "sternocleidomastoid",
       "scm"
-     ]
+     ],
+     "english": "sternocleidomastoid"
     },
     {
      "x": 69.0,
      "y": 31.37,
-     "answer": "serratus posterior superior",
+     "answer": "musculus serratus posterior superior",
      "also": [
+      "m serratus posterior superior",
+      "serratus posterior superior",
       "serratus posterior superior muscle"
-     ]
+     ],
+     "english": "serratus posterior superior"
     },
     {
      "x": 75.0,
      "y": 35.25,
-     "answer": "rhomboids",
+     "answer": "musculi rhomboidei",
      "also": [
+      "mm rhomboidei",
+      "rhomboids",
       "rhomboid major",
       "rhomboid minor",
       "rhomboideus major",
       "rhomboidei"
      ],
-     "note": "Cut and reflected"
+     "note": "Cut and reflected",
+     "english": "rhomboids"
     },
     {
      "x": 31.0,
      "y": 42.65,
-     "answer": "iliocostalis",
+     "answer": "musculus iliocostalis",
      "also": [
+      "m iliocostalis",
+      "iliocostalis",
       "iliocostalis thoracis",
       "iliocostalis dorsi"
      ],
-     "note": "Lateral column of erector spinae"
+     "note": "Lateral column of erector spinae",
+     "english": "iliocostalis"
     },
     {
      "x": 42.0,
      "y": 50.41,
-     "answer": "longissimus",
+     "answer": "musculus longissimus",
      "also": [
+      "m longissimus",
+      "longissimus",
       "longissimus thoracis",
       "longissimus dorsi"
      ],
-     "note": "Middle column of erector spinae"
+     "note": "Middle column of erector spinae",
+     "english": "longissimus"
     },
     {
      "x": 52.5,
      "y": 46.53,
-     "answer": "spinalis",
+     "answer": "musculus spinalis",
      "also": [
+      "m spinalis",
+      "spinalis",
       "spinalis thoracis",
       "spinalis dorsi"
      ],
-     "note": "Medial column of erector spinae"
+     "note": "Medial column of erector spinae",
+     "english": "spinalis"
     },
     {
      "x": 61.5,
      "y": 61.68,
-     "answer": "iliocostalis",
+     "answer": "musculus iliocostalis",
      "also": [
+      "m iliocostalis",
+      "iliocostalis",
       "iliocostalis lumborum"
      ],
-     "note": "Lateral column of erector spinae"
+     "note": "Lateral column of erector spinae",
+     "english": "iliocostalis"
     },
     {
      "x": 69.0,
      "y": 64.15,
-     "answer": "serratus posterior inferior"
+     "answer": "musculus serratus posterior inferior",
+     "english": "serratus posterior inferior",
+     "also": [
+      "m serratus posterior inferior",
+      "serratus posterior inferior"
+     ]
     },
     {
      "x": 76.5,
      "y": 58.16,
-     "answer": "serratus anterior"
+     "answer": "musculus serratus anterior",
+     "english": "serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior"
+     ]
     },
     {
      "x": 77.75,
      "y": 51.46,
-     "answer": "latissimus dorsi",
+     "answer": "musculus latissimus dorsi",
      "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
       "latissimus"
      ],
-     "note": "Cut"
+     "note": "Cut",
+     "english": "latissimus dorsi"
     },
     {
      "x": 25.0,
      "y": 75.78,
-     "answer": "external oblique",
+     "answer": "musculus obliquus externus abdominis",
      "also": [
+      "m obliquus externus abdominis",
       "obliquus externus abdominis",
+      "external oblique",
       "obliquus externus"
-     ]
+     ],
+     "english": "external oblique"
     },
     {
      "x": 33.5,
      "y": 76.49,
-     "answer": "internal oblique",
+     "answer": "musculus obliquus internus abdominis",
      "also": [
+      "m obliquus internus abdominis",
       "obliquus internus abdominis",
+      "internal oblique",
       "obliquus internus"
-     ]
+     ],
+     "english": "internal oblique"
     },
     {
      "x": 40.5,
      "y": 77.55,
-     "answer": "quadratus lumborum"
+     "answer": "musculus quadratus lumborum",
+     "english": "quadratus lumborum",
+     "also": [
+      "m quadratus lumborum",
+      "quadratus lumborum"
+     ]
     }
    ]
   },
@@ -1324,67 +1903,188 @@
     {
      "x": 57.95,
      "y": 13.87,
-     "answer": "greater occipital nerve",
+     "answer": "nervus occipitalis major",
      "also": [
-      "great occipital nerve",
-      "nervus occipitalis major",
       "n occipitalis major",
-      "occipitalis major"
+      "occipitalis major",
+      "greater occipital nerve",
+      "great occipital nerve"
      ],
-     "note": "Dorsal ramus of C2"
+     "note": "Dorsal ramus of C2",
+     "english": "greater occipital nerve"
     },
     {
      "x": 65.03,
      "y": 22.02,
-     "answer": "lesser occipital nerve",
+     "answer": "nervus occipitalis minor",
      "also": [
-      "nervus occipitalis minor",
       "n occipitalis minor",
-      "occipitalis minor"
+      "occipitalis minor",
+      "lesser occipital nerve"
      ],
-     "note": "C2 \u2013 cervical plexus"
+     "note": "C2 \u2013 cervical plexus",
+     "english": "lesser occipital nerve"
     },
     {
      "x": 40.96,
      "y": 37.06,
-     "answer": "accessory nerve",
+     "answer": "nervus accessorius",
      "also": [
+      "n accessorius",
+      "accessorius",
+      "accessory nerve",
       "cn xi",
-      "spinal accessory nerve",
-      "nervus accessorius",
-      "n accessorius"
-     ]
+      "spinal accessory nerve"
+     ],
+     "english": "accessory nerve"
     },
     {
      "x": 41.39,
      "y": 18.49,
-     "answer": "occipital artery",
+     "answer": "arteria occipitalis",
      "also": [
-      "arteria occipitalis",
-      "a occipitalis"
-     ]
+      "a occipitalis",
+      "occipitalis",
+      "occipital artery"
+     ],
+     "english": "occipital artery"
     },
     {
      "x": 61.98,
      "y": 46.3,
-     "answer": "trapezius"
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius"
+     ]
     },
     {
      "x": 29.96,
      "y": 81.01,
-     "answer": "latissimus dorsi",
+     "answer": "musculus latissimus dorsi",
      "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
       "latissimus"
-     ]
+     ],
+     "english": "latissimus dorsi"
     },
     {
      "x": 22.98,
      "y": 63.28,
-     "answer": "rhomboid major",
+     "answer": "musculus rhomboideus major",
      "also": [
-      "rhomboideus major"
+      "m rhomboideus major",
+      "rhomboideus major",
+      "rhomboid major"
      ],
-     "note": "Trapezius removed on this side"
+     "note": "Trapezius removed on this side",
+     "english": "rhomboid major"
+    }
+   ]
+  },
+  {
+   "id": "back-scapular-region",
+   "region": "Back",
+   "category": "nerves",
+   "title": "Scapular region \u2013 suprascapular & axillary nerve",
+   "layer": "Posterior view of the shoulder",
+   "credit": "Sobotta, Atlas and Text-book of Human Anatomy (1909), fig. 704 \u2013 public domain, via Wikimedia Commons. Labels removed and pins added by Mumen Anatomy.",
+   "image": "back-scapular-region.jpg",
+   "pins": [
+    {
+     "x": 46.64,
+     "y": 46.6,
+     "answer": "nervus suprascapularis",
+     "english": "suprascapular nerve",
+     "also": [
+      "n suprascapularis",
+      "suprascapularis",
+      "suprascapular nerve"
+     ]
+    },
+    {
+     "x": 50.05,
+     "y": 53.07,
+     "answer": "arteria suprascapularis",
+     "english": "suprascapular artery",
+     "also": [
+      "a suprascapularis",
+      "suprascapularis",
+      "suprascapular artery"
+     ]
+    },
+    {
+     "x": 35.01,
+     "y": 76.45,
+     "answer": "nervus axillaris",
+     "english": "axillary nerve",
+     "also": [
+      "n axillaris",
+      "axillaris",
+      "axillary nerve"
+     ]
+    },
+    {
+     "x": 59.77,
+     "y": 57.21,
+     "answer": "musculus teres minor",
+     "english": "teres minor",
+     "also": [
+      "m teres minor",
+      "teres minor"
+     ]
+    },
+    {
+     "x": 74.71,
+     "y": 67.99,
+     "answer": "musculus teres major",
+     "english": "teres major",
+     "also": [
+      "m teres major",
+      "teres major"
+     ]
+    },
+    {
+     "x": 70.86,
+     "y": 38.81,
+     "answer": "musculus infraspinatus",
+     "english": "infraspinatus",
+     "also": [
+      "m infraspinatus",
+      "infraspinatus"
+     ]
+    },
+    {
+     "x": 46.64,
+     "y": 9.12,
+     "answer": "musculus supraspinatus",
+     "english": "supraspinatus",
+     "also": [
+      "m supraspinatus",
+      "supraspinatus"
+     ]
+    },
+    {
+     "x": 12.49,
+     "y": 64.68,
+     "answer": "musculus deltoideus",
+     "english": "deltoid",
+     "also": [
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ]
+    },
+    {
+     "x": 36.71,
+     "y": 88.06,
+     "answer": "caput longum musculi tricipitis brachii",
+     "english": "long head of triceps",
+     "also": [
+      "long head of triceps"
+     ]
     }
    ]
   },
@@ -1400,63 +2100,93 @@
     {
      "x": 77.0,
      "y": 8.74,
-     "answer": "deltoid",
+     "answer": "musculus deltoideus",
      "also": [
-      "deltoideus"
-     ]
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ],
+     "english": "deltoid"
     },
     {
      "x": 70.0,
      "y": 13.29,
-     "answer": "pectoralis major",
-     "note": "Clavicular part"
+     "answer": "musculus pectoralis major",
+     "note": "Clavicular part",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ]
     },
     {
      "x": 60.0,
      "y": 21.68,
-     "answer": "pectoralis major",
-     "note": "Sternocostal part"
+     "answer": "musculus pectoralis major",
+     "note": "Sternocostal part",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ]
     },
     {
      "x": 36.0,
      "y": 21.33,
-     "answer": "pectoralis minor"
+     "answer": "musculus pectoralis minor",
+     "english": "pectoralis minor",
+     "also": [
+      "m pectoralis minor",
+      "pectoralis minor"
+     ]
     },
     {
      "x": 68.5,
      "y": 59.44,
-     "answer": "external oblique",
+     "answer": "musculus obliquus externus abdominis",
      "also": [
+      "m obliquus externus abdominis",
       "obliquus externus abdominis",
+      "external oblique",
       "obliquus externus",
       "external abdominal oblique"
-     ]
+     ],
+     "english": "external oblique"
     },
     {
      "x": 30.0,
      "y": 63.64,
-     "answer": "internal oblique",
+     "answer": "musculus obliquus internus abdominis",
      "also": [
+      "m obliquus internus abdominis",
       "obliquus internus abdominis",
+      "internal oblique",
       "obliquus internus",
       "internal abdominal oblique"
      ],
-     "note": "External oblique removed on this side"
+     "note": "External oblique removed on this side",
+     "english": "internal oblique"
     },
     {
      "x": 57.5,
      "y": 59.44,
-     "answer": "rectus sheath",
+     "answer": "vagina musculi recti abdominis",
      "also": [
+      "rectus sheath",
       "sheath of rectus abdominis",
       "anterior layer of rectus sheath"
      ],
-     "note": "Anterior layer"
+     "note": "Anterior layer",
+     "english": "rectus sheath"
     },
     {
      "x": 49.0,
      "y": 55.94,
-     "answer": "linea alba"
+     "answer": "linea alba",
+     "english": "linea alba",
+     "also": [
+      "linea alba"
+     ]
     }
    ]
   },
@@ -1472,87 +2202,135 @@
     {
      "x": 65.0,
      "y": 13.47,
-     "answer": "deltoid",
+     "answer": "musculus deltoideus",
      "also": [
-      "deltoideus"
-     ]
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ],
+     "english": "deltoid"
     },
     {
      "x": 45.0,
      "y": 35.1,
-     "answer": "serratus anterior",
-     "note": "Middle portion"
+     "answer": "musculus serratus anterior",
+     "note": "Middle portion",
+     "english": "serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior"
+     ]
     },
     {
      "x": 45.0,
      "y": 54.69,
-     "answer": "serratus anterior",
-     "note": "Inferior portion"
+     "answer": "musculus serratus anterior",
+     "note": "Inferior portion",
+     "english": "serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior"
+     ]
     },
     {
      "x": 60.5,
      "y": 60.0,
-     "answer": "latissimus dorsi",
+     "answer": "musculus latissimus dorsi",
      "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
       "latissimus"
-     ]
+     ],
+     "english": "latissimus dorsi"
     },
     {
      "x": 63.5,
      "y": 28.98,
-     "answer": "teres major"
+     "answer": "musculus teres major",
+     "english": "teres major",
+     "also": [
+      "m teres major",
+      "teres major"
+     ]
     },
     {
      "x": 59.5,
      "y": 23.88,
-     "answer": "subscapularis"
+     "answer": "musculus subscapularis",
+     "english": "subscapularis",
+     "also": [
+      "m subscapularis",
+      "subscapularis"
+     ]
     },
     {
      "x": 39.5,
      "y": 30.41,
-     "answer": "external intercostal",
+     "answer": "musculi intercostales externi",
      "also": [
+      "mm intercostales externi",
+      "external intercostal",
       "intercostales externi",
       "external intercostals",
       "intercostalis externus"
-     ]
+     ],
+     "english": "external intercostal"
     },
     {
      "x": 26.25,
      "y": 39.18,
-     "answer": "pectoralis minor"
+     "answer": "musculus pectoralis minor",
+     "english": "pectoralis minor",
+     "also": [
+      "m pectoralis minor",
+      "pectoralis minor"
+     ]
     },
     {
      "x": 20.5,
      "y": 48.98,
-     "answer": "pectoralis major",
-     "note": "Cut"
+     "answer": "musculus pectoralis major",
+     "note": "Cut",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ]
     },
     {
      "x": 39.5,
      "y": 18.57,
-     "answer": "scalenus anterior",
+     "answer": "musculus scalenus anterior",
      "also": [
+      "m scalenus anterior",
+      "scalenus anterior",
       "anterior scalene"
-     ]
+     ],
+     "english": "scalenus anterior"
     },
     {
      "x": 47.25,
      "y": 10.61,
-     "answer": "scalenus medius",
+     "answer": "musculus scalenus medius",
      "also": [
+      "m scalenus medius",
+      "scalenus medius",
       "middle scalene"
-     ]
+     ],
+     "english": "scalenus medius"
     },
     {
      "x": 40.0,
      "y": 86.12,
-     "answer": "external oblique",
+     "answer": "musculus obliquus externus abdominis",
      "also": [
+      "m obliquus externus abdominis",
       "obliquus externus abdominis",
+      "external oblique",
       "obliquus externus",
       "external abdominal oblique"
-     ]
+     ],
+     "english": "external oblique"
     }
    ]
   },
@@ -1568,53 +2346,79 @@
     {
      "x": 22.94,
      "y": 37.31,
-     "answer": "subscapularis"
+     "answer": "musculus subscapularis",
+     "english": "subscapularis",
+     "also": [
+      "m subscapularis",
+      "subscapularis"
+     ]
     },
     {
      "x": 20.86,
      "y": 65.67,
-     "answer": "teres major"
+     "answer": "musculus teres major",
+     "english": "teres major",
+     "also": [
+      "m teres major",
+      "teres major"
+     ]
     },
     {
      "x": 23.98,
      "y": 81.34,
-     "answer": "latissimus dorsi",
+     "answer": "musculus latissimus dorsi",
      "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
       "latissimus"
-     ]
+     ],
+     "english": "latissimus dorsi"
     },
     {
      "x": 57.66,
      "y": 52.24,
-     "answer": "axillary artery",
+     "answer": "arteria axillaris",
      "also": [
-      "arteria axillaris",
-      "a axillaris"
-     ]
+      "a axillaris",
+      "axillaris",
+      "axillary artery"
+     ],
+     "english": "axillary artery"
     },
     {
      "x": 68.82,
      "y": 62.69,
-     "answer": "coracobrachialis",
+     "answer": "musculus coracobrachialis",
      "also": [
+      "m coracobrachialis",
+      "coracobrachialis",
       "short head of biceps",
       "coraco-brachialis"
      ],
-     "note": "With the short head of biceps"
+     "note": "With the short head of biceps",
+     "english": "coracobrachialis"
     },
     {
      "x": 79.77,
      "y": 31.34,
-     "answer": "deltoid",
+     "answer": "musculus deltoideus",
      "also": [
-      "deltoideus"
-     ]
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ],
+     "english": "deltoid"
     },
     {
      "x": 83.94,
      "y": 63.43,
-     "answer": "pectoralis major",
-     "note": "Cut and reflected"
+     "answer": "musculus pectoralis major",
+     "note": "Cut and reflected",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major"
+     ]
     }
    ]
   },
@@ -1630,102 +2434,119 @@
     {
      "x": 42.84,
      "y": 28.67,
-     "answer": "vagus nerve",
+     "answer": "nervus vagus",
      "also": [
+      "n vagus",
       "vagus",
+      "vagus nerve",
       "cn x",
-      "nervus vagus",
-      "right vagus nerve",
-      "n vagus"
+      "right vagus nerve"
      ],
-     "note": "Right vagus"
+     "note": "Right vagus",
+     "english": "vagus nerve"
     },
     {
      "x": 57.26,
      "y": 22.93,
-     "answer": "vagus nerve",
+     "answer": "nervus vagus",
      "also": [
+      "n vagus",
       "vagus",
+      "vagus nerve",
       "cn x",
-      "nervus vagus",
-      "left vagus nerve",
-      "n vagus"
+      "left vagus nerve"
      ],
-     "note": "Left vagus crossing the aortic arch"
+     "note": "Left vagus crossing the aortic arch",
+     "english": "vagus nerve"
     },
     {
      "x": 58.54,
      "y": 31.12,
-     "answer": "recurrent laryngeal nerve",
+     "answer": "nervus laryngeus recurrens",
      "also": [
+      "n laryngeus recurrens",
+      "laryngeus recurrens",
+      "recurrent laryngeal nerve",
       "left recurrent laryngeal nerve",
       "recurrent nerve",
-      "nervus laryngeus recurrens",
       "inferior laryngeal nerve"
      ],
-     "note": "Hooks under the aortic arch"
+     "note": "Hooks under the aortic arch",
+     "english": "recurrent laryngeal nerve"
     },
     {
      "x": 54.19,
      "y": 40.95,
-     "answer": "thoracic aorta",
+     "answer": "aorta thoracica",
      "also": [
+      "thoracic aorta",
       "descending aorta",
-      "aorta thoracica",
       "descending thoracic aorta"
-     ]
+     ],
+     "english": "thoracic aorta"
     },
     {
      "x": 83.84,
      "y": 33.58,
-     "answer": "intercostal nerve",
+     "answer": "nervus intercostalis",
      "also": [
+      "n intercostalis",
+      "intercostalis",
+      "intercostal nerve",
       "intercostal nerves",
-      "nervi intercostales",
-      "n intercostalis"
-     ]
+      "nervi intercostales"
+     ],
+     "english": "intercostal nerve"
     },
     {
      "x": 83.84,
      "y": 48.32,
-     "answer": "intercostal nerve",
+     "answer": "nervus intercostalis",
      "also": [
+      "n intercostalis",
+      "intercostalis",
+      "intercostal nerve",
       "intercostal nerves",
-      "nervi intercostales",
-      "n intercostalis"
-     ]
+      "nervi intercostales"
+     ],
+     "english": "intercostal nerve"
     },
     {
      "x": 42.43,
      "y": 59.38,
-     "answer": "sympathetic trunk",
+     "answer": "truncus sympathicus",
      "also": [
-      "truncus sympathicus",
+      "sympathetic trunk",
       "thoracic sympathetic trunk",
       "sympathetic chain"
-     ]
+     ],
+     "english": "sympathetic trunk"
     },
     {
      "x": 44.48,
      "y": 75.35,
-     "answer": "greater splanchnic nerve",
+     "answer": "nervus splanchnicus major",
      "also": [
-      "great splanchnic nerve",
-      "nervus splanchnicus major",
-      "n splanchnicus major"
-     ]
+      "n splanchnicus major",
+      "splanchnicus major",
+      "greater splanchnic nerve",
+      "great splanchnic nerve"
+     ],
+     "english": "greater splanchnic nerve"
     },
     {
      "x": 47.55,
      "y": 65.52,
      "answer": "oesophagus",
      "also": [
+      "oesophagus",
       "esophagus",
       "oesophagus with vagal plexus",
       "esophageal plexus",
       "oesophageal plexus"
      ],
-     "note": "With the oesophageal plexus of the vagus"
+     "note": "With the oesophageal plexus of the vagus",
+     "english": "oesophagus"
     }
    ]
   },
@@ -1741,77 +2562,105 @@
     {
      "x": 56.0,
      "y": 54.37,
-     "answer": "rectus abdominis",
+     "answer": "musculus rectus abdominis",
      "also": [
+      "m rectus abdominis",
+      "rectus abdominis",
       "rectus"
-     ]
+     ],
+     "english": "rectus abdominis"
     },
     {
      "x": 30.0,
      "y": 58.87,
-     "answer": "transversus abdominis",
+     "answer": "musculus transversus abdominis",
      "also": [
+      "m transversus abdominis",
+      "transversus abdominis",
       "transverse abdominis",
       "transversus"
-     ]
+     ],
+     "english": "transversus abdominis"
     },
     {
      "x": 71.5,
      "y": 64.49,
-     "answer": "internal oblique",
+     "answer": "musculus obliquus internus abdominis",
      "also": [
+      "m obliquus internus abdominis",
       "obliquus internus abdominis",
+      "internal oblique",
       "obliquus internus",
       "internal abdominal oblique"
-     ]
+     ],
+     "english": "internal oblique"
     },
     {
      "x": 42.0,
      "y": 49.49,
-     "answer": "rectus sheath",
+     "answer": "vagina musculi recti abdominis",
      "also": [
+      "rectus sheath",
       "sheath of rectus abdominis",
       "posterior layer of rectus sheath"
      ],
-     "note": "Posterior layer"
+     "note": "Posterior layer",
+     "english": "rectus sheath"
     },
     {
      "x": 42.5,
      "y": 66.74,
-     "answer": "transversalis fascia",
+     "answer": "fascia transversalis",
      "also": [
-      "fascia transversalis"
-     ]
+      "transversalis fascia"
+     ],
+     "english": "transversalis fascia"
     },
     {
      "x": 52.5,
      "y": 80.99,
-     "answer": "pyramidalis"
+     "answer": "musculus pyramidalis",
+     "english": "pyramidalis",
+     "also": [
+      "m pyramidalis",
+      "pyramidalis"
+     ]
     },
     {
      "x": 70.0,
      "y": 9.0,
-     "answer": "internal intercostal",
+     "answer": "musculi intercostales interni",
      "also": [
+      "mm intercostales interni",
+      "internal intercostal",
       "intercostales interni",
       "internal intercostals",
       "intercostalis internus"
-     ]
+     ],
+     "english": "internal intercostal"
     },
     {
      "x": 71.0,
      "y": 28.5,
-     "answer": "external intercostal",
+     "answer": "musculi intercostales externi",
      "also": [
+      "mm intercostales externi",
+      "external intercostal",
       "intercostales externi",
       "external intercostals",
       "intercostalis externus"
-     ]
+     ],
+     "english": "external intercostal"
     },
     {
      "x": 75.0,
      "y": 17.62,
-     "answer": "serratus anterior"
+     "answer": "musculus serratus anterior",
+     "english": "serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior"
+     ]
     }
    ]
   },
@@ -1827,17 +2676,19 @@
     {
      "x": 80.0,
      "y": 26.49,
-     "answer": "diaphragm",
+     "answer": "diaphragma",
      "also": [
-      "diaphragma"
+      "diaphragm"
      ],
-     "note": "Costal part"
+     "note": "Costal part",
+     "english": "diaphragm"
     },
     {
      "x": 50.0,
      "y": 27.62,
-     "answer": "right crus of diaphragm",
+     "answer": "crus dextrum diaphragmatis",
      "also": [
+      "right crus of diaphragm",
       "crus of diaphragm",
       "diaphragm crus",
       "crus diaphragmaticus",
@@ -1845,53 +2696,81 @@
       "lumbar part of diaphragm",
       "crus"
      ],
-     "note": "Lumbar part \u2013 inner crus"
+     "note": "Lumbar part \u2013 inner crus",
+     "english": "right crus of diaphragm"
     },
     {
      "x": 56.5,
      "y": 12.49,
-     "answer": "central tendon",
+     "answer": "centrum tendineum",
      "also": [
-      "central tendon of diaphragm",
-      "centrum tendineum"
-     ]
+      "central tendon",
+      "central tendon of diaphragm"
+     ],
+     "english": "central tendon"
     },
     {
      "x": 66.5,
      "y": 59.02,
-     "answer": "psoas major"
+     "answer": "musculus psoas major",
+     "english": "psoas major",
+     "also": [
+      "m psoas major",
+      "psoas major"
+     ]
     },
     {
      "x": 44.0,
      "y": 44.65,
-     "answer": "psoas minor"
+     "answer": "musculus psoas minor",
+     "english": "psoas minor",
+     "also": [
+      "m psoas minor",
+      "psoas minor"
+     ]
     },
     {
      "x": 36.0,
      "y": 47.29,
-     "answer": "quadratus lumborum"
+     "answer": "musculus quadratus lumborum",
+     "english": "quadratus lumborum",
+     "also": [
+      "m quadratus lumborum",
+      "quadratus lumborum"
+     ]
     },
     {
      "x": 78.5,
      "y": 62.05,
-     "answer": "iliacus"
+     "answer": "musculus iliacus",
+     "english": "iliacus",
+     "also": [
+      "m iliacus",
+      "iliacus"
+     ]
     },
     {
      "x": 83.0,
      "y": 45.97,
-     "answer": "transversus abdominis",
+     "answer": "musculus transversus abdominis",
      "also": [
+      "m transversus abdominis",
+      "transversus abdominis",
       "transverse abdominis",
       "transversus"
-     ]
+     ],
+     "english": "transversus abdominis"
     },
     {
      "x": 47.5,
      "y": 85.13,
-     "answer": "rectus abdominis",
+     "answer": "musculus rectus abdominis",
      "also": [
+      "m rectus abdominis",
+      "rectus abdominis",
       "rectus"
-     ]
+     ],
+     "english": "rectus abdominis"
     }
    ]
   },
@@ -1907,51 +2786,61 @@
     {
      "x": 52.8,
      "y": 37.13,
-     "answer": "superior mesenteric artery",
+     "answer": "arteria mesenterica superior",
      "also": [
-      "sma",
-      "arteria mesenterica superior",
-      "a mesenterica superior"
-     ]
+      "a mesenterica superior",
+      "mesenterica superior",
+      "superior mesenteric artery",
+      "sma"
+     ],
+     "english": "superior mesenteric artery"
     },
     {
      "x": 49.52,
      "y": 50.25,
-     "answer": "superior mesenteric vein",
+     "answer": "vena mesenterica superior",
      "also": [
-      "smv",
-      "vena mesenterica superior",
-      "v mesenterica superior"
-     ]
+      "v mesenterica superior",
+      "mesenterica superior",
+      "superior mesenteric vein",
+      "smv"
+     ],
+     "english": "superior mesenteric vein"
     },
     {
      "x": 32.96,
      "y": 40.22,
-     "answer": "middle colic artery",
+     "answer": "arteria colica media",
      "also": [
-      "arteria colica media",
-      "a colica media"
-     ]
+      "a colica media",
+      "colica media",
+      "middle colic artery"
+     ],
+     "english": "middle colic artery"
     },
     {
      "x": 32.96,
      "y": 63.43,
-     "answer": "right colic artery",
+     "answer": "arteria colica dextra",
      "also": [
-      "arteria colica dextra",
-      "a colica dextra"
-     ]
+      "a colica dextra",
+      "colica dextra",
+      "right colic artery"
+     ],
+     "english": "right colic artery"
     },
     {
      "x": 60.0,
      "y": 60.33,
-     "answer": "jejunal arteries",
+     "answer": "arteriae jejunales",
      "also": [
+      "aa jejunales",
+      "jejunal arteries",
       "intestinal arteries",
       "jejunal and ileal arteries",
-      "aa jejunales",
       "jejunal artery"
-     ]
+     ],
+     "english": "jejunal arteries"
     }
    ]
   },
@@ -1967,51 +2856,62 @@
     {
      "x": 55.47,
      "y": 56.85,
-     "answer": "inferior mesenteric artery",
+     "answer": "arteria mesenterica inferior",
      "also": [
-      "ima",
-      "arteria mesenterica inferior",
-      "a mesenterica inferior"
-     ]
+      "a mesenterica inferior",
+      "mesenterica inferior",
+      "inferior mesenteric artery",
+      "ima"
+     ],
+     "english": "inferior mesenteric artery"
     },
     {
      "x": 56.27,
      "y": 44.56,
-     "answer": "inferior mesenteric vein",
+     "answer": "vena mesenterica inferior",
      "also": [
-      "imv",
-      "vena mesenterica inferior",
-      "v mesenterica inferior"
-     ]
+      "v mesenterica inferior",
+      "mesenterica inferior",
+      "inferior mesenteric vein",
+      "imv"
+     ],
+     "english": "inferior mesenteric vein"
     },
     {
      "x": 66.4,
      "y": 46.58,
-     "answer": "left colic artery",
+     "answer": "arteria colica sinistra",
      "also": [
-      "arteria colica sinistra",
-      "a colica sinistra"
-     ]
+      "a colica sinistra",
+      "colica sinistra",
+      "left colic artery"
+     ],
+     "english": "left colic artery"
     },
     {
      "x": 68.01,
      "y": 79.83,
-     "answer": "sigmoid arteries",
+     "answer": "arteriae sigmoideae",
      "also": [
-      "sigmoid artery",
       "aa sigmoideae",
+      "sigmoid arteries",
+      "sigmoid artery",
       "sigmoid vessels"
-     ]
+     ],
+     "english": "sigmoid arteries"
     },
     {
      "x": 55.47,
      "y": 87.41,
-     "answer": "superior rectal artery",
+     "answer": "arteria rectalis superior",
      "also": [
+      "a rectalis superior",
+      "rectalis superior",
+      "superior rectal artery",
       "superior haemorrhoidal artery",
-      "superior hemorrhoidal artery",
-      "arteria rectalis superior"
-     ]
+      "superior hemorrhoidal artery"
+     ],
+     "english": "superior rectal artery"
     }
    ]
   },
@@ -2027,92 +2927,112 @@
     {
      "x": 48.45,
      "y": 33.82,
-     "answer": "coeliac trunk",
+     "answer": "truncus coeliacus",
      "also": [
+      "coeliac trunk",
       "celiac trunk",
-      "truncus coeliacus",
       "truncus celiacus",
       "celiac artery",
       "coeliac artery"
-     ]
+     ],
+     "english": "coeliac trunk"
     },
     {
      "x": 42.17,
      "y": 32.42,
-     "answer": "common hepatic artery",
+     "answer": "arteria hepatica communis",
      "also": [
-      "arteria hepatica communis",
       "a hepatica communis",
+      "hepatica communis",
+      "common hepatic artery",
       "hepatic artery"
-     ]
+     ],
+     "english": "common hepatic artery"
     },
     {
      "x": 61.94,
      "y": 32.6,
-     "answer": "splenic artery",
+     "answer": "arteria splenica",
      "also": [
-      "arteria splenica",
-      "arteria lienalis",
       "a splenica",
+      "splenica",
+      "splenic artery",
+      "arteria lienalis",
       "a lienalis"
-     ]
+     ],
+     "english": "splenic artery"
     },
     {
      "x": 52.56,
      "y": 27.72,
-     "answer": "left gastric artery",
+     "answer": "arteria gastrica sinistra",
      "also": [
-      "arteria gastrica sinistra",
-      "a gastrica sinistra"
-     ]
+      "a gastrica sinistra",
+      "gastrica sinistra",
+      "left gastric artery"
+     ],
+     "english": "left gastric artery"
     },
     {
      "x": 42.71,
      "y": 39.56,
-     "answer": "portal vein",
+     "answer": "vena portae hepatis",
      "also": [
+      "v portae hepatis",
+      "portae hepatis",
+      "portal vein",
       "vena portae",
       "hepatic portal vein",
-      "v portae hepatis",
       "portal vein of liver"
-     ]
+     ],
+     "english": "portal vein"
     },
     {
      "x": 56.74,
      "y": 36.69,
-     "answer": "splenic vein",
+     "answer": "vena splenica",
      "also": [
-      "vena splenica",
-      "vena lienalis",
-      "v splenica"
-     ]
+      "v splenica",
+      "splenica",
+      "splenic vein",
+      "vena lienalis"
+     ],
+     "english": "splenic vein"
     },
     {
      "x": 47.36,
      "y": 48.53,
-     "answer": "superior mesenteric vein",
+     "answer": "vena mesenterica superior",
      "also": [
-      "smv",
-      "vena mesenterica superior"
-     ]
+      "v mesenterica superior",
+      "mesenterica superior",
+      "superior mesenteric vein",
+      "smv"
+     ],
+     "english": "superior mesenteric vein"
     },
     {
      "x": 50.54,
      "y": 46.09,
-     "answer": "superior mesenteric artery",
+     "answer": "arteria mesenterica superior",
      "also": [
-      "sma",
-      "arteria mesenterica superior"
-     ]
+      "a mesenterica superior",
+      "mesenterica superior",
+      "superior mesenteric artery",
+      "sma"
+     ],
+     "english": "superior mesenteric artery"
     },
     {
      "x": 37.52,
      "y": 40.35,
-     "answer": "gastroduodenal artery",
+     "answer": "arteria gastroduodenalis",
      "also": [
-      "arteria gastroduodenalis",
-      "a gastroduodenalis"
-     ]
+      "a gastroduodenalis",
+      "gastroduodenalis",
+      "gastroduodenal artery"
+     ],
+     "english": "gastroduodenal artery"
     }
    ]
   },
@@ -2128,49 +3048,65 @@
     {
      "x": 70.49,
      "y": 23.06,
-     "answer": "subcostal nerve",
+     "answer": "nervus subcostalis",
      "also": [
-      "nervus subcostalis",
       "n subcostalis",
+      "subcostalis",
+      "subcostal nerve",
       "intercostal nerve xii",
       "t12"
      ],
-     "note": "Ventral ramus of T12, below rib XII"
+     "note": "Ventral ramus of T12, below rib XII",
+     "english": "subcostal nerve"
     },
     {
      "x": 72.36,
      "y": 35.77,
-     "answer": "iliohypogastric nerve",
+     "answer": "nervus iliohypogastricus",
      "also": [
-      "nervus iliohypogastricus",
+      "n iliohypogastricus",
+      "iliohypogastricus",
+      "iliohypogastric nerve",
       "lumbar nerve i",
       "l1",
       "first lumbar nerve",
       "ilioinguinal nerve"
      ],
-     "note": "L1 \u2013 first branch of the lumbar plexus"
+     "note": "L1 \u2013 first branch of the lumbar plexus",
+     "english": "iliohypogastric nerve"
     },
     {
      "x": 77.04,
      "y": 34.51,
-     "answer": "quadratus lumborum"
+     "answer": "musculus quadratus lumborum",
+     "english": "quadratus lumborum",
+     "also": [
+      "m quadratus lumborum",
+      "quadratus lumborum"
+     ]
     },
     {
      "x": 47.83,
      "y": 25.25,
-     "answer": "coeliac plexus",
+     "answer": "plexus coeliacus",
      "also": [
+      "coeliac plexus",
       "celiac plexus",
-      "plexus coeliacus",
       "coeliac ganglion",
       "celiac ganglion",
       "solar plexus"
-     ]
+     ],
+     "english": "coeliac plexus"
     },
     {
      "x": 81.57,
      "y": 63.13,
-     "answer": "iliacus"
+     "answer": "musculus iliacus",
+     "english": "iliacus",
+     "also": [
+      "m iliacus",
+      "iliacus"
+     ]
     }
    ]
   }

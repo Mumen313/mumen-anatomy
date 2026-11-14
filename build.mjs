@@ -227,12 +227,19 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   try {
     const readJson = async (f) => JSON.parse(await readFile(path.join(ROOT, 'games', f), 'utf8'));
     const decks = ((await readJson('decks.json')).decks || []).filter((d) => d.id && d.title && Array.isArray(d.items) && d.items.length);
-    const plates = ((await readJson('pins.json')).plates || []).filter((p) => p.id && p.image && Array.isArray(p.pins) && p.pins.length);
+    const okPlate = (p) => p.id && p.image && Array.isArray(p.pins) && p.pins.length;
+    const hy = ((await readJson('high-yield.json').catch(() => ({}))).structures || []).map((h) => h.toLowerCase());
+    const markHy = (list, dir) => list.filter(okPlate).map((p) => ({ ...p, dir, pins: p.pins.map((q) => ({ ...q, hy: hy.some((h) => q.answer.toLowerCase().includes(h)) })) }));
+    const plates = markHy((await readJson('pins.json')).plates || [], 'plates');
+    let cadaver = [];
+    try { cadaver = markHy((await readJson('cadaver.json')).plates || [], 'cadaver'); } catch {}
     await cp(path.join(ROOT, 'games', 'plates'), path.join(outDir, 'games', 'plates'), { recursive: true });
+    if (cadaver.length) await cp(path.join(ROOT, 'games', 'cadaver'), path.join(outDir, 'games', 'cadaver'), { recursive: true });
     const gdesc = 'Anatomy games – spelling challenge and clip-test pin practice.';
-    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates }) }));
+    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates, cadaver }) }));
     await write('games/name-it/index.html', layout({ site, title: 'Name it! – anatomy spelling game', active: 'games', description: 'Read the clue, type the anatomical term.', body: nameItPage({ site, decks }) }));
     await write('games/pin-test/index.html', layout({ site, title: 'Pin test – clip-test practice', active: 'games', description: 'Name the pinned muscle – practise for the anatomy clip test.', body: pinTestPage({ site, plates }) }));
+    if (cadaver.length) await write('games/cadaver-clip-test/index.html', layout({ site, title: 'Real cadaver clip test', active: 'games', description: 'Clip-test practice on real dissection-hall photos.', body: pinTestPage({ site, plates: cadaver, cadaver: true }) }));
   } catch (e) {
     stats.warnings.push('games skipped: ' + e.message);
   }
@@ -245,7 +252,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'about/', 'membership/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)
