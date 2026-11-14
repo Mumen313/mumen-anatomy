@@ -410,3 +410,4 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .pay .btn{text-align:center;text-decoration:none}
 .pay-alt{font-size:.9rem;color:var(--muted)}
 .pay-ref{font-size:.82rem;color:var(--muted);font-style:italic}
+.donate-grid{max-width:900px}

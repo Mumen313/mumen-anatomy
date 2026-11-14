@@ -257,7 +257,7 @@ export function donatePage({ site }) {
   <section class="donate-card">
     <div class="donate-ico" aria-hidden="true">☕</div>
     <h2>Buy me a coffee</h2>
-    <p>I love coffee. A coffee from you is a small thank-you and helps me pay for the books, atlases and materials I use to make this site.</p>
+    <p>I love coffee. A coffee from you is a small thank-you that helps me with the materials for this site – and with my studies and my family.</p>
     ${pay('Coffee')}
   </section>
   <section class="donate-card help">
@@ -266,12 +266,6 @@ export function donatePage({ site }) {
     <p>In the Palestinian refugee camp Sbeineh near Damascus, Syria, many orphaned children, elderly women and mothers live completely alone and without any support – often not even for food, and not for the operations, treatment or medicine they need and cannot afford.</p>
     <p>Donations with this note are not kept by me: I pass them on personally to women and families in need there.</p>
     ${pay('Sbeineh')}
-  </section>
-  <section class="donate-card">
-    <div class="donate-ico" aria-hidden="true">🎓</div>
-    <h2>Support me and my studies</h2>
-    <p>I am a medical student with a family to provide for. Your support helps me take care of my family and continue my studies – and keep building Mumen Anatomy.</p>
-    ${pay('Support')}
   </section>
 </div>
 <p class="empty game-note">Payments go directly to my personal Revolut or PayPal account. They are private gifts, not purchases – you get nothing in return except my sincere thanks. Jazakum Allahu khairan.</p>`;
