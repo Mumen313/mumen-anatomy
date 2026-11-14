@@ -411,3 +411,19 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .pay-alt{font-size:.9rem;color:var(--muted)}
 .pay-ref{font-size:.82rem;color:var(--muted);font-style:italic}
 .donate-grid{max-width:900px}
+/* fact card */
+.fact{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-size:.92rem;line-height:1.45;display:grid;gap:7px;animation:enter .25s ease-out}
+.fact b{color:var(--ink)}
+.fact-row{display:flex;gap:8px}
+.fact-ico{flex:none}
+.pt-feedback.miss .fact,.pt-feedback.ok .fact{border-left:4px solid var(--nerve)}
+.fact.compact{font-size:.86rem;padding:9px 12px}
+/* smaller, see-through pin */
+.pin::before{left:-7px;top:-7px;width:14px;height:14px;background:transparent;border:2.5px solid #ffd43b;box-shadow:0 0 0 1.5px #16202c,inset 0 0 0 1.5px #16202c}
+.pin.active::after{left:-15px;top:-15px;width:30px;height:30px;border-width:2px}
+.pin.dot::before{width:12px;height:12px;left:-6px;top:-6px;background:rgba(255,255,255,.35);border:2px solid #fff;box-shadow:0 0 0 1.5px #16202c}
+.pin.dot:hover::before{background:rgba(255,212,59,.6)}
+.pin.right::before{background:transparent;border-color:#2e8b57}
+.pin.wrong::before,.pin.target::before{background:transparent;border-color:var(--artery)}
+.pin span{left:12px;top:-12px;font-size:.78rem;opacity:.95}
+.pt-zoom{padding:4px 10px;font-size:.82rem;border-width:1px;background:rgba(255,255,255,.85)}

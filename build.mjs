@@ -229,7 +229,8 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     const decks = ((await readJson('decks.json')).decks || []).filter((d) => d.id && d.title && Array.isArray(d.items) && d.items.length);
     const okPlate = (p) => p.id && p.image && Array.isArray(p.pins) && p.pins.length;
     const hy = ((await readJson('high-yield.json').catch(() => ({}))).structures || []).map((h) => h.toLowerCase());
-    const markHy = (list, dir) => list.filter(okPlate).map((p) => ({ ...p, dir, pins: p.pins.map((q) => ({ ...q, hy: hy.some((h) => q.answer.toLowerCase().includes(h)) })) }));
+    const facts = await readJson('facts.json').catch(() => ({}));
+    const markHy = (list, dir) => list.filter(okPlate).map((p) => ({ ...p, dir, pins: p.pins.map((q) => ({ ...q, hy: hy.some((h) => q.answer.toLowerCase().includes(h)), ...(facts[q.answer] ? { fact: facts[q.answer] } : {}) })) }));
     const plates = markHy((await readJson('pins.json')).plates || [], 'plates');
     let cadaver = [];
     try { cadaver = markHy((await readJson('cadaver.json')).plates || [], 'cadaver'); } catch {}

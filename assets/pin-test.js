@@ -13,7 +13,14 @@
   let run, mode, qs, idx, q, score, streak, bestStreak, results, waiting, shownPlate;
 
   const answers = (pin) => [pin.answer, ...(pin.also || [])].map(G.norm);
-  const title = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  const ABBR = [[/^musculus /, 'M. '], [/^musculi /, 'Mm. '], [/^arteria /, 'A. '], [/^arteriae /, 'Aa. '], [/^vena /, 'V. '], [/^venae /, 'Vv. '], [/^nervus /, 'N. '], [/^nervi /, 'Nn. '], [/ musculi /, ' m. '], [/ musculus /, ' m. ']];
+  const title = (s) => { let t = s; for (const [re, r] of ABBR) t = t.replace(re, r); return t.charAt(0).toUpperCase() + t.slice(1); };
+  const factHtml = (pin, full) => {
+    const f = pin.fact;
+    if (!f) return '';
+    const row = (ico, lab, txt) => txt ? `<div class="fact-row"><span class="fact-ico" aria-hidden="true">${ico}</span><span><b>${lab}</b> ${G.esc(txt)}</span></div>` : '';
+    return `<div class="fact${full ? '' : ' compact'}">${full ? row('🧭', 'Course:', f.c) + row('⚙️', 'Function:', f.f) : ''}${row('🩺', 'Clinic:', f.k)}</div>`;
+  };
   const pinOf = (x) => plates[x.p].pins[x.i];
 
   function begin(r) {
@@ -119,13 +126,14 @@
     else if (state === 'ok') { fb.innerHTML = `≈ Almost – check the spelling: ${name} <span class="combo">+5</span>`; G.sfx.good(); }
     else { fb.innerHTML = `✗ ${typed ? `Not “${G.esc(typed)}”. ` : ''}This is ${name}`; G.sfx.bad(); }
     if (pin.note) fb.innerHTML += `<small class="pt-note">${G.esc(pin.note)}</small>`;
+    fb.innerHTML += factHtml(pin, state !== 'perfect');
     if (state === 'miss') { const st = $('ptStage'); st.classList.remove('shake'); void st.offsetWidth; st.classList.add('shake'); }
     label(q.i, state === 'miss' ? 'wrong' : 'right');
     if (mode === 'type') $('ptInput').disabled = true;
     $('ptNext').hidden = false;
     paintDots();
     const at = idx;
-    if (state === 'perfect') setTimeout(() => { if (waiting && idx === at) advance(); }, 1100);
+    if (state === 'perfect') setTimeout(() => { if (waiting && idx === at && !$('ptPanel').matches(':hover')) advance(); }, pin.fact ? 3200 : 1100);
     else $('ptNext').focus({ preventScroll: true });
   }
 

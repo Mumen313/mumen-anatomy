@@ -378,7 +378,7 @@ export function pinTestPage({ site, plates, cadaver = false }) {
   const count = (f) => plates.filter(f).reduce((n, p) => n + p.pins.length, 0);
   const plateCard = (p) => `
       <button type="button" class="deck plate" data-plate="${esc(p.id)}" data-cat="${esc(p.category)}">
-        <img src="__BASE__games/${esc(p.dir || 'plates')}/${esc(p.image)}" alt="" loading="lazy">
+        <img src="__BASE__games/${esc(p.dir || 'plates')}/thumbs/${esc(p.image)}" alt="" loading="lazy">
         <span class="deck-title">${esc(p.title)}</span>
         <span class="deck-meta">${esc(p.layer || '')} · ${p.pins.length} pins <span class="deck-best" data-best="${esc(p.id)}"></span></span>
       </button>`;
