@@ -71,6 +71,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
 
   // ---- settings ----
   const site = { base, name: 'Mumen Anatomy', tagline: '', intro: '', footer: '', logo: '', ...config.defaults, googleVerification: config.googleVerification || '' };
+  site.v = createHash('md5').update(await readFile(path.join(ROOT, 'assets/style.css')) + await readFile(path.join(ROOT, 'assets/site.js'))).digest('hex').slice(0, 8);
   const settingsPage = find('child_page', config.pages.settings);
   if (settingsPage) {
     const blocks = await loadBlocks(client, settingsPage.id);

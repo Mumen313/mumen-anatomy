@@ -44,7 +44,7 @@ ${site.googleVerification ? `<meta name="google-site-verification" content="${es
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${u('assets/style.css')}">
+<link rel="stylesheet" href="${u('assets/style.css')}?v=${site.v || ''}">
 ${site.logo ? `<link rel="icon" href="${esc(site.logo)}">` : ''}
 </head>
 <body>
@@ -63,7 +63,7 @@ ${body.replace(/__BASE__/g, site.base)}
 <footer>
   <div class="wrap"><span>${esc(site.footer)}</span><span>Images are credited with source and license on every figure.</span></div>
 </footer>
-<script src="${u('assets/site.js')}" defer></script>
+<script src="${u('assets/site.js')}?v=${site.v || ''}" defer></script>
 </body>
 </html>`;
 }
