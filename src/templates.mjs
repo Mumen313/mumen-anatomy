@@ -63,7 +63,7 @@ ${site.googleVerification ? `<meta name="google-site-verification" content="${es
 ${body.replace(/__BASE__/g, site.base)}
 </main>
 <footer>
-  <div class="wrap"><span>${esc(site.footer)}</span><span>Images are credited with source and license on every figure.</span></div>
+  <div class="wrap"><span>${esc(site.footer)}</span><span>Contact: <a href="mailto:Mumen.Uthman@uni-duesseldorf.de">Mumen.Uthman@uni-duesseldorf.de</a></span></div>
 </footer>
 <script src="${u('assets/site.js')}?v=${site.v || ''}" defer></script>
 </body>
