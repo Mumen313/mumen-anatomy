@@ -1,10 +1,150 @@
 {
  "plates": [
   {
+   "id": "bassett-0063-002",
+   "region": "Head",
+   "category": "cadaver",
+   "title": "Face \u2013 parotid region & mimic muscles",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0063-002.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #63-2 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 31.2,
+     "y": 12.5,
+     "answer": "venter frontalis musculi occipitofrontalis",
+     "english": "frontalis",
+     "also": [
+      "frontalis",
+      "venter frontalis",
+      "frontalis"
+     ]
+    },
+    {
+     "x": 46.8,
+     "y": 47.92,
+     "answer": "musculus orbicularis oculi",
+     "english": "orbicularis oculi",
+     "also": [
+      "m orbicularis oculi",
+      "orbicularis oculi",
+      "orbicularis oculi"
+     ]
+    },
+    {
+     "x": 35.88,
+     "y": 71.88,
+     "answer": "musculus orbicularis oris",
+     "english": "orbicularis oris",
+     "also": [
+      "m orbicularis oris",
+      "orbicularis oris",
+      "orbicularis oris"
+     ]
+    },
+    {
+     "x": 70.98,
+     "y": 77.08,
+     "answer": "musculus masseter",
+     "english": "masseter",
+     "also": [
+      "m masseter",
+      "masseter",
+      "masseter"
+     ]
+    },
+    {
+     "x": 73.32,
+     "y": 54.17,
+     "answer": "glandula parotidea",
+     "english": "parotid gland",
+     "also": [
+      "parotid gland",
+      "parotis"
+     ]
+    },
+    {
+     "x": 74.57,
+     "y": 31.25,
+     "answer": "arteria temporalis superficialis",
+     "english": "superficial temporal artery",
+     "also": [
+      "a temporalis superficialis",
+      "temporalis superficialis",
+      "superficial temporal artery"
+     ]
+    },
+    {
+     "x": 47.58,
+     "y": 80.21,
+     "answer": "arteria facialis",
+     "english": "facial artery",
+     "also": [
+      "a facialis",
+      "facialis",
+      "facial artery"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0049-005",
+   "region": "Head",
+   "category": "cadaver",
+   "title": "Head \u2013 temporal region, deep",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0049-005.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #49-5 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 46.8,
+     "y": 22.92,
+     "answer": "musculus temporalis",
+     "english": "temporalis",
+     "also": [
+      "m temporalis",
+      "temporalis",
+      "temporalis"
+     ]
+    },
+    {
+     "x": 73.32,
+     "y": 31.25,
+     "answer": "venter occipitalis musculi occipitofrontalis",
+     "english": "occipitalis",
+     "also": [
+      "occipitalis",
+      "venter occipitalis",
+      "occipitalis"
+     ]
+    },
+    {
+     "x": 66.3,
+     "y": 56.25,
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis",
+      "splenius capitis"
+     ]
+    },
+    {
+     "x": 56.16,
+     "y": 43.75,
+     "answer": "meatus acusticus externus",
+     "english": "external acoustic meatus",
+     "also": [
+      "external acoustic meatus"
+     ]
+    }
+   ]
+  },
+  {
    "id": "bassett-0075-006",
    "region": "Neck",
    "category": "cadaver",
-   "title": "Neck \u2013 lateral view, deep (Bassett 75-6)",
+   "title": "Neck \u2013 lateral view, deep",
    "layer": "Real cadaver photo",
    "image": "bassett-0075-006.jpg",
    "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #75-6 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
@@ -121,7 +261,7 @@
    "id": "bassett-0073-001",
    "region": "Neck",
    "category": "cadaver",
-   "title": "Neck \u2013 posterior triangle (Bassett 73-1)",
+   "title": "Neck \u2013 posterior triangle",
    "layer": "Real cadaver photo",
    "image": "bassett-0073-001.jpg",
    "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #73-1 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
@@ -170,6 +310,488 @@
       "n auricularis magnus",
       "auricularis magnus",
       "great auricular nerve"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0130-007",
+   "region": "Back",
+   "category": "cadaver",
+   "title": "Back \u2013 superficial muscles",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0130-007.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #130-7 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 60.84,
+     "y": 41.67,
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius",
+      "trapezius"
+     ]
+    },
+    {
+     "x": 86.58,
+     "y": 54.17,
+     "answer": "musculus deltoideus",
+     "english": "deltoid",
+     "also": [
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ]
+    },
+    {
+     "x": 67.08,
+     "y": 83.33,
+     "answer": "musculus latissimus dorsi",
+     "english": "latissimus dorsi",
+     "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
+      "latissimus dorsi"
+     ]
+    },
+    {
+     "x": 70.2,
+     "y": 55.21,
+     "answer": "musculus infraspinatus",
+     "english": "infraspinatus",
+     "also": [
+      "m infraspinatus",
+      "infraspinatus",
+      "infraspinatus",
+      "fascia infraspinata"
+     ]
+    },
+    {
+     "x": 70.98,
+     "y": 35.83,
+     "answer": "acromion",
+     "english": "acromion",
+     "also": [
+      "acromion"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0212-006",
+   "region": "Back",
+   "category": "cadaver",
+   "title": "Back \u2013 serratus posterior superior & splenius",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0212-006.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #212-6 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 49.92,
+     "y": 22.92,
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis",
+      "splenius capitis"
+     ]
+    },
+    {
+     "x": 48.36,
+     "y": 47.92,
+     "answer": "musculus serratus posterior superior",
+     "english": "serratus posterior superior",
+     "also": [
+      "m serratus posterior superior",
+      "serratus posterior superior",
+      "serratus posterior superior"
+     ]
+    },
+    {
+     "x": 39.0,
+     "y": 28.12,
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae",
+      "levator scapulae"
+     ]
+    },
+    {
+     "x": 78.0,
+     "y": 45.83,
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius",
+      "trapezius"
+     ]
+    },
+    {
+     "x": 78.0,
+     "y": 85.42,
+     "answer": "musculus latissimus dorsi",
+     "english": "latissimus dorsi",
+     "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
+      "latissimus dorsi"
+     ]
+    },
+    {
+     "x": 46.8,
+     "y": 83.33,
+     "answer": "musculus longissimus",
+     "english": "longissimus",
+     "also": [
+      "m longissimus",
+      "longissimus",
+      "longissimus",
+      "longissimus thoracis"
+     ]
+    },
+    {
+     "x": 41.34,
+     "y": 83.33,
+     "answer": "musculus iliocostalis",
+     "english": "iliocostalis",
+     "also": [
+      "m iliocostalis",
+      "iliocostalis",
+      "iliocostalis"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0213-003",
+   "region": "Back",
+   "category": "cadaver",
+   "title": "Back \u2013 erector spinae",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0213-003.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #213-3 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 42.9,
+     "y": 72.92,
+     "answer": "musculus iliocostalis",
+     "english": "iliocostalis",
+     "also": [
+      "m iliocostalis",
+      "iliocostalis",
+      "iliocostalis"
+     ]
+    },
+    {
+     "x": 52.26,
+     "y": 72.92,
+     "answer": "musculus longissimus",
+     "english": "longissimus",
+     "also": [
+      "m longissimus",
+      "longissimus",
+      "longissimus",
+      "longissimus thoracis"
+     ]
+    },
+    {
+     "x": 58.03,
+     "y": 45.83,
+     "answer": "musculus spinalis",
+     "english": "spinalis",
+     "also": [
+      "m spinalis",
+      "spinalis",
+      "spinalis",
+      "spinalis thoracis"
+     ]
+    },
+    {
+     "x": 74.88,
+     "y": 25.0,
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius",
+      "trapezius"
+     ]
+    },
+    {
+     "x": 79.56,
+     "y": 75.0,
+     "answer": "musculus latissimus dorsi",
+     "english": "latissimus dorsi",
+     "also": [
+      "m latissimus dorsi",
+      "latissimus dorsi",
+      "latissimus dorsi"
+     ]
+    },
+    {
+     "x": 21.84,
+     "y": 72.92,
+     "answer": "musculus serratus anterior",
+     "english": "serratus anterior",
+     "also": [
+      "m serratus anterior",
+      "serratus anterior",
+      "serratus anterior"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0089-002",
+   "region": "Thorax",
+   "category": "cadaver",
+   "title": "Thorax \u2013 pectoral region",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0089-002.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #89-2 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 37.44,
+     "y": 20.83,
+     "answer": "musculus deltoideus",
+     "english": "deltoid",
+     "also": [
+      "m deltoideus",
+      "deltoideus",
+      "deltoid"
+     ]
+    },
+    {
+     "x": 62.4,
+     "y": 31.25,
+     "answer": "musculus pectoralis major",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major",
+      "pectoralis major",
+      "pars clavicularis"
+     ]
+    },
+    {
+     "x": 56.16,
+     "y": 62.5,
+     "answer": "musculus pectoralis major",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major",
+      "pectoralis major",
+      "pars sternocostalis"
+     ]
+    },
+    {
+     "x": 68.64,
+     "y": 62.5,
+     "answer": "musculus sternalis",
+     "english": "sternalis",
+     "also": [
+      "m sternalis",
+      "sternalis",
+      "sternalis"
+     ]
+    },
+    {
+     "x": 20.28,
+     "y": 54.17,
+     "answer": "musculus biceps brachii",
+     "english": "biceps brachii",
+     "also": [
+      "m biceps brachii",
+      "biceps brachii",
+      "biceps brachii"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0115-002",
+   "region": "Thorax",
+   "category": "cadaver",
+   "title": "Thorax \u2013 pectoral muscles, deep",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0115-002.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #115-2 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 73.32,
+     "y": 31.25,
+     "answer": "musculus pectoralis major",
+     "english": "pectoralis major",
+     "also": [
+      "m pectoralis major",
+      "pectoralis major",
+      "pectoralis major"
+     ]
+    },
+    {
+     "x": 51.48,
+     "y": 56.25,
+     "answer": "musculus pectoralis minor",
+     "english": "pectoralis minor",
+     "also": [
+      "m pectoralis minor",
+      "pectoralis minor",
+      "pectoralis minor"
+     ]
+    },
+    {
+     "x": 29.64,
+     "y": 62.5,
+     "answer": "corpus sterni",
+     "english": "body of sternum",
+     "also": [
+      "body of sternum",
+      "sternum"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0133-006",
+   "region": "Abdomen",
+   "category": "cadaver",
+   "title": "Abdomen \u2013 anterior wall & rectus sheath",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0133-006.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #133-6 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 45.24,
+     "y": 66.67,
+     "answer": "musculus rectus abdominis",
+     "english": "rectus abdominis",
+     "also": [
+      "m rectus abdominis",
+      "rectus abdominis",
+      "rectus abdominis"
+     ]
+    },
+    {
+     "x": 45.24,
+     "y": 44.79,
+     "answer": "intersectio tendinea",
+     "english": "tendinous intersection",
+     "also": [
+      "tendinous intersection",
+      "intersectiones tendineae"
+     ]
+    },
+    {
+     "x": 52.73,
+     "y": 52.08,
+     "answer": "linea alba",
+     "english": "linea alba",
+     "also": [
+      "linea alba"
+     ]
+    },
+    {
+     "x": 31.2,
+     "y": 31.25,
+     "answer": "musculus obliquus externus abdominis",
+     "english": "external oblique",
+     "also": [
+      "m obliquus externus abdominis",
+      "obliquus externus abdominis",
+      "external oblique"
+     ]
+    },
+    {
+     "x": 68.64,
+     "y": 66.67,
+     "answer": "musculus obliquus internus abdominis",
+     "english": "internal oblique",
+     "also": [
+      "m obliquus internus abdominis",
+      "obliquus internus abdominis",
+      "internal oblique"
+     ]
+    },
+    {
+     "x": 60.84,
+     "y": 52.08,
+     "answer": "vagina musculi recti abdominis",
+     "english": "rectus sheath",
+     "also": [
+      "rectus sheath",
+      "vagina recti"
+     ]
+    },
+    {
+     "x": 52.26,
+     "y": 60.42,
+     "answer": "umbilicus",
+     "english": "umbilicus",
+     "also": [
+      "umbilicus"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0134-005",
+   "region": "Abdomen",
+   "category": "cadaver",
+   "title": "Abdomen \u2013 rectus & epigastric vessels",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0134-005.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #134-5 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 46.8,
+     "y": 52.08,
+     "answer": "musculus rectus abdominis",
+     "english": "rectus abdominis",
+     "also": [
+      "m rectus abdominis",
+      "rectus abdominis",
+      "rectus abdominis"
+     ]
+    },
+    {
+     "x": 31.2,
+     "y": 47.92,
+     "answer": "musculus obliquus externus abdominis",
+     "english": "external oblique",
+     "also": [
+      "m obliquus externus abdominis",
+      "obliquus externus abdominis",
+      "external oblique"
+     ]
+    },
+    {
+     "x": 70.98,
+     "y": 58.33,
+     "answer": "musculus transversus abdominis",
+     "english": "transversus abdominis",
+     "also": [
+      "m transversus abdominis",
+      "transversus abdominis",
+      "transversus abdominis"
+     ]
+    },
+    {
+     "x": 57.72,
+     "y": 68.75,
+     "answer": "arteria epigastrica inferior",
+     "english": "inferior epigastric artery",
+     "also": [
+      "a epigastrica inferior",
+      "epigastrica inferior",
+      "inferior epigastric artery",
+      "vasa epigastrica inferiora"
      ]
     }
    ]
