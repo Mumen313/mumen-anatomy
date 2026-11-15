@@ -29,8 +29,8 @@ export function layout({ site, title, description, body, active = '', depthBase 
     ['about/', 'About me', 'about'],
     ['donate/', 'Donate ☕', 'donate'],
   ];
-  const brandMark = site.logo
-    ? `<img class="logo" src="${esc(site.logo)}" alt="">`
+  const brandMark = true
+    ? `<img class="logo" src="${u('assets/logo-64.png')}" alt="" width="44" height="44">`
     : `<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 9 L15 15 L22 9 M15 15 L15 24 M15 19 L10 23 M15 19 L20 23" fill="none" stroke="var(--nerve)" stroke-width="2.2" stroke-linecap="round"/></svg>`;
   return `<!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,9 @@ ${site.googleVerification ? `<meta name="google-site-verification" content="${es
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${u('assets/style.css')}?v=${site.v || ''}">
-${site.logo ? `<link rel="icon" href="${esc(site.logo)}">` : ''}
+<link rel="icon" type="image/png" sizes="32x32" href="${u('assets/logo-32.png')}">
+<link rel="apple-touch-icon" href="${u('assets/logo-180.png')}">
+<meta property="og:image" content="https://mumen313.github.io${u('assets/logo.jpg')}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -83,16 +85,8 @@ export function homePage({ site, regions, topics, phys = [] }) {
       <a class="btn" href="${u('about/')}">About me</a>
     </div>
   </div>
-  <div class="hero-plate" aria-hidden="true">
-    <svg viewBox="0 0 300 170" width="100%"><g fill="none" stroke-linecap="round">
-      <path d="M20 30 C80 30 90 60 140 70 C190 80 230 60 280 40" stroke="var(--nerve)" stroke-width="4"/>
-      <path d="M20 60 C80 60 100 75 140 80 C190 86 230 90 280 85" stroke="var(--nerve)" stroke-width="4"/>
-      <path d="M20 90 C80 90 100 92 140 92 C190 92 230 120 280 130" stroke="var(--nerve)" stroke-width="4"/>
-      <path d="M20 120 C70 118 110 100 140 100" stroke="var(--nerve)" stroke-width="4"/>
-      <path d="M20 145 C70 140 110 110 140 108 C180 105 230 150 280 160" stroke="var(--nerve)" stroke-width="4"/>
-      <path d="M30 160 C110 130 180 110 290 110" stroke="var(--artery)" stroke-width="7" opacity=".85"/>
-    </g></svg>
-    <p>Nerves in yellow, arteries in red, as in the atlas.</p>
+  <div class="hero-logo">
+    <img src="${u('assets/logo.jpg')}" alt="Mumen Uthman – Medicine logo" width="1200" height="800">
   </div>
 </div>
 

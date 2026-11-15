@@ -441,3 +441,7 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .sum-wrap,.sum-practice{margin-top:32px}
 .deep-list{padding-left:22px}
 .deep-nav{justify-content:space-between;margin-top:40px}
+/* logo */
+.brand .logo{height:44px;width:44px;border-radius:50%;object-fit:cover}
+.hero-logo{border-radius:16px;overflow:hidden;background:#00040f;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.hero-logo img{display:block;width:100%;height:auto}
