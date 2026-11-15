@@ -1,0 +1,178 @@
+{
+ "plates": [
+  {
+   "id": "bassett-0075-006",
+   "region": "Neck",
+   "category": "cadaver",
+   "title": "Neck \u2013 lateral view, deep (Bassett 75-6)",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0075-006.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #75-6 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 42.43,
+     "y": 35.42,
+     "answer": "vena jugularis interna",
+     "english": "internal jugular vein",
+     "also": [
+      "v jugularis interna",
+      "jugularis interna",
+      "internal jugular vein",
+      "ijv"
+     ]
+    },
+    {
+     "x": 42.43,
+     "y": 73.33,
+     "answer": "vena subclavia",
+     "english": "subclavian vein",
+     "also": [
+      "v subclavia",
+      "subclavia",
+      "subclavian vein"
+     ]
+    },
+    {
+     "x": 35.57,
+     "y": 54.58,
+     "answer": "glandula thyroidea",
+     "english": "thyroid gland",
+     "also": [
+      "thyroid gland"
+     ]
+    },
+    {
+     "x": 33.54,
+     "y": 40.62,
+     "answer": "musculus thyrohyoideus",
+     "english": "thyrohyoid",
+     "also": [
+      "m thyrohyoideus",
+      "thyrohyoideus",
+      "thyrohyoid"
+     ]
+    },
+    {
+     "x": 46.8,
+     "y": 60.83,
+     "answer": "plexus brachialis",
+     "english": "brachial plexus",
+     "also": [
+      "brachial plexus",
+      "truncus superior"
+     ]
+    },
+    {
+     "x": 61.62,
+     "y": 41.67,
+     "answer": "musculus levator scapulae",
+     "english": "levator scapulae",
+     "also": [
+      "m levator scapulae",
+      "levator scapulae",
+      "levator scapulae"
+     ]
+    },
+    {
+     "x": 56.16,
+     "y": 8.33,
+     "answer": "musculus splenius capitis",
+     "english": "splenius capitis",
+     "also": [
+      "m splenius capitis",
+      "splenius capitis",
+      "splenius capitis"
+     ]
+    },
+    {
+     "x": 66.3,
+     "y": 66.67,
+     "answer": "musculus supraspinatus",
+     "english": "supraspinatus",
+     "also": [
+      "m supraspinatus",
+      "supraspinatus",
+      "supraspinatus"
+     ]
+    },
+    {
+     "x": 73.32,
+     "y": 87.5,
+     "answer": "musculus infraspinatus",
+     "english": "infraspinatus",
+     "also": [
+      "m infraspinatus",
+      "infraspinatus",
+      "infraspinatus"
+     ]
+    },
+    {
+     "x": 51.48,
+     "y": 68.75,
+     "answer": "acromion",
+     "english": "acromion",
+     "also": [
+      "acromion"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bassett-0073-001",
+   "region": "Neck",
+   "category": "cadaver",
+   "title": "Neck \u2013 posterior triangle (Bassett 73-1)",
+   "layer": "Real cadaver photo",
+   "image": "bassett-0073-001.jpg",
+   "credit": "David L. Bassett, Bassett Collection of Stereoscopic Images of Human Anatomy, image #73-1 \u2013 \u00a9 Stanford University, CC BY-SA 4.0 (enlarged; pins added by Mumen Anatomy, same licence).",
+   "pins": [
+    {
+     "x": 42.12,
+     "y": 29.17,
+     "answer": "musculus sternocleidomastoideus",
+     "english": "sternocleidomastoid",
+     "also": [
+      "m sternocleidomastoideus",
+      "sternocleidomastoideus",
+      "sternocleidomastoid",
+      "scm"
+     ]
+    },
+    {
+     "x": 37.44,
+     "y": 46.88,
+     "answer": "vena jugularis externa",
+     "english": "external jugular vein",
+     "also": [
+      "v jugularis externa",
+      "jugularis externa",
+      "external jugular vein",
+      "ejv"
+     ]
+    },
+    {
+     "x": 74.88,
+     "y": 62.5,
+     "answer": "musculus trapezius",
+     "english": "trapezius",
+     "also": [
+      "m trapezius",
+      "trapezius",
+      "trapezius"
+     ]
+    },
+    {
+     "x": 47.58,
+     "y": 19.79,
+     "answer": "nervus auricularis magnus",
+     "english": "great auricular nerve",
+     "also": [
+      "n auricularis magnus",
+      "auricularis magnus",
+      "great auricular nerve"
+     ]
+    }
+   ]
+  }
+ ]
+}

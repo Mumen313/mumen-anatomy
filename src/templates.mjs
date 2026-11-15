@@ -308,7 +308,7 @@ export function gamesHubPage({ site, decks, plates, cadaver = [] }) {
 <p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
 <div class="g-cards">
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
-  ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real photos from the dissection hall with clips on the structures – exactly what you see in the exam.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
+  ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real dissection photos (Stanford Bassett Collection) – name the pinned structure in Latin.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
   ${card('pin-test', 'Pin test', 'A pin points at a muscle – you name it, just like in the clip test. Or find the muscle yourself on the plate.', `${plates.length} plates · ${pins} pins`, 'Clip-test practice', plates.map((p) => p.id))}
 </div>
 <p class="empty game-note">More games are coming with every region.</p>
@@ -396,7 +396,7 @@ export function pinTestPage({ site, plates, cadaver = false }) {
   }).join('');
   return `
 ${cadaver
-  ? gameShellTop('Real cadaver clip test', 'Games · Real dissection photos', 'Real photos from the dissection hall. A pin sits where the clip was – name the structure in Latin, just like in the exam.')
+  ? gameShellTop('Real cadaver clip test', 'Games · Real dissection photos', 'Real dissection photos. A pin points at a structure – name it in Latin, just like in the clip test.')
   : gameShellTop('Pin test', 'Games · Clip-test practice', 'A pin points at a structure – name it in Latin. Muscles, vessels and nerves for every region of the clip test.')}
 <button type="button" class="exam-btn hy-btn" data-exam="__HY__">⭐ Most asked in real clip tests <small>${plates.reduce((n, p) => n + p.pins.filter((q) => q.hy).length, 0)} pins taken from the whiteboard lists of past clip tests – random 20</small><span class="deck-best" data-best="exam:__HY__"></span></button>
 <div class="pt" id="pt">
@@ -449,7 +449,7 @@ ${cadaver
     <div class="btns"><button type="button" class="btn primary" id="ptAgain">Play again</button> <button type="button" class="btn" id="ptBack">Other plate</button></div>
   </section>
 </div>
-<p class="empty game-note">${cadaver ? 'Photos from the dissection hall of the Medical University of Varna, shared with permission. Labels removed and pins added by Mumen Anatomy. Answers in Latin (English accepted).' : ''} Plates: Sobotta's Atlas and Text-book of Human Anatomy (1909), public domain via Wikimedia Commons – labels removed and pins added by Mumen Anatomy. Latin and English names are both accepted. Scores are saved only in this browser.</p>
+<p class="empty game-note">${cadaver ? 'Real dissection photos from the David L. Bassett Collection, © Stanford University, licensed CC BY-SA 4.0. Photos enlarged and pins added by Mumen Anatomy (same licence). The originals are small, so fine structures are not pinned.' : "Plates: Sobotta's Atlas and Text-book of Human Anatomy (1909), public domain via Wikimedia Commons – labels removed and pins added by Mumen Anatomy."} Latin and English names are both accepted. Scores are saved only in this browser.</p>
 <script type="application/json" id="ptPlates">${JSON.stringify(plates).replace(/</g, '\\u003c')}</script>
 <script>window.PT_BASE = ${JSON.stringify(site.base)};</script>
 <script src="__BASE__assets/game-sound.js" defer></script>
