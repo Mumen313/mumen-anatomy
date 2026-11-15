@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
 import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, donatePage, notFoundPage, physiologyIndexPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, donatePage, notFoundPage, physiologyIndexPage, physLecturePage, physSectionPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -187,20 +187,39 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     }
   }
   const PRIVATE_SECTION = /practical|lab manual|the experiment for this lecture|colloquium|class sheet|close the session/i;
+  const SPECIAL = { summary: /^\s*📄|^\s*(summary|kurzfassung)\b/iu, wrap: /wrap-up/i, exam: /exam questions/i, cards: /flashcards/i };
   for (const lec of phys) {
     const blocks = await loadBlocks(client, lec.id);
-    const sections = [];
-    for (const s of splitSections(blocks)) {
+    const all = splitSections(blocks);
+    const parts = []; // every public section with its full html
+    let own = null, wrap = null;
+    for (const s of all) {
       if (/^\s*(🔬|🖨|✅)/u.test(s.raw) || PRIVATE_SECTION.test(s.raw)) continue;
       const html = await renderBlocks(s.blocks, { ...ctx, skipTextbookFigures: true });
       if (!html.trim()) continue;
-      sections.push({ ...s, html });
+      if (SPECIAL.summary.test(s.raw)) { own = html; continue; }
+      if (SPECIAL.wrap.test(s.raw)) { wrap = html; continue; }
+      const kind = SPECIAL.exam.test(s.raw) ? 'exam' : SPECIAL.cards.test(s.raw) ? 'cards' : 'topic';
+      let lead = '', keys = '';
+      if (kind === 'topic') {
+        const para = s.blocks.find((b) => b.type === 'paragraph' && plain(b.paragraph.rich_text).trim().length > 40 && !/^\s*(fox\b|fig)/i.test(plain(b.paragraph.rich_text)) && !b.paragraph.rich_text.every((r) => r.annotations?.italic));
+        if (para) { const t = plain(para.paragraph.rich_text).trim(); const m = t.match(/^.{40,}?[.!?](?=\s|$)/s); lead = (m ? m[0] : t).slice(0, 400); }
+        const tk = s.blocks.find((b) => b.type === 'callout' && /📌/u.test(b.callout.icon?.emoji || ''));
+        if (tk) keys = await renderBlocks(tk.children?.length ? tk.children : [tk], ctx);
+      }
+      parts.push({ ...s, html, kind, lead, keys });
     }
-    const intro = await renderBlocks((splitSections(blocks).intro || []).filter((b) => b.type === 'callout' && /^(❓|🌍)/u.test(b.callout.icon?.emoji || '')), ctx);
+    lec.sub = parts.map((x) => x.id);
+    const intro = await renderBlocks((all.intro || []).filter((b) => b.type === 'callout' && /^(❓|🌍)/u.test(b.callout.icon?.emoji || '')), ctx);
+    const base = `physiology/${lec.slug}/`;
     const crumbs = [{ label: 'Physiology', href: 'physiology/' }, { label: lec.block, href: `physiology/#${slugify(lec.block)}` }];
     const chips = [lec.no != null && `Lecture ${lec.no}`, lec.block];
-    await write(`physiology/${lec.slug}/index.html`, layout({ site, title: lec.name, active: 'physiology', description: `${lec.name} – physiology explained simply.`, body: topicPage({ site, topic: lec, crumbs, chips, sections, intro, feelKey: `physiology/${lec.slug}` }) }));
-    log(`  ✓ Physiology: ${lec.name}  (${sections.length} sections)`);
+    await write(`${base}index.html`, layout({ site, title: lec.name, active: 'physiology', description: `${lec.name} – short summary, physiology explained simply.`, body: physLecturePage({ site, lec, crumbs, chips, intro, own, wrap, parts, base, feelKey: `physiology/${lec.slug}` }) }));
+    for (let i = 0; i < parts.length; i++) {
+      const s = parts[i];
+      await write(`${base}${s.id}/index.html`, layout({ site, title: `${s.title} – ${lec.name}`, active: 'physiology', description: `${s.title} – in depth (${lec.name}).`, body: physSectionPage({ site, lec, crumbs: [...crumbs, { label: lec.name, href: base }], s, prev: parts[i - 1], next: parts[i + 1], base }) }));
+    }
+    log(`  ✓ Physiology: ${lec.name}  (summary + ${parts.length} read-more pages${own ? ', own summary' : ''})`);
   }
   await write('physiology/index.html', layout({ site, title: 'Physiology', active: 'physiology', body: physiologyIndexPage({ site, lectures: phys }) }));
 
@@ -254,7 +273,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'about/', 'donate/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.map((l) => `physiology/${l.slug}/`)];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'about/', 'donate/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.flatMap((l) => [`physiology/${l.slug}/`, ...(l.sub || []).map((x) => `physiology/${l.slug}/${x}/`)])];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)

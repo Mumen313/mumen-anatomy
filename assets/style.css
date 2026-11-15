@@ -427,3 +427,17 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .pin.wrong::before,.pin.target::before{background:transparent;border-color:var(--artery)}
 .pin span{left:12px;top:-12px;font-size:.78rem;opacity:.95}
 .pt-zoom{padding:4px 10px;font-size:.82rem;border-width:1px;background:rgba(255,255,255,.85)}
+/* physiology: summary first, details on read-more pages */
+.sum-lede{color:var(--muted);margin-top:0}
+.sum-card{position:relative;border:1px solid var(--line);border-radius:14px;padding:18px 20px 16px;margin:0 0 16px;background:#fff}
+.sum-card .num{position:absolute;top:14px;right:16px;font-size:.8rem;color:var(--muted)}
+.sum-card h3{margin:0 0 8px;padding-right:32px}
+.sum-card p{margin:0 0 10px}
+.sum-keys .note{margin:8px 0}
+.sum-keys ul{margin:6px 0 0;padding-left:20px}
+.read-more{display:inline-block;margin-top:6px;font-weight:600;color:var(--nerve);text-decoration:none}
+.read-more:hover{text-decoration:underline}
+.toc .toc-extra{margin-top:6px}
+.sum-wrap,.sum-practice{margin-top:32px}
+.deep-list{padding-left:22px}
+.deep-nav{justify-content:space-between;margin-top:40px}

@@ -202,6 +202,54 @@ ${feelWidget(feelKey, topic.name, href)}
 ${feelWidget(feelKey, topic.name, href).replace('class="feel"', 'class="feel feel-end"')}`;
 }
 
+export function physLecturePage({ site, lec, crumbs, chips, intro, own, wrap, parts, base, feelKey }) {
+  const u = (p = '') => site.base + p;
+  const topics = parts.filter((s) => s.kind === 'topic');
+  const practice = parts.filter((s) => s.kind !== 'topic');
+  const more = (s) => `<a class="read-more" href="${u(base + s.id + '/')}">Read more – deep in your knowledge →</a>`;
+  const cards = topics
+    .map(
+      (s, i) => `<section class="sum-card" id="${s.id}">
+    <span class="num">${String(i + 1).padStart(2, '0')}</span>
+    <h3>${esc(s.title)}</h3>
+    ${s.lead ? `<p>${esc(s.lead)}</p>` : ''}
+    ${s.keys ? `<div class="sum-keys">${s.keys}</div>` : ''}
+    ${more(s)}
+  </section>`
+    )
+    .join('\n');
+  const deep = topics.map((s, i) => `<li><a href="${u(base + s.id + '/')}">${i + 1} · ${esc(s.title)}</a></li>`).join('');
+  return `
+<div class="crumbs">${crumbs.map((c) => `<a href="${u(c.href)}">${esc(c.label)}</a>`).join(' / ')} / ${esc(lec.name)}</div>
+<h1>${esc(lec.name)}</h1>
+<div class="chips">${chips.filter(Boolean).map((c) => `<span class="chip">${esc(c)}</span>`).join(' ')}<span class="chip prio">Summary · 5–10 min read</span></div>
+${intro ? `<div class="topic-intro">${intro}</div>` : ''}
+${feelWidget(feelKey, lec.name, `physiology/${lec.slug}/`)}
+<div class="topic">
+  <nav class="toc" aria-label="Read more"><span class="eyebrow">Deep in your knowledge</span><ol>${deep}</ol>${practice.map((s) => `<a class="toc-extra" href="${u(base + s.id + '/')}">${s.kind === 'exam' ? '📝' : '🃏'} ${esc(s.title)}</a>`).join('')}</nav>
+  <article class="lecture-summary">
+    <p class="sum-lede">This is the short version of the lecture. Each topic has the key points here; open <b>Read more</b> when you want the full explanation with figures, examples and exam questions.</p>
+    ${own ? `<section class="sum-own">${own}</section>` : cards}
+    ${wrap ? `<section class="sum-wrap"><h2>The whole story</h2>${wrap}</section>` : ''}
+    ${own ? `<section><h2>Read more – deep in your knowledge</h2><ol class="deep-list">${deep}</ol></section>` : ''}
+    ${practice.length ? `<section class="sum-practice"><h2>Test yourself</h2><div class="btns">${practice.map((s) => `<a class="btn" href="${u(base + s.id + '/')}">${s.kind === 'exam' ? '📝' : '🃏'} ${esc(s.title)}</a>`).join(' ')}</div></section>` : ''}
+  </article>
+</div>
+${feelWidget(feelKey, lec.name, `physiology/${lec.slug}/`).replace('class="feel"', 'class="feel feel-end"')}`;
+}
+
+export function physSectionPage({ site, lec, crumbs, s, prev, next, base }) {
+  const u = (p = '') => site.base + p;
+  const link = (x, dir) => (x ? `<a class="btn" href="${u(base + x.id + '/')}">${dir === 'prev' ? '← ' : ''}${esc(x.title)}${dir === 'next' ? ' →' : ''}</a>` : '');
+  return `
+<div class="crumbs">${crumbs.map((c) => `<a href="${u(c.href)}">${esc(c.label)}</a>`).join(' / ')} / ${esc(s.title)}</div>
+<div class="eyebrow">Read more · ${esc(lec.name)}</div>
+<h1>${esc(s.title)}</h1>
+<p><a href="${u(base)}">← Back to the summary</a></p>
+<article class="deep-page"><section id="${s.id}">${s.html}</section></article>
+<nav class="btns deep-nav">${link(prev, 'prev')} <a class="btn" href="${u(base)}">Summary</a> ${link(next, 'next')}</nav>`;
+}
+
 export function physiologyIndexPage({ site, lectures }) {
   const u = (p = '') => site.base + p;
   const blocks = [...new Set(lectures.map((l) => l.block))];
@@ -219,7 +267,7 @@ export function physiologyIndexPage({ site, lectures }) {
   return `
 <div class="eyebrow">Physiology</div>
 <h1>Physiology, one mechanism at a time.</h1>
-<p class="lede">Every lecture is told as a cause-and-effect story, with an everyday comparison, takeaways, the questions examiners ask and flashcards to test yourself.</p>
+<p class="lede">Every lecture starts with a short summary you can read in a few minutes. When you want more, each topic has its own page with the full cause-and-effect story, everyday comparisons, exam questions and flashcards.</p>
 ${groups || '<p class="empty">The first lectures are being prepared.</p>'}`;
 }
 
