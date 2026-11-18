@@ -1,0 +1,33 @@
+name: Fetch Z-Anatomy models
+# Manual helper: exports Z-Anatomy (CC BY-SA 4.0, derived from BodyParts3D) muscles and bones with Blender.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get Blender and Z-Anatomy
+        run: |
+          set -e
+          cd /tmp
+          curl -sSfL -o blender.tar.xz https://download.blender.org/release/Blender3.6/blender-3.6.15-linux-x64.tar.xz
+          tar -xf blender.tar.xz && mv blender-3.6.15-linux-x64 blender
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 >/dev/null
+          git clone -q --depth 1 https://github.com/Z-Anatomy/Models-of-human-anatomy za
+          cd za && unzip -q Z-Anatomy.zip && ls -la Z-Anatomy
+      - name: Export
+        run: |
+          /tmp/blender/blender -b /tmp/za/Z-Anatomy/Startup.blend --python games/tools/za_export.py -- games/za-src 2>&1 | grep -v "^Read\|^Warning" | tail -30
+          cp /tmp/za/TA2.csv /tmp/za/License.txt games/za-src/
+          du -sh games/za-src; ls games/za-src/m | wc -l
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add -f games/za-src
+          git commit -qm "Z-Anatomy muscles and bones (CC BY-SA 4.0) for the 3D game" || echo nothing
+          git pull --rebase -q && git push
