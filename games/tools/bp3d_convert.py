@@ -9,6 +9,16 @@ for line in open(plist, encoding='utf-8', errors='replace'):
     p = line.rstrip('\n').split('\t')
     if len(p) >= 3 and p[0].startswith('FMA'):
         names.setdefault(p[0], p[2])
+want = set()
+ep = os.path.join(os.path.dirname(plist), 'isa_element_parts.txt')
+groups = {}
+if os.path.exists(ep):
+    for line in open(ep, encoding='utf-8', errors='replace'):
+        p = line.rstrip('\n').split('\t')
+        if len(p) == 3:
+            groups.setdefault(p[2], []).append(p[1])
+            if p[0] in ('FMA5022', 'FMA5018', 'FMA25624', 'FMA55107', 'FMA7538'):
+                want.add(p[2])
 os.makedirs(os.path.join(out, 'm'), exist_ok=True)
 objs = glob.glob(os.path.join(obj_dir, '**', '*.obj'), recursive=True)
 print(len(objs), 'obj files')
@@ -38,7 +48,8 @@ for m in meshes:
     xs = [a[0] for a in m['v']]; ys = [a[1] for a in m['v']]; zs = [a[2] for a in m['v']]
     entry = {'id': m['id'], 'fma': m['fma'], 'name': m['name'], 'nv': len(m['v']), 'nf': len(m['f']) // 3,
              'bbox': [round(min(xs), 1), round(min(ys), 1), round(min(zs), 1), round(max(xs), 1), round(max(ys), 1), round(max(zs), 1)]}
-    if rx.search(m['name']):
+    entry['groups'] = sorted(set(groups.get(m['id'], [])))
+    if m['id'] in want or rx.search(m['name']):
         q = b''.join(struct.pack('<hhh', *[int(round((c - G[i]) / span[i] * 65534 - 32767)) for i, c in enumerate(p)]) for p in m['v'])
         big = len(m['v']) > 65535
         ib = struct.pack('<%d%s' % (len(m['f']), 'I' if big else 'H'), *m['f'])
