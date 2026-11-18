@@ -47,7 +47,7 @@ span = [G[i + 3] - G[i] or 1 for i in range(3)]
 for n, e in enumerate(cat):
     fid = 'z%04d' % n; e['id'] = fid
     big = e['nv'] > 65535
-    q = b''.join(struct.pack('<hhh', *[int(round((c - G[i]) / span[i] * 65534 - 32767)) for i, c in enumerate(p)]) for p in e.pop('_v'))
+    q = b''.join(struct.pack('<hhh', *[max(-32767, min(32767, int(round((c - G[i]) / span[i] * 65534 - 32767)))) for i, c in enumerate(p)]) for p in e.pop('_v'))
     ix = e.pop('_i')
     with open(os.path.join(out, 'm', fid + '.bin'), 'wb') as fh:
         fh.write(struct.pack('<III', e['nv'], len(ix), 1 if big else 0) + q + struct.pack('<%d%s' % (len(ix), 'I' if big else 'H'), *ix))
