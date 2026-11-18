@@ -86,6 +86,7 @@ function tick() {
   controls.update(); renderer.render(scene, camera);
 }
 
+const sel = $('#m3dRegion');
 // ---------- data ----------
 let R = null; // current region: { meta, meshes: Map id->Mesh, structs }
 async function loadRegion(slug) {
@@ -122,6 +123,8 @@ async function loadRegion(slug) {
   const structs = meta.structures.map((s) => ({ ...s, objs: s.ids.map((i) => meshes.get(i)).filter(Boolean) })).filter((s) => s.objs.length);
   for (const s of structs) for (const o of s.objs) o.userData.st = s;
   R = { meta, group, meshes, structs, slug };
+  sel.value = slug;
+  try { history.replaceState(null, '', `?region=${slug}`); } catch {}
   const box = new THREE.Box3().setFromObject(group);
   camera.position.set(0, 0, 3); controls.target.set(0, 0, 0);
   frame(box, new THREE.Vector3(...(meta.view || [0, 0.15, 1])));
@@ -260,7 +263,6 @@ root.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', 
 const VIEWS = { front: [0, 0.1, 1], back: [0, 0.1, -1], left: [-1, 0.1, 0], right: [1, 0.1, 0], top: [0, 1, 0.01] };
 root.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => frame(new THREE.Box3().setFromObject(R.group), new THREE.Vector3(...VIEWS[b.dataset.view]))));
 $('#m3dBones').onchange = paint; $('#m3dIso').onchange = paint;
-const sel = $('#m3dRegion');
 sel.innerHTML = REGIONS.map((r) => `<option value="${r.slug}">${esc(r.title)}</option>`).join('');
 sel.onchange = () => loadRegion(sel.value);
 resize(); tick();
