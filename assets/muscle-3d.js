@@ -7,7 +7,7 @@ const BASE = root.dataset.base;
 const REGIONS = JSON.parse(document.getElementById('m3dRegions').textContent);
 const $ = (s) => root.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const S = window.MAGame || { good() {}, bad() {} };
+const S = { good: () => window.MAGame?.sfx.good(), bad: () => window.MAGame?.sfx.bad() };
 
 // ---------- answer checking ----------
 const ABBR = [[/\bmusculi\b/g, 'mm'], [/\bmusculus\b/g, 'm'], [/\bmm\.?\s*/g, ''], [/\bm\.?\s+/g, '']];
@@ -23,13 +23,16 @@ function lev(a, b) {
   for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
   return d[a.length][b.length];
 }
+function dist(x, st) { return Math.min(...[st.la, ...(st.also || [])].map((f) => lev(x, norm(f)))); }
 function check(input, st) {
   const x = norm(input);
   if (!x) return 0;
-  const forms = [st.la, ...(st.also || [])].map(norm);
-  if (forms.includes(x)) return 2;
+  const d = dist(x, st);
+  if (d === 0) return 2;
   const tol = (n) => (n > 14 ? 2 : n > 6 ? 1 : 0);
-  return forms.some((f) => lev(x, f) <= tol(f.length)) ? 1 : 0;
+  if (d > tol(norm(st.la).length)) return 0;
+  // a spelling slip only counts if no other muscle of this region is as close (externi ≠ interni)
+  return R.structs.some((o) => o !== st && dist(x, o) <= d) ? 0 : 1;
 }
 const short = (la) => la.replace(/^Musculus /, 'M. ').replace(/^Musculi /, 'Mm. ');
 
@@ -52,6 +55,8 @@ const MAT = {
   target: new THREE.MeshStandardMaterial({ color: 0xf2c94c, emissive: 0x6b4d00, roughness: 0.45 }),
   hover: new THREE.MeshStandardMaterial({ color: 0xd9784e, emissive: 0x3a1500, roughness: 0.5 }),
   ok: new THREE.MeshStandardMaterial({ color: 0x4caf6e, emissive: 0x0d3a1b, roughness: 0.5 }),
+  o: new THREE.MeshStandardMaterial({ color: 0xe0413a, emissive: 0x5a0d0a, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -2 }),
+  e: new THREE.MeshStandardMaterial({ color: 0x3f8ee0, emissive: 0x0a2a5a, roughness: 0.5, polygonOffset: true, polygonOffsetFactor: -2 }),
   ghost: new THREE.MeshStandardMaterial({ color: 0xa8473f, roughness: 0.6, transparent: true, opacity: 0.12, depthWrite: false }),
 };
 
@@ -63,12 +68,12 @@ function resize() {
 new ResizeObserver(resize).observe(canvas.parentElement);
 
 let fly = null; // camera animation
-function frame(box, dir) {
+function frame(box, dir, done) {
   const c = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3()).length();
   const dist = Math.max(size * 1.35, 0.12) / Math.tan((camera.fov * Math.PI) / 360) / 2 + size * 0.2;
   const d = (dir || camera.position.clone().sub(controls.target)).clone().normalize();
-  fly = { t: 0, p0: camera.position.clone(), p1: c.clone().add(d.multiplyScalar(dist)), c0: controls.target.clone(), c1: c };
+  fly = { t: 0, p0: camera.position.clone(), p1: c.clone().add(d.multiplyScalar(dist)), c0: controls.target.clone(), c1: c, done };
 }
 function tick() {
   requestAnimationFrame(tick);
@@ -76,7 +81,7 @@ function tick() {
     fly.t = Math.min(1, fly.t + 0.05);
     const e = 1 - Math.pow(1 - fly.t, 3);
     camera.position.lerpVectors(fly.p0, fly.p1, e); controls.target.lerpVectors(fly.c0, fly.c1, e);
-    if (fly.t >= 1) fly = null;
+    if (fly.t >= 1) { const cb = fly.done; fly = null; cb && cb(); }
   }
   controls.update(); renderer.render(scene, camera);
 }
@@ -108,7 +113,8 @@ async function loadRegion(slug) {
     const idx = big ? new Uint32Array(buf.slice(ioff, ioff + ni * 4)) : new Uint16Array(buf.slice(ioff, ioff + ni * 2));
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setIndex(new THREE.BufferAttribute(idx, 1)); g.computeVertexNormals();
-    const mesh = new THREE.Mesh(g, m.kind === 'bone' ? MAT.bone : MAT.muscle);
+    const mesh = new THREE.Mesh(g, m.kind === 'bone' ? MAT.bone : m.kind === 'o' ? MAT.o : m.kind === 'e' ? MAT.e : MAT.muscle);
+    if (m.kind === 'o' || m.kind === 'e') mesh.visible = false;
     mesh.userData = { id: m.id, kind: m.kind };
     group.add(mesh); meshes.set(m.id, mesh);
   }
@@ -124,6 +130,30 @@ async function loadRegion(slug) {
   newRound();
 }
 
+// muscles between the camera and the asked muscle become see-through
+function occluders(st) {
+  const occ = new Set(), cam = camera.position, v = new THREE.Vector3(), rc = new THREE.Raycaster();
+  const cand = R.group.children.filter((o) => o.userData.kind === 'muscle' && o.userData.st && o.userData.st !== st);
+  for (const o of st.objs) {
+    const pos = o.geometry.attributes.position, step = Math.max(1, Math.floor(pos.count / 60));
+    for (let i = 0; i < pos.count; i += step) {
+      v.fromBufferAttribute(pos, i);
+      const dir = v.clone().sub(cam), len = dir.length();
+      rc.set(cam, dir.normalize()); rc.far = len - 0.002;
+      for (const h of rc.intersectObjects(cand, false)) occ.add(h.object.userData.st);
+    }
+  }
+  return occ;
+}
+let occ = new Set();
+function side(st) { // the copy of a paired muscle that faces the camera best
+  const c = (o) => new THREE.Box3().setFromObject(o).getCenter(new THREE.Vector3());
+  const objs = st.objs.filter((o) => o.userData.kind === 'muscle');
+  if (objs.length < 2) return objs;
+  const right = objs.filter((o) => c(o).x < -0.002), left = objs.filter((o) => c(o).x > 0.002);
+  return right.length ? right : left.length ? left : objs;
+}
+
 // ---------- game state ----------
 let mode = 'type', queue = [], cur = null, score = 0, done = 0, tries = 0, hovered = null;
 const card = $('#m3dCard');
@@ -132,8 +162,10 @@ function paint() {
   const iso = $('#m3dIso').checked, bones = $('#m3dBones').checked;
   for (const o of R.meshes.values()) {
     if (o.userData.kind === 'bone') { o.visible = bones; continue; }
+    if (o.userData.kind === 'o' || o.userData.kind === 'e') { o.visible = !!(cur && (cur.solved || mode === 'explore') && cur.marks.includes(o.userData.id)); continue; }
     const st = o.userData.st;
     o.visible = true;
+    if (st && cur && st !== cur && mode === 'type' && !cur.solved && occ.has(st)) { o.material = MAT.ghost; continue; }
     if (st && cur && st === cur && mode !== 'explore') o.material = mode === 'find' ? (cur.solved ? MAT.ok : MAT.muscle) : cur.solved ? MAT.ok : MAT.target;
     else if (st && st === hovered) o.material = MAT.hover;
     else if (iso && cur && mode === 'type') o.material = MAT.ghost;
@@ -144,7 +176,8 @@ function info(st, full = true) {
   if (!st) { card.hidden = true; return; }
   const i = st.info || {};
   const row = (k, v) => (v ? `<div><b>${k}</b> ${esc(v)}</div>` : '');
-  card.innerHTML = `<div class="m3-la">${esc(short(st.la))}</div><div class="m3-en">${esc(st.en || '')}</div>${full ? row('Origo', i.o) + row('Insertio', i.i) + row('Innervatio', i.n) + row('Functio', i.f) : ''}`;
+  const legend = st.marks?.length ? '<div class="m3-legend"><span class="o"></span>Origo <span class="e"></span>Insertio on the bone</div>' : '';
+  card.innerHTML = legend + `<div class="m3-la">${esc(short(st.la))}</div><div class="m3-en">${esc(st.en || '')}</div>${full ? row('Origo', i.o) + row('Insertio', i.i) + row('Innervatio', i.n) + row('Functio', i.f) : ''}`;
   card.hidden = false;
 }
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -154,12 +187,18 @@ function newRound() {
   next();
 }
 function next() {
-  tries = 0; cur = queue.shift() || null; card.hidden = true;
+  occ = new Set(); tries = 0; cur = queue.shift() || null; card.hidden = true;
   $('#m3dInput').value = ''; $('#m3dMsg').textContent = '';
   if (!cur) { $('#m3dPrompt').innerHTML = `<b>Done!</b> ${score} of ${done} right first time. <button class="btn" id="m3dAgain" type="button">Play again</button>`; $('#m3dAgain').onclick = newRound; paint(); return; }
   if (mode === 'type') {
     $('#m3dPrompt').textContent = 'Name the yellow muscle (Latin):';
-    const box = new THREE.Box3(); cur.objs.forEach((o) => box.expandByObject(o)); frame(box.expandByScalar(0.04), cur.view ? new THREE.Vector3(...cur.view) : null);
+    const box = new THREE.Box3(); side(cur).forEach((o) => box.expandByObject(o));
+    const rc = new THREE.Box3().setFromObject(R.group).getCenter(new THREE.Vector3()), mc = box.getCenter(new THREE.Vector3());
+    const out = mc.clone().sub(rc); out.y = 0;
+    const view = new THREE.Vector3(...(R.meta.view || [0, 0.1, 1])).normalize();
+    const dir = out.length() > 0.03 ? out.normalize().multiplyScalar(0.8).add(view.multiplyScalar(0.6)).setY(0.15) : view;
+    occ = new Set(); const me = cur;
+    frame(box.expandByScalar(0.05), dir, () => { if (cur === me && mode === 'type') { occ = occluders(me); paint(); } });
     $('#m3dInput').focus({ preventScroll: true });
   } else if (mode === 'find') {
     $('#m3dPrompt').innerHTML = `Click on: <b>${esc(short(cur.la))}</b>`;

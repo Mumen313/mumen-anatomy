@@ -472,3 +472,6 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .m3-msg .ok{color:#3c9a5f;font-weight:600}.m3-msg .bad{color:var(--artery);font-weight:600}
 .m3-credit{font-size:.8rem;color:var(--muted);margin-top:18px}
 @media (max-width:700px){.m3-stage{height:58vh}.m3-card{top:auto;bottom:52px;right:8px;left:8px;width:auto}.m3-toggles{font-size:.78rem}}
+.m3-legend{font-size:.75rem;color:#9aa7b4;margin:0 0 6px!important;display:flex;align-items:center;gap:4px}
+.m3-legend span{display:inline-block;width:10px;height:10px;border-radius:3px}
+.m3-legend .o{background:#e0413a}.m3-legend .e{background:#3f8ee0;margin-left:8px}

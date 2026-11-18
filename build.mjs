@@ -5,9 +5,10 @@ import { mkdir, writeFile, readFile, copyFile, rm, cp, access } from 'node:fs/pr
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildMuscle3d } from './src/m3d.mjs';
 import { createNotionClient, loadBlocks, prop } from './src/notion.mjs';
 import { renderBlocks, splitSections, contains, plain, isPrivateCallout, slugify, formatDate } from './src/render.mjs';
-import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, donatePage, notFoundPage, physiologyIndexPage, physLecturePage, physSectionPage, progressPage, gamesHubPage, nameItPage, pinTestPage } from './src/templates.mjs';
+import { layout, homePage, regionPage, topicPage, aboutPage, membershipPage, donatePage, notFoundPage, physiologyIndexPage, physLecturePage, physSectionPage, progressPage, gamesHubPage, nameItPage, pinTestPage, muscle3dPage } from './src/templates.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -257,7 +258,10 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     await cp(path.join(ROOT, 'games', 'plates'), path.join(outDir, 'games', 'plates'), { recursive: true });
     if (cadaver.length) await cp(path.join(ROOT, 'games', 'cadaver'), path.join(outDir, 'games', 'cadaver'), { recursive: true });
     const gdesc = 'Anatomy games – spelling challenge and clip-test pin practice.';
-    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates, cadaver }) }));
+    const m3d = await buildMuscle3d(ROOT, outDir, (w) => stats.warnings.push(w));
+    if (m3d.length) await write('games/muscle-3d/index.html', layout({ site, title: '3D muscles – name it in Latin', active: 'games', description: 'Turn a 3D model, name the muscle in Latin and learn origin, insertion and innervation.', body: muscle3dPage({ site, regions: m3d }) }));
+    for (const r of m3d) log(`  ✓ 3D ${r.title}: ${r.n} muscles, ${(r.bytes / 1e6).toFixed(1)} MB`);
+    await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates, cadaver, m3d }) }));
     await write('games/name-it/index.html', layout({ site, title: 'Name it! – anatomy spelling game', active: 'games', description: 'Read the clue, type the anatomical term.', body: nameItPage({ site, decks }) }));
     await write('games/pin-test/index.html', layout({ site, title: 'Pin test – clip-test practice', active: 'games', description: 'Name the pinned muscle – practise for the anatomy clip test.', body: pinTestPage({ site, plates }) }));
     if (cadaver.length) await write('games/cadaver-clip-test/index.html', layout({ site, title: 'Real cadaver clip test', active: 'games', description: 'Clip-test practice on real dissection-hall photos.', body: pinTestPage({ site, plates: cadaver, cadaver: true }) }));
@@ -274,7 +278,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
   // ---- sitemap + robots (helps Google find every page) ----
   const origin = (process.env.SITE_ORIGIN || config.siteOrigin || '').replace(/\/$/, '');
   if (origin) {
-    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'about/', 'donate/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.flatMap((l) => [`physiology/${l.slug}/`, ...(l.sub || []).map((x) => `physiology/${l.slug}/${x}/`)])];
+    const urls = ['', 'games/', 'games/name-it/', 'games/pin-test/', 'games/cadaver-clip-test/', 'games/muscle-3d/', 'about/', 'donate/', 'physiology/', ...regions.map((r) => `regions/${r.slug}/`), ...topics.map((t) => `topics/${t.slug}/`), ...phys.flatMap((l) => [`physiology/${l.slug}/`, ...(l.sub || []).map((x) => `physiology/${l.slug}/${x}/`)])];
     const today = new Date().toISOString().slice(0, 10);
     const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((p) => `  <url><loc>${origin}${base}${p}</loc><lastmod>${today}</lastmod></url>`)

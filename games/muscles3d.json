@@ -1,0 +1,1479 @@
+{
+ "source": "za",
+ "regions": [
+  {
+   "slug": "head",
+   "title": "Head – face, chewing, eye",
+   "view": [
+    0.35,
+    0.1,
+    1
+   ],
+   "muscles": [
+    {
+     "la": "Musculus masseter",
+     "en": "Masseter",
+     "parts": [
+      "Superficial part of masseter",
+      "Deep part of masseter"
+     ],
+     "also": [],
+     "info": {
+      "o": "Arcus zygomaticus",
+      "i": "Tuberositas masseterica (lateral angle and ramus of the mandible)",
+      "n": "N. massetericus (V3)",
+      "f": "Elevates the mandible – closes the jaw"
+     }
+    },
+    {
+     "la": "Musculus temporalis",
+     "en": "Temporalis",
+     "parts": [
+      "Temporalis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa temporalis and fascia temporalis",
+      "i": "Processus coronoideus mandibulae",
+      "n": "Nn. temporales profundi (V3)",
+      "f": "Elevates the mandible; posterior fibres retract it"
+     }
+    },
+    {
+     "la": "Musculus pterygoideus lateralis",
+     "en": "Lateral pterygoid",
+     "parts": [
+      "Superior head of lateral pterygoid muscle",
+      "Inferior head of lateral pterygoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Upper head: crista infratemporalis of the greater wing of the sphenoid · lower head: lateral surface of the lamina lateralis processus pterygoidei",
+      "i": "Fovea pterygoidea of the condylar process and the articular disc of the TMJ",
+      "n": "N. pterygoideus lateralis (V3)",
+      "f": "Pulls the mandible forward, opens the mouth, grinding movement to the opposite side"
+     }
+    },
+    {
+     "la": "Musculus pterygoideus medialis",
+     "en": "Medial pterygoid",
+     "parts": [
+      "Medial pterygoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa pterygoidea (medial side of the lamina lateralis) and tuber maxillae",
+      "i": "Tuberositas pterygoidea (medial side of the mandibular angle)",
+      "n": "N. pterygoideus medialis (V3)",
+      "f": "Elevates and protrudes the mandible; forms a muscle sling with the masseter"
+     }
+    },
+    {
+     "la": "Musculus buccinator",
+     "en": "Buccinator",
+     "parts": [
+      "Bucinator"
+     ],
+     "also": [],
+     "info": {
+      "o": "Alveolar processes of maxilla and mandible (molar region) and raphe pterygomandibularis",
+      "i": "Angulus oris, blends into M. orbicularis oris",
+      "n": "N. facialis (VII) – rr. buccales",
+      "f": "Presses the cheek against the teeth (chewing, blowing)"
+     }
+    },
+    {
+     "la": "Musculus orbicularis oculi",
+     "en": "Orbicularis oculi",
+     "parts": [
+      "Orbital part of orbicularis oculi",
+      "Palpebral part of orbicularis oculi"
+     ],
+     "also": [],
+     "info": {
+      "o": "Medial orbital margin and lig. palpebrale mediale",
+      "i": "Runs in rings around the orbit; lateral palpebral raphe",
+      "n": "N. facialis (VII) – rr. temporales and zygomatici",
+      "f": "Closes the eyelids (palpebral part: blinking, orbital part: squeezing). Paralysis → patient cannot close the eye (lagophthalmus)"
+     }
+    },
+    {
+     "la": "Musculus orbicularis oris",
+     "en": "Orbicularis oris",
+     "parts": [
+      "Orbicularis oris muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fibres from the modiolus and neighbouring mimic muscles",
+      "i": "Skin and mucosa of the lips",
+      "n": "N. facialis (VII) – rr. buccales and marginalis mandibulae",
+      "f": "Closes and purses the lips"
+     }
+    },
+    {
+     "la": "Venter frontalis musculi occipitofrontalis",
+     "en": "Frontal belly (frontalis)",
+     "parts": [
+      "Frontalis muscle"
+     ],
+     "also": [
+      "Musculus frontalis",
+      "Venter frontalis"
+     ],
+     "info": {
+      "o": "Galea aponeurotica",
+      "i": "Skin of the eyebrows and forehead",
+      "n": "N. facialis (VII) – rr. temporales",
+      "f": "Raises the eyebrows, wrinkles the forehead"
+     }
+    },
+    {
+     "la": "Venter occipitalis musculi occipitofrontalis",
+     "en": "Occipital belly (occipitalis)",
+     "parts": [
+      "Occipitalis muscle"
+     ],
+     "also": [
+      "Musculus occipitalis",
+      "Venter occipitalis"
+     ],
+     "info": {
+      "o": "Linea nuchalis suprema and processus mastoideus",
+      "i": "Galea aponeurotica",
+      "n": "N. auricularis posterior (VII)",
+      "f": "Pulls the scalp backwards"
+     }
+    },
+    {
+     "la": "Musculus temporoparietalis",
+     "en": "Temporoparietalis",
+     "parts": [
+      "Temporoparietalis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fascia temporalis above the ear",
+      "i": "Galea aponeurotica",
+      "n": "N. facialis (VII) – rr. temporales",
+      "f": "Tenses the scalp, moves the ear slightly"
+     }
+    },
+    {
+     "la": "Musculus corrugator supercilii",
+     "en": "Corrugator supercilii",
+     "parts": [
+      "Corrugator supercilii"
+     ],
+     "also": [],
+     "info": {
+      "o": "Medial end of the arcus superciliaris",
+      "i": "Skin of the middle of the eyebrow",
+      "n": "N. facialis (VII) – rr. temporales",
+      "f": "Pulls the eyebrows medially and down (frowning)"
+     }
+    },
+    {
+     "la": "Musculus procerus",
+     "en": "Procerus",
+     "parts": [
+      "Procerus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Os nasale and upper lateral nasal cartilage",
+      "i": "Skin between the eyebrows",
+      "n": "N. facialis (VII)",
+      "f": "Pulls the skin between the eyebrows down – transverse wrinkles at the root of the nose"
+     }
+    },
+    {
+     "la": "Musculus nasalis",
+     "en": "Nasalis",
+     "parts": [
+      "Nasalis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Maxilla above the canine and lateral incisor",
+      "i": "Nasal cartilages and ala nasi",
+      "n": "N. facialis (VII) – rr. buccales",
+      "f": "Narrows (pars transversa) or widens (pars alaris) the nostrils"
+     }
+    },
+    {
+     "la": "Musculus depressor septi nasi",
+     "en": "Depressor septi nasi",
+     "parts": [
+      "Depressor septi nasi"
+     ],
+     "also": [],
+     "info": {
+      "o": "Maxilla above the central incisor",
+      "i": "Nasal septum (mobile part)",
+      "n": "N. facialis (VII) – rr. buccales",
+      "f": "Pulls the tip of the nose and septum down"
+     }
+    },
+    {
+     "la": "Musculus levator labii superioris",
+     "en": "Levator labii superioris",
+     "parts": [
+      "Levator labii superioris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Infraorbital margin of the maxilla (above the foramen infraorbitale)",
+      "i": "Skin of the upper lip",
+      "n": "N. facialis (VII) – rr. zygomatici and buccales",
+      "f": "Elevates the upper lip"
+     }
+    },
+    {
+     "la": "Musculus levator labii superioris alaeque nasi",
+     "en": "Levator labii superioris alaeque nasi",
+     "parts": [
+      "Levator nasolabialis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus frontalis maxillae",
+      "i": "Ala nasi and upper lip",
+      "n": "N. facialis (VII) – rr. zygomatici",
+      "f": "Elevates the upper lip and widens the nostril"
+     }
+    },
+    {
+     "la": "Musculus levator anguli oris",
+     "en": "Levator anguli oris",
+     "parts": [
+      "Levator anguli oris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa canina of the maxilla (below the foramen infraorbitale)",
+      "i": "Angulus oris (modiolus)",
+      "n": "N. facialis (VII) – rr. zygomatici and buccales",
+      "f": "Raises the corner of the mouth"
+     }
+    },
+    {
+     "la": "Musculus zygomaticus major",
+     "en": "Zygomaticus major",
+     "parts": [
+      "Zygomaticus major muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral surface of the os zygomaticum",
+      "i": "Angulus oris (modiolus)",
+      "n": "N. facialis (VII) – rr. zygomatici",
+      "f": "Pulls the corner of the mouth up and out – the smiling muscle"
+     }
+    },
+    {
+     "la": "Musculus zygomaticus minor",
+     "en": "Zygomaticus minor",
+     "parts": [
+      "Zygomaticus minor muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Os zygomaticum, medial to zygomaticus major",
+      "i": "Skin of the upper lip",
+      "n": "N. facialis (VII) – rr. zygomatici",
+      "f": "Elevates the upper lip (deepens the nasolabial fold)"
+     }
+    },
+    {
+     "la": "Musculus risorius",
+     "en": "Risorius",
+     "parts": [
+      "Risorius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fascia parotidea and masseterica",
+      "i": "Angulus oris",
+      "n": "N. facialis (VII) – rr. buccales",
+      "f": "Pulls the corner of the mouth laterally"
+     }
+    },
+    {
+     "la": "Musculus depressor anguli oris",
+     "en": "Depressor anguli oris",
+     "parts": [
+      "Depressor anguli oris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lower border of the mandible (linea obliqua)",
+      "i": "Angulus oris",
+      "n": "N. facialis (VII) – r. marginalis mandibulae",
+      "f": "Pulls the corner of the mouth down (sad face)"
+     }
+    },
+    {
+     "la": "Musculus depressor labii inferioris",
+     "en": "Depressor labii inferioris",
+     "parts": [
+      "Depressor labii inferioris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Mandible between symphysis and foramen mentale",
+      "i": "Skin of the lower lip",
+      "n": "N. facialis (VII) – r. marginalis mandibulae",
+      "f": "Pulls the lower lip down and laterally"
+     }
+    },
+    {
+     "la": "Musculus mentalis",
+     "en": "Mentalis",
+     "parts": [
+      "Mentalis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa incisiva of the mandible",
+      "i": "Skin of the chin",
+      "n": "N. facialis (VII) – r. marginalis mandibulae",
+      "f": "Raises and protrudes the lower lip, wrinkles the chin"
+     }
+    },
+    {
+     "la": "Musculus levator palpebrae superioris",
+     "en": "Levator palpebrae superioris",
+     "parts": [
+      "Levator palpebrae superioris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ala minor ossis sphenoidalis, above the canalis opticus",
+      "i": "Upper eyelid (tarsus superior and skin)",
+      "n": "N. oculomotorius (III) – r. superior; its smooth part (M. tarsalis superior) is sympathetic",
+      "f": "Elevates the upper eyelid. Lesion of III → ptosis"
+     }
+    },
+    {
+     "la": "Musculus rectus superior",
+     "en": "Superior rectus",
+     "parts": [
+      "Superior rectus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anulus tendineus communis",
+      "i": "Sclera, superior side",
+      "n": "N. oculomotorius (III) – r. superior",
+      "f": "Elevation (plus adduction and intorsion)"
+     }
+    },
+    {
+     "la": "Musculus rectus inferior",
+     "en": "Inferior rectus",
+     "parts": [
+      "Inferior rectus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anulus tendineus communis",
+      "i": "Sclera, inferior side",
+      "n": "N. oculomotorius (III) – r. inferior",
+      "f": "Depression (plus adduction and extorsion)"
+     }
+    },
+    {
+     "la": "Musculus rectus medialis",
+     "en": "Medial rectus",
+     "parts": [
+      "Medial rectus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anulus tendineus communis",
+      "i": "Sclera, medial side",
+      "n": "N. oculomotorius (III) – r. inferior",
+      "f": "Adduction"
+     }
+    },
+    {
+     "la": "Musculus rectus lateralis",
+     "en": "Lateral rectus",
+     "parts": [
+      "Lateral rectus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anulus tendineus communis",
+      "i": "Sclera, lateral side",
+      "n": "N. abducens (VI)",
+      "f": "Abduction. Lesion of VI → eye turned inwards (convergent squint)"
+     }
+    },
+    {
+     "la": "Musculus obliquus superior",
+     "en": "Superior oblique",
+     "parts": [
+      "Superior oblique muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Body of the sphenoid, above and medial to the canalis opticus",
+      "i": "Sclera posterior-superior-lateral, after running through the trochlea",
+      "n": "N. trochlearis (IV)",
+      "f": "Intorsion, depression (most in adduction) and abduction. Lesion of IV → trouble walking downstairs"
+     }
+    },
+    {
+     "la": "Musculus obliquus inferior",
+     "en": "Inferior oblique",
+     "parts": [
+      "Inferior oblique muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Floor of the orbit (maxilla, lateral to the nasolacrimal canal)",
+      "i": "Sclera posterior-inferior-lateral",
+      "n": "N. oculomotorius (III) – r. inferior",
+      "f": "Extorsion, elevation (most in adduction) and abduction"
+     }
+    },
+    {
+     "la": "Musculus genioglossus",
+     "en": "Genioglossus",
+     "parts": [
+      "Genioglossus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina mentalis superior of the mandible",
+      "i": "Whole tongue (fan-shaped) and body of the hyoid",
+      "n": "N. hypoglossus (XII)",
+      "f": "Protrudes the tongue. Lesion of XII → tongue deviates to the paralysed side"
+     }
+    },
+    {
+     "la": "Musculus hyoglossus",
+     "en": "Hyoglossus",
+     "parts": [
+      "Hyoglossus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Body and cornu majus of the hyoid",
+      "i": "Side of the tongue",
+      "n": "N. hypoglossus (XII)",
+      "f": "Depresses and retracts the tongue"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "neck",
+   "title": "Neck",
+   "view": [
+    0.6,
+    0.05,
+    1
+   ],
+   "muscles": [
+    {
+     "la": "Platysma",
+     "en": "Platysma",
+     "parts": [
+      "Platysma"
+     ],
+     "also": [
+      "Musculus platysma"
+     ],
+     "info": {
+      "o": "Skin and fascia of the upper chest (over pectoralis major and deltoid)",
+      "i": "Lower border of the mandible, skin of the lower face and angulus oris",
+      "n": "N. facialis (VII) – r. colli",
+      "f": "Tenses the skin of the neck, pulls the corner of the mouth down"
+     }
+    },
+    {
+     "la": "Musculus sternocleidomastoideus",
+     "en": "Sternocleidomastoid",
+     "parts": [
+      "Sternocleidomastoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput sternale: manubrium sterni · caput claviculare: medial third of the clavicle",
+      "i": "Processus mastoideus and lateral linea nuchalis superior",
+      "n": "N. accessorius (XI) + plexus cervicalis (C2–C3)",
+      "f": "One side: tilts the head to the same side and turns the face to the opposite side · both: extend the head, help inspiration. Shortened → torticollis"
+     }
+    },
+    {
+     "la": "Musculus digastricus",
+     "en": "Digastric",
+     "parts": [
+      "Anterior belly of digastric muscle",
+      "Posterior belly of digastric muscle",
+      "Intermediate tendon of digastric muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Venter posterior: incisura mastoidea · venter anterior: fossa digastrica of the mandible",
+      "i": "Intermediate tendon, held to the hyoid by a fibrous loop",
+      "n": "Venter anterior: n. mylohyoideus (V3) · venter posterior: n. facialis (VII)",
+      "f": "Elevates the hyoid, opens the mouth (depresses the mandible)"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus stylohyoideus",
+     "en": "Stylohyoid",
+     "parts": [
+      "Stylohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus styloideus",
+      "i": "Body of the hyoid (splits around the digastric tendon)",
+      "n": "N. facialis (VII)",
+      "f": "Elevates and pulls the hyoid backwards (swallowing)"
+     }
+    },
+    {
+     "la": "Musculus mylohyoideus",
+     "en": "Mylohyoid",
+     "parts": [
+      "Mylohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Linea mylohyoidea of the mandible",
+      "i": "Median raphe and body of the hyoid",
+      "n": "N. mylohyoideus (V3)",
+      "f": "Forms the floor of the mouth, elevates hyoid and tongue, opens the mouth"
+     }
+    },
+    {
+     "la": "Musculus geniohyoideus",
+     "en": "Geniohyoid",
+     "parts": [
+      "Geniohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina mentalis inferior",
+      "i": "Body of the hyoid",
+      "n": "C1 fibres travelling with the n. hypoglossus",
+      "f": "Pulls the hyoid forward and up, opens the mouth"
+     }
+    },
+    {
+     "la": "Musculus sternohyoideus",
+     "en": "Sternohyoid",
+     "parts": [
+      "Sternohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Back of the manubrium and medial clavicle",
+      "i": "Body of the hyoid",
+      "n": "Ansa cervicalis (C1–C3)",
+      "f": "Depresses the hyoid"
+     }
+    },
+    {
+     "la": "Musculus sternothyroideus",
+     "en": "Sternothyroid",
+     "parts": [
+      "Sternothyroid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Back of the manubrium (below sternohyoid) and 1st costal cartilage",
+      "i": "Linea obliqua of the thyroid cartilage",
+      "n": "Ansa cervicalis (C2–C3)",
+      "f": "Depresses the larynx"
+     }
+    },
+    {
+     "la": "Musculus thyrohyoideus",
+     "en": "Thyrohyoid",
+     "parts": [
+      "Thyrohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Linea obliqua of the thyroid cartilage",
+      "i": "Body and cornu majus of the hyoid",
+      "n": "C1 fibres travelling with the n. hypoglossus",
+      "f": "Depresses the hyoid or elevates the larynx"
+     },
+     "fix": {
+      "drop": true
+     }
+    },
+    {
+     "la": "Musculus omohyoideus",
+     "en": "Omohyoid",
+     "parts": [
+      "Omohyoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Venter inferior: upper border of the scapula near the incisura scapulae",
+      "i": "Venter superior: body of the hyoid (intermediate tendon tied to the clavicle)",
+      "n": "Ansa cervicalis (C1–C3)",
+      "f": "Depresses the hyoid, tenses the fascia around the carotid sheath"
+     }
+    },
+    {
+     "la": "Musculus scalenus anterior",
+     "en": "Scalenus anterior",
+     "parts": [
+      "Scalenus anterior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tubercula anteriora C3–C6",
+      "i": "Tuberculum musculi scaleni anterioris of the 1st rib",
+      "n": "Rr. anteriores C4–C6",
+      "f": "Elevates the 1st rib, bends the neck to the side. A. subclavia and plexus brachialis pass behind it through the scalene gap; V. subclavia passes in front"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus scalenus medius",
+     "en": "Scalenus medius",
+     "parts": [
+      "Scalenus medius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tubercula posteriora C2–C7",
+      "i": "1st rib, behind the sulcus arteriae subclaviae",
+      "n": "Rr. anteriores C3–C8",
+      "f": "Elevates the 1st rib, bends the neck to the side; back wall of the scalene gap"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus scalenus posterior",
+     "en": "Scalenus posterior",
+     "parts": [
+      "Scalenus posterior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tubercula posteriora C5–C7",
+      "i": "Outer surface of the 2nd rib",
+      "n": "Rr. anteriores C6–C8",
+      "f": "Elevates the 2nd rib, bends the neck to the side"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus longus colli",
+     "en": "Longus colli",
+     "parts": [
+      "Longus colli muscle"
+     ],
+     "also": [
+      "Musculus longus cervicis"
+     ],
+     "info": {
+      "o": "Bodies and transverse processes C3–T3",
+      "i": "Bodies and anterior tubercles C1–C6 (tuberculum anterius atlantis)",
+      "n": "Rr. anteriores C2–C6",
+      "f": "Flexes the cervical spine"
+     }
+    },
+    {
+     "la": "Musculus longus capitis",
+     "en": "Longus capitis",
+     "parts": [
+      "Longus capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tubercula anteriora C3–C6",
+      "i": "Pars basilaris of the occipital bone",
+      "n": "Rr. anteriores C1–C3",
+      "f": "Flexes the head and upper neck"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus rectus capitis anterior",
+     "en": "Rectus capitis anterior",
+     "parts": [
+      "Rectus anterior capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Massa lateralis atlantis",
+      "i": "Pars basilaris of the occipital bone, in front of the foramen magnum",
+      "n": "Rr. anteriores C1–C2",
+      "f": "Flexes the head at the atlanto-occipital joint"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus rectus capitis lateralis",
+     "en": "Rectus capitis lateralis",
+     "parts": [
+      "Rectus lateralis capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus transversus atlantis",
+      "i": "Processus jugularis of the occipital bone",
+      "n": "Rr. anteriores C1–C2",
+      "f": "Bends the head to the side"
+     },
+     "fix": {
+      "drop": true
+     }
+    }
+   ]
+  },
+  {
+   "slug": "back",
+   "title": "Back & suboccipital",
+   "view": [
+    0,
+    0.15,
+    -1
+   ],
+   "muscles": [
+    {
+     "la": "Musculus trapezius",
+     "en": "Trapezius",
+     "parts": [
+      "Descending part of trapezius muscle",
+      "Transverse part of trapezius muscle",
+      "Ascending part of trapezius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Linea nuchalis superior, protuberantia occipitalis externa, lig. nuchae, processus spinosi C7–T12",
+      "i": "Lateral third of the clavicle, acromion, spina scapulae",
+      "n": "N. accessorius (XI) + plexus cervicalis (C3–C4)",
+      "f": "Pars descendens elevates, pars transversa retracts, pars ascendens depresses the scapula; together they rotate it upwards (arm above 90°). Lesion of XI → shoulder hangs down"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus latissimus dorsi",
+     "en": "Latissimus dorsi",
+     "parts": [
+      "Latissimus dorsi muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi T7–L5, fascia thoracolumbalis, crista iliaca, ribs 10–12",
+      "i": "Crista tuberculi minoris humeri",
+      "n": "N. thoracodorsalis (C6–C8)",
+      "f": "Adducts, extends and internally rotates the arm (climbing, \"hand in back pocket\")"
+     },
+     "fix": {
+      "allAs": "o",
+      "keepWhole": true
+     }
+    },
+    {
+     "la": "Musculus levator scapulae",
+     "en": "Levator scapulae",
+     "parts": [
+      "Levator scapulae"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tubercula posteriora C1–C4",
+      "i": "Angulus superior and upper margo medialis of the scapula",
+      "n": "N. dorsalis scapulae (C4–C5)",
+      "f": "Elevates the scapula and rotates it downwards"
+     }
+    },
+    {
+     "la": "Musculus rhomboideus major",
+     "en": "Rhomboid major",
+     "parts": [
+      "Rhomboid major muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi T2–T5",
+      "i": "Margo medialis scapulae, below the spine",
+      "n": "N. dorsalis scapulae (C4–C5)",
+      "f": "Retracts and elevates the scapula, fixes it to the thorax"
+     }
+    },
+    {
+     "la": "Musculus rhomboideus minor",
+     "en": "Rhomboid minor",
+     "parts": [
+      "Rhomboid minor muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi C6–T1",
+      "i": "Margo medialis scapulae, at the root of the spine",
+      "n": "N. dorsalis scapulae (C4–C5)",
+      "f": "Retracts and elevates the scapula"
+     }
+    },
+    {
+     "la": "Musculus serratus posterior superior",
+     "en": "Serratus posterior superior",
+     "parts": [
+      "Serratus posterior superior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi C6–T2",
+      "i": "Ribs 2–5, lateral to their angles",
+      "n": "Nn. intercostales T2–T5",
+      "f": "Elevates the ribs (inspiration)"
+     }
+    },
+    {
+     "la": "Musculus serratus posterior inferior",
+     "en": "Serratus posterior inferior",
+     "parts": [
+      "Serratus posterior inferior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi T11–L2, fascia thoracolumbalis",
+      "i": "Lower borders of ribs 9–12",
+      "n": "Nn. intercostales T9–T11, n. subcostalis",
+      "f": "Pulls the lower ribs down"
+     }
+    },
+    {
+     "la": "Musculus splenius capitis",
+     "en": "Splenius capitis",
+     "parts": [
+      "Splenius capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lig. nuchae, processus spinosi C7–T3",
+      "i": "Processus mastoideus, lateral linea nuchalis superior",
+      "n": "Rr. posteriores nn. spinalium (C1–C6)",
+      "f": "Both sides: extend the head · one side: turns and bends the head to the same side"
+     }
+    },
+    {
+     "la": "Musculus splenius cervicis",
+     "en": "Splenius cervicis",
+     "parts": [
+      "Splenius colli muscle"
+     ],
+     "also": [
+      "Musculus splenius colli"
+     ],
+     "info": {
+      "o": "Processus spinosi T3–T6",
+      "i": "Tubercula posteriora C1–C3",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the neck, turns it to the same side"
+     }
+    },
+    {
+     "la": "Musculus iliocostalis lumborum",
+     "en": "Iliocostalis lumborum",
+     "parts": [
+      "Iliocostalis lumborum muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Sacrum, crista iliaca, fascia thoracolumbalis",
+      "i": "Angles of ribs 5–12",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the spine, bends it to the same side (lateral tract of the erector spinae)"
+     }
+    },
+    {
+     "la": "Musculus iliocostalis thoracis",
+     "en": "Iliocostalis thoracis",
+     "parts": [
+      "Iliocostalis thoracis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Angles of ribs 7–12",
+      "i": "Angles of ribs 1–6 and processus transversus C7",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the thoracic spine, bends it to the same side"
+     }
+    },
+    {
+     "la": "Musculus iliocostalis cervicis",
+     "en": "Iliocostalis cervicis",
+     "parts": [
+      "Iliocostalis colli muscle"
+     ],
+     "also": [
+      "Musculus iliocostalis colli"
+     ],
+     "info": {
+      "o": "Angles of ribs 3–6",
+      "i": "Tubercula posteriora C4–C6",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the neck, bends it to the same side"
+     }
+    },
+    {
+     "la": "Musculus longissimus thoracis",
+     "en": "Longissimus thoracis",
+     "parts": [
+      "Longissimus thoracis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Sacrum, processus spinosi of the lumbar vertebrae, lower thoracic transverse processes",
+      "i": "Processus costales/transversi of lumbar and thoracic vertebrae, ribs 2–12",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the spine, bends it to the same side"
+     }
+    },
+    {
+     "la": "Musculus longissimus cervicis",
+     "en": "Longissimus cervicis",
+     "parts": [
+      "Longissimus colli muscle"
+     ],
+     "also": [
+      "Musculus longissimus colli"
+     ],
+     "info": {
+      "o": "Processus transversi T1–T6",
+      "i": "Tubercula posteriora C2–C5",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the neck, bends it to the same side"
+     }
+    },
+    {
+     "la": "Musculus longissimus capitis",
+     "en": "Longissimus capitis",
+     "parts": [
+      "Longissimus capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus transversi T1–T3 and articular processes C4–C7",
+      "i": "Processus mastoideus",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the head, turns and bends it to the same side"
+     }
+    },
+    {
+     "la": "Musculus spinalis thoracis",
+     "en": "Spinalis thoracis",
+     "parts": [
+      "Spinalis thoracis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi T10–L2",
+      "i": "Processus spinosi T2–T8",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the thoracic spine (medial tract)"
+     }
+    },
+    {
+     "la": "Musculus spinalis cervicis",
+     "en": "Spinalis cervicis",
+     "parts": [
+      "Spinalis colli muscle"
+     ],
+     "also": [
+      "Musculus spinalis colli"
+     ],
+     "info": {
+      "o": "Processus spinosi C6–T2",
+      "i": "Processus spinosi C2–C4",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the neck"
+     }
+    },
+    {
+     "la": "Musculus spinalis capitis",
+     "en": "Spinalis capitis",
+     "parts": [
+      "Spinalis capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosi C7–T3 (inconstant)",
+      "i": "Occipital bone near the protuberantia occipitalis externa",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the head"
+     }
+    },
+    {
+     "la": "Musculus semispinalis thoracis",
+     "en": "Semispinalis thoracis",
+     "parts": [
+      "Semispinalis thoracis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus transversi T7–T12",
+      "i": "Processus spinosi C6–T4 (spans 5–6 segments)",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the spine and turns it to the opposite side"
+     }
+    },
+    {
+     "la": "Musculus semispinalis cervicis",
+     "en": "Semispinalis cervicis",
+     "parts": [
+      "Semispinalis colli muscle"
+     ],
+     "also": [
+      "Musculus semispinalis colli"
+     ],
+     "info": {
+      "o": "Processus transversi T1–T6",
+      "i": "Processus spinosi C2–C5",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extends the neck and turns it to the opposite side"
+     }
+    },
+    {
+     "la": "Musculi multifidi",
+     "en": "Multifidus",
+     "parts": [
+      "Multifidus colli muscle",
+      "Multifidus thoracis muscle",
+      "Multifidus lumborum muscle"
+     ],
+     "also": [
+      "Musculus multifidus",
+      "Mm. multifidi"
+     ],
+     "info": {
+      "o": "Sacrum, mamillary processes (lumbar), transverse processes (thoracic), articular processes C4–C7",
+      "i": "Processus spinosi 2–4 segments higher, up to C2",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Stabilises the vertebrae, extends and turns the spine to the opposite side"
+     }
+    },
+    {
+     "la": "Musculi rotatores",
+     "en": "Rotatores",
+     "parts": [
+      "Rotatores"
+     ],
+     "also": [
+      "Musculus rotator"
+     ],
+     "info": {
+      "o": "Processus transversi",
+      "i": "Lamina and base of the spinous process 1–2 vertebrae higher",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Turn the spine to the opposite side; proprioception"
+     }
+    },
+    {
+     "la": "Musculi interspinales",
+     "en": "Interspinales",
+     "parts": [
+      "Interspinales colli muscles",
+      "Interspinales thoracis muscles",
+      "Interspinales lumborum muscles"
+     ],
+     "also": [
+      "Musculus interspinalis"
+     ],
+     "info": {
+      "o": "Processus spinosus of one vertebra",
+      "i": "Processus spinosus of the vertebra above",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Extend the spine (mainly cervical and lumbar)"
+     }
+    },
+    {
+     "la": "Musculi intertransversarii laterales lumborum",
+     "en": "Lateral lumbar intertransversarii",
+     "parts": [
+      "Dorsal parts of lateral intertransversarii lumborum muscles",
+      "Ventral parts of lateral intertransversarii lumborum muscles"
+     ],
+     "also": [
+      "Musculi intertransversarii",
+      "Mm. intertransversarii"
+     ],
+     "info": {
+      "o": "Processus costalis of one lumbar vertebra",
+      "i": "Processus costalis of the vertebra above",
+      "n": "Rr. anteriores nn. spinalium",
+      "f": "Bend the lumbar spine to the side"
+     }
+    },
+    {
+     "la": "Musculi levatores costarum",
+     "en": "Levatores costarum",
+     "parts": [
+      "Levatores breves costarum",
+      "Levatores longi costarum"
+     ],
+     "also": [
+      "Musculus levator costae"
+     ],
+     "info": {
+      "o": "Processus transversi C7–T11",
+      "i": "Next lower rib (breves) or the second rib below (longi)",
+      "n": "Rr. posteriores nn. spinalium",
+      "f": "Elevate the ribs, bend and turn the spine"
+     }
+    },
+    {
+     "la": "Musculus rectus capitis posterior major",
+     "en": "Rectus capitis posterior major",
+     "parts": [
+      "Rectus posterior major capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosus axis",
+      "i": "Middle part of the linea nuchalis inferior",
+      "n": "N. suboccipitalis (r. posterior C1)",
+      "f": "Extends the head and turns it to the same side"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus rectus capitis posterior minor",
+     "en": "Rectus capitis posterior minor",
+     "parts": [
+      "Rectus posterior minor capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tuberculum posterius atlantis",
+      "i": "Medial part of the linea nuchalis inferior",
+      "n": "N. suboccipitalis (r. posterior C1)",
+      "f": "Extends the head"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus obliquus capitis inferior",
+     "en": "Obliquus capitis inferior",
+     "parts": [
+      "Obliquus inferior capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus spinosus axis",
+      "i": "Processus transversus atlantis",
+      "n": "N. suboccipitalis (r. posterior C1)",
+      "f": "Turns atlas and head to the same side"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus obliquus capitis superior",
+     "en": "Obliquus capitis superior",
+     "parts": [
+      "Obliquus superior capitis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus transversus atlantis",
+      "i": "Lateral part of the linea nuchalis inferior",
+      "n": "N. suboccipitalis (r. posterior C1)",
+      "f": "Extends the head and bends it to the same side"
+     },
+     "fix": {
+      "swap": true
+     }
+    }
+   ]
+  },
+  {
+   "slug": "trunk",
+   "title": "Thorax & abdomen",
+   "view": [
+    0,
+    0.1,
+    1
+   ],
+   "muscles": [
+    {
+     "la": "Musculus pectoralis major",
+     "en": "Pectoralis major",
+     "parts": [
+      "Clavicular head of pectoralis major muscle",
+      "Sternocostal head of pectoralis major muscle",
+      "(Abdominal part of pectoralis major muscle)"
+     ],
+     "also": [],
+     "info": {
+      "o": "Pars clavicularis: medial half of the clavicle · pars sternocostalis: sternum and costal cartilages 1–6 · pars abdominalis: rectus sheath",
+      "i": "Crista tuberculi majoris humeri",
+      "n": "Nn. pectorales medialis and lateralis (C5–T1)",
+      "f": "Adducts and internally rotates the arm, clavicular part flexes it; accessory inspiratory muscle"
+     },
+     "fix": {
+      "partsAs": "o"
+     }
+    },
+    {
+     "la": "Musculus pectoralis minor",
+     "en": "Pectoralis minor",
+     "parts": [
+      "Pectoralis minor muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ribs 3–5",
+      "i": "Processus coracoideus",
+      "n": "N. pectoralis medialis (C8–T1)",
+      "f": "Pulls the scapula forward and down; accessory inspiratory muscle"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus subclavius",
+     "en": "Subclavius",
+     "parts": [
+      "Subclavius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "1st rib at the bone–cartilage junction",
+      "i": "Lower surface of the lateral clavicle",
+      "n": "N. subclavius (C5–C6)",
+      "f": "Stabilises the sternoclavicular joint, pulls the clavicle down"
+     }
+    },
+    {
+     "la": "Musculus serratus anterior",
+     "en": "Serratus anterior",
+     "parts": [
+      "Serratus anterior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ribs 1–9 (digitations on the outer surface)",
+      "i": "Margo medialis scapulae (costal side), angulus superior and inferior",
+      "n": "N. thoracicus longus (C5–C7)",
+      "f": "Pulls the scapula forward, rotates it upwards (arm above 90°), holds it against the thorax. Lesion → scapula alata"
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculi intercostales externi",
+     "en": "External intercostals",
+     "parts": [
+      "External intercostal muscles"
+     ],
+     "also": [
+      "Musculus intercostalis externus"
+     ],
+     "info": {
+      "o": "Lower border of the rib above",
+      "i": "Upper border of the rib below (fibres run down and forward – \"hands in pockets\")",
+      "n": "Nn. intercostales",
+      "f": "Elevate the ribs – inspiration"
+     }
+    },
+    {
+     "la": "Musculi intercostales interni",
+     "en": "Internal intercostals",
+     "parts": [
+      "Internal intercostal muscles"
+     ],
+     "also": [
+      "Musculus intercostalis internus"
+     ],
+     "info": {
+      "o": "Upper border of the rib below",
+      "i": "Lower border of the rib above (fibres run down and backward)",
+      "n": "Nn. intercostales",
+      "f": "Depress the ribs – expiration (parasternal part helps inspiration)"
+     }
+    },
+    {
+     "la": "Musculi intercostales intimi",
+     "en": "Innermost intercostals",
+     "parts": [
+      "Innermost intercostal muscles"
+     ],
+     "also": [
+      "Musculus intercostalis intimus"
+     ],
+     "info": {
+      "o": "Upper border of the rib below",
+      "i": "Lower border of the rib above (deepest layer)",
+      "n": "Nn. intercostales",
+      "f": "Like the internal intercostals; the intercostal vein, artery and nerve (VAN) run between interni and intimi"
+     }
+    },
+    {
+     "la": "Musculus transversus thoracis",
+     "en": "Transversus thoracis",
+     "parts": [
+      "Transversus thoracis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Back of the lower sternum and processus xiphoideus",
+      "i": "Costal cartilages 2–6",
+      "n": "Nn. intercostales",
+      "f": "Pulls the costal cartilages down – expiration"
+     }
+    },
+    {
+     "la": "Diaphragma",
+     "en": "Diaphragm",
+     "parts": [
+      "Diaphragm"
+     ],
+     "also": [
+      "Musculus diaphragma"
+     ],
+     "info": {
+      "o": "Pars sternalis: processus xiphoideus · pars costalis: costal cartilages 7–12 · pars lumbalis: crura on L1–L3 and ligg. arcuata",
+      "i": "Centrum tendineum",
+      "n": "N. phrenicus (C3–C5) – \"C3, 4, 5 keeps the diaphragm alive\"",
+      "f": "Main inspiratory muscle. Openings: V. cava T8, oesophagus T10, aorta T12"
+     }
+    },
+    {
+     "la": "Musculus rectus abdominis",
+     "en": "Rectus abdominis",
+     "parts": [
+      "Rectus abdominis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Crista pubica and symphysis pubica",
+      "i": "Costal cartilages 5–7 and processus xiphoideus",
+      "n": "Nn. intercostales T7–T11, n. subcostalis (T12)",
+      "f": "Flexes the trunk, abdominal press; tendinous intersections make the \"six-pack\""
+     },
+     "fix": {
+      "swap": true
+     }
+    },
+    {
+     "la": "Musculus obliquus externus abdominis",
+     "en": "External abdominal oblique",
+     "parts": [
+      "External abdominal oblique muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Outer surface of ribs 5–12",
+      "i": "Labium externum of the crista iliaca, lig. inguinale, aponeurosis to the linea alba",
+      "n": "Nn. intercostales T5–T11, n. subcostalis, n. iliohypogastricus",
+      "f": "One side: turns the trunk to the opposite side, bends it to the same side · both: flex the trunk, abdominal press"
+     },
+     "fix": {
+      "zBelow": 1.0,
+      "kind": "e"
+     }
+    },
+    {
+     "la": "Musculus obliquus internus abdominis",
+     "en": "Internal abdominal oblique",
+     "parts": [
+      "Internal abdominal oblique muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fascia thoracolumbalis, linea intermedia of the crista iliaca, lateral lig. inguinale",
+      "i": "Lower borders of ribs 10–12, aponeurosis to the linea alba; gives the M. cremaster",
+      "n": "Nn. intercostales T8–T11, n. subcostalis, nn. iliohypogastricus and ilioinguinalis",
+      "f": "One side: turns the trunk to the same side · both: flex the trunk, abdominal press"
+     }
+    },
+    {
+     "la": "Musculus transversus abdominis",
+     "en": "Transversus abdominis",
+     "parts": [
+      "Transversus abdominis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Inner surface of costal cartilages 7–12, fascia thoracolumbalis, labium internum of the crista iliaca, lateral lig. inguinale",
+      "i": "Aponeurosis to the linea alba",
+      "n": "Nn. intercostales T7–T11, n. subcostalis, nn. iliohypogastricus and ilioinguinalis",
+      "f": "Abdominal press, narrows the waist like a belt"
+     }
+    },
+    {
+     "la": "Musculus pyramidalis",
+     "en": "Pyramidalis",
+     "parts": [
+      "Pyramidalis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ramus superior ossis pubis, in front of rectus abdominis",
+      "i": "Linea alba",
+      "n": "N. subcostalis (T12)",
+      "f": "Tenses the linea alba (often absent)"
+     }
+    },
+    {
+     "la": "Musculus quadratus lumborum",
+     "en": "Quadratus lumborum",
+     "parts": [
+      "Quadratus lumborum muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Labium internum of the crista iliaca, lig. iliolumbale",
+      "i": "12th rib and processus costales L1–L4",
+      "n": "N. subcostalis (T12) and rr. anteriores L1–L4",
+      "f": "Bends the trunk to the side, holds the 12th rib down during inspiration"
+     }
+    },
+    {
+     "la": "Musculus psoas major",
+     "en": "Psoas major",
+     "parts": [
+      "Psoas major"
+     ],
+     "also": [],
+     "info": {
+      "o": "Bodies and discs T12–L4, processus costales L1–L5",
+      "i": "Trochanter minor (together with iliacus as M. iliopsoas)",
+      "n": "Rr. musculares of the plexus lumbalis (L1–L3)",
+      "f": "Strongest hip flexor, also external rotation; bends the lumbar spine"
+     }
+    }
+   ]
+  }
+ ]
+}
