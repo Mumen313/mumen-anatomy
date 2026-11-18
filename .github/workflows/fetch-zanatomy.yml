@@ -14,7 +14,10 @@ jobs:
         run: |
           set -e
           cd /tmp
-          curl -sSfL -o blender.tar.xz https://download.blender.org/release/Blender3.6/blender-3.6.15-linux-x64.tar.xz
+          F=Blender3.6/blender-3.6.15-linux-x64.tar.xz
+          for u in https://download.blender.org/release https://mirrors.ocf.berkeley.edu/blender/release https://mirror.clarkson.edu/blender/release https://ftp.halifax.rwth-aachen.de/blender/release; do
+            curl -sSfL --retry 3 -A "Mozilla/5.0 (X11; Linux x86_64)" -o blender.tar.xz "$u/$F" && break || echo "::warning::mirror failed $u"
+          done
           tar -xf blender.tar.xz && mv blender-3.6.15-linux-x64 blender
           sudo apt-get update -qq && sudo apt-get install -y -qq libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 >/dev/null
           git clone -q --depth 1 https://github.com/Z-Anatomy/Models-of-human-anatomy za

@@ -325,6 +325,7 @@ export function notFoundPage({ site }) {
 const GAME_ICONS = {
   'name-it': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="22" width="12" height="16" rx="3"/><rect x="21" y="22" width="12" height="16" rx="3"/><rect x="36" y="22" width="12" height="16" rx="3" class="hl"/><rect x="51" y="22" width="8" height="16" rx="3" class="dim"/><path d="M10 46h44" class="ln"/></svg>`,
   'cadaver-clip-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="12" width="44" height="40" rx="6"/><path d="M18 44l10-14 8 9 6-7 6 12" class="ln"/><circle cx="40" cy="24" r="5" class="hl"/></svg>`,
+  'muscle-3d': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l22 12v28L32 58 10 46V18z" class="ln"/><path d="M10 18l22 12 22-12M32 30v28" class="ln"/><circle cx="32" cy="30" r="6" class="hl"/></svg>`,
   'pin-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 52c-4-14 2-34 18-38 14-3 22 8 20 20-1 9-8 12-8 18" class="ln"/><circle cx="26" cy="28" r="5" class="hl"/><circle cx="40" cy="38" r="4"/><circle cx="22" cy="44" r="4"/></svg>`,
 };
 
@@ -332,7 +333,7 @@ function gameShellTop(title, eyebrow, lede) {
   return `<div class="g-head"><a class="g-back" href="__BASE__games/">‹ All games</a><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p class="lede">${lede}</p></div>`;
 }
 
-export function gamesHubPage({ site, decks, plates, cadaver = [] }) {
+export function gamesHubPage({ site, decks, plates, cadaver = [], m3d = [] }) {
   const terms = decks.reduce((n, d) => n + d.items.length, 0);
   const pins = plates.reduce((n, p) => n + p.pins.length, 0);
   const card = (id, title, text, meta, tag, ids) => `
@@ -349,6 +350,7 @@ export function gamesHubPage({ site, decks, plates, cadaver = [] }) {
 <h1>Learn anatomy by playing.</h1>
 <p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
 <div class="g-cards">
+  ${m3d.length ? card('muscle-3d', '3D muscles', 'Turn a real 3D model of the body, name the yellow muscle in Latin and learn its origin, insertion and nerve.', `${m3d.length} regions · ${m3d.reduce((n, r) => n + r.n, 0)} muscles`, 'New · interactive 3D', m3d.map((r) => 'm3d-' + r.slug)) : ''}
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
   ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real dissection photos (Stanford Bassett Collection) – name the pinned structure in Latin.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
   ${card('pin-test', 'Pin test', 'A pin points at a muscle – you name it, just like in the clip test. Or find the muscle yourself on the plate.', `${plates.length} plates · ${pins} pins`, 'Clip-test practice', plates.map((p) => p.id))}
@@ -496,4 +498,44 @@ ${cadaver
 <script>window.PT_BASE = ${JSON.stringify(site.base)};</script>
 <script src="__BASE__assets/game-sound.js" defer></script>
 <script src="__BASE__assets/pin-test.js" defer></script>`;
+}
+
+export function muscle3dPage({ site, regions }) {
+  return `
+${gameShellTop('3D muscles', 'Games · interactive 3D', 'Rotate the model with your mouse or finger, zoom in, and name the yellow muscle in Latin. After each answer you see its origin, insertion and nerve.')}
+<div class="m3" id="m3d" data-base="__BASE__">
+  <div class="m3-bar">
+    <label class="m3-region">Region <select id="m3dRegion"></select></label>
+    <div class="m3-modes" role="group" aria-label="Mode">
+      <button type="button" class="on" data-mode="type">✍️ Name it</button>
+      <button type="button" data-mode="find">👆 Find it</button>
+      <button type="button" data-mode="explore">🔍 Explore</button>
+    </div>
+    <span class="m3-prog" id="m3dProg"></span>
+  </div>
+  <div class="m3-stage">
+    <canvas id="m3dCanvas" aria-label="3D model of the muscles"></canvas>
+    <div class="m3-loading" id="m3dLoading">Loading the 3D model…</div>
+    <aside class="m3-card" id="m3dCard" hidden></aside>
+    <div class="m3-views">
+      <button type="button" data-view="front">Front</button><button type="button" data-view="back">Back</button><button type="button" data-view="left">Left</button><button type="button" data-view="right">Right</button><button type="button" data-view="top">Top</button>
+    </div>
+    <div class="m3-toggles"><label><input type="checkbox" id="m3dBones" checked> Bones</label><label><input type="checkbox" id="m3dIso"> Only the asked muscle</label><span id="m3dCount" class="muted"></span></div>
+  </div>
+  <div class="m3-play">
+    <p class="m3-prompt" id="m3dPrompt"></p>
+    <form id="m3dForm" class="m3-form" autocomplete="off">
+      <input id="m3dInput" type="text" placeholder="e.g. M. masseter" spellcheck="false" autocapitalize="off">
+      <button class="btn primary" type="submit">Check</button>
+      <button class="btn" type="button" id="m3dHint">Hint</button>
+      <button class="btn" type="button" id="m3dSkip">Show</button>
+    </form>
+    <p class="m3-msg" id="m3dMsg" aria-live="polite"></p>
+    <button class="btn primary" type="button" id="m3dNext" hidden>Next ›</button>
+  </div>
+  <p class="m3-credit">3D models: <a href="https://www.z-anatomy.com/" rel="noopener">Z-Anatomy</a>, derived from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/" rel="noopener">BodyParts3D</a> © DBCLS – CC BY-SA 4.0. Muscle facts: Mumen Anatomy. Drag to turn · scroll or pinch to zoom · right-drag or two fingers to move.</p>
+</div>
+<script type="application/json" id="m3dRegions">${JSON.stringify(regions.map((r) => ({ slug: r.slug, title: r.title }))).replace(/</g, '\\u003c')}</script>
+<script src="__BASE__assets/game-sound.js" defer></script>
+<script type="module" src="__BASE__assets/muscle-3d.js"></script>`;
 }
