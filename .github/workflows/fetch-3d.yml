@@ -1,0 +1,41 @@
+name: Fetch BodyParts3D models
+# Manual helper: downloads BodyParts3D 4.0 (CC BY 4.0, DBCLS) and converts muscles/bones for the 3D game.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download BodyParts3D
+        run: |
+          set -e
+          mkdir -p /tmp/bp && cd /tmp/bp
+          B=https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST
+          curl -sSfL -o isa_parts_list_e.txt $B/isa_parts_list_e.txt
+          curl -sSfL -o isa_element_parts.txt $B/isa_element_parts.txt
+          curl -sSfL -o obj.zip $B/isa_BP3D_4.0_obj_99.zip
+          unzip -q obj.zip -d obj
+          head -5 isa_parts_list_e.txt; head -3 isa_element_parts.txt; find obj -name '*.obj' | head -3; head -20 "$(find obj -name '*.obj' | head -1)"
+      - name: Convert
+        run: |
+          python3 games/tools/bp3d_convert.py /tmp/bp/obj /tmp/bp/isa_parts_list_e.txt games/3d-src
+          cp /tmp/bp/isa_parts_list_e.txt /tmp/bp/isa_element_parts.txt games/3d-src/
+          du -sh games/3d-src
+      - name: Vendor three.js
+        run: |
+          cd /tmp && npm init -y >/dev/null && npm i three@0.170.0 >/dev/null
+          mkdir -p $GITHUB_WORKSPACE/assets/vendor
+          cp node_modules/three/build/three.module.min.js $GITHUB_WORKSPACE/assets/vendor/three.module.min.js
+          cp node_modules/three/examples/jsm/controls/OrbitControls.js $GITHUB_WORKSPACE/assets/vendor/OrbitControls.js
+          sed -i "s#from 'three'#from './three.module.min.js'#" $GITHUB_WORKSPACE/assets/vendor/OrbitControls.js
+          cp node_modules/three/LICENSE $GITHUB_WORKSPACE/assets/vendor/three-LICENSE.txt
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add -f games/3d-src assets/vendor
+          git commit -m "BodyParts3D models (CC BY 4.0) + three.js for the 3D game" || echo nothing
+          git pull --rebase -q && git push
