@@ -1474,6 +1474,1340 @@
      }
     }
    ]
+  },
+  {
+   "slug": "upper",
+   "title": "Upper limb – shoulder, arm, hand",
+   "view": [
+    -0.4,
+    0.1,
+    1
+   ],
+   "side": "r",
+   "muscles": [
+    {
+     "la": "Musculus deltoideus",
+     "en": "Deltoid",
+     "parts": [
+      "Clavicular part of deltoid muscle",
+      "Acromial part of deltoid muscle",
+      "Scapular spinal part of deltoid muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral third of the clavicle, acromion, spina scapulae",
+      "i": "Tuberositas deltoidea humeri",
+      "n": "N. axillaris (C5–C6)",
+      "f": "Pars acromialis abducts the arm (15–90°), pars clavicularis flexes and rotates inwards, pars spinalis extends and rotates outwards. Fracture of the surgical neck → axillary nerve at risk"
+     }
+    },
+    {
+     "la": "Musculus supraspinatus",
+     "en": "Supraspinatus",
+     "parts": [
+      "Supraspinatus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa supraspinata",
+      "i": "Upper facet of the tuberculum majus",
+      "n": "N. suprascapularis (C4–C6)",
+      "f": "Starts abduction (first 15°); rotator cuff. Most often torn cuff tendon (painful arc)"
+     }
+    },
+    {
+     "la": "Musculus infraspinatus",
+     "en": "Infraspinatus",
+     "parts": [
+      "Infraspinatus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa infraspinata",
+      "i": "Middle facet of the tuberculum majus",
+      "n": "N. suprascapularis (C5–C6)",
+      "f": "External rotation; rotator cuff"
+     }
+    },
+    {
+     "la": "Musculus teres minor",
+     "en": "Teres minor",
+     "parts": [
+      "Teres minor muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Margo lateralis scapulae (upper part)",
+      "i": "Lower facet of the tuberculum majus",
+      "n": "N. axillaris (C5–C6)",
+      "f": "External rotation; rotator cuff"
+     }
+    },
+    {
+     "la": "Musculus subscapularis",
+     "en": "Subscapularis",
+     "parts": [
+      "Subscapularis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa subscapularis",
+      "i": "Tuberculum minus",
+      "n": "Nn. subscapulares (C5–C6)",
+      "f": "Internal rotation; rotator cuff"
+     }
+    },
+    {
+     "la": "Musculus teres major",
+     "en": "Teres major",
+     "parts": [
+      "Teres major muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Angulus inferior scapulae",
+      "i": "Crista tuberculi minoris",
+      "n": "N. subscapularis inferior / n. thoracodorsalis (C5–C7)",
+      "f": "Adduction, extension and internal rotation of the arm"
+     }
+    },
+    {
+     "la": "Musculus coracobrachialis",
+     "en": "Coracobrachialis",
+     "parts": [
+      "Coracobrachialis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus coracoideus",
+      "i": "Medial shaft of the humerus (middle)",
+      "n": "N. musculocutaneus (C6–C7) – it pierces the muscle",
+      "f": "Flexes and adducts the arm"
+     }
+    },
+    {
+     "la": "Musculus biceps brachii",
+     "en": "Biceps brachii",
+     "parts": [
+      "Long head of biceps brachii",
+      "Short head of biceps brachii"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput longum: tuberculum supraglenoidale · caput breve: processus coracoideus",
+      "i": "Tuberositas radii and aponeurosis bicipitalis",
+      "n": "N. musculocutaneus (C5–C6)",
+      "f": "Flexes the elbow, strongest supinator (elbow bent), helps flex the shoulder. Biceps reflex C5–C6"
+     }
+    },
+    {
+     "la": "Musculus brachialis",
+     "en": "Brachialis",
+     "parts": [
+      "Brachialis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anterior surface of the distal half of the humerus",
+      "i": "Tuberositas ulnae",
+      "n": "N. musculocutaneus (small lateral part: n. radialis)",
+      "f": "Pure, strongest elbow flexor"
+     }
+    },
+    {
+     "la": "Musculus triceps brachii",
+     "en": "Triceps brachii",
+     "parts": [
+      "Long head of triceps brachii",
+      "Lateral head of triceps brachii",
+      "Medial head of triceps brachii"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput longum: tuberculum infraglenoidale · caput laterale: humerus above the sulcus n. radialis · caput mediale: humerus below it",
+      "i": "Olecranon",
+      "n": "N. radialis (C6–C8)",
+      "f": "Extends the elbow; long head also extends and adducts the arm. Triceps reflex C7"
+     }
+    },
+    {
+     "la": "Musculus anconeus",
+     "en": "Anconeus",
+     "parts": [
+      "Anconeus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis humeri",
+      "i": "Lateral surface of the olecranon",
+      "n": "N. radialis",
+      "f": "Helps extend the elbow, tenses the joint capsule"
+     }
+    },
+    {
+     "la": "Musculus pronator teres",
+     "en": "Pronator teres",
+     "parts": [
+      "Superficial head of pronator teres",
+      "Deep head of pronator teres"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput humerale: epicondylus medialis · caput ulnare: processus coronoideus ulnae",
+      "i": "Lateral surface of the middle radius",
+      "n": "N. medianus (C6–C7) – runs between the two heads",
+      "f": "Pronation, helps flex the elbow"
+     }
+    },
+    {
+     "la": "Musculus flexor carpi radialis",
+     "en": "Flexor carpi radialis",
+     "parts": [
+      "Flexor carpi radialis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus medialis humeri",
+      "i": "Base of the 2nd metacarpal (palmar)",
+      "n": "N. medianus (C6–C7)",
+      "f": "Flexes the wrist and abducts it radially"
+     }
+    },
+    {
+     "la": "Musculus palmaris longus",
+     "en": "Palmaris longus",
+     "parts": [
+      "Palmaris longus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus medialis humeri",
+      "i": "Aponeurosis palmaris",
+      "n": "N. medianus (C7–C8)",
+      "f": "Tenses the palmar aponeurosis, helps flex the wrist; missing in about 15 %"
+     }
+    },
+    {
+     "la": "Musculus flexor carpi ulnaris",
+     "en": "Flexor carpi ulnaris",
+     "parts": [
+      "Humeral head of flexor carpi ulnaris",
+      "Ulnar head of flexor carpi ulnaris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus medialis · olecranon and posterior border of the ulna",
+      "i": "Os pisiforme (→ hamulus ossis hamati, base of MC 5)",
+      "n": "N. ulnaris (C7–T1)",
+      "f": "Flexes the wrist and abducts it to the ulnar side"
+     }
+    },
+    {
+     "la": "Musculus flexor digitorum superficialis",
+     "en": "Flexor digitorum superficialis",
+     "parts": [
+      "Humero-ulnar head of flexor digitorum superficialis",
+      "Radial head of flexor digitorum superficialis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus medialis, processus coronoideus ulnae, anterior radius",
+      "i": "Middle phalanges of fingers 2–5 (split tendons)",
+      "n": "N. medianus (C7–T1)",
+      "f": "Flexes the PIP joints (and MCP and wrist)"
+     }
+    },
+    {
+     "la": "Musculus flexor digitorum profundus",
+     "en": "Flexor digitorum profundus",
+     "parts": [
+      "Flexor digitorum profundus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anterior surface of the ulna and membrana interossea",
+      "i": "Distal phalanges of fingers 2–5 (through the split FDS tendons)",
+      "n": "Radial half (fingers 2–3): n. interosseus anterior (n. medianus) · ulnar half (4–5): n. ulnaris",
+      "f": "Flexes the DIP joints – only muscle that bends the fingertip"
+     }
+    },
+    {
+     "la": "Musculus flexor pollicis longus",
+     "en": "Flexor pollicis longus",
+     "parts": [
+      "Flexor pollicis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anterior surface of the radius and membrana interossea",
+      "i": "Distal phalanx of the thumb",
+      "n": "N. interosseus anterior (n. medianus, C8–T1)",
+      "f": "Flexes the thumb tip (IP joint)"
+     }
+    },
+    {
+     "la": "Musculus pronator quadratus",
+     "en": "Pronator quadratus",
+     "parts": [
+      "Pronator quadratus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Distal anterior surface of the ulna",
+      "i": "Distal anterior surface of the radius",
+      "n": "N. interosseus anterior (n. medianus)",
+      "f": "Main pronator"
+     }
+    },
+    {
+     "la": "Musculus brachioradialis",
+     "en": "Brachioradialis",
+     "parts": [
+      "Brachioradialis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral supracondylar ridge of the humerus",
+      "i": "Processus styloideus radii",
+      "n": "N. radialis (C5–C6)",
+      "f": "Flexes the elbow in mid-position (\"beer-drinking muscle\")"
+     }
+    },
+    {
+     "la": "Musculus extensor carpi radialis longus",
+     "en": "Extensor carpi radialis longus",
+     "parts": [
+      "Extensor carpi radialis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral supracondylar ridge of the humerus",
+      "i": "Base of the 2nd metacarpal (dorsal)",
+      "n": "N. radialis (C6–C7)",
+      "f": "Extends the wrist and abducts it radially (fist clenching)"
+     }
+    },
+    {
+     "la": "Musculus extensor carpi radialis brevis",
+     "en": "Extensor carpi radialis brevis",
+     "parts": [
+      "Extensor carpi radialis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis humeri",
+      "i": "Base of the 3rd metacarpal (dorsal)",
+      "n": "R. profundus n. radialis (C7)",
+      "f": "Extends the wrist. Its origin is the classic site of tennis elbow"
+     }
+    },
+    {
+     "la": "Musculus extensor digitorum",
+     "en": "Extensor digitorum",
+     "parts": [
+      "Extensor digitorum"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis humeri",
+      "i": "Dorsal aponeurosis of fingers 2–5",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the fingers and the wrist"
+     }
+    },
+    {
+     "la": "Musculus extensor digiti minimi",
+     "en": "Extensor digiti minimi",
+     "parts": [
+      "Extensor digiti minimi"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis humeri",
+      "i": "Dorsal aponeurosis of the little finger",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the little finger"
+     }
+    },
+    {
+     "la": "Musculus extensor carpi ulnaris",
+     "en": "Extensor carpi ulnaris",
+     "parts": [
+      "Humeral head of extensor carpi ulnaris",
+      "Ulnar head of extensor carpi ulnaris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis · posterior border of the ulna",
+      "i": "Base of the 5th metacarpal (dorsal)",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the wrist and abducts it to the ulnar side"
+     }
+    },
+    {
+     "la": "Musculus supinator",
+     "en": "Supinator",
+     "parts": [
+      "Supinator"
+     ],
+     "also": [],
+     "info": {
+      "o": "Epicondylus lateralis, lig. collaterale radiale and anulare, crista m. supinatoris ulnae",
+      "i": "Proximal radius (around the neck and shaft)",
+      "n": "R. profundus n. radialis (C6–C7) – runs through it",
+      "f": "Supination (with the elbow straight)"
+     }
+    },
+    {
+     "la": "Musculus abductor pollicis longus",
+     "en": "Abductor pollicis longus",
+     "parts": [
+      "Abductor pollicis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior surfaces of ulna and radius, membrana interossea",
+      "i": "Base of the 1st metacarpal",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Abducts the thumb, helps radial abduction of the wrist"
+     }
+    },
+    {
+     "la": "Musculus extensor pollicis brevis",
+     "en": "Extensor pollicis brevis",
+     "parts": [
+      "Extensor pollicis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior surface of the radius and membrana interossea",
+      "i": "Proximal phalanx of the thumb",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the thumb MCP joint; borders the anatomical snuffbox"
+     }
+    },
+    {
+     "la": "Musculus extensor pollicis longus",
+     "en": "Extensor pollicis longus",
+     "parts": [
+      "Extensor pollicis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior surface of the ulna and membrana interossea",
+      "i": "Distal phalanx of the thumb (around the tuberculum dorsale radii)",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the thumb IP joint; ulnar border of the snuffbox"
+     }
+    },
+    {
+     "la": "Musculus extensor indicis",
+     "en": "Extensor indicis",
+     "parts": [
+      "Extensor indicis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Distal posterior surface of the ulna",
+      "i": "Dorsal aponeurosis of the index finger",
+      "n": "N. interosseus posterior (r. profundus n. radialis, C7–C8)",
+      "f": "Extends the index finger (pointing)"
+     }
+    },
+    {
+     "la": "Musculus abductor pollicis brevis",
+     "en": "Abductor pollicis brevis",
+     "parts": [
+      "Abductor pollicis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Retinaculum musculorum flexorum, tuberculum ossis scaphoidei",
+      "i": "Proximal phalanx of the thumb (radial sesamoid)",
+      "n": "N. medianus – r. recurrens (C8–T1)",
+      "f": "Abducts the thumb. Wasting of the thenar → carpal tunnel syndrome"
+     }
+    },
+    {
+     "la": "Musculus flexor pollicis brevis",
+     "en": "Flexor pollicis brevis",
+     "parts": [
+      "Superficial head of flexor pollicis brevis",
+      "Deep head of flexor pollicis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput superficiale: retinaculum flexorum · caput profundum: trapezoideum, capitatum",
+      "i": "Proximal phalanx of the thumb (radial sesamoid)",
+      "n": "Caput superficiale: n. medianus · caput profundum: n. ulnaris",
+      "f": "Flexes the thumb MCP joint"
+     }
+    },
+    {
+     "la": "Musculus opponens pollicis",
+     "en": "Opponens pollicis",
+     "parts": [
+      "Opponens pollicis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Retinaculum flexorum, tuberculum ossis trapezii",
+      "i": "Radial border of the 1st metacarpal",
+      "n": "N. medianus – r. recurrens",
+      "f": "Opposition of the thumb"
+     }
+    },
+    {
+     "la": "Musculus adductor pollicis",
+     "en": "Adductor pollicis",
+     "parts": [
+      "Oblique head of adductor pollicis",
+      "Transverse head of adductor pollicis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput obliquum: capitatum, bases of MC 2–3 · caput transversum: palmar shaft of MC 3",
+      "i": "Proximal phalanx of the thumb (ulnar sesamoid)",
+      "n": "R. profundus n. ulnaris (C8–T1)",
+      "f": "Adducts the thumb. Weak → Froment sign"
+     }
+    },
+    {
+     "la": "Musculus abductor digiti minimi",
+     "en": "Abductor digiti minimi (hand)",
+     "parts": [
+      "Abductor digiti minimi of hand"
+     ],
+     "also": [],
+     "info": {
+      "o": "Os pisiforme",
+      "i": "Proximal phalanx of the little finger (ulnar side)",
+      "n": "N. ulnaris – r. profundus",
+      "f": "Abducts the little finger"
+     }
+    },
+    {
+     "la": "Musculus flexor digiti minimi brevis",
+     "en": "Flexor digiti minimi brevis (hand)",
+     "parts": [
+      "Flexor digiti minimi of hand"
+     ],
+     "also": [],
+     "info": {
+      "o": "Hamulus ossis hamati, retinaculum flexorum",
+      "i": "Proximal phalanx of the little finger",
+      "n": "N. ulnaris – r. profundus",
+      "f": "Flexes the little finger at the MCP joint"
+     }
+    },
+    {
+     "la": "Musculus opponens digiti minimi",
+     "en": "Opponens digiti minimi",
+     "parts": [
+      "Opponens digiti minimi muscle of hand"
+     ],
+     "also": [],
+     "info": {
+      "o": "Hamulus ossis hamati, retinaculum flexorum",
+      "i": "Ulnar border of the 5th metacarpal",
+      "n": "N. ulnaris – r. profundus",
+      "f": "Brings the 5th metacarpal towards the thumb"
+     }
+    },
+    {
+     "la": "Musculi lumbricales",
+     "en": "Lumbricals (hand)",
+     "parts": [
+      "Lumbrical muscles of hand"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tendons of flexor digitorum profundus",
+      "i": "Radial side of the dorsal aponeurosis of fingers 2–5",
+      "n": "Lumbricals 1–2: n. medianus · 3–4: n. ulnaris",
+      "f": "Flex the MCP joints and extend the IP joints"
+     }
+    },
+    {
+     "la": "Musculi interossei palmares",
+     "en": "Palmar interossei",
+     "parts": [
+      "Palmar interossei muscles"
+     ],
+     "also": [],
+     "info": {
+      "o": "Metacarpals 2, 4, 5 (side facing the middle finger)",
+      "i": "Dorsal aponeurosis of fingers 2, 4, 5",
+      "n": "R. profundus n. ulnaris",
+      "f": "Adduct the fingers (PAD), flex MCP, extend IP"
+     }
+    },
+    {
+     "la": "Musculi interossei dorsales",
+     "en": "Dorsal interossei (hand)",
+     "parts": [
+      "Dorsal interossei muscles of hand"
+     ],
+     "also": [],
+     "info": {
+      "o": "Adjacent sides of metacarpals 1–5 (two heads)",
+      "i": "Proximal phalanges and dorsal aponeurosis of fingers 2–4",
+      "n": "R. profundus n. ulnaris",
+      "f": "Abduct the fingers (DAB), flex MCP, extend IP"
+     }
+    }
+   ],
+   "proximalOrigin": true,
+   "bones": {
+    "divisions": [
+     "Right upper limb",
+     "Right hand"
+    ],
+    "names": "^(Scapula|Clavicle)"
+   }
+  },
+  {
+   "slug": "lower",
+   "title": "Lower limb – hip, thigh, leg, foot",
+   "view": [
+    -0.4,
+    0.1,
+    1
+   ],
+   "side": "r",
+   "muscles": [
+    {
+     "la": "Musculus iliacus",
+     "en": "Iliacus",
+     "parts": [
+      "Iliacus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Fossa iliaca",
+      "i": "Trochanter minor (with psoas major as M. iliopsoas)",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Strongest hip flexor (as iliopsoas)"
+     }
+    },
+    {
+     "la": "Musculus psoas major",
+     "en": "Psoas major",
+     "parts": [
+      "Psoas major"
+     ],
+     "also": [],
+     "info": {
+      "o": "Bodies and discs T12–L4, processus costales L1–L5",
+      "i": "Trochanter minor",
+      "n": "Rr. musculares of the plexus lumbalis (L1–L3)",
+      "f": "Flexes the hip (iliopsoas), bends the lumbar spine"
+     }
+    },
+    {
+     "la": "Musculus gluteus maximus",
+     "en": "Gluteus maximus",
+     "parts": [
+      "Gluteus maximus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior ilium, sacrum, coccyx, lig. sacrotuberale",
+      "i": "Tuberositas glutea and tractus iliotibialis",
+      "n": "N. gluteus inferior (L5–S2)",
+      "f": "Strongest hip extensor and external rotator (climbing stairs, standing up)"
+     }
+    },
+    {
+     "la": "Musculus gluteus medius",
+     "en": "Gluteus medius",
+     "parts": [
+      "Gluteus medius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Outer surface of the ilium between the anterior and posterior gluteal lines",
+      "i": "Lateral surface of the trochanter major",
+      "n": "N. gluteus superior (L4–S1)",
+      "f": "Abducts the hip and keeps the pelvis level when standing on one leg. Weak → Trendelenburg sign"
+     }
+    },
+    {
+     "la": "Musculus gluteus minimus",
+     "en": "Gluteus minimus",
+     "parts": [
+      "Gluteus minimus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Outer surface of the ilium between the anterior and inferior gluteal lines",
+      "i": "Anterior surface of the trochanter major",
+      "n": "N. gluteus superior (L4–S1)",
+      "f": "Abducts and internally rotates the hip, stabilises the pelvis"
+     }
+    },
+    {
+     "la": "Musculus tensor fasciae latae",
+     "en": "Tensor fasciae latae",
+     "parts": [
+      "Tensor fasciae latae"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina iliaca anterior superior",
+      "i": "Tractus iliotibialis → tuberculum of the lateral tibia (Gerdy)",
+      "n": "N. gluteus superior (L4–S1)",
+      "f": "Flexes, abducts and internally rotates the hip; tenses the iliotibial tract"
+     }
+    },
+    {
+     "la": "Musculus piriformis",
+     "en": "Piriformis",
+     "parts": [
+      "Piriformis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anterior (pelvic) surface of the sacrum",
+      "i": "Tip of the trochanter major",
+      "n": "N. musculi piriformis (plexus sacralis, S1–S2)",
+      "f": "External rotation and abduction; divides the greater sciatic foramen into supra- and infrapiriform foramen"
+     }
+    },
+    {
+     "la": "Musculus obturatorius internus",
+     "en": "Obturator internus",
+     "parts": [
+      "Obturator internus"
+     ],
+     "also": [
+      "Musculus obturator internus"
+     ],
+     "info": {
+      "o": "Inner surface of the membrana obturatoria and the bone around it",
+      "i": "Fossa trochanterica",
+      "n": "N. musculi obturatorii interni (L5–S2)",
+      "f": "External rotation; leaves the pelvis through the lesser sciatic foramen"
+     }
+    },
+    {
+     "la": "Musculus gemellus superior",
+     "en": "Superior gemellus",
+     "parts": [
+      "Superior gemellus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina ischiadica",
+      "i": "With the obturator internus tendon to the fossa trochanterica",
+      "n": "N. musculi obturatorii interni",
+      "f": "External rotation"
+     }
+    },
+    {
+     "la": "Musculus gemellus inferior",
+     "en": "Inferior gemellus",
+     "parts": [
+      "Inferior gemellus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tuber ischiadicum",
+      "i": "With the obturator internus tendon to the fossa trochanterica",
+      "n": "N. musculi quadrati femoris",
+      "f": "External rotation"
+     }
+    },
+    {
+     "la": "Musculus quadratus femoris",
+     "en": "Quadratus femoris",
+     "parts": [
+      "Quadratus femoris muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral border of the tuber ischiadicum",
+      "i": "Crista intertrochanterica",
+      "n": "N. musculi quadrati femoris (L4–S1)",
+      "f": "External rotation and adduction"
+     }
+    },
+    {
+     "la": "Musculus obturatorius externus",
+     "en": "Obturator externus",
+     "parts": [
+      "Obturator externus"
+     ],
+     "also": [
+      "Musculus obturator externus"
+     ],
+     "info": {
+      "o": "Outer surface of the membrana obturatoria and the bone around it",
+      "i": "Fossa trochanterica",
+      "n": "N. obturatorius (L3–L4)",
+      "f": "External rotation and adduction"
+     }
+    },
+    {
+     "la": "Musculus sartorius",
+     "en": "Sartorius",
+     "parts": [
+      "Sartorius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina iliaca anterior superior",
+      "i": "Pes anserinus superficialis (medial tibia)",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Flexes, abducts and externally rotates the hip; flexes the knee (tailor’s position)"
+     }
+    },
+    {
+     "la": "Musculus rectus femoris",
+     "en": "Rectus femoris",
+     "parts": [
+      "Rectus femoris muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Spina iliaca anterior inferior and upper rim of the acetabulum",
+      "i": "Tuberositas tibiae via the patella and lig. patellae",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Extends the knee and flexes the hip (only two-joint head of the quadriceps). Patellar reflex L3–L4"
+     }
+    },
+    {
+     "la": "Musculus vastus lateralis",
+     "en": "Vastus lateralis",
+     "parts": [
+      "Vastus lateralis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Trochanter major, labium laterale lineae asperae",
+      "i": "Tuberositas tibiae via patella and lig. patellae, lateral retinaculum",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Extends the knee"
+     }
+    },
+    {
+     "la": "Musculus vastus medialis",
+     "en": "Vastus medialis",
+     "parts": [
+      "Vastus medialis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Linea intertrochanterica, labium mediale lineae asperae",
+      "i": "Tuberositas tibiae via patella and lig. patellae, medial retinaculum",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Extends the knee, keeps the patella from slipping laterally"
+     }
+    },
+    {
+     "la": "Musculus vastus intermedius",
+     "en": "Vastus intermedius",
+     "parts": [
+      "Vastus intermedius muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Anterior and lateral surface of the femoral shaft",
+      "i": "Tuberositas tibiae via patella and lig. patellae",
+      "n": "N. femoralis (L2–L4)",
+      "f": "Extends the knee"
+     }
+    },
+    {
+     "la": "Musculus pectineus",
+     "en": "Pectineus",
+     "parts": [
+      "Pectineus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Pecten ossis pubis",
+      "i": "Linea pectinea femoris",
+      "n": "N. femoralis (± n. obturatorius)",
+      "f": "Adducts and flexes the hip"
+     }
+    },
+    {
+     "la": "Musculus adductor longus",
+     "en": "Adductor longus",
+     "parts": [
+      "Adductor longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ramus superior ossis pubis, below the crista pubica",
+      "i": "Middle third of the labium mediale lineae asperae",
+      "n": "N. obturatorius (L2–L4)",
+      "f": "Adducts and flexes the hip"
+     }
+    },
+    {
+     "la": "Musculus adductor brevis",
+     "en": "Adductor brevis",
+     "parts": [
+      "Adductor brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ramus inferior ossis pubis",
+      "i": "Upper third of the linea aspera",
+      "n": "N. obturatorius (L2–L4)",
+      "f": "Adducts the hip"
+     }
+    },
+    {
+     "la": "Musculus adductor magnus",
+     "en": "Adductor magnus",
+     "parts": [
+      "Adductor magnus",
+      "(Adductor minimus)"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ramus inferior ossis pubis, ramus ossis ischii, tuber ischiadicum",
+      "i": "Linea aspera and tuberculum adductorium",
+      "n": "N. obturatorius + tibial part of the n. ischiadicus (L2–L5)",
+      "f": "Strongest adductor, also extends the hip; the hiatus adductorius lets the femoral vessels into the popliteal fossa"
+     }
+    },
+    {
+     "la": "Musculus gracilis",
+     "en": "Gracilis",
+     "parts": [
+      "Gracilis muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Ramus inferior ossis pubis",
+      "i": "Pes anserinus superficialis (medial tibia)",
+      "n": "N. obturatorius (L2–L4)",
+      "f": "Adducts the hip, flexes and internally rotates the knee"
+     }
+    },
+    {
+     "la": "Musculus biceps femoris",
+     "en": "Biceps femoris",
+     "parts": [
+      "Long head of biceps femoris",
+      "Short head of biceps femoris"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput longum: tuber ischiadicum · caput breve: labium laterale lineae asperae",
+      "i": "Caput fibulae",
+      "n": "Caput longum: n. tibialis part · caput breve: n. fibularis communis part of the n. ischiadicus",
+      "f": "Flexes and externally rotates the knee; long head extends the hip"
+     }
+    },
+    {
+     "la": "Musculus semitendinosus",
+     "en": "Semitendinosus",
+     "parts": [
+      "Semitendinosus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tuber ischiadicum",
+      "i": "Pes anserinus superficialis (medial tibia)",
+      "n": "N. tibialis part of the n. ischiadicus (L5–S2)",
+      "f": "Extends the hip, flexes and internally rotates the knee"
+     }
+    },
+    {
+     "la": "Musculus semimembranosus",
+     "en": "Semimembranosus",
+     "parts": [
+      "Semimembranosus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tuber ischiadicum",
+      "i": "Posterior medial condyle of the tibia (pes anserinus profundus), lig. popliteum obliquum",
+      "n": "N. tibialis part of the n. ischiadicus (L5–S2)",
+      "f": "Extends the hip, flexes and internally rotates the knee"
+     }
+    },
+    {
+     "la": "Musculus tibialis anterior",
+     "en": "Tibialis anterior",
+     "parts": [
+      "Tibialis anterior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Lateral surface of the tibia, membrana interossea",
+      "i": "Os cuneiforme mediale and base of MT 1 (plantar)",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Dorsiflexion and inversion (supination). Paralysis → foot drop, steppage gait"
+     }
+    },
+    {
+     "la": "Musculus extensor digitorum longus",
+     "en": "Extensor digitorum longus",
+     "parts": [
+      "Extensor digitorum longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Condylus lateralis tibiae, fibula, membrana interossea",
+      "i": "Dorsal aponeurosis of toes 2–5",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Extends the toes, dorsiflexion and eversion"
+     }
+    },
+    {
+     "la": "Musculus extensor hallucis longus",
+     "en": "Extensor hallucis longus",
+     "parts": [
+      "Extensor hallucis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Medial surface of the fibula, membrana interossea",
+      "i": "Distal phalanx of the big toe",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Extends the big toe, dorsiflexion. Weak big-toe extension → L5 root"
+     }
+    },
+    {
+     "la": "Musculus fibularis tertius",
+     "en": "Fibularis tertius",
+     "parts": [
+      "Fibularis tertius muscle"
+     ],
+     "also": [
+      "Musculus peroneus tertius"
+     ],
+     "info": {
+      "o": "Distal anterior fibula",
+      "i": "Base of MT 5 (dorsal)",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Dorsiflexion and eversion"
+     }
+    },
+    {
+     "la": "Musculus fibularis longus",
+     "en": "Fibularis longus",
+     "parts": [
+      "Fibularis longus muscle"
+     ],
+     "also": [
+      "Musculus peroneus longus"
+     ],
+     "info": {
+      "o": "Caput fibulae and proximal lateral fibula",
+      "i": "Os cuneiforme mediale and base of MT 1 (crosses the sole)",
+      "n": "N. fibularis superficialis (L5–S1)",
+      "f": "Eversion (pronation), plantar flexion, supports the transverse arch"
+     }
+    },
+    {
+     "la": "Musculus fibularis brevis",
+     "en": "Fibularis brevis",
+     "parts": [
+      "Fibularis brevis muscle"
+     ],
+     "also": [
+      "Musculus peroneus brevis"
+     ],
+     "info": {
+      "o": "Distal lateral fibula",
+      "i": "Tuberositas ossis metatarsi quinti",
+      "n": "N. fibularis superficialis (L5–S1)",
+      "f": "Eversion and plantar flexion"
+     }
+    },
+    {
+     "la": "Musculus gastrocnemius",
+     "en": "Gastrocnemius",
+     "parts": [
+      "Medial head of gastrocnemius",
+      "Lateral head of gastrocnemius"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput mediale: condylus medialis femoris · caput laterale: condylus lateralis femoris",
+      "i": "Tuber calcanei via the tendo calcaneus (Achilles)",
+      "n": "N. tibialis (S1–S2)",
+      "f": "Plantar flexion, flexes the knee. Achilles reflex S1"
+     }
+    },
+    {
+     "la": "Musculus soleus",
+     "en": "Soleus",
+     "parts": [
+      "Soleus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput and posterior fibula, linea musculi solei tibiae, arcus tendineus",
+      "i": "Tuber calcanei via the tendo calcaneus",
+      "n": "N. tibialis (S1–S2)",
+      "f": "Plantar flexion, keeps you upright when standing; muscle pump for the veins"
+     }
+    },
+    {
+     "la": "Musculus plantaris",
+     "en": "Plantaris",
+     "parts": [
+      "Plantaris muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Femur above the condylus lateralis",
+      "i": "Tuber calcanei (medial to the Achilles tendon)",
+      "n": "N. tibialis",
+      "f": "Weak plantar flexion and knee flexion"
+     }
+    },
+    {
+     "la": "Musculus popliteus",
+     "en": "Popliteus",
+     "parts": [
+      "Popliteus muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Condylus lateralis femoris, lateral meniscus",
+      "i": "Posterior tibia above the linea musculi solei",
+      "n": "N. tibialis",
+      "f": "\"Unlocks\" the extended knee by rotating the tibia inwards"
+     }
+    },
+    {
+     "la": "Musculus tibialis posterior",
+     "en": "Tibialis posterior",
+     "parts": [
+      "Tibialis posterior muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Membrana interossea, posterior tibia and fibula",
+      "i": "Tuberositas ossis navicularis, cuneiforms, bases of MT 2–4",
+      "n": "N. tibialis (L4–L5)",
+      "f": "Inversion and plantar flexion; holds up the longitudinal arch"
+     }
+    },
+    {
+     "la": "Musculus flexor digitorum longus",
+     "en": "Flexor digitorum longus",
+     "parts": [
+      "Flexor digitorum longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior surface of the tibia",
+      "i": "Distal phalanges of toes 2–5",
+      "n": "N. tibialis",
+      "f": "Flexes the toes, plantar flexion and inversion"
+     }
+    },
+    {
+     "la": "Musculus flexor hallucis longus",
+     "en": "Flexor hallucis longus",
+     "parts": [
+      "Flexor hallucis longus"
+     ],
+     "also": [],
+     "info": {
+      "o": "Posterior surface of the fibula, membrana interossea",
+      "i": "Distal phalanx of the big toe",
+      "n": "N. tibialis",
+      "f": "Flexes the big toe – push-off when walking"
+     }
+    },
+    {
+     "la": "Musculus extensor digitorum brevis",
+     "en": "Extensor digitorum brevis",
+     "parts": [
+      "Extensor digitorum brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Dorsal surface of the calcaneus",
+      "i": "Dorsal aponeurosis of toes 2–4",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Extends toes 2–4"
+     }
+    },
+    {
+     "la": "Musculus extensor hallucis brevis",
+     "en": "Extensor hallucis brevis",
+     "parts": [
+      "Extensor hallucis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Dorsal surface of the calcaneus",
+      "i": "Proximal phalanx of the big toe",
+      "n": "N. fibularis profundus (L4–L5)",
+      "f": "Extends the big toe at the MTP joint"
+     }
+    },
+    {
+     "la": "Musculus abductor hallucis",
+     "en": "Abductor hallucis",
+     "parts": [
+      "Abductor hallucis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Processus medialis tuberis calcanei, retinaculum flexorum",
+      "i": "Proximal phalanx of the big toe (medial sesamoid)",
+      "n": "N. plantaris medialis",
+      "f": "Abducts and flexes the big toe, supports the medial arch"
+     }
+    },
+    {
+     "la": "Musculus flexor hallucis brevis",
+     "en": "Flexor hallucis brevis",
+     "parts": [
+      "Medial head of flexor hallucis brevis",
+      "Lateral head of flexor hallucis brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Plantar surface of the cuboid and cuneiforms",
+      "i": "Proximal phalanx of the big toe (both sesamoids)",
+      "n": "Caput mediale: n. plantaris medialis · caput laterale: n. plantaris lateralis",
+      "f": "Flexes the big toe at the MTP joint"
+     }
+    },
+    {
+     "la": "Musculus adductor hallucis",
+     "en": "Adductor hallucis",
+     "parts": [
+      "Oblique head of adductor hallucis",
+      "Transverse head of adductor hallucis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Caput obliquum: bases of MT 2–4, cuboid · caput transversum: MTP joint capsules 3–5",
+      "i": "Proximal phalanx of the big toe (lateral sesamoid)",
+      "n": "N. plantaris lateralis – r. profundus",
+      "f": "Adducts the big toe, supports the transverse arch"
+     }
+    },
+    {
+     "la": "Musculus flexor digitorum brevis",
+     "en": "Flexor digitorum brevis",
+     "parts": [
+      "Flexor digitorum brevis"
+     ],
+     "also": [],
+     "info": {
+      "o": "Tuber calcanei, aponeurosis plantaris",
+      "i": "Middle phalanges of toes 2–5",
+      "n": "N. plantaris medialis",
+      "f": "Flexes the PIP joints of the toes"
+     }
+    },
+    {
+     "la": "Musculus quadratus plantae",
+     "en": "Quadratus plantae",
+     "parts": [
+      "Quadratus plantae muscle"
+     ],
+     "also": [],
+     "info": {
+      "o": "Plantar surface of the calcaneus (two heads)",
+      "i": "Lateral border of the flexor digitorum longus tendon",
+      "n": "N. plantaris lateralis",
+      "f": "Straightens the pull of flexor digitorum longus"
+     }
+    },
+    {
+     "la": "Musculus abductor digiti minimi pedis",
+     "en": "Abductor digiti minimi (foot)",
+     "parts": [
+      "Abductor digiti minimi of foot"
+     ],
+     "also": [
+      "Musculus abductor digiti minimi"
+     ],
+     "info": {
+      "o": "Tuber calcanei",
+      "i": "Proximal phalanx of the 5th toe (lateral)",
+      "n": "N. plantaris lateralis",
+      "f": "Abducts and flexes the 5th toe, supports the lateral arch"
+     }
+    },
+    {
+     "la": "Musculus flexor digiti minimi brevis pedis",
+     "en": "Flexor digiti minimi brevis (foot)",
+     "parts": [
+      "Flexor digiti minimi of foot"
+     ],
+     "also": [
+      "Musculus flexor digiti minimi brevis"
+     ],
+     "info": {
+      "o": "Base of MT 5, lig. plantare longum",
+      "i": "Proximal phalanx of the 5th toe",
+      "n": "N. plantaris lateralis",
+      "f": "Flexes the 5th toe at the MTP joint"
+     }
+    },
+    {
+     "la": "Musculi lumbricales pedis",
+     "en": "Lumbricals (foot)",
+     "parts": [
+      "Lumbrical muscles of foot"
+     ],
+     "also": [
+      "Musculi lumbricales"
+     ],
+     "info": {
+      "o": "Tendons of flexor digitorum longus",
+      "i": "Medial side of the dorsal aponeurosis of toes 2–5",
+      "n": "1st: n. plantaris medialis · 2nd–4th: n. plantaris lateralis",
+      "f": "Flex the MTP joints, extend the IP joints"
+     }
+    },
+    {
+     "la": "Musculi interossei plantares",
+     "en": "Plantar interossei",
+     "parts": [
+      "Plantar interossei muscles"
+     ],
+     "also": [],
+     "info": {
+      "o": "Medial side of MT 3–5",
+      "i": "Proximal phalanges of toes 3–5 (medial)",
+      "n": "N. plantaris lateralis – r. profundus",
+      "f": "Adduct toes 3–5 towards the 2nd toe"
+     }
+    },
+    {
+     "la": "Musculi interossei dorsales pedis",
+     "en": "Dorsal interossei (foot)",
+     "parts": [
+      "Dorsal interossei muscles of foot"
+     ],
+     "also": [
+      "Musculi interossei dorsales"
+     ],
+     "info": {
+      "o": "Adjacent sides of MT 1–5 (two heads)",
+      "i": "Proximal phalanges of toes 2–4",
+      "n": "N. plantaris lateralis – r. profundus",
+      "f": "Abduct the toes away from the axis of the 2nd toe"
+     }
+    }
+   ],
+   "proximalOrigin": true,
+   "bones": {
+    "divisions": [
+     "Right lower limb",
+     "Right foot"
+    ],
+    "names": "^(Hip bone|Sacrum|Coccyx|Fifth lumbar vertebra|Fourth lumbar vertebra)"
+   }
   }
  ]
 }

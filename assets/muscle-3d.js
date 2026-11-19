@@ -122,6 +122,7 @@ async function loadRegion(slug) {
   scene.add(group);
   const structs = meta.structures.map((s) => ({ ...s, objs: s.ids.map((i) => meshes.get(i)).filter(Boolean) })).filter((s) => s.objs.length);
   for (const s of structs) for (const o of s.objs) o.userData.st = s;
+  hidden.length = 0; hideBar();
   R = { meta, group, meshes, structs, slug };
   sel.value = slug;
   try { history.replaceState(null, '', `?region=${slug}`); } catch {}
@@ -157,6 +158,31 @@ function side(st) { // the copy of a paired muscle that faces the camera best
   return right.length ? right : left.length ? left : objs;
 }
 
+// ---------- hide muscles to look underneath ----------
+const hidden = []; // stack of structures, last hidden on top
+let hideMode = false;
+function hideBar() {
+  $('#m3dHide').classList.toggle('on', hideMode); $('#m3dHide').setAttribute('aria-pressed', String(hideMode));
+  $('#m3dUndo').disabled = !hidden.length; $('#m3dShowAll').disabled = !hidden.length;
+  $('#m3dShowAll').textContent = hidden.length ? `Show all (${hidden.length})` : 'Show all';
+  canvas.classList.toggle('hiding', hideMode);
+}
+function unhide(st) { const i = hidden.indexOf(st); if (i >= 0) hidden.splice(i, 1); hideBar(); }
+
+// ---------- little reward messages in the corner ----------
+const toastEl = $('#m3dToast'); let toastT = 0;
+const SAY = {
+  good: [['Alhamdulillah', 'الحمد لله']],
+  almost: [['SubhanAllah – almost!', 'سبحان الله']],
+  bad: [['Astaghfirullah', 'أستغفر الله'], ['Allahu akbar', 'الله أكبر']],
+};
+function toast(kind, st, extra = '') {
+  const [en, ar] = SAY[kind][(Math.random() * SAY[kind].length) | 0];
+  toastEl.className = 'm3-toast ' + kind;
+  toastEl.innerHTML = `<div class="t-ar" lang="ar" dir="rtl">${ar}</div><div class="t-en">${esc(en)}</div>${extra}${st?.info?.n ? `<div class="t-n"><b>Innervatio</b> ${esc(st.info.n)}</div>` : ''}`;
+  toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => (toastEl.hidden = true), 5000);
+}
+
 // ---------- game state ----------
 let mode = 'type', queue = [], cur = null, score = 0, done = 0, tries = 0, hovered = null;
 const card = $('#m3dCard');
@@ -165,6 +191,7 @@ function paint() {
   const iso = $('#m3dIso').checked, bones = $('#m3dBones').checked;
   for (const o of R.meshes.values()) {
     if (o.userData.kind === 'bone') { o.visible = bones; continue; }
+    if (o.userData.st && hidden.includes(o.userData.st)) { o.visible = false; continue; }
     if (o.userData.kind === 'o' || o.userData.kind === 'e') { o.visible = !!(cur && (cur.solved || mode === 'explore') && cur.marks.includes(o.userData.id)); continue; }
     const st = o.userData.st;
     o.visible = true;
@@ -193,6 +220,7 @@ function next() {
   occ = new Set(); tries = 0; cur = queue.shift() || null; card.hidden = true;
   $('#m3dInput').value = ''; $('#m3dMsg').textContent = '';
   if (!cur) { $('#m3dPrompt').innerHTML = `<b>Done!</b> ${score} of ${done} right first time. <button class="btn" id="m3dAgain" type="button">Play again</button>`; $('#m3dAgain').onclick = newRound; paint(); return; }
+  if (hidden.includes(cur)) unhide(cur);
   if (mode === 'type') {
     $('#m3dPrompt').textContent = 'Name the yellow muscle (Latin):';
     const box = new THREE.Box3(); side(cur).forEach((o) => box.expandByObject(o));
@@ -214,6 +242,7 @@ function solve(good, note = '') {
   cur.solved = true; paint(); info(cur);
   $('#m3dMsg').innerHTML = good ? `<span class="ok">✓ ${esc(short(cur.la))}</span> ${note}` : `<span class="bad">Answer: ${esc(short(cur.la))}</span>`;
   good ? S.good() : S.bad();
+  toast(good ? (note ? 'almost' : 'good') : 'bad', cur, good ? `<div class="t-la">✓ ${esc(short(cur.la))}</div>` : `<div class="t-la">${esc(short(cur.la))}</div>`);
   $('#m3dProg').textContent = `${done} / ${R.structs.length} · ${score} ✓`;
   $('#m3dNext').hidden = false; $('#m3dNext').focus({ preventScroll: true });
 }
@@ -222,7 +251,7 @@ $('#m3dForm').addEventListener('submit', (e) => {
   if (!cur || cur.solved) { $('#m3dNext').hidden = true; next(); return; }
   const r = check($('#m3dInput').value, cur);
   if (r) solve(true, r === 1 ? '<span class="muted">(check the spelling)</span>' : '');
-  else { tries++; S.bad(); $('#m3dMsg').innerHTML = `<span class="bad">Not quite${tries > 1 ? ' – try the hint' : ''}.</span>`; $('#m3dInput').select(); }
+  else { tries++; S.bad(); toast('bad', null, '<div class="t-la">Try again</div>'); $('#m3dMsg').innerHTML = `<span class="bad">Not quite${tries > 1 ? ' – try the hint' : ''}.</span>`; $('#m3dInput').select(); }
 });
 $('#m3dHint').onclick = () => { if (!cur || cur.solved) return; tries++; const la = short(cur.la); const n = Math.min(la.length, 3 + tries * 2); $('#m3dMsg').textContent = `Starts with: ${la.slice(0, n)}…`; };
 $('#m3dSkip').onclick = () => { if (cur && !cur.solved) { tries = 9; solve(false); } };
@@ -240,16 +269,17 @@ function pick(ev) {
 let down = null;
 canvas.addEventListener('pointerdown', (e) => (down = [e.clientX, e.clientY]));
 canvas.addEventListener('pointermove', (e) => {
-  if (mode === 'type' || e.buttons) return;
+  if ((mode === 'type' && !hideMode) || e.buttons) return;
   const st = pick(e); if (st !== hovered) { hovered = st; paint(); canvas.style.cursor = st ? 'pointer' : ''; }
 });
 canvas.addEventListener('pointerup', (e) => {
   if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 5) return;
   const st = pick(e); if (!st) return;
+  if (hideMode) { if (!hidden.includes(st)) hidden.push(st); hovered = null; hideBar(); paint(); return; }
   if (mode === 'explore') { cur = st; info(st); paint(); }
   else if (mode === 'find' && cur && !cur.solved) {
     if (st === cur) solve(true);
-    else { tries++; S.bad(); $('#m3dMsg').innerHTML = `<span class="bad">That is ${esc(short(st.la))}.</span>`; if (tries >= 3) solve(false); }
+    else { tries++; S.bad(); toast('bad', null, `<div class="t-la">That is ${esc(short(st.la))}</div>`); $('#m3dMsg').innerHTML = `<span class="bad">That is ${esc(short(st.la))}.</span>`; if (tries >= 3) solve(false); }
   }
 });
 
@@ -262,6 +292,10 @@ root.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', 
 }));
 const VIEWS = { front: [0, 0.1, 1], back: [0, 0.1, -1], left: [-1, 0.1, 0], right: [1, 0.1, 0], top: [0, 1, 0.01] };
 root.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => frame(new THREE.Box3().setFromObject(R.group), new THREE.Vector3(...VIEWS[b.dataset.view]))));
+$('#m3dHide').onclick = () => { hideMode = !hideMode; hideBar(); };
+$('#m3dUndo').onclick = () => { hidden.pop(); hideBar(); paint(); };
+$('#m3dShowAll').onclick = () => { hidden.length = 0; hideBar(); paint(); };
+addEventListener('keydown', (e) => { if (e.target.tagName === 'INPUT') return; if (e.key === 'h') $('#m3dHide').click(); if (e.key === 'u') $('#m3dUndo').click(); });
 $('#m3dBones').onchange = paint; $('#m3dIso').onchange = paint;
 sel.innerHTML = REGIONS.map((r) => `<option value="${r.slug}">${esc(r.title)}</option>`).join('');
 sel.onchange = () => loadRegion(sel.value);

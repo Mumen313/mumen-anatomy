@@ -517,6 +517,10 @@ ${gameShellTop('3D muscles', 'Games · interactive 3D', 'Rotate the model with y
     <canvas id="m3dCanvas" aria-label="3D model of the muscles"></canvas>
     <div class="m3-loading" id="m3dLoading">Loading the 3D model…</div>
     <aside class="m3-card" id="m3dCard" hidden></aside>
+    <div class="m3-toast" id="m3dToast" hidden role="status" aria-live="polite"></div>
+    <div class="m3-hidebar">
+      <button type="button" id="m3dHide" aria-pressed="false" title="Then click muscles to hide them (key H)">✋ Hide muscles</button><button type="button" id="m3dUndo" disabled title="Bring back the last one (key U)">↶ Undo</button><button type="button" id="m3dShowAll" disabled>Show all</button>
+    </div>
     <div class="m3-views">
       <button type="button" data-view="front">Front</button><button type="button" data-view="back">Back</button><button type="button" data-view="left">Left</button><button type="button" data-view="right">Right</button><button type="button" data-view="top">Top</button>
     </div>
@@ -533,7 +537,7 @@ ${gameShellTop('3D muscles', 'Games · interactive 3D', 'Rotate the model with y
     <p class="m3-msg" id="m3dMsg" aria-live="polite"></p>
     <button class="btn primary" type="button" id="m3dNext" hidden>Next ›</button>
   </div>
-  <p class="m3-credit">3D models: <a href="https://www.z-anatomy.com/" rel="noopener">Z-Anatomy</a>, derived from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/" rel="noopener">BodyParts3D</a> © DBCLS – CC BY-SA 4.0. Muscle facts: Mumen Anatomy. Drag to turn · scroll or pinch to zoom · right-drag or two fingers to move.</p>
+  <p class="m3-credit">3D models: <a href="https://www.z-anatomy.com/" rel="noopener">Z-Anatomy</a>, derived from <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/" rel="noopener">BodyParts3D</a> © DBCLS – CC BY-SA 4.0. Muscle facts: Mumen Anatomy. Tap ✋ Hide muscles, then click a muscle to peel it away and see what lies underneath. Drag to turn · scroll or pinch to zoom · right-drag or two fingers to move.</p>
 </div>
 <script type="application/json" id="m3dRegions">${JSON.stringify(regions.map((r) => ({ slug: r.slug, title: r.title }))).replace(/</g, '\\u003c')}</script>
 <script src="__BASE__assets/game-sound.js" defer></script>

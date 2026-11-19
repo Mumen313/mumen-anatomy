@@ -18,7 +18,7 @@ export async function buildMuscle3d(root, outDir, warn = () => {}) {
     for (const mu of r.muscles) {
       const ids = [], marks = [];
       for (const part of mu.parts) {
-        for (const side of ['.l', '.r', '']) {
+        for (const side of r.side ? ['.' + r.side, ''] : ['.l', '.r', '']) {
           const m = byName.get(part + side);
           if (m) { ids.push(m.id); used.set(m.id, { m, kind: 'muscle' }); }
         }
@@ -30,6 +30,7 @@ export async function buildMuscle3d(root, outDir, warn = () => {}) {
         for (const m of cat.meshes) {
           const mm = m.name.match(/^(.*)\.([oe])\d*([lr]?)$/);
           if (!mm) continue;
+          if (r.side && mm[3] && mm[3] !== r.side) continue;
           const whole = mm[1] === mu.en || mm[1] === mu.en + ' muscle' || (mu.parts.length === 1 && (mm[1] === part || mm[1] === base));
           if (!whole && mm[1] !== part && mm[1] !== base) continue;
           let kind = mm[2];
@@ -37,6 +38,11 @@ export async function buildMuscle3d(root, outDir, warn = () => {}) {
           if (fx.partsAs && !whole) kind = fx.partsAs;
           if (fx.allAs === 'o' && kind === 'e') { const zc = (m.bbox[2] + m.bbox[5]) / 2; if (zc > 1.2) kind = 'o'; }
           if (fx.zBelow && (m.bbox[2] + m.bbox[5]) / 2 < fx.zBelow) kind = fx.kind;
+          if (r.proximalOrigin && !fx.swap) {
+            const own = ids.map((id) => used.get(id)?.m).filter(Boolean);
+            const lo = Math.min(...own.map((x) => x.bbox[2])), hi = Math.max(...own.map((x) => x.bbox[5]));
+            kind = (m.bbox[2] + m.bbox[5]) / 2 > (lo + hi) / 2 ? 'o' : 'e';
+          }
           marks.push(m.id); used.set(m.id, { m, kind });
         }
       }
@@ -48,6 +54,13 @@ export async function buildMuscle3d(root, outDir, warn = () => {}) {
     for (const { m, kind } of used.values()) if (kind === 'muscle') for (let i = 0; i < 3; i++) { box[i] = Math.min(box[i], m.bbox[i]); box[i + 3] = Math.max(box[i + 3], m.bbox[i + 3]); }
     const pad = 0.02;
     for (const b of bones) {
+      if (r.bones) {
+        const inDiv = b.colls.some((p) => r.bones.divisions.includes(p[p.length - 1]) || r.bones.divisions.some((d) => p.includes(d)));
+        const byName = new RegExp(r.bones.names).test(b.name) && (!/\.[lr]$/.test(b.name) || b.name.endsWith('.' + (r.side || 'r')));
+        const sideOk = !/\.[lr]$/.test(b.name) || b.name.endsWith('.' + (r.side || 'r'));
+        if ((inDiv || byName) && sideOk) used.set(b.id, { m: b, kind: 'bone' });
+        continue;
+      }
       const c = [0, 1, 2].map((i) => (b.bbox[i] + b.bbox[i + 3]) / 2);
       if (c.every((v, i) => v > box[i] - pad && v < box[i + 3] + pad)) used.set(b.id, { m: b, kind: 'bone' });
     }
