@@ -511,3 +511,4 @@ kbd{font:inherit;font-size:.72rem;border:1px solid var(--line);border-radius:4px
 .quiz-verdict{font-weight:700;margin-bottom:4px!important}
 .quiz-score{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--nerve-soft);display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .quiz-score p{margin:0;font-weight:700}
+.infographic img{width:100%;height:auto}

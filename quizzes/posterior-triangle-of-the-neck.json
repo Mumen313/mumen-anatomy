@@ -1,0 +1,57 @@
+[
+  {
+    "q": "What are the three borders of the posterior triangle of the neck?",
+    "options": [
+      "Midline of the neck, anterior border of sternocleidomastoid, mandible",
+      "Posterior border of sternocleidomastoid, anterior border of trapezius, middle third of the clavicle",
+      "Both bellies of the digastric and the hyoid bone",
+      "Anterior border of trapezius, superior belly of omohyoid, first rib"
+    ],
+    "answer": 1,
+    "why": "In front: the back edge of sternocleidomastoid. Behind: the front edge of trapezius. Below: the middle third of the clavicle. Option A is the anterior triangle."
+  },
+  {
+    "q": "Which muscle splits the posterior triangle into the occipital and subclavian triangles?",
+    "options": [
+      "Superior belly of omohyoid",
+      "Posterior belly of digastric",
+      "Inferior belly of omohyoid",
+      "Anterior scalene"
+    ],
+    "answer": 2,
+    "why": "The inferior belly of omohyoid crosses the lower part of the triangle. Above it is the big occipital triangle, below it the small subclavian triangle."
+  },
+  {
+    "q": "After a lymph node biopsy in the posterior triangle, a patient cannot shrug the shoulder on that side. Which nerve was injured?",
+    "options": [
+      "Phrenic nerve",
+      "Accessory nerve (CN XI)",
+      "Suprascapular nerve",
+      "Hypoglossal nerve (CN XII)"
+    ],
+    "answer": 1,
+    "why": "The accessory nerve runs superficially across the triangle, just under the investing fascia, on its way to trapezius. Cutting it weakens trapezius: the shoulder droops and shrugging is weak."
+  },
+  {
+    "q": "Why can a cut external jugular vein suck in air?",
+    "options": [
+      "Because it carries arterial blood under high pressure",
+      "Because the investing fascia holds its wall open, and the pressure inside is lower than outside",
+      "Because it lies directly on the lung",
+      "Because it has no valves at all"
+    ],
+    "answer": 1,
+    "why": "Where the vein pierces the investing fascia, the fascia keeps it from collapsing. Breathing in creates negative pressure, so air can be drawn in (air embolism). Treatment: press on it immediately."
+  },
+  {
+    "q": "Where do you inject for a cervical plexus nerve block?",
+    "options": [
+      "At the jugular notch",
+      "At the front edge of trapezius",
+      "At the posterior border of sternocleidomastoid, where its upper and middle thirds meet (the nerve point)",
+      "Just above the middle of the clavicle"
+    ],
+    "answer": 2,
+    "why": "The skin branches of the cervical plexus (C2–C4) come out together around the middle of the back edge of sternocleidomastoid – the nerve point of the neck."
+  }
+]

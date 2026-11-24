@@ -173,7 +173,7 @@ ${qs}
       if (/reference image|diagram/.test(t)) {
         try {
           const comp = await readFile(path.join(ROOT, 'components', `${topic.slug}.html`), 'utf8');
-          html = comp + html;
+          html = comp.replaceAll('__BASE__', base) + html;
         } catch {}
       }
       if (!html.trim()) continue; // section still empty in Notion: leave it out
