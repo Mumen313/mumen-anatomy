@@ -66,4 +66,6 @@ export const prop = {
   select: (p) => p?.select?.name || '',
   number: (p) => (typeof p?.number === 'number' ? p.number : null),
   date: (p) => p?.date?.start || '',
+  // Files property → [{ name, url, notionFile }] (Notion-hosted links expire after ~1 h, so they must be downloaded at build time)
+  files: (p) => (p?.files || []).map((f) => ({ name: f.name || '', url: f.file?.url || f.external?.url || '', notionFile: f.type === 'file' })).filter((f) => f.url),
 };

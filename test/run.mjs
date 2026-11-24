@@ -119,7 +119,9 @@ tree.l1 = [
   h2('✅ Close the session'),
   todo('All sections ticked'),
 ];
-const physPages = [{ id: 'l1', properties: { Lecture: { title: [rt('L1 · Homeostasis & control systems')] }, 'No.': { number: 1 }, 'Topic block': { select: { name: 'Foundations' } } } }];
+const physPages = [{ id: 'l1', properties: { Lecture: { title: [rt('L1 · Homeostasis & control systems')] }, 'No.': { number: 1 }, 'Topic block': { select: { name: 'Foundations' } }, 'Summary PDF': { files: [{ type: 'file', name: 'L01_Homeostasis_Class_Sheet.pdf', file: { url: 'https://files.test/abc/L01_Homeostasis_Class_Sheet.pdf?sig=1' } }] } } }];
+const realFetch = globalThis.fetch;
+globalThis.fetch = async (url, o) => (String(url).startsWith('https://files.test/') ? new Response(Buffer.from('%PDF-1.4 test')) : realFetch(url, o));
 
 const fake = {
   children: async (id) => (id === '413d43edb34f81189afaf9d67fa30215' ? tree.root : tree[id] || reg.get(id) || []),
@@ -135,7 +137,7 @@ if (res.topics.length !== 3) throw new Error('expected 3 topics');
 if (res.phys.length !== 1) throw new Error('expected 1 physiology lecture');
 const { readFile } = await import('node:fs/promises');
 const html = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'index.html'), 'utf8');
-const must = ['What physiology is', 'Negative feedback', 'Read more', 'sum-card', 'Open exam questions', 'The big question', 'class="feel"', 'Lecture 1'];
+const must = ['Summary sheet (PDF)', 'Mumen-Uthman_L01_homeostasis-and-control-systems.pdf', 'What physiology is', 'Negative feedback', 'Read more', 'sum-card', 'Open exam questions', 'The big question', 'class="feel"', 'Lecture 1'];
 const deep = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'negative-feedback', 'index.html'), 'utf8');
 for (const m of ['Fox calls this dynamic constancy', 'Back to the summary']) if (!deep.includes(m)) throw new Error('deep page missing ' + m);
 const ex = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'open-exam-questions', 'index.html'), 'utf8');

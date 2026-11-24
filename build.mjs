@@ -204,7 +204,7 @@ ${qs}
         const full = prop.text(P.Lecture);
         const no = prop.number(P['No.']);
         const name = full.replace(/^\s*L\d+\s*[·:.\-–]\s*/, '').trim() || full;
-        phys.push({ id: p.id, name, no, block: prop.select(P['Topic block']) || 'Other', slug: slugify(name) });
+        phys.push({ id: p.id, name, no, block: prop.select(P['Topic block']) || 'Other', slug: slugify(name), files: prop.files(P['Summary PDF']) });
       }
     } catch (e) {
       stats.warnings.push(`Physiology skipped – share the Physiology lecture tracker with the Notion connection (${e.message.slice(0, 120)})`);
@@ -234,6 +234,14 @@ ${qs}
       parts.push({ ...s, html, kind, lead, keys });
     }
     lec.sub = parts.map((x) => x.id);
+    // his own 1–2 page summary sheet(s) from the "Summary PDF" property → copied into the site
+    lec.pdfs = [];
+    for (const f of lec.files || []) {
+      const href = await saveMedia(f.url, { notionFile: f.notionFile });
+      if (!href || !/\.pdf$/i.test(href)) continue;
+      const nice = `Mumen-Uthman_L${String(lec.no ?? '').padStart(2, '0')}_${lec.slug}${lec.pdfs.length ? '-' + (lec.pdfs.length + 1) : ''}.pdf`;
+      lec.pdfs.push({ href, download: nice, name: f.name });
+    }
     const intro = await renderBlocks((all.intro || []).filter((b) => b.type === 'callout' && /^(❓|🌍)/u.test(b.callout.icon?.emoji || '')), ctx);
     const base = `physiology/${lec.slug}/`;
     const crumbs = [{ label: 'Physiology', href: 'physiology/' }, { label: lec.block, href: `physiology/#${slugify(lec.block)}` }];
@@ -243,7 +251,7 @@ ${qs}
       const s = parts[i];
       await write(`${base}${s.id}/index.html`, layout({ site, title: `${s.title} – ${lec.name}`, active: 'physiology', description: `${s.title} – in depth (${lec.name}).`, body: physSectionPage({ site, lec, crumbs: [...crumbs, { label: lec.name, href: base }], s, prev: parts[i - 1], next: parts[i + 1], base }) }));
     }
-    log(`  ✓ Physiology: ${lec.name}  (summary + ${parts.length} read-more pages${own ? ', own summary' : ''})`);
+    log(`  ✓ Physiology: ${lec.name}  (summary + ${parts.length} read-more pages${own ? ', own summary' : ''}${lec.pdfs.length ? `, ${lec.pdfs.length} PDF` : ''})`);
   }
   await write('physiology/index.html', layout({ site, title: 'Physiology', active: 'physiology', body: physiologyIndexPage({ site, lectures: phys }) }));
 

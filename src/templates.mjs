@@ -196,6 +196,16 @@ ${feelWidget(feelKey, topic.name, href)}
 ${feelWidget(feelKey, topic.name, href).replace('class="feel"', 'class="feel feel-end"')}`;
 }
 
+function pdfBox(lec) {
+  if (!lec.pdfs?.length) return '';
+  const first = lec.pdfs[0];
+  return `<section class="sum-pdf" aria-label="Summary sheet PDF">
+    <div class="sum-pdf-head"><span class="sum-pdf-icon" aria-hidden="true">📄</span><div><h2>Summary sheet (PDF)</h2><p>The whole lecture on 1–2 pages, made for printing, GoodNotes and the last review before the exam.</p></div></div>
+    <div class="btns">${lec.pdfs.map((f, i) => `<a class="btn primary" href="${f.href}" target="_blank" rel="noopener">Open PDF${lec.pdfs.length > 1 ? ' ' + (i + 1) : ''}</a> <a class="btn" href="${f.href}" download="${esc(f.download)}">Download</a>`).join(' ')}</div>
+    <object class="sum-pdf-view" data="${first.href}#view=FitH" type="application/pdf" aria-label="Summary sheet preview"></object>
+  </section>`;
+}
+
 export function physLecturePage({ site, lec, crumbs, chips, intro, own, wrap, parts, base, feelKey }) {
   const u = (p = '') => site.base + p;
   const topics = parts.filter((s) => s.kind === 'topic');
@@ -222,6 +232,7 @@ ${feelWidget(feelKey, lec.name, `physiology/${lec.slug}/`)}
 <div class="topic">
   <nav class="toc" aria-label="Read more"><span class="eyebrow">Deep in your knowledge</span><ol>${deep}</ol>${practice.map((s) => `<a class="toc-extra" href="${u(base + s.id + '/')}">${s.kind === 'exam' ? '📝' : '🃏'} ${esc(s.title)}</a>`).join('')}</nav>
   <article class="lecture-summary">
+    ${pdfBox(lec)}
     <p class="sum-lede">This is the short version of the lecture. Each topic has the key points here; open <b>Read more</b> when you want the full explanation with figures, examples and exam questions.</p>
     ${own ? `<section class="sum-own">${own}</section>` : cards}
     ${wrap ? `<section class="sum-wrap"><h2>The whole story</h2>${wrap}</section>` : ''}
@@ -253,7 +264,7 @@ export function physiologyIndexPage({ site, lectures }) {
   <div class="section-head"><h2>${esc(b)}</h2><span class="eyebrow">${lectures.filter((l) => l.block === b).length} lecture(s)</span></div>
   <div class="topic-list">${lectures
     .filter((l) => l.block === b)
-    .map((l) => `<a class="topic-row" href="${u(`physiology/${l.slug}/`)}" data-key="physiology/${l.slug}"><span><span class="t">${esc(l.name)}</span><span class="s">Lecture ${l.no ?? ''}</span></span><span class="m feel-badge"></span></a>`)
+    .map((l) => `<a class="topic-row" href="${u(`physiology/${l.slug}/`)}" data-key="physiology/${l.slug}"><span><span class="t">${esc(l.name)}</span><span class="s">Lecture ${l.no ?? ''}${l.pdfs?.length ? ' · 📄 PDF summary' : ''}</span></span><span class="m feel-badge"></span></a>`)
     .join('\n')}</div>
 </section>`
     )
