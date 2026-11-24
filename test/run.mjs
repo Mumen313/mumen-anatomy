@@ -72,10 +72,16 @@ tree.video = [
   h2('2. 🎬 My video explanation'),
   blk('video', { type: 'external', external: { url: 'https://youtu.be/dQw4w9WgXcQ' }, caption: [rt('My explanation')] }),
 ];
+tree.atn = [
+  h2('1. Explanation'), p(rt('Short.')),
+  h2('2. 🎬 My video explanation'), callout('✍️', 'private video note'),
+  h2('8. ❓ Exam questions'),
+];
 
 const pages = [
   { id: 'bp', properties: { Name: { title: [rt('Brachial Plexus')] }, Region: { select: { name: 'Upper Limb' } }, Section: { select: { name: 'Nerves' } }, Slug: { rich_text: [rt('brachial-plexus')] }, 'Exam priority': { select: { name: '★★★' } }, Summary: { rich_text: [rt('Nerve network C5–T1.')] }, Order: { number: 1 }, 'Last reviewed': { date: { start: '2026-11-10' } } } },
   { id: 'video', properties: { Name: { title: [rt('Video Test Topic')] }, Region: { select: { name: 'Upper Limb' } }, Slug: { rich_text: [] }, 'Exam priority': { select: null }, Summary: { rich_text: [] }, Order: { number: 2 }, 'Last reviewed': { date: null } } },
+  { id: 'atn', properties: { Name: { title: [rt('Anterior triangle of the Neck')] }, Region: { select: { name: 'Neck' } }, Slug: { rich_text: [rt('anterior-triangle-of-the-neck')] }, 'Exam priority': { select: null }, Summary: { rich_text: [] }, Order: { number: 3 }, 'Last reviewed': { date: null } } },
 ];
 
 const h1 = (t) => blk('heading_1', { rich_text: [rt(t)], is_toggleable: false });
@@ -125,7 +131,7 @@ const fake = {
 };
 
 const res = await build({ client: fake, outDir: path.join(here, 'out'), base: '/mumen-anatomy/' });
-if (res.topics.length !== 2) throw new Error('expected 2 topics');
+if (res.topics.length !== 3) throw new Error('expected 3 topics');
 if (res.phys.length !== 1) throw new Error('expected 1 physiology lecture');
 const { readFile } = await import('node:fs/promises');
 const html = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'index.html'), 'utf8');
@@ -151,4 +157,7 @@ for (const [f, ms] of [['games/index.html', ['g-card', 'pin-test/', 'name-it/']]
   for (const m of ms) if (!t.includes(m)) throw new Error(f + ' missing ' + m);
   if (t.includes('__BASE__')) throw new Error(f + ' base not replaced');
 }
+const atn = await readFile(path.join(here, 'out', 'topics', 'anterior-triangle-of-the-neck', 'index.html'), 'utf8');
+for (const m of ['class="quiz"', 'data-answer="3"', 'Phrenic nerve', 'videos/anterior-triangle-of-the-neck.mp4']) if (!atn.includes(m)) throw new Error('anterior triangle page missing ' + m);
+if (atn.includes('private video note')) throw new Error('private callout leaked');
 console.log('TEST OK');

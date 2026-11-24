@@ -19,6 +19,46 @@
     ds[0].before(bar);
   });
 
+  // Interactive quizzes (quizzes/<slug>.json): answer, then see right/wrong and the explanation.
+  document.querySelectorAll('.quiz').forEach((quiz) => {
+    const qs = [...quiz.querySelectorAll('.quiz-q')];
+    const score = quiz.querySelector('.quiz-score');
+    const update = () => {
+      const done = qs.filter((q) => q.dataset.done);
+      if (done.length < qs.length) return;
+      const right = done.filter((q) => q.dataset.done === 'right').length;
+      score.querySelector('p').textContent = `You got ${right} of ${qs.length} right.` + (right === qs.length ? ' Excellent – MashaAllah!' : ' Look at the explanations and try again.');
+      score.hidden = false;
+    };
+    qs.forEach((q) => {
+      const ok = Number(q.dataset.answer);
+      q.querySelectorAll('.quiz-opt').forEach((b) => b.addEventListener('click', () => {
+        if (q.dataset.done) return;
+        const pick = Number(b.dataset.i);
+        q.dataset.done = pick === ok ? 'right' : 'wrong';
+        q.querySelectorAll('.quiz-opt').forEach((o) => {
+          o.disabled = true;
+          if (Number(o.dataset.i) === ok) o.classList.add('is-right');
+        });
+        if (pick !== ok) b.classList.add('is-wrong');
+        const why = q.querySelector('.quiz-why');
+        why.querySelector('.quiz-verdict').textContent = pick === ok ? '✓ Correct!' : '✗ Not quite – the right answer is highlighted.';
+        why.classList.toggle('wrong', pick !== ok);
+        why.hidden = false;
+        update();
+      }));
+    });
+    quiz.querySelector('.quiz-reset').addEventListener('click', () => {
+      qs.forEach((q) => {
+        delete q.dataset.done;
+        q.querySelectorAll('.quiz-opt').forEach((o) => { o.disabled = false; o.classList.remove('is-right', 'is-wrong'); });
+        q.querySelector('.quiz-why').hidden = true;
+      });
+      score.hidden = true;
+      qs[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+
   // Highlight the current section in the table of contents.
   const links = [...document.querySelectorAll('.toc a')];
   if (links.length && 'IntersectionObserver' in window) {

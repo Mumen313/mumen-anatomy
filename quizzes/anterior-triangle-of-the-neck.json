@@ -1,0 +1,101 @@
+[
+  {
+    "q": "Which three lines form the borders of the anterior triangle of the neck?",
+    "options": [
+      "Midline of the neck, anterior border of sternocleidomastoid, lower border of the mandible",
+      "Anterior border of trapezius, posterior border of sternocleidomastoid, clavicle",
+      "Midline of the neck, clavicle, lower border of the mandible",
+      "Both bellies of the digastric and the hyoid bone"
+    ],
+    "answer": 0,
+    "why": "In front it is the midline, behind it is the front edge of sternocleidomastoid, and on top it is the lower border of the mandible. The apex points down to the jugular notch. Option B describes the posterior triangle, and option D is the submental triangle."
+  },
+  {
+    "q": "Which two muscles divide the anterior triangle into its four smaller triangles?",
+    "options": [
+      "Sternocleidomastoid and trapezius",
+      "Mylohyoid and stylohyoid",
+      "Digastric (both bellies) and the superior belly of omohyoid",
+      "Platysma and sternohyoid"
+    ],
+    "answer": 2,
+    "why": "The two bellies of the digastric cut off the submandibular and submental triangles at the top, and the superior belly of omohyoid separates the carotid triangle from the muscular triangle below."
+  },
+  {
+    "q": "What are the borders of the carotid triangle?",
+    "options": [
+      "Midline, hyoid bone and anterior belly of digastric",
+      "Posterior belly of digastric, superior belly of omohyoid and anterior border of sternocleidomastoid",
+      "Lower border of the mandible and both bellies of the digastric",
+      "Superior belly of omohyoid, midline and sternocleidomastoid"
+    ],
+    "answer": 1,
+    "why": "Above: the posterior belly of digastric. In front and below: the superior belly of omohyoid. Behind: sternocleidomastoid. Option C is the submandibular triangle and option D is the muscular triangle."
+  },
+  {
+    "q": "Which structure is NOT found in the carotid triangle?",
+    "options": [
+      "Common carotid artery and its bifurcation",
+      "Internal jugular vein",
+      "Hypoglossal nerve (CN XII)",
+      "Phrenic nerve"
+    ],
+    "answer": 3,
+    "why": "The phrenic nerve runs on scalenus anterior, deep in the posterior triangle. The carotid triangle holds the carotid sheath (common carotid with its bifurcation, internal jugular vein, vagus nerve) and the hypoglossal nerve crossing forward to the tongue."
+  },
+  {
+    "q": "Strong pressure on the side of the neck makes a patient faint. Which nerve carries the signal from the carotid sinus to the brainstem?",
+    "options": [
+      "Vagus nerve (CN X)",
+      "Glossopharyngeal nerve (CN IX)",
+      "Hypoglossal nerve (CN XII)",
+      "Accessory nerve (CN XI)"
+    ],
+    "answer": 1,
+    "why": "The baroreceptors of the carotid sinus feel the stretch and send it up the carotid sinus branch of the glossopharyngeal nerve. The brainstem answers through the vagus: the heart rate and blood pressure drop, the brain gets too little blood, and the person faints (carotid sinus syncope)."
+  },
+  {
+    "q": "Which triangle contains the submandibular gland, the facial artery and vein, and lymph nodes?",
+    "options": [
+      "Submental triangle",
+      "Muscular triangle",
+      "Submandibular (digastric) triangle",
+      "Carotid triangle"
+    ],
+    "answer": 2,
+    "why": "The submandibular triangle lies between the lower border of the mandible and the two bellies of the digastric. Its main content is the submandibular gland, with the facial artery and vein, submandibular lymph nodes and the hypoglossal nerve on its floor."
+  },
+  {
+    "q": "Which small triangle of the neck is unpaired, lying across the midline under the chin?",
+    "options": [
+      "Submental triangle",
+      "Submandibular triangle",
+      "Carotid triangle",
+      "Muscular triangle"
+    ],
+    "answer": 0,
+    "why": "The submental triangle lies between the anterior bellies of the left and right digastric, with the hyoid bone as its base and the mylohyoid muscles as its floor. It holds the submental lymph nodes, which drain the tip of the tongue, the floor of the mouth and the middle of the lower lip."
+  },
+  {
+    "q": "The thyroid and parathyroid glands, the infrahyoid (strap) muscles, the larynx and trachea lie in which triangle?",
+    "options": [
+      "Carotid triangle",
+      "Muscular triangle",
+      "Submandibular triangle",
+      "Posterior triangle"
+    ],
+    "answer": 1,
+    "why": "The muscular triangle is the lowest part of the anterior triangle, bounded by the midline, the superior belly of omohyoid and the lower part of sternocleidomastoid. It holds the strap muscles and the organs in the middle of the neck: thyroid, parathyroids, larynx, trachea, pharynx and oesophagus."
+  },
+  {
+    "q": "The right hypoglossal nerve is cut during neck surgery. What happens when the patient sticks out the tongue?",
+    "options": [
+      "The tongue cannot move at all",
+      "The tongue deviates to the left (healthy side)",
+      "The tongue deviates to the right (injured side)",
+      "The tongue moves normally but taste is lost"
+    ],
+    "answer": 2,
+    "why": "Each genioglossus pushes the tongue forward and towards the opposite side. If the right one is paralysed, the healthy left genioglossus wins and pushes the tongue towards the injured right side. Taste is not carried by the hypoglossal nerve."
+  }
+]

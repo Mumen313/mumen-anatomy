@@ -62,6 +62,27 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
     return '';
   }
 
+  // ---- interactive quiz stored in the repository: quizzes/<slug>.json ----
+  // [{ "q": "question", "options": ["A", "B", ...], "answer": 0, "why": "explanation" }, ...]
+  async function localQuiz(slug) {
+    let items;
+    try { items = JSON.parse(await readFile(path.join(ROOT, 'quizzes', slug + '.json'), 'utf8')); } catch { return ''; }
+    if (!Array.isArray(items) || !items.length) return '';
+    const e = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const qs = items.map((it, i) => `<li class="quiz-q" data-answer="${Number(it.answer)}">
+  <p class="quiz-stem"><b>Q${i + 1}.</b> ${e(it.q)}</p>
+  <div class="quiz-opts">${it.options.map((o, j) => `<button type="button" class="quiz-opt" data-i="${j}"><span class="quiz-letter">${'ABCDEF'[j]}</span>${e(o)}</button>`).join('')}</div>
+  <div class="quiz-why" hidden><p class="quiz-verdict"></p><p>${e(it.why || '')}</p></div>
+</li>`).join('\n');
+    return `<div class="quiz" data-total="${items.length}">
+<p class="quiz-intro">Pick an answer – you will see straight away if it is right, and why.</p>
+<ol class="quiz-list">
+${qs}
+</ol>
+<div class="quiz-score" hidden><p></p><button type="button" class="btn quiz-reset">Try again</button></div>
+</div>`;
+  }
+
   // ---- discover pages under the main Notion page ----
   const rootId = process.env.NOTION_ROOT_PAGE_ID || config.notionRootPageId;
   const rootChildren = await client.children(rootId);
@@ -145,6 +166,7 @@ export async function build({ client, outDir = path.join(ROOT, 'dist'), base = p
         const vid = await localVideo(topic.slug);
         html = (vid || `<div class="placeholder">Video coming soon. I am recording my explanation of ${topic.name}.</div>`) + html;
       }
+      if (/question|quiz/.test(t)) html = (await localQuiz(topic.slug)) + html;
       if (/cadaver/.test(t) && !contains(s.blocks, ['image'])) {
         html = `<div class="placeholder">Cadaver photos coming soon, straight from the dissection hall.</div>` + html;
       }
