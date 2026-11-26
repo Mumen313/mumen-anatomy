@@ -294,6 +294,13 @@ ${qs}
     await write('games/index.html', layout({ site, title: 'Games', active: 'games', description: gdesc, body: gamesHubPage({ site, decks, plates, cadaver, m3d }) }));
     await write('games/name-it/index.html', layout({ site, title: 'Name it! – anatomy spelling game', active: 'games', description: 'Read the clue, type the anatomical term.', body: nameItPage({ site, decks }) }));
     await write('games/pin-test/index.html', layout({ site, title: 'Pin test – clip-test practice', active: 'games', description: 'Name the pinned muscle – practise for the anatomy clip test.', body: pinTestPage({ site, plates }) }));
+    // ---- private Cadaver Atlas: encrypted files in games/atlas (AES-GCM, unlocked in the browser by password) ----
+    try {
+      const atlasDir = path.join(ROOT, 'games', 'atlas');
+      const page = await readFile(path.join(atlasDir, 'page.html'), 'utf8');
+      await cp(atlasDir, path.join(outDir, 'games', 'cadaver-atlas'), { recursive: true, filter: (f) => !f.endsWith('page.html') });
+      await write('games/cadaver-atlas/index.html', page.replaceAll('__BASE__', base));
+    } catch (e) { stats.warnings.push('cadaver atlas skipped: ' + e.message); }
     if (cadaver.length) await write('games/cadaver-clip-test/index.html', layout({ site, title: 'Real cadaver clip test', active: 'games', description: 'Clip-test practice on real dissection-hall photos.', body: pinTestPage({ site, plates: cadaver, cadaver: true }) }));
   } catch (e) {
     stats.warnings.push('games skipped: ' + e.message);
