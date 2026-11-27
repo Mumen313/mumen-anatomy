@@ -84,16 +84,8 @@ h2{font-size:18px;margin:4px 0 8px}
 </head>
 <body>
 <div class="wrap" id="lockView">
-  <div class="lock card">
-    <div style="font-size:44px">🔒</div>
-    <h2 style="color:var(--gold)">Practical Cadaver</h2>
-    <p class="m">Private area of Mumen Anatomy – our dissection videos and the clip-test trainer.</p>
-    <input type="password" id="pw" placeholder="Password" autocomplete="current-password">
-    <label class="m"><input type="checkbox" id="remember" checked> Remember on this device</label>
-    <div class="err" id="err"></div>
-    <button class="btn gold" id="unlock" style="width:100%">Unlock</button>
-    <p class="m" style="margin-top:14px"><a href="__BASE__">← Back to the website</a></p>
-  </div>
+  <div class="lock card" id="gate"></div>
+  <p class="m" style="text-align:center"><a href="__BASE__">← Back to the website</a></p>
 </div>
 
 <div class="wrap hidden" id="app">
@@ -222,6 +214,8 @@ h2{font-size:18px;margin:4px 0 8px}
   <div class="foot">Private study area for Mumen Uthman and classmates · videos stream from our shared Drive folder · learning cards are study aids – check with your textbook.</div>
 </div>
 
+<script src="__BASE__assets/access-config.js"></script>
+<script src="__BASE__assets/access-gate.js"></script>
 <script>
 const BASE='__BASE__';
 const $=id=>document.getElementById(id);
@@ -240,13 +234,8 @@ async function deriveKey(pw){const m=await (await fetch('manifest.json',{cache:'
   return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(m.salt),iterations:m.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},true,['decrypt']);}
 async function openWith(k){KEY=k; const ok=new TextDecoder().decode(await dec(await getBin('check.bin'))); if(ok!=='ok') throw new Error('bad');
   D=JSON.parse(new TextDecoder().decode(await dec(await getBin('data.bin')))); init();}
-$('unlock').onclick=async()=>{ $('err').textContent='Checking…';
-  try{const k=await deriveKey($('pw').value); await openWith(k);
-    if($('remember').checked){const raw=await crypto.subtle.exportKey('raw',k); try{localStorage.setItem('mumenPracticalKey',btoa(String.fromCharCode(...new Uint8Array(raw))))}catch(e){}}
-  }catch(e){ $('err').textContent='Wrong password.'; }};
-$('pw').onkeydown=e=>{if(e.key==='Enter') $('unlock').click();};
-$('lockBtn').onclick=()=>{try{localStorage.removeItem('mumenPracticalKey')}catch(e){} location.reload();};
-(async()=>{try{const s=localStorage.getItem('mumenPracticalKey'); if(s) await openWith(await crypto.subtle.importKey('raw',b64(s),{name:'AES-GCM'},true,['decrypt']));}catch(e){try{localStorage.removeItem('mumenPracticalKey')}catch(_){}}})();
+const GATE=MumenGate.mount({el:$('gate'),game:'practical',title:'Practical Cadaver',storeKey:'mumenPracticalKey',onKey:openWith,masterDerive:deriveKey});
+$('lockBtn').onclick=()=>GATE.lock();
 
 /* ---------- Latin matching ---------- */
 const ABBR=[[/\bmusculi\b|\bmm\b/g,'mm'],[/\bmusculus\b|\bm\b/g,'m'],[/\bnervi\b|\bnn\b/g,'nn'],[/\bnervus\b|\bn\b/g,'n'],[/\barteriae\b|\baa\b/g,'aa'],[/\barteria\b|\ba\b/g,'a'],[/\bvenae\b|\bvv\b/g,'vv'],[/\bvena\b|\bv\b/g,'v'],[/\bramus\b|\br\b/g,'r'],[/\bligamentum\b|\blig\b/g,'lig']];
