@@ -119,7 +119,7 @@ tree.l1 = [
   h2('✅ Close the session'),
   todo('All sections ticked'),
 ];
-const physPages = [{ id: 'l1', properties: { Lecture: { title: [rt('L1 · Homeostasis & control systems')] }, 'No.': { number: 1 }, 'Topic block': { select: { name: 'Foundations' } }, 'Summary PDF': { files: [{ type: 'file', name: 'L01_Homeostasis_Class_Sheet.pdf', file: { url: 'https://files.test/abc/L01_Homeostasis_Class_Sheet.pdf?sig=1' } }] } } }];
+const physPages = [{ id: 'l1', properties: { Lecture: { title: [rt('L1 · Homeostasis & control systems')] }, 'No.': { number: 1 }, 'Topic block': { select: { name: 'Foundations' } }, 'Summary PDF': { files: [{ type: 'file', name: 'L01_Homeostasis_Class_Sheet.pdf', file: { url: 'https://files.test/abc/L01_Homeostasis_Class_Sheet.pdf?sig=1' } }] } } }, { id: 'l11', properties: { Lecture: { title: [rt('L11 · Cardiac output')] }, 'No.': { number: 11 }, 'Topic block': { select: { name: 'Cardiovascular' } } } }];
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (url, o) => (String(url).startsWith('https://files.test/') ? new Response(Buffer.from('%PDF-1.4 test')) : realFetch(url, o));
 
@@ -134,8 +134,10 @@ const fake = {
 
 const res = await build({ client: fake, outDir: path.join(here, 'out'), base: '/mumen-anatomy/' });
 if (res.topics.length !== 3) throw new Error('expected 3 topics');
-if (res.phys.length !== 1) throw new Error('expected 1 physiology lecture');
+if (res.phys.length !== 2) throw new Error('expected 2 physiology lectures');
 const { readFile } = await import('node:fs/promises');
+const co = await readFile(path.join(here, 'out', 'physiology', 'cardiac-output', 'index.html'), 'utf8');
+if (!co.includes('/mumen-anatomy/pdfs/physiology/cardiac-output.pdf') || !co.includes('Mumen-Uthman_L11_cardiac-output.pdf')) throw new Error('repo PDF fallback missing');
 const html = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'index.html'), 'utf8');
 const must = ['Summary sheet (PDF)', 'Mumen-Uthman_L01_homeostasis-and-control-systems.pdf', 'What physiology is', 'Negative feedback', 'Read more', 'sum-card', 'Open exam questions', 'The big question', 'class="feel"', 'Lecture 1'];
 const deep = await readFile(path.join(here, 'out', 'physiology', 'homeostasis-and-control-systems', 'negative-feedback', 'index.html'), 'utf8');

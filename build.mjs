@@ -15,6 +15,7 @@ const config = JSON.parse(await readFile(path.join(ROOT, 'site.config.json'), 'u
 
 export async function build({ client, outDir = path.join(ROOT, 'dist'), base = process.env.BASE_PATH || '/', log = console.log }) {
   base = base.endsWith('/') ? base : base + '/';
+  const siteBase = base;
   const cacheDir = path.join(ROOT, '.cache', 'media');
   await rm(outDir, { recursive: true, force: true });
   await mkdir(path.join(outDir, 'media'), { recursive: true });
@@ -241,6 +242,16 @@ ${qs}
       if (!href || !/\.pdf$/i.test(href)) continue;
       const nice = `Mumen-Uthman_L${String(lec.no ?? '').padStart(2, '0')}_${lec.slug}${lec.pdfs.length ? '-' + (lec.pdfs.length + 1) : ''}.pdf`;
       lec.pdfs.push({ href, download: nice, name: f.name });
+    }
+    // fallback: a PDF stored in the repository as pdfs/physiology/<slug>.pdf
+    if (!lec.pdfs.length) {
+      const src = path.join(ROOT, 'pdfs', 'physiology', `${lec.slug}.pdf`);
+      try {
+        await access(src);
+        await mkdir(path.join(outDir, 'pdfs', 'physiology'), { recursive: true });
+        await copyFile(src, path.join(outDir, 'pdfs', 'physiology', `${lec.slug}.pdf`));
+        lec.pdfs.push({ href: `${siteBase}pdfs/physiology/${lec.slug}.pdf`, download: `Mumen-Uthman_L${String(lec.no ?? '').padStart(2, '0')}_${lec.slug}.pdf`, name: `${lec.slug}.pdf` });
+      } catch {}
     }
     const intro = await renderBlocks((all.intro || []).filter((b) => b.type === 'callout' && /^(❓|🌍)/u.test(b.callout.icon?.emoji || '')), ctx);
     const base = `physiology/${lec.slug}/`;
