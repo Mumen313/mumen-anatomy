@@ -364,6 +364,14 @@ export function gamesHubPage({ site, decks, plates, cadaver = [], m3d = [] }) {
   ${m3d.length ? card('muscle-3d', '3D muscles', 'Turn a real 3D model of the body, name the yellow muscle in Latin and learn its origin, insertion and nerve.', `${m3d.length} regions · ${m3d.reduce((n, r) => n + r.n, 0)} muscles`, 'New · interactive 3D', m3d.map((r) => 'm3d-' + r.slug)) : ''}
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
   ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real dissection photos (Stanford Bassett Collection) – name the pinned structure in Latin.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
+  <a class="g-card" href="__BASE__games/practical-cadaver/" rel="nofollow">
+    <span class="g-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="28" width="32" height="24" rx="4" class="ln"/><path d="M22 28v-7a10 10 0 0 1 20 0v7" class="ln"/><circle cx="32" cy="40" r="3" class="hl"/></svg></span>
+    <span class="g-tag">🔒 Private · password</span>
+    <span class="g-title">Practical Cadaver</span>
+    <span class="g-text">Our dissection videos, the must-know board list, clearly labelled pictures and a 60-second Latin clip test.</span>
+    <span class="g-meta">Class only</span>
+    <span class="g-play">Unlock ›</span>
+  </a>
   <a class="g-card" href="__BASE__games/cadaver-atlas/" rel="nofollow">
     <span class="g-icon"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="28" width="32" height="24" rx="4" class="ln"/><path d="M22 28v-7a10 10 0 0 1 20 0v7" class="ln"/><circle cx="32" cy="40" r="3" class="hl"/></svg></span>
     <span class="g-tag">🔒 Private · password</span>

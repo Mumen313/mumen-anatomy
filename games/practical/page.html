@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Practical Cadaver · Mumen Anatomy</title>
+<style>
+:root{--bg:#14110f;--card:#1f1b18;--card2:#2a2420;--ink:#f3ece4;--mut:#b5a99c;--gold:#d8a94a;--ok:#3fae6a;--bad:#d9534f;--near:#e0a030;--line:#3a322c}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--gold)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:1300px;margin:0 auto;padding:14px 16px 40px}
+.hidden{display:none!important}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.top h1{margin:0;font-size:22px;color:var(--gold)}
+.spacer{flex:1}
+.btn{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-height:44px}
+.btn.gold{background:var(--gold);color:#1b1408;border-color:var(--gold);font-weight:650}
+.btn.small{padding:5px 11px;min-height:34px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.tab{border:1px solid var(--line);background:var(--card2);border-radius:999px;padding:9px 16px}
+.tab.on{background:var(--gold);color:#1b1408;border-color:var(--gold);font-weight:650}
+.chip{border:1px solid var(--line);background:var(--card2);border-radius:999px;padding:7px 13px;min-height:38px}
+.chip.on{background:var(--gold);color:#1b1408;border-color:var(--gold);font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.m{color:var(--mut);font-size:15px}
+h2{font-size:18px;margin:4px 0 8px}
+.lock{max-width:420px;margin:12vh auto;text-align:center}
+.lock input{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card2);margin:10px 0}
+.err{color:var(--bad);min-height:22px}
+/* list */
+.grp h3{color:var(--gold);margin:16px 0 6px;font-size:16px;text-transform:uppercase;letter-spacing:.5px}
+.it{display:flex;gap:10px;align-items:flex-start;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-bottom:6px}
+.it .la{font-weight:700}
+.it .en{color:var(--mut);font-size:14px}
+.it .info{font-size:14.5px;margin-top:4px}
+.badge{font-size:12px;border-radius:999px;padding:2px 8px;border:1px solid var(--line);white-space:nowrap}
+.badge.ok{border-color:var(--ok);color:#9fe0b6}.badge.no{color:var(--mut)}
+/* gallery */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.thumb{background:#000;border:2px solid var(--line);border-radius:12px;overflow:hidden;padding:0;text-align:left;position:relative}
+.thumb .ph{height:150px;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;overflow:hidden}
+.thumb .ph img,.thumb .ph canvas{width:100%;height:150px;object-fit:cover;display:block}
+.thumb .cap{padding:6px 8px;font-size:13px;background:var(--card)}
+/* picture */
+.pv{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:900px){.pv{grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);align-items:start}}
+.stage{position:relative;background:#000;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.stage img,.stage canvas{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain}
+.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1b1408;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;border:2.5px solid #000;box-shadow:0 0 0 2px var(--gold),0 2px 8px #000;cursor:pointer;z-index:2}
+.pin.q{background:#ff3b30;color:#fff;box-shadow:0 0 0 3px #fff,0 0 18px #ff3b30;animation:pulse 1.1s infinite}
+.pin.draft{background:#4aa3ff;color:#fff}
+@keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.18)}}
+.tag{position:absolute;transform:translate(18px,-50%);background:#000d;color:#fff;border:1px solid var(--gold);border-radius:8px;padding:2px 7px;font-size:13px;font-weight:650;white-space:nowrap;pointer-events:none;z-index:1}
+.lg{display:flex;gap:10px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin-bottom:6px;width:100%;text-align:left}
+.lg .n{min-width:30px;height:30px;border-radius:9px;background:#3a3026;color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800}
+.lg.cur{border-color:var(--gold)}
+.cover{color:var(--mut);font-style:italic}
+/* video */
+video{width:100%;max-height:72vh;background:#000;border-radius:14px;display:block}
+.vlist{display:grid;gap:6px}
+.vrow{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:left;width:100%}
+.vrow.on{border-color:var(--gold)}
+/* test */
+.timer{height:8px;background:var(--card2);border-radius:8px;overflow:hidden;margin:4px 0 10px}
+.timer i{display:block;height:100%;background:var(--gold);width:100%;transition:width .25s linear}
+.ans-in{width:100%;padding:14px;font-size:20px;border-radius:12px;border:1.5px solid var(--line);background:#0d0b0a}
+.fb{margin-top:12px;border-radius:14px;padding:12px 14px;border:1.5px solid var(--line)}
+.fb.ok{border-color:var(--ok);background:#173023}.fb.bad{border-color:var(--bad);background:#33191a}.fb.near{border-color:var(--near);background:#33280f}
+.fb .head{font-weight:700;font-size:18px}.fb .big{font-size:21px;font-weight:750;margin-top:4px}
+.lm{margin-top:8px;padding:8px 10px;border-radius:10px;background:#0004;border-left:4px solid var(--gold);font-size:15px}
+.score{font-size:46px;font-weight:800;color:var(--gold)}
+.ed{margin-top:10px;display:grid;gap:8px}
+.ed input{padding:10px;border-radius:10px;border:1px solid var(--line);background:#0d0b0a;width:100%}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap" id="lockView">
+  <div class="lock card">
+    <div style="font-size:44px">🔒</div>
+    <h2 style="color:var(--gold)">Practical Cadaver</h2>
+    <p class="m">Private area of Mumen Anatomy – our dissection videos and the clip-test trainer.</p>
+    <input type="password" id="pw" placeholder="Password" autocomplete="current-password">
+    <label class="m"><input type="checkbox" id="remember" checked> Remember on this device</label>
+    <div class="err" id="err"></div>
+    <button class="btn gold" id="unlock" style="width:100%">Unlock</button>
+    <p class="m" style="margin-top:14px"><a href="__BASE__">← Back to the website</a></p>
+  </div>
+</div>
+
+<div class="wrap hidden" id="app">
+  <div class="top">
+    <h1>Practical Cadaver</h1><span class="m" id="hdr"></span><span class="spacer"></span>
+    <a href="__BASE__games/">Games</a>
+    <button class="btn small" id="lockBtn">🔒 Lock</button>
+  </div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-t="list">📋 Must-know list</button>
+    <button class="tab" data-t="pics">🖼️ Labelled pictures</button>
+    <button class="tab" data-t="videos">🎬 Dissection videos</button>
+    <button class="tab" data-t="test">⏱️ Clip test</button>
+  </div>
+
+  <!-- LIST -->
+  <section id="v-list">
+    <div class="card">
+      <div class="row"><b id="listTitle"></b><span class="spacer"></span>
+        <button class="chip on" data-f="all">All</button><button class="chip" data-f="nopic">Not in a picture yet</button><button class="chip" data-f="weak">My weak ones</button>
+        <button class="btn small" id="hideInfo">Hide Latin (self-test)</button></div>
+      <p class="m">The structures from the board. 📸 = how many labelled pictures show it. Practise them in the clip test – it adds your score per structure.</p>
+      <div id="list"></div>
+    </div>
+  </section>
+
+  <!-- PICTURES -->
+  <section id="v-pics" class="hidden">
+    <div id="picGallery">
+      <div class="row" style="margin-bottom:10px"><span class="m">Region:</span><select id="picRegion" class="btn small"></select><span class="spacer"></span><span class="m" id="picCount"></span></div>
+      <div class="grid" id="picGrid"></div>
+      <p class="m" style="margin-top:12px">Pictures come from two places: real cadaver photos with checked labels (Bassett collection), and frames from <b>our</b> videos that you label in “Dissection videos → 📌 Label this frame”.</p>
+    </div>
+    <div id="picView" class="hidden">
+      <div class="row" style="margin-bottom:10px"><button class="btn small" id="picBack">‹ All pictures</button><b id="picTitle"></b><span class="spacer"></span>
+        <button class="btn small" id="picPrev">◀</button><button class="btn small" id="picNext">▶</button></div>
+      <div class="pv">
+        <div><div class="stage" id="picStage"></div><div class="m" id="picCredit" style="margin-top:6px;font-size:12px"></div></div>
+        <div class="card">
+          <div class="row"><button class="chip on" id="tagToggle">Names on picture: ON</button><button class="chip" id="legToggle">Hide legend (test me)</button></div>
+          <p class="m">Tap a number to see its card.</p>
+          <div id="picLegend"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="v-videos" class="hidden">
+    <div class="pv">
+      <div>
+        <div class="card" id="playerCard">
+          <div class="row" style="margin-bottom:8px"><b id="vTitle">Choose a video →</b><span class="spacer"></span><a id="vDrive" target="_blank" rel="noopener" class="m"></a></div>
+          <video id="vid" controls playsinline crossorigin="anonymous" preload="metadata"></video>
+          <div class="row" style="margin-top:10px">
+            <span class="m">Speed</span>
+            <button class="chip" data-s="0.25">¼×</button><button class="chip" data-s="0.5">½×</button><button class="chip on" data-s="1">1×</button>
+            <button class="btn small" id="back1">⏪ 1 s</button><button class="btn small" id="fwd1">1 s ⏩</button>
+            <button class="btn small" id="stepB">◀ frame</button><button class="btn small" id="stepF">frame ▶</button>
+            <button class="btn gold small" id="labelBtn">📌 Label this frame</button>
+          </div>
+          <p class="m" id="vErr"></p>
+          <div id="labeler" class="hidden" style="margin-top:12px">
+            <h2>📌 Label this frame <span class="m" id="labT"></span></h2>
+            <p class="m">1. Tap the structure on the picture. 2. Type the Latin name (suggestions from the board list). 3. Save. Add as many pins as you want.</p>
+            <div class="stage" id="labStage"></div>
+            <div class="ed">
+              <input id="labLa" list="vocab" placeholder="Latin name, e.g. N. hypoglossus">
+              <input id="labEn" placeholder="English (optional)">
+              <div class="row"><button class="btn gold" id="labSave">Save pin</button><button class="btn" id="labClose">Done</button><span class="m" id="labMsg"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="row"><span class="m">Folder:</span><select id="vRegion" class="btn small"></select></div>
+        <p class="m">Tip: watch at ½×, pause on every structure, say the Latin name out loud, then label it with 📌 so it becomes a clip-test picture.</p>
+        <div class="vlist" id="vList"></div>
+        <h2 style="margin-top:18px">My labels</h2>
+        <p class="m" id="myInfo"></p>
+        <div class="row"><button class="btn small" id="exp">⬇️ Export my labels</button><label class="btn small">⬆️ Import<input type="file" id="imp" accept=".json" class="hidden"></label></div>
+        <p class="m" style="font-size:13px">Your pins are saved in this browser. Export the file and send it to Claude – it locks them into the site so they work on every device and for your classmates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEST -->
+  <section id="v-test" class="hidden">
+    <div class="card" id="tStart">
+      <h2>Clip test – type the Latin name</h2>
+      <p class="m">A pin shows one structure. Write its full Latin name in under 60 seconds, like in the Kolloquium. Small spelling slips count as “almost”.</p>
+      <h2>Source</h2>
+      <div class="row" id="tSrc"><button class="chip on" data-v="pics">🖼️ Labelled pictures</button><button class="chip" data-v="list">📋 Board list (clue → Latin)</button></div>
+      <h2 style="margin-top:12px">Questions</h2>
+      <div class="row" id="tCount"><button class="chip" data-v="10">10</button><button class="chip on" data-v="20">20</button><button class="chip" data-v="40">40</button><button class="chip" data-v="9999">All</button></div>
+      <h2 style="margin-top:12px">Timer</h2>
+      <div class="row" id="tTimer"><button class="chip on" data-v="60">60 s</button><button class="chip" data-v="30">30 s (hard)</button><button class="chip" data-v="0">No timer</button></div>
+      <p class="m" id="tAvail"></p>
+      <button class="btn gold" id="tGo" style="width:100%;margin-top:8px">Start ▶</button>
+    </div>
+    <div id="tRun" class="hidden">
+      <div class="row"><span class="m" id="tPos"></span><span class="spacer"></span><span class="m">✅ <b id="tOk">0</b> · 🤏 <b id="tNear">0</b> · ❌ <b id="tBad">0</b></span><button class="btn small" id="tQuit">End</button></div>
+      <div class="timer"><i id="tBar"></i></div>
+      <div class="pv">
+        <div><div class="stage" id="tStage"></div><div class="card hidden" id="tClue" style="font-size:18px"></div></div>
+        <div class="card">
+          <div class="m" id="tQ">What is the structure at the red pin?</div>
+          <input class="ans-in" id="tIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Latin name…">
+          <div class="row" style="margin-top:8px"><button class="btn gold" id="tCheck" style="flex:1">Check ↵</button><button class="btn" id="tHint">💡 First letters</button><button class="btn" id="tSkip">I don't know</button></div>
+          <div id="tFb"></div>
+          <button class="btn gold hidden" id="tNext" style="width:100%;margin-top:10px">Next ▶</button>
+        </div>
+      </div>
+    </div>
+    <div class="card hidden" id="tEnd" style="text-align:center">
+      <div id="tEndMsg" style="font-size:20px"></div><div class="score" id="tEndScore"></div>
+      <div class="row" style="justify-content:center"><button class="btn gold" id="tAgainMiss">🔁 Practise my mistakes</button><button class="btn" id="tAgain">New round</button></div>
+      <div id="tMissed" style="text-align:left;margin-top:14px"></div>
+    </div>
+  </section>
+  <datalist id="vocab"></datalist>
+  <div class="foot">Private study area for Mumen Uthman and classmates · videos stream from our shared Drive folder · learning cards are study aids – check with your textbook.</div>
+</div>
+
+<script>
+const BASE='__BASE__';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let KEY=null, D=null;
+
+/* ---------- lock ---------- */
+async function getBin(f){const r=await fetch(f,{cache:'no-cache'}); if(!r.ok) throw new Error('missing '+f); return new Uint8Array(await r.arrayBuffer());}
+async function dec(buf){return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12)},KEY,buf.slice(12)));}
+async function deriveKey(pw){const m=await (await fetch('manifest.json',{cache:'no-cache'})).json();
+  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(m.salt),iterations:m.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},true,['decrypt']);}
+async function openWith(k){KEY=k; const ok=new TextDecoder().decode(await dec(await getBin('check.bin'))); if(ok!=='ok') throw new Error('bad');
+  D=JSON.parse(new TextDecoder().decode(await dec(await getBin('data.bin')))); init();}
+$('unlock').onclick=async()=>{ $('err').textContent='Checking…';
+  try{const k=await deriveKey($('pw').value); await openWith(k);
+    if($('remember').checked){const raw=await crypto.subtle.exportKey('raw',k); try{localStorage.setItem('mumenPracticalKey',btoa(String.fromCharCode(...new Uint8Array(raw))))}catch(e){}}
+  }catch(e){ $('err').textContent='Wrong password.'; }};
+$('pw').onkeydown=e=>{if(e.key==='Enter') $('unlock').click();};
+$('lockBtn').onclick=()=>{try{localStorage.removeItem('mumenPracticalKey')}catch(e){} location.reload();};
+(async()=>{try{const s=localStorage.getItem('mumenPracticalKey'); if(s) await openWith(await crypto.subtle.importKey('raw',b64(s),{name:'AES-GCM'},true,['decrypt']));}catch(e){try{localStorage.removeItem('mumenPracticalKey')}catch(_){}}})();
+
+/* ---------- Latin matching ---------- */
+const ABBR=[[/\bmusculi\b|\bmm\b/g,'mm'],[/\bmusculus\b|\bm\b/g,'m'],[/\bnervi\b|\bnn\b/g,'nn'],[/\bnervus\b|\bn\b/g,'n'],[/\barteriae\b|\baa\b/g,'aa'],[/\barteria\b|\ba\b/g,'a'],[/\bvenae\b|\bvv\b/g,'vv'],[/\bvena\b|\bv\b/g,'v'],[/\bramus\b|\br\b/g,'r'],[/\bligamentum\b|\blig\b/g,'lig']];
+function norm(s){ s=String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\(.*?\)/g,' ').replace(/[.,;:'’\-–]/g,' ');
+  for(const [r,v] of ABBR) s=s.replace(r,v); return s.replace(/\s+/g,' ').trim(); }
+const stripType=s=>s.replace(/^(m|n|a|v|nn|mm|aa|vv|r|lig) /,'');
+function lev(a,b){const m=a.length,n=b.length; if(!m) return n; if(!n) return m; let p=[...Array(n+1).keys()];
+  for(let i=1;i<=m;i++){let c=[i]; for(let j=1;j<=n;j++) c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1)); p=c;} return p[n];}
+function grade(input,item){ const x=norm(input); if(!x) return 'bad';
+  const targets=[item.la,...(item.also||[])].map(norm);
+  if(targets.includes(x)) return 'ok';
+  // full Latin incl. M./N./A./V. is what the exam wants – accept without it, but tell
+  if(targets.map(stripType).includes(stripType(x))) return 'ok';
+  const best=Math.min(...targets.map(t=>lev(stripType(x),stripType(t))));
+  const len=stripType(targets[0]).length; return best<=(len>12?3:len>6?2:1)?'near':'bad'; }
+
+/* ---------- data helpers ---------- */
+const MUST=()=>D.must.flatMap(l=>l.items);
+let MUSTIDX={}; // norm latin -> item
+function cardFor(la){ const k=norm(la); const m=MUSTIDX[k]||MUSTIDX[stripType(k)];
+  if(m) return {en:m.en,info:m.info};
+  const f=D.facts[la]||D.facts[String(la).toLowerCase()]||Object.entries(D.facts).find(([kk])=>norm(kk)===k||stripType(norm(kk))===stripType(k))?.[1];
+  if(f) return {info:[f.c&&'📍 '+f.c,f.f&&'⚙️ '+f.f,f.k&&'🩺 '+f.k].filter(Boolean).join('<br>'),raw:true}; return null; }
+const myLabels=()=>store.get('pcMyLabels',[]);
+const setMy=v=>{store.set('pcMyLabels',v); rebuildPics();};
+const stats=()=>store.get('pcStats',{});
+function addStat(la,res){const s=stats(); const k=norm(la); s[k]=s[k]||{ok:0,bad:0}; if(res==='ok') s[k].ok++; else s[k].bad++; store.set('pcStats',s);}
+const itemById={}; const regionOf={};
+const driveUrl=id=>'https://drive.usercontent.google.com/download?id='+id+'&export=download';
+
+/* pictures: bassett plates + frames grouped from labels */
+let PICS=[];
+function rebuildPics(){
+  const all=[...(D.labels||[]).map(l=>({...l,mine:false})),...myLabels().map(l=>({...l,mine:true}))];
+  const groups=[];
+  for(const l of all){ let g=groups.find(g=>g.vid===l.vid&&Math.abs((g.t||0)-(l.t||0))<0.35); if(!g){ const it=itemById[l.vid]; g={kind:'frame',vid:l.vid,t:l.t||0,region:regionOf[l.vid]||'Our videos',title:(it&&(it.topic||it.name)||'Video')+(it&&it.type==='video'?' · '+fmtT(l.t):''),pins:[]}; groups.push(g);} g.pins.push(l); }
+  PICS=[...D.plates.map(p=>({kind:'plate',...p})),...groups];
+  if(!$('v-pics').classList.contains('hidden')) renderGallery();
+}
+const fmtT=t=>{t=+t||0; return Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0')+'.'+Math.floor((t%1)*10);};
+
+/* render a picture (image/plate/video frame) into an element */
+const frameCache=new Map();
+function frameEl(pic){ // returns Promise<HTMLElement>
+  if(pic.kind==='plate'){ const im=new Image(); im.src=BASE+pic.img; im.alt=pic.title; return new Promise(r=>{im.onload=()=>r(im); im.onerror=()=>r(im);}); }
+  const it=itemById[pic.vid]; const key=pic.vid+'@'+(pic.t||0);
+  if(it&&it.type==='image'){ const im=new Image(); im.crossOrigin='anonymous'; im.src=driveUrl(pic.vid); return new Promise(r=>{im.onload=()=>r(im); im.onerror=()=>r(errBox('Could not load the photo from Drive'));}); }
+  if(frameCache.has(key)){ const im=new Image(); im.src=frameCache.get(key); return Promise.resolve(im); }
+  return new Promise(res=>{ const v=document.createElement('video'); v.crossOrigin='anonymous'; v.muted=true; v.preload='auto'; v.playsInline=true; v.src=driveUrl(pic.vid);
+    const fail=()=>res(errBox('Could not load the video frame (large/unsupported file?)'));
+    const to=setTimeout(fail,30000); v.onerror=()=>{clearTimeout(to);fail();};
+    v.onloadedmetadata=()=>{ v.currentTime=Math.min(pic.t||0,(v.duration||1)-0.05); };
+    v.onseeked=()=>{ clearTimeout(to); const c=document.createElement('canvas'); c.width=v.videoWidth; c.height=v.videoHeight; c.getContext('2d').drawImage(v,0,0);
+      try{ const u=c.toDataURL('image/jpeg',0.85); frameCache.set(key,u); const im=new Image(); im.onload=()=>res(im); im.src=u; }catch(e){ res(c); } v.removeAttribute('src'); v.load(); };
+  });
+}
+function errBox(t){const d=document.createElement('div'); d.className='m'; d.style.padding='40px 12px'; d.textContent=t; return d;}
+
+/* ---------- init ---------- */
+function init(){
+  $('lockView').classList.add('hidden'); $('app').classList.remove('hidden');
+  D.labels=D.labels||[];
+  D.regions.forEach(r=>r.items.forEach(it=>{itemById[it.id]=it; regionOf[it.id]=r.name;}));
+  MUSTIDX={}; MUST().forEach(m=>{ MUSTIDX[norm(m.la)]=m; MUSTIDX[stripType(norm(m.la))]=m; });
+  const vocab=new Set([...MUST().map(m=>m.la),...D.plates.flatMap(p=>p.pins.map(q=>q.la)),...Object.keys(D.facts)]);
+  $('vocab').innerHTML=[...vocab].sort().map(v=>`<option value="${esc(v)}">`).join('');
+  const nv=D.regions.reduce((s,r)=>s+r.items.length,0);
+  $('hdr').textContent=`${nv} videos & photos · ${MUST().length} must-know structures`;
+  rebuildPics(); renderList(); setupVideos(); setupTest();
+  $('picRegion').innerHTML=['All',...new Set(PICS.map(p=>p.region))].map(r=>`<option>${esc(r)}</option>`).join('');
+  $('picRegion').onchange=renderGallery;
+}
+document.querySelectorAll('#tabs .tab').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#tabs .tab').forEach(x=>x.classList.toggle('on',x===b));
+  ['list','pics','videos','test'].forEach(t=>$('v-'+t).classList.toggle('hidden',t!==b.dataset.t));
+  if(b.dataset.t==='pics'){ $('picRegion').innerHTML=['All',...new Set(PICS.map(p=>p.region))].map(r=>`<option>${esc(r)}</option>`).join(''); showGallery(); }
+  if(b.dataset.t==='list') renderList(); if(b.dataset.t==='test') testAvail(); });
+
+/* ---------- list ---------- */
+let listFilter='all', hideLa=false;
+document.querySelectorAll('#v-list [data-f]').forEach(b=>b.onclick=()=>{listFilter=b.dataset.f; document.querySelectorAll('#v-list [data-f]').forEach(x=>x.classList.toggle('on',x===b)); renderList();});
+$('hideInfo').onclick=()=>{hideLa=!hideLa; $('hideInfo').textContent=hideLa?'Show Latin':'Hide Latin (self-test)'; renderList();};
+function picCount(la){const k=stripType(norm(la)); return PICS.reduce((s,p)=>s+p.pins.filter(q=>stripType(norm(q.la))===k).length,0);}
+function renderList(){
+  const st=stats(); let html='';
+  for(const L of D.must){ $('listTitle').textContent=L.name;
+    const groups=[...new Set(L.items.map(i=>i.g))];
+    for(const g of groups){ let items=L.items.filter(i=>i.g===g).map(i=>({...i,pc:picCount(i.la),s:st[norm(i.la)]||{ok:0,bad:0}}));
+      if(listFilter==='nopic') items=items.filter(i=>!i.pc); if(listFilter==='weak') items=items.filter(i=>i.s.bad>=i.s.ok&&(i.s.bad||!i.s.ok));
+      if(!items.length) continue;
+      html+=`<div class="grp"><h3>${esc(g)} (${items.length})</h3>`+items.map(i=>`<div class="it"><div style="flex:1"><div class="la">${hideLa?'<span class="cover" onclick="this.parentNode.textContent=\''+esc(i.la).replace(/'/g,"\\'")+'\'">tap to show Latin…</span>':esc(i.la)}</div><div class="en">${esc(i.en)}</div><div class="info">${esc(i.info)}</div></div>
+        <div style="display:grid;gap:4px;justify-items:end"><span class="badge ${i.pc?'ok':'no'}">📸 ${i.pc}</span>${i.s.ok||i.s.bad?`<span class="badge">✅${i.s.ok} ❌${i.s.bad}</span>`:''}</div></div>`).join('')+'</div>'; } }
+  $('list').innerHTML=html||'<p class="m">Nothing here – Alhamdulillah!</p>';
+}
+
+/* ---------- pictures ---------- */
+let curPic=0, showTags=true, hideLeg=false, gallery=[];
+function showGallery(){ $('picGallery').classList.remove('hidden'); $('picView').classList.add('hidden'); renderGallery(); }
+function renderGallery(){
+  const r=$('picRegion').value||'All'; gallery=PICS.filter(p=>r==='All'||p.region===r);
+  $('picCount').textContent=`${gallery.length} pictures · ${gallery.reduce((s,p)=>s+p.pins.length,0)} labels`;
+  $('picGrid').innerHTML=''; gallery.forEach((p,i)=>{ const b=document.createElement('button'); b.className='thumb';
+    b.innerHTML=`<div class="ph">${p.kind==='plate'?`<img src="${BASE+p.img}" loading="lazy">`:'🎬 frame – tap to open'}</div><div class="cap"><b>${esc(p.title)}</b><br><span class="m">${esc(p.region)} · ${p.pins.length} labels</span></div>`;
+    b.onclick=()=>openPic(i); $('picGrid').appendChild(b); });
+}
+async function drawStage(stage,pic,opt){ // opt: {tags, q (index highlighted), onPin, numbers}
+  stage.innerHTML='<div class="m" style="padding:60px;text-align:center">Loading picture…</div>';
+  const el=await frameEl(pic); stage.innerHTML=''; stage.appendChild(el); placePins(stage,pic,opt); }
+function placePins(stage,pic,opt){ stage.querySelectorAll('.pin,.tag').forEach(x=>x.remove());
+  pic.pins.forEach((q,k)=>{ if(opt.only!=null&&opt.only!==k) return;
+    const p=document.createElement('div'); p.className='pin'+(opt.q===k?' q':''); p.style.left=q.x+'%'; p.style.top=q.y+'%'; p.textContent=opt.only!=null?'?':(k+1);
+    if(opt.onPin) p.onclick=()=>opt.onPin(k); stage.appendChild(p);
+    if(opt.tags){ const t=document.createElement('div'); t.className='tag'; t.style.left=q.x+'%'; t.style.top=q.y+'%'; t.textContent=(k+1)+' · '+q.la; stage.appendChild(t);} }); }
+function openPic(i){ curPic=i; const p=gallery[i]; $('picGallery').classList.add('hidden'); $('picView').classList.remove('hidden');
+  $('picTitle').textContent=p.title+' ('+(i+1)+'/'+gallery.length+')'; $('picCredit').textContent=p.credit||(p.kind==='frame'?'Frame from our dissection video · labels '+(p.pins.some(x=>x.mine)?'partly by you (not yet checked)':'checked'):'');
+  drawStage($('picStage'),p,{tags:showTags,onPin:k=>openLeg(k)}); legend(); window.scrollTo(0,0); }
+let openK=null;
+function openLeg(k){ openK=openK===k?null:k; legend(); }
+function legend(){ const p=gallery[curPic];
+  $('picLegend').innerHTML=p.pins.map((q,k)=>{ const c=cardFor(q.la); const show=!hideLeg||openK===k;
+    return `<button class="lg ${openK===k?'cur':''}" data-k="${k}"><div class="n">${k+1}</div><div style="flex:1">${show?`<b>${esc(q.la)}</b>${q.en||c?.en?` <span class="m">· ${esc(q.en||c.en)}</span>`:''}${q.mine?' <span class="badge">mine</span>':''}${openK===k&&c?`<div class="lm">${c.raw?c.info:esc(c.info)}</div>`:''}`:'<span class="cover">tap to reveal…</span>'}</div></button>`; }).join('');
+  $('picLegend').querySelectorAll('.lg').forEach(b=>b.onclick=()=>openLeg(+b.dataset.k)); }
+$('picBack').onclick=showGallery;
+$('picPrev').onclick=()=>openPic((curPic-1+gallery.length)%gallery.length);
+$('picNext').onclick=()=>openPic((curPic+1)%gallery.length);
+$('tagToggle').onclick=()=>{showTags=!showTags; $('tagToggle').textContent='Names on picture: '+(showTags?'ON':'OFF'); $('tagToggle').classList.toggle('on',showTags); placePins($('picStage'),gallery[curPic],{tags:showTags,onPin:k=>openLeg(k)});};
+$('legToggle').onclick=()=>{hideLeg=!hideLeg; $('legToggle').classList.toggle('on',hideLeg); $('legToggle').textContent=hideLeg?'Show legend':'Hide legend (test me)'; if(hideLeg&&showTags) $('tagToggle').click(); openK=null; legend();};
+
+/* ---------- videos ---------- */
+let curVid=null;
+function setupVideos(){
+  $('vRegion').innerHTML=D.regions.map((r,i)=>`<option value="${i}">${esc(r.name)} (${r.items.length})</option>`).join('');
+  $('vRegion').onchange=renderVList; renderVList(); myInfo();
+  document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ $('vid').playbackRate=+b.dataset.s; document.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===b)); });
+  const v=$('vid'); $('back1').onclick=()=>v.currentTime=Math.max(0,v.currentTime-1); $('fwd1').onclick=()=>v.currentTime+=1;
+  $('stepB').onclick=()=>{v.pause(); v.currentTime=Math.max(0,v.currentTime-1/30);}; $('stepF').onclick=()=>{v.pause(); v.currentTime+=1/30;};
+  v.onerror=()=>{ $('vErr').innerHTML='This file can\'t play here (often an iPhone .MOV in HEVC, or a very large file). <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/'+curVid.id+'/view">Open it in Drive</a>.'; };
+}
+function renderVList(){ const r=D.regions[+$('vRegion').value]; const L=$('vList'); L.innerHTML='';
+  r.items.forEach((it,i)=>{ const n=myLabels().concat(D.labels).filter(l=>l.vid===it.id).length; const b=document.createElement('button'); b.className='vrow'+(curVid&&curVid.id===it.id?' on':'');
+    b.innerHTML=`<span>${it.type==='image'?'🖼️':'🎬'}</span><span style="flex:1"><b>${esc(it.topic||it.name)}</b>${it.topic?'':''}<br><span class="m" style="font-size:13px">${esc(it.topic?it.name:'#'+(i+1))}${n?' · 📌 '+n+' labels':''}</span></span>`;
+    b.onclick=()=>loadVid(it); L.appendChild(b); }); }
+function loadVid(it){ curVid=it; $('vErr').textContent=''; $('labeler').classList.add('hidden'); $('vTitle').textContent=(it.topic||it.name)+' – '+regionOf[it.id];
+  $('vDrive').href='https://drive.google.com/file/d/'+it.id+'/view'; $('vDrive').textContent='open in Drive ↗';
+  const v=$('vid');
+  if(it.type==='image'){ v.classList.add('hidden'); $('labelBtn').textContent='📌 Label this photo'; openLabeler(0); }
+  else { v.classList.remove('hidden'); $('labelBtn').textContent='📌 Label this frame'; v.src=driveUrl(it.id); v.playbackRate=+(document.querySelector('[data-s].on')?.dataset.s||1); }
+  renderVList(); $('playerCard').scrollIntoView({behavior:'smooth'}); }
+let draft=null, labPic=null;
+$('labelBtn').onclick=()=>{ if(!curVid) return; const v=$('vid'); v.pause(); openLabeler(curVid.type==='image'?0:Math.round(v.currentTime*10)/10); };
+function openLabeler(t){ draft=null; $('labeler').classList.remove('hidden'); $('labT').textContent=curVid.type==='image'?'':'at '+fmtT(t); $('labMsg').textContent='';
+  labPic={kind:'frame',vid:curVid.id,t,pins:[]}; refreshLab(true); }
+function labPins(){ return myLabels().concat(D.labels).filter(l=>l.vid===labPic.vid&&Math.abs((l.t||0)-labPic.t)<0.35); }
+async function refreshLab(full){ const st=$('labStage'); labPic.pins=labPins().concat(draft?[draft]:[]);
+  if(full){ await drawStage(st,labPic,{tags:true}); const el=st.firstChild; el.style.cursor='crosshair';
+    el.onclick=e=>{ const r=el.getBoundingClientRect(); draft={vid:labPic.vid,t:labPic.t,x:+((e.clientX-r.left)/r.width*100).toFixed(2),y:+((e.clientY-r.top)/r.height*100).toFixed(2),la:'(new)',en:''}; refreshLab(false); $('labLa').focus(); }; }
+  else { placePins(st,labPic,{tags:true}); const pins=st.querySelectorAll('.pin'); if(draft) pins[pins.length-1].classList.add('draft'); } }
+$('labSave').onclick=()=>{ const la=$('labLa').value.trim(); if(!draft){ $('labMsg').textContent='First tap the structure on the picture.'; return; } if(!la){ $('labMsg').textContent='Type the Latin name.'; return; }
+  const m=MUSTIDX[norm(la)]||MUSTIDX[stripType(norm(la))]; const canon=m?m.la:la;
+  setMy([...myLabels(),{...draft,la:canon,en:$('labEn').value.trim()||(m?m.en:''),also:m?m.also:[]}]); draft=null; $('labLa').value=''; $('labEn').value='';
+  $('labMsg').textContent='Saved ✓ '+canon+(m?'':' (not on the board list – check spelling)'); refreshLab(false); myInfo(); renderVList(); };
+$('labLa').onkeydown=e=>{if(e.key==='Enter') $('labSave').click();};
+$('labClose').onclick=()=>{ $('labeler').classList.add('hidden'); draft=null; };
+function myInfo(){ const n=myLabels().length; $('myInfo').textContent=n?`You have ${n} pins on ${new Set(myLabels().map(l=>l.vid+'@'+l.t)).size} frames (saved in this browser).`:'No pins yet – open a video, pause on a structure and press 📌.'; }
+$('exp').onclick=()=>{ const blob=new Blob([JSON.stringify({type:'practical-cadaver-labels',v:1,labels:myLabels()},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='practical-cadaver-labels.json'; a.click(); };
+$('imp').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); const cur=myLabels(); const key=l=>l.vid+'|'+l.t+'|'+l.x+'|'+l.y;
+  const have=new Set(cur.map(key)); setMy([...cur,...(j.labels||[]).filter(l=>!have.has(key(l)))]); myInfo(); renderVList(); alert('Imported ✓'); }catch(err){ alert('Not a labels file.'); } };
+
+/* ---------- clip test ---------- */
+let T={src:'pics',count:20,timer:60}, Q=[], qi=0, sc={ok:0,near:0,bad:0}, missed=[], tmr=null, tEnd=0, done=false, hintN=0;
+function chipRow(id,key){ document.querySelectorAll('#'+id+' .chip').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#'+id+' .chip').forEach(x=>x.classList.toggle('on',x===b)); T[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v; testAvail(); }); }
+function setupTest(){ chipRow('tSrc','src'); chipRow('tCount','count'); chipRow('tTimer','timer'); testAvail(); }
+function allPinQs(){ const qs=[]; PICS.forEach(p=>p.pins.forEach((q,k)=>qs.push({pic:p,k,item:q}))); return qs; }
+function testAvail(){ const n=T.src==='pics'?allPinQs().length:MUST().length; $('tAvail').textContent=`${n} questions available${T.src==='pics'?' (every label you add makes this bigger)':''}.`; }
+$('tGo').onclick=()=>startTest();
+function startTest(list){ sc={ok:0,near:0,bad:0}; missed=[]; qi=0;
+  Q=list||(T.src==='pics'?shuffle(allPinQs()):shuffle(MUST().map(m=>({item:m,list:true})))).slice(0,list?9999:T.count);
+  if(!Q.length){ alert('No questions yet.'); return; }
+  $('tStart').classList.add('hidden'); $('tEnd').classList.add('hidden'); $('tRun').classList.remove('hidden'); ask(); }
+async function ask(){ if(qi>=Q.length) return finish(); const q=Q[qi]; done=false; hintN=0;
+  $('tPos').textContent=`Question ${qi+1} / ${Q.length}`; $('tFb').innerHTML=''; $('tNext').classList.add('hidden'); $('tIn').value=''; $('tIn').disabled=false; upd();
+  if(q.list){ $('tStage').classList.add('hidden'); $('tClue').classList.remove('hidden'); $('tQ').textContent='Write the Latin name for:';
+    $('tClue').innerHTML=`<b>${esc(q.item.en)}</b><div class="lm">${esc(q.item.info.replace(new RegExp(stripType(norm(q.item.la)).split(' ')[0],'ig'),'…'))}</div>`; }
+  else { $('tClue').classList.add('hidden'); $('tStage').classList.remove('hidden'); $('tQ').textContent='What is the structure at the red pin?';
+    await drawStage($('tStage'),q.pic,{tags:false,q:q.k,only:q.k}); }
+  $('tIn').focus(); startTimer(); }
+function startTimer(){ clearInterval(tmr); $('tBar').style.width='100%'; if(!T.timer){ $('tBar').parentNode.classList.add('hidden'); return; } $('tBar').parentNode.classList.remove('hidden');
+  tEnd=Date.now()+T.timer*1000; tmr=setInterval(()=>{ const left=tEnd-Date.now(); $('tBar').style.width=Math.max(0,left/(T.timer*1000)*100)+'%'; $('tBar').style.background=left<10000?'var(--bad)':'var(--gold)'; if(left<=0){ clearInterval(tmr); answer(true);} },250); }
+function upd(){ $('tOk').textContent=sc.ok; $('tNear').textContent=sc.near; $('tBad').textContent=sc.bad; }
+function answer(timeout){ if(done) return; done=true; clearInterval(tmr); const q=Q[qi], it=q.item;
+  const res=timeout&&!$('tIn').value.trim()?'bad':grade($('tIn').value,it); sc[res]++; addStat(it.la,res); upd(); $('tIn').disabled=true;
+  if(res!=='ok') missed.push(q);
+  const c=cardFor(it.la); const head=res==='ok'?pick(['Alhamdulillah! ✅','Alhamdulillah – correct ✅','MashaAllah, spot on ✅']):res==='near'?'SubhanAllah – almost! Check the spelling 🤏':(timeout?'⏰ Time is up – Astaghfirullah ❌':pick(['Astaghfirullah – not this one ❌','Allahu akbar – keep going ❌']));
+  const prefixNote=res==='ok'&&norm($('tIn').value)!==norm(it.la)&&!(it.also||[]).map(norm).includes(norm($('tIn').value))?'<div class="m">In the Kolloquium write it in full: <b>'+esc(it.la)+'</b></div>':'';
+  $('tFb').innerHTML=`<div class="fb ${res}"><div class="head">${head}</div>${res!=='ok'&&$('tIn').value.trim()?`<div class="m">You wrote: <s>${esc($('tIn').value)}</s></div>`:''}<div class="big">${esc(it.la)}</div><div class="m">${esc(it.en||c?.en||'')}</div>${prefixNote}${c?`<div class="lm">${c.raw?c.info:esc(c.info)}</div>`:''}</div>`;
+  if(!q.list) drawStage($('tStage'),q.pic,{tags:true,q:q.k});
+  if(res!=='ok'&&!q.again){ Q.splice(Math.min(Q.length,qi+5),0,{...q,again:true}); }
+  $('tNext').classList.remove('hidden'); $('tNext').focus(); }
+$('tCheck').onclick=()=>answer(false);
+$('tIn').onkeydown=e=>{ if(e.key==='Enter'){ e.preventDefault(); done?$('tNext').click():answer(false);} };
+$('tSkip').onclick=()=>{ $('tIn').value=''; answer(true); };
+$('tHint').onclick=()=>{ if(done) return; const la=Q[qi].item.la; hintN=Math.min(la.length,hintN+3); $('tIn').value=la.slice(0,hintN); $('tIn').focus(); };
+$('tNext').onclick=()=>{ qi++; ask(); };
+$('tQuit').onclick=()=>finish();
+function finish(){ clearInterval(tmr); $('tRun').classList.add('hidden'); $('tEnd').classList.remove('hidden');
+  const tot=sc.ok+sc.near+sc.bad, pct=tot?Math.round((sc.ok+sc.near*0.5)/tot*100):0; $('tEndScore').textContent=pct+'%';
+  $('tEndMsg').textContent=pct>=85?'MashaAllah – Kolloquium ready! 🌟':pct>=60?'Alhamdulillah, good progress 💪':'Keep going – every round sticks a bit more 📚';
+  const uniq=[...new Map(missed.map(m=>[m.item.la,m])).values()];
+  $('tMissed').innerHTML=uniq.length?'<h2>Learn these again</h2>'+uniq.map(m=>{const c=cardFor(m.item.la); return `<div class="it"><div><div class="la">${esc(m.item.la)}</div><div class="en">${esc(m.item.en||c?.en||'')}</div>${c?`<div class="info">${c.raw?c.info:esc(c.info)}</div>`:''}</div></div>`;}).join(''):'<p class="m">No mistakes – Alhamdulillah! 🎉</p>';
+  $('tAgainMiss').classList.toggle('hidden',!uniq.length); renderList(); }
+$('tAgainMiss').onclick=()=>startTest(shuffle([...new Map(missed.map(m=>[m.item.la,{...m,again:false}])).values()]));
+$('tAgain').onclick=()=>{ $('tEnd').classList.add('hidden'); $('tStart').classList.remove('hidden'); };
+</script>
+</body>
+</html>
