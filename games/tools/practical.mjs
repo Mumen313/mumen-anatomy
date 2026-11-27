@@ -3,7 +3,7 @@
 //   node games/tools/practical.mjs decrypt <password> <out.json>      → readable copy (never commit it)
 //   node games/tools/practical.mjs merge   <password> <labels-export.json>  → adds exported pins as checked labels
 import { webcrypto as C } from 'node:crypto';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 const DIR = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'practical');
 const [cmd, pw, file] = process.argv.slice(2);
@@ -29,8 +29,13 @@ if (cmd === 'encrypt') {
 } else if (cmd === 'decrypt') {
   const { data } = await load(); await writeFile(file, JSON.stringify(data, null, 1)); console.log('decrypted →', file);
 } else if (cmd === 'merge') {
-  const { k, data } = await load(); const add = JSON.parse(await readFile(file, 'utf8')).labels || [];
-  const id = (l) => [l.vid, l.t, l.x, l.y].join('|'); const have = new Set((data.labels ||= []).map(id));
+  const { k, data } = await load(); const exp = JSON.parse(await readFile(file, 'utf8')); const add = exp.labels || [];
+  await mkdir(path.join(DIR, 'shots'), { recursive: true });
+  for (const [ref, url] of Object.entries(exp.shots || {})) {
+    if (!/^[a-z0-9]+$/i.test(ref)) continue;
+    await writeFile(path.join(DIR, 'shots', ref + '.bin'), await seal(k, Buffer.from(url.split(',')[1], 'base64')));
+  }
+  const id = (l) => [l.kind, l.ref, l.x, l.y].join('|'); const have = new Set((data.labels ||= []).map(id));
   let n = 0; for (const l of add) if (!have.has(id(l))) { const { mine, ...rest } = l; data.labels.push(rest); n++; }
   await save(data, k); console.log('merged', n, 'labels; total', data.labels.length);
 }

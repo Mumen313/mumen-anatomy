@@ -61,7 +61,10 @@ h2{font-size:18px;margin:4px 0 8px}
 .lg.cur{border-color:var(--gold)}
 .cover{color:var(--mut);font-style:italic}
 /* video */
-video{width:100%;max-height:72vh;background:#000;border-radius:14px;display:block}
+.vbox{position:relative;width:100%;height:min(72vh,640px);background:#000;border-radius:14px;overflow:hidden}
+.vbox iframe,.vbox img{width:100%;height:100%;border:0;object-fit:contain;display:block}
+.drop{border:2px dashed var(--gold);border-radius:14px;padding:14px;margin:8px 0;background:#2b2416;font-size:15px}
+.drop.hot{background:#3a3020}
 .vlist{display:grid;gap:6px}
 .vrow{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:left;width:100%}
 .vrow.on{border-color:var(--gold)}
@@ -122,7 +125,7 @@ video{width:100%;max-height:72vh;background:#000;border-radius:14px;display:bloc
     <div id="picGallery">
       <div class="row" style="margin-bottom:10px"><span class="m">Region:</span><select id="picRegion" class="btn small"></select><span class="spacer"></span><span class="m" id="picCount"></span></div>
       <div class="grid" id="picGrid"></div>
-      <p class="m" style="margin-top:12px">Pictures come from two places: real cadaver photos with checked labels (Bassett collection), and frames from <b>our</b> videos that you label in “Dissection videos → 📌 Label this frame”.</p>
+      <p class="m" style="margin-top:12px">Pictures come from two places: real cadaver photos with checked labels (Bassett collection), and <b>our</b> dissection photos, cover frames and screenshots that you label in “Dissection videos → 📌”.</p>
     </div>
     <div id="picView" class="hidden">
       <div class="row" style="margin-bottom:10px"><button class="btn small" id="picBack">‹ All pictures</button><b id="picTitle"></b><span class="spacer"></span>
@@ -144,18 +147,22 @@ video{width:100%;max-height:72vh;background:#000;border-radius:14px;display:bloc
       <div>
         <div class="card" id="playerCard">
           <div class="row" style="margin-bottom:8px"><b id="vTitle">Choose a video →</b><span class="spacer"></span><a id="vDrive" target="_blank" rel="noopener" class="m"></a></div>
-          <video id="vid" controls playsinline crossorigin="anonymous" preload="metadata"></video>
+          <div id="vbox" class="vbox"><div class="m" style="padding:60px 12px;text-align:center">Pick a video from the folder list.</div></div>
           <div class="row" style="margin-top:10px">
-            <span class="m">Speed</span>
-            <button class="chip" data-s="0.25">¼×</button><button class="chip" data-s="0.5">½×</button><button class="chip on" data-s="1">1×</button>
-            <button class="btn small" id="back1">⏪ 1 s</button><button class="btn small" id="fwd1">1 s ⏩</button>
-            <button class="btn small" id="stepB">◀ frame</button><button class="btn small" id="stepF">frame ▶</button>
-            <button class="btn gold small" id="labelBtn">📌 Label this frame</button>
+            <button class="btn gold small" id="labelBtn">📌 Label a moment</button>
+            <button class="btn small" id="coverBtn">🖼️ Label the cover frame</button>
+            <span class="m" style="font-size:13px">Speed: ⚙️ in the player → Playback speed → 0.5</span>
           </div>
           <p class="m" id="vErr"></p>
           <div id="labeler" class="hidden" style="margin-top:12px">
             <h2>📌 Label this frame <span class="m" id="labT"></span></h2>
-            <p class="m">1. Tap the structure on the picture. 2. Type the Latin name (suggestions from the board list). 3. Save. Add as many pins as you want.</p>
+            <div id="drop" class="drop">
+              <b>Pause the video on the structure, then take a screenshot of the video and paste it here.</b><br>
+              Mac: <b>⌘ Cmd + Ctrl + Shift + 4</b> → drag over the video → click here → <b>⌘ Cmd + V</b><br>
+              iPad/phone: screenshot → crop → “Choose image”. Windows: <b>Win + Shift + S</b> → Ctrl + V.<br>
+              <label class="btn small" style="margin-top:8px;display:inline-block">Choose image<input type="file" id="dropFile" accept="image/*" class="hidden"></label>
+            </div>
+            <p class="m">Then: 1. tap the structure on the picture · 2. type the Latin name (suggestions from the board list) · 3. Save. Add as many pins as you want.</p>
             <div class="stage" id="labStage"></div>
             <div class="ed">
               <input id="labLa" list="vocab" placeholder="Latin name, e.g. N. hypoglossus">
@@ -268,34 +275,35 @@ const setMy=v=>{store.set('pcMyLabels',v); rebuildPics();};
 const stats=()=>store.get('pcStats',{});
 function addStat(la,res){const s=stats(); const k=norm(la); s[k]=s[k]||{ok:0,bad:0}; if(res==='ok') s[k].ok++; else s[k].bad++; store.set('pcStats',s);}
 const itemById={}; const regionOf={};
-const driveUrl=id=>'https://drive.usercontent.google.com/download?id='+id+'&export=download';
+const thumb=(id,w)=>'https://drive.google.com/thumbnail?id='+id+'&sz=w'+(w||1600);
+/* screenshots ("shots") live in IndexedDB on this device; checked ones are encrypted files in shots/ */
+const IDB={db:null, open(){ return this.db||(this.db=new Promise((res,rej)=>{ const r=indexedDB.open('practicalCadaver',1); r.onupgradeneeded=()=>r.result.createObjectStore('shots'); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); })); },
+  async get(k){ const db=await this.open(); return new Promise(r=>{ const q=db.transaction('shots').objectStore('shots').get(k); q.onsuccess=()=>r(q.result); q.onerror=()=>r(null); }); },
+  async put(k,v){ const db=await this.open(); return new Promise(r=>{ const t=db.transaction('shots','readwrite'); t.objectStore('shots').put(v,k); t.oncomplete=()=>r(); }); },
+  async all(){ const db=await this.open(); return new Promise(r=>{ const out={}; const q=db.transaction('shots').objectStore('shots').openCursor(); q.onsuccess=()=>{ const c=q.result; if(c){ out[c.key]=c.value; c.continue(); } else r(out); }; }); } };
 
-/* pictures: bassett plates + frames grouped from labels */
+/* pictures: bassett plates + labelled photos / cover frames / screenshots */
 let PICS=[];
+const picKey=l=>l.kind+':'+l.ref;
 function rebuildPics(){
   const all=[...(D.labels||[]).map(l=>({...l,mine:false})),...myLabels().map(l=>({...l,mine:true}))];
-  const groups=[];
-  for(const l of all){ let g=groups.find(g=>g.vid===l.vid&&Math.abs((g.t||0)-(l.t||0))<0.35); if(!g){ const it=itemById[l.vid]; g={kind:'frame',vid:l.vid,t:l.t||0,region:regionOf[l.vid]||'Our videos',title:(it&&(it.topic||it.name)||'Video')+(it&&it.type==='video'?' · '+fmtT(l.t):''),pins:[]}; groups.push(g);} g.pins.push(l); }
-  PICS=[...D.plates.map(p=>({kind:'plate',...p})),...groups];
+  const groups=new Map();
+  for(const l of all){ const k=picKey(l); if(!groups.has(k)){ const it=itemById[l.vid]; groups.set(k,{kind:l.kind,ref:l.ref,vid:l.vid,official:!l.mine,region:regionOf[l.vid]||'Our dissection',title:(it&&(it.topic||it.name)||'Dissection')+(l.kind==='shot'?' · screenshot':l.kind==='poster'?' · cover frame':''),pins:[]}); }
+    const g=groups.get(k); g.pins.push(l); if(!l.mine) g.official=true; }
+  PICS=[...D.plates.map(p=>({kind:'plate',...p})),...groups.values()];
   if(!$('v-pics').classList.contains('hidden')) renderGallery();
 }
-const fmtT=t=>{t=+t||0; return Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0')+'.'+Math.floor((t%1)*10);};
-
-/* render a picture (image/plate/video frame) into an element */
-const frameCache=new Map();
-function frameEl(pic){ // returns Promise<HTMLElement>
-  if(pic.kind==='plate'){ const im=new Image(); im.src=BASE+pic.img; im.alt=pic.title; return new Promise(r=>{im.onload=()=>r(im); im.onerror=()=>r(im);}); }
-  const it=itemById[pic.vid]; const key=pic.vid+'@'+(pic.t||0);
-  if(it&&it.type==='image'){ const im=new Image(); im.crossOrigin='anonymous'; im.src=driveUrl(pic.vid); return new Promise(r=>{im.onload=()=>r(im); im.onerror=()=>r(errBox('Could not load the photo from Drive'));}); }
-  if(frameCache.has(key)){ const im=new Image(); im.src=frameCache.get(key); return Promise.resolve(im); }
-  return new Promise(res=>{ const v=document.createElement('video'); v.crossOrigin='anonymous'; v.muted=true; v.preload='auto'; v.playsInline=true; v.src=driveUrl(pic.vid);
-    const fail=()=>res(errBox('Could not load the video frame (large/unsupported file?)'));
-    const to=setTimeout(fail,30000); v.onerror=()=>{clearTimeout(to);fail();};
-    v.onloadedmetadata=()=>{ v.currentTime=Math.min(pic.t||0,(v.duration||1)-0.05); };
-    v.onseeked=()=>{ clearTimeout(to); const c=document.createElement('canvas'); c.width=v.videoWidth; c.height=v.videoHeight; c.getContext('2d').drawImage(v,0,0);
-      try{ const u=c.toDataURL('image/jpeg',0.85); frameCache.set(key,u); const im=new Image(); im.onload=()=>res(im); im.src=u; }catch(e){ res(c); } v.removeAttribute('src'); v.load(); };
-  });
-}
+const shotCache=new Map();
+async function shotUrl(ref){ if(shotCache.has(ref)) return shotCache.get(ref);
+  let u=await IDB.get(ref);
+  if(!u){ try{ const buf=await getBin('shots/'+ref+'.bin'); u=URL.createObjectURL(new Blob([await dec(buf)],{type:'image/jpeg'})); }catch(e){ u=null; } }
+  shotCache.set(ref,u); return u; }
+function picSrc(pic){ if(pic.kind==='plate') return Promise.resolve(BASE+pic.img);
+  if(pic.kind==='photo') return Promise.resolve(thumb(pic.ref,1600));
+  if(pic.kind==='poster') return Promise.resolve(thumb(pic.ref,1200));
+  return shotUrl(pic.ref); }
+async function frameEl(pic){ const src=await picSrc(pic); if(!src) return errBox('This screenshot is only on the device where it was made.');
+  const im=new Image(); im.alt=pic.title||''; im.src=src; return new Promise(r=>{ im.onload=()=>r(im); im.onerror=()=>r(errBox('Could not load the picture from Drive.')); }); }
 function errBox(t){const d=document.createElement('div'); d.className='m'; d.style.padding='40px 12px'; d.textContent=t; return d;}
 
 /* ---------- init ---------- */
@@ -341,7 +349,7 @@ function renderGallery(){
   const r=$('picRegion').value||'All'; gallery=PICS.filter(p=>r==='All'||p.region===r);
   $('picCount').textContent=`${gallery.length} pictures · ${gallery.reduce((s,p)=>s+p.pins.length,0)} labels`;
   $('picGrid').innerHTML=''; gallery.forEach((p,i)=>{ const b=document.createElement('button'); b.className='thumb';
-    b.innerHTML=`<div class="ph">${p.kind==='plate'?`<img src="${BASE+p.img}" loading="lazy">`:'🎬 frame – tap to open'}</div><div class="cap"><b>${esc(p.title)}</b><br><span class="m">${esc(p.region)} · ${p.pins.length} labels</span></div>`;
+    b.innerHTML=`<div class="ph">${p.kind==='plate'?`<img src="${BASE+p.img}" loading="lazy">`:p.kind==='shot'?'📸 screenshot – tap to open':`<img src="${thumb(p.ref,400)}" loading="lazy">`}</div><div class="cap"><b>${esc(p.title)}</b><br><span class="m">${esc(p.region)} · ${p.pins.length} labels</span></div>`;
     b.onclick=()=>openPic(i); $('picGrid').appendChild(b); });
 }
 async function drawStage(stage,pic,opt){ // opt: {tags, q (index highlighted), onPin, numbers}
@@ -353,7 +361,7 @@ function placePins(stage,pic,opt){ stage.querySelectorAll('.pin,.tag').forEach(x
     if(opt.onPin) p.onclick=()=>opt.onPin(k); stage.appendChild(p);
     if(opt.tags){ const t=document.createElement('div'); t.className='tag'; t.style.left=q.x+'%'; t.style.top=q.y+'%'; t.textContent=(k+1)+' · '+q.la; stage.appendChild(t);} }); }
 function openPic(i){ curPic=i; const p=gallery[i]; $('picGallery').classList.add('hidden'); $('picView').classList.remove('hidden');
-  $('picTitle').textContent=p.title+' ('+(i+1)+'/'+gallery.length+')'; $('picCredit').textContent=p.credit||(p.kind==='frame'?'Frame from our dissection video · labels '+(p.pins.some(x=>x.mine)?'partly by you (not yet checked)':'checked'):'');
+  $('picTitle').textContent=p.title+' ('+(i+1)+'/'+gallery.length+')'; $('picCredit').textContent=p.credit||(p.kind!=='plate'?'From our dissection · '+(p.pins.some(x=>x.mine)?'labels partly yours (send them to Claude to lock in)':'labels checked'):'');
   drawStage($('picStage'),p,{tags:showTags,onPin:k=>openLeg(k)}); legend(); window.scrollTo(0,0); }
 let openK=null;
 function openLeg(k){ openK=openK===k?null:k; legend(); }
@@ -372,29 +380,36 @@ let curVid=null;
 function setupVideos(){
   $('vRegion').innerHTML=D.regions.map((r,i)=>`<option value="${i}">${esc(r.name)} (${r.items.length})</option>`).join('');
   $('vRegion').onchange=renderVList; renderVList(); myInfo();
-  document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ $('vid').playbackRate=+b.dataset.s; document.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===b)); });
-  const v=$('vid'); $('back1').onclick=()=>v.currentTime=Math.max(0,v.currentTime-1); $('fwd1').onclick=()=>v.currentTime+=1;
-  $('stepB').onclick=()=>{v.pause(); v.currentTime=Math.max(0,v.currentTime-1/30);}; $('stepF').onclick=()=>{v.pause(); v.currentTime+=1/30;};
-  v.onerror=()=>{ $('vErr').innerHTML='This file can\'t play here (often an iPhone .MOV in HEVC, or a very large file). <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/'+curVid.id+'/view">Open it in Drive</a>.'; };
 }
 function renderVList(){ const r=D.regions[+$('vRegion').value]; const L=$('vList'); L.innerHTML='';
   r.items.forEach((it,i)=>{ const n=myLabels().concat(D.labels).filter(l=>l.vid===it.id).length; const b=document.createElement('button'); b.className='vrow'+(curVid&&curVid.id===it.id?' on':'');
-    b.innerHTML=`<span>${it.type==='image'?'🖼️':'🎬'}</span><span style="flex:1"><b>${esc(it.topic||it.name)}</b>${it.topic?'':''}<br><span class="m" style="font-size:13px">${esc(it.topic?it.name:'#'+(i+1))}${n?' · 📌 '+n+' labels':''}</span></span>`;
+    b.innerHTML=`<img src="${thumb(it.id,160)}" loading="lazy" style="width:54px;height:54px;object-fit:cover;border-radius:8px;background:#000" alt=""><span style="flex:1"><b>${it.type==='image'?'🖼️ ':''}${esc(it.topic||it.name)}</b><br><span class="m" style="font-size:13px">${esc(it.topic?it.name:'#'+(i+1))}${n?' · 📌 '+n+' labels':''}</span></span>`;
     b.onclick=()=>loadVid(it); L.appendChild(b); }); }
 function loadVid(it){ curVid=it; $('vErr').textContent=''; $('labeler').classList.add('hidden'); $('vTitle').textContent=(it.topic||it.name)+' – '+regionOf[it.id];
   $('vDrive').href='https://drive.google.com/file/d/'+it.id+'/view'; $('vDrive').textContent='open in Drive ↗';
-  const v=$('vid');
-  if(it.type==='image'){ v.classList.add('hidden'); $('labelBtn').textContent='📌 Label this photo'; openLabeler(0); }
-  else { v.classList.remove('hidden'); $('labelBtn').textContent='📌 Label this frame'; v.src=driveUrl(it.id); v.playbackRate=+(document.querySelector('[data-s].on')?.dataset.s||1); }
+  const box=$('vbox'); box.innerHTML='';
+  if(it.type==='image'){ const im=new Image(); im.src=thumb(it.id,1600); box.appendChild(im); $('labelBtn').textContent='📌 Label this photo'; $('coverBtn').classList.add('hidden'); openLabeler('photo',it.id); }
+  else { const f=document.createElement('iframe'); f.src='https://drive.google.com/file/d/'+it.id+'/preview'; f.allow='autoplay; fullscreen'; f.allowFullscreen=true; box.appendChild(f);
+    $('labelBtn').textContent='📌 Label a moment (screenshot)'; $('coverBtn').classList.remove('hidden'); }
   renderVList(); $('playerCard').scrollIntoView({behavior:'smooth'}); }
 let draft=null, labPic=null;
-$('labelBtn').onclick=()=>{ if(!curVid) return; const v=$('vid'); v.pause(); openLabeler(curVid.type==='image'?0:Math.round(v.currentTime*10)/10); };
-function openLabeler(t){ draft=null; $('labeler').classList.remove('hidden'); $('labT').textContent=curVid.type==='image'?'':'at '+fmtT(t); $('labMsg').textContent='';
-  labPic={kind:'frame',vid:curVid.id,t,pins:[]}; refreshLab(true); }
-function labPins(){ return myLabels().concat(D.labels).filter(l=>l.vid===labPic.vid&&Math.abs((l.t||0)-labPic.t)<0.35); }
+$('labelBtn').onclick=()=>{ if(!curVid) return; if(curVid.type==='image') return openLabeler('photo',curVid.id); openLabeler('shot',null); };
+$('coverBtn').onclick=()=>{ if(curVid) openLabeler('poster',curVid.id); };
+function openLabeler(kind,ref){ draft=null; $('labeler').classList.remove('hidden'); $('labMsg').textContent=''; $('labStage').innerHTML='';
+  $('drop').classList.toggle('hidden',kind!=='shot'||!!ref); $('labT').textContent=kind==='poster'?'(cover frame)':kind==='photo'?'(photo)':'(your screenshot)';
+  labPic={kind,ref,vid:curVid.id,pins:[]}; if(ref) refreshLab(true); $('labeler').scrollIntoView({behavior:'smooth'}); }
+async function useShot(blob){ // downscale to max 1400 px JPEG, keep on this device
+  const bmp=await createImageBitmap(blob); const s=Math.min(1,1400/Math.max(bmp.width,bmp.height)); const c=document.createElement('canvas'); c.width=Math.round(bmp.width*s); c.height=Math.round(bmp.height*s);
+  c.getContext('2d').drawImage(bmp,0,0,c.width,c.height); const url=c.toDataURL('image/jpeg',0.86); const ref='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  await IDB.put(ref,url); shotCache.set(ref,url); labPic.ref=ref; $('drop').classList.add('hidden'); refreshLab(true); $('labMsg').textContent='Screenshot added – now tap the structure.'; }
+document.addEventListener('paste',e=>{ if($('labeler').classList.contains('hidden')||!labPic||labPic.kind!=='shot'||labPic.ref) return; const f=[...(e.clipboardData?.items||[])].find(i=>i.type.startsWith('image/')); if(f){ e.preventDefault(); useShot(f.getAsFile()); } });
+$('dropFile').onchange=e=>{ if(e.target.files[0]) useShot(e.target.files[0]); };
+$('drop').ondragover=e=>{ e.preventDefault(); $('drop').classList.add('hot'); }; $('drop').ondragleave=()=>$('drop').classList.remove('hot');
+$('drop').ondrop=e=>{ e.preventDefault(); $('drop').classList.remove('hot'); const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/')); if(f) useShot(f); };
+function labPins(){ return myLabels().concat(D.labels).filter(l=>l.kind===labPic.kind&&l.ref===labPic.ref); }
 async function refreshLab(full){ const st=$('labStage'); labPic.pins=labPins().concat(draft?[draft]:[]);
   if(full){ await drawStage(st,labPic,{tags:true}); const el=st.firstChild; el.style.cursor='crosshair';
-    el.onclick=e=>{ const r=el.getBoundingClientRect(); draft={vid:labPic.vid,t:labPic.t,x:+((e.clientX-r.left)/r.width*100).toFixed(2),y:+((e.clientY-r.top)/r.height*100).toFixed(2),la:'(new)',en:''}; refreshLab(false); $('labLa').focus(); }; }
+    el.onclick=e=>{ const r=el.getBoundingClientRect(); draft={kind:labPic.kind,ref:labPic.ref,vid:labPic.vid,x:+((e.clientX-r.left)/r.width*100).toFixed(2),y:+((e.clientY-r.top)/r.height*100).toFixed(2),la:'(new)',en:''}; refreshLab(false); $('labLa').focus(); }; }
   else { placePins(st,labPic,{tags:true}); const pins=st.querySelectorAll('.pin'); if(draft) pins[pins.length-1].classList.add('draft'); } }
 $('labSave').onclick=()=>{ const la=$('labLa').value.trim(); if(!draft){ $('labMsg').textContent='First tap the structure on the picture.'; return; } if(!la){ $('labMsg').textContent='Type the Latin name.'; return; }
   const m=MUSTIDX[norm(la)]||MUSTIDX[stripType(norm(la))]; const canon=m?m.la:la;
@@ -402,10 +417,11 @@ $('labSave').onclick=()=>{ const la=$('labLa').value.trim(); if(!draft){ $('labM
   $('labMsg').textContent='Saved ✓ '+canon+(m?'':' (not on the board list – check spelling)'); refreshLab(false); myInfo(); renderVList(); };
 $('labLa').onkeydown=e=>{if(e.key==='Enter') $('labSave').click();};
 $('labClose').onclick=()=>{ $('labeler').classList.add('hidden'); draft=null; };
-function myInfo(){ const n=myLabels().length; $('myInfo').textContent=n?`You have ${n} pins on ${new Set(myLabels().map(l=>l.vid+'@'+l.t)).size} frames (saved in this browser).`:'No pins yet – open a video, pause on a structure and press 📌.'; }
-$('exp').onclick=()=>{ const blob=new Blob([JSON.stringify({type:'practical-cadaver-labels',v:1,labels:myLabels()},null,1)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='practical-cadaver-labels.json'; a.click(); };
-$('imp').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); const cur=myLabels(); const key=l=>l.vid+'|'+l.t+'|'+l.x+'|'+l.y;
-  const have=new Set(cur.map(key)); setMy([...cur,...(j.labels||[]).filter(l=>!have.has(key(l)))]); myInfo(); renderVList(); alert('Imported ✓'); }catch(err){ alert('Not a labels file.'); } };
+function myInfo(){ const n=myLabels().length; $('myInfo').textContent=n?`You have ${n} pins on ${new Set(myLabels().map(picKey)).size} pictures (saved in this browser).`:'No pins yet – open a video, pause on a structure, screenshot it and press 📌.'; }
+$('exp').onclick=async()=>{ const mine=myLabels(); const shots={}; for(const l of mine) if(l.kind==='shot'&&!shots[l.ref]){ const u=await IDB.get(l.ref); if(u) shots[l.ref]=u; }
+  const blob=new Blob([JSON.stringify({type:'practical-cadaver-labels',v:2,labels:mine,shots})],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='practical-cadaver-labels.json'; a.click(); };
+$('imp').onchange=async e=>{ try{ const j=JSON.parse(await e.target.files[0].text()); for(const [k,v] of Object.entries(j.shots||{})) await IDB.put(k,v);
+  const cur=myLabels(); const key=l=>[l.kind,l.ref,l.x,l.y].join('|'); const have=new Set(cur.map(key)); setMy([...cur,...(j.labels||[]).filter(l=>!have.has(key(l)))]); myInfo(); renderVList(); alert('Imported ✓'); }catch(err){ alert('Not a labels file.'); } };
 
 /* ---------- clip test ---------- */
 let T={src:'pics',count:20,timer:60}, Q=[], qi=0, sc={ok:0,near:0,bad:0}, missed=[], tmr=null, tEnd=0, done=false, hintN=0;
