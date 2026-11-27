@@ -214,7 +214,6 @@ h2{font-size:18px;margin:4px 0 8px}
   <div class="foot">Private study area for Mumen Uthman and classmates · videos stream from our shared Drive folder · learning cards are study aids – check with your textbook.</div>
 </div>
 
-<script src="__BASE__assets/access-config.js"></script>
 <script src="__BASE__assets/access-gate.js"></script>
 <script>
 const BASE='__BASE__';
@@ -234,7 +233,7 @@ async function deriveKey(pw){const m=await (await fetch('manifest.json',{cache:'
   return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(m.salt),iterations:m.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},true,['decrypt']);}
 async function openWith(k){KEY=k; const ok=new TextDecoder().decode(await dec(await getBin('check.bin'))); if(ok!=='ok') throw new Error('bad');
   D=JSON.parse(new TextDecoder().decode(await dec(await getBin('data.bin')))); init();}
-const GATE=MumenGate.mount({el:$('gate'),game:'practical',title:'Practical Cadaver',storeKey:'mumenPracticalKey',onKey:openWith,masterDerive:deriveKey});
+const GATE=MumenGate.mount({el:$('gate'),game:'practical',title:'Practical Cadaver',storeKey:'mumenPracticalKey',onKey:openWith,masterDerive:deriveKey,mode:'owner'});
 $('lockBtn').onclick=()=>GATE.lock();
 
 /* ---------- Latin matching ---------- */
