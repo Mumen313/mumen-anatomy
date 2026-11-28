@@ -1,0 +1,1484 @@
+{
+ "_help": "One file per plexus. Each structure: id, level (radix|truncus|divisio|fasciculus|ramus|terminalis), short = label in the schematic (\\n = line break), name = full Latin name, answers = accepted answers (first = shown answer, Latin), en = English names (accepted, but the player is asked to say it in Latin), parents = structures it comes from, roots = segments used to trace the fibre pathway, d = SVG path in the 1260x760 schematic, label = {x,y,anchor} or {t,dx,dy,anchor} (t = point along the path, 0..1), lead = draw a thin leader line from the label to the path point at t. diff: 1 beginner, 2 intermediate, 3 advanced.",
+ "slug": "brachialis",
+ "title": "Plexus brachialis",
+ "en": "Brachial plexus",
+ "segments": "C5–T1",
+ "intro": "The Plexus brachialis is formed by the Rami anteriores of the spinal nerves C5–T1. It is organised in five levels – Radices, Trunci, Divisiones, Fasciculi and the terminal nerves. Memory hook: Read That Damn Cadaver Book.",
+ "viewBox": "0 0 1260 790",
+ "columns": [
+  {
+   "level": "radix",
+   "label": "Radices",
+   "x": 150
+  },
+  {
+   "level": "truncus",
+   "label": "Trunci",
+   "x": 330
+  },
+  {
+   "level": "divisio",
+   "label": "Divisiones",
+   "x": 485
+  },
+  {
+   "level": "fasciculus",
+   "label": "Fasciculi",
+   "x": 690
+  },
+  {
+   "level": "terminalis",
+   "label": "Nervi terminales",
+   "x": 1080
+  }
+ ],
+ "landmarks": [
+  {
+   "type": "band",
+   "x": 471,
+   "y": 120,
+   "w": 28,
+   "h": 520,
+   "label": "Clavicula",
+   "lx": 485,
+   "ly": 664
+  },
+  {
+   "type": "text",
+   "x": 250,
+   "y": 772,
+   "text": "← Pars supraclavicularis",
+   "anchor": "middle"
+  },
+  {
+   "type": "text",
+   "x": 760,
+   "y": 772,
+   "text": "Pars infraclavicularis →",
+   "anchor": "middle"
+  },
+  {
+   "type": "note",
+   "x": 130,
+   "y": 600,
+   "text": "between M. scalenus anterior\nand M. scalenus medius",
+   "anchor": "start"
+  },
+  {
+   "type": "note",
+   "x": 330,
+   "y": 600,
+   "text": "Trigonum cervicale\nlaterale",
+   "anchor": "middle"
+  },
+  {
+   "type": "note",
+   "x": 1060,
+   "y": 650,
+   "text": "Axilla – the Fasciculi are named after\ntheir position around the A. axillaris",
+   "anchor": "start"
+  }
+ ],
+ "levels": {
+  "radix": {
+   "label": "Radices (roots)",
+   "color": "#3b82c4"
+  },
+  "truncus": {
+   "label": "Trunci (trunks)",
+   "color": "#2e9e6b"
+  },
+  "divisio": {
+   "label": "Divisiones (divisions)",
+   "color": "#8a63c7"
+  },
+  "fasciculus": {
+   "label": "Fasciculi (cords)",
+   "color": "#d9a400"
+  },
+  "terminalis": {
+   "label": "Nervi terminales (terminal branches)",
+   "color": "#e0632b"
+  },
+  "ramus": {
+   "label": "Collateral branches – drawn thin, in the colour of the level they leave",
+   "color": null
+  }
+ },
+ "structures": [
+  {
+   "id": "C5",
+   "level": "radix",
+   "short": "C5",
+   "circle": [
+    56,
+    150
+   ],
+   "name": "Radix C5 – Ramus anterior nervi spinalis C5",
+   "answers": [
+    "C5",
+    "Radix C5",
+    "Ramus anterior C5",
+    "Ramus anterior nervi spinalis C5"
+   ],
+   "en": [
+    "root C5",
+    "C5 root"
+   ],
+   "parents": [],
+   "roots": [
+    "C5"
+   ],
+   "rootText": "C5",
+   "origin": "Ramus anterior of the 5th cervical spinal nerve",
+   "course": "Leaves the Foramen intervertebrale and runs between M. scalenus anterior and M. scalenus medius (Spatium interscalenum). Joins C6 to form the Truncus superior.",
+   "facts": [
+    "Myotome: shoulder abduction (M. deltoideus)",
+    "Dermatome: lateral upper arm",
+    "Reflex: biceps reflex (C5–C6)",
+    "Direct branches: N. dorsalis scapulae, part of N. thoracicus longus"
+   ],
+   "clinical": "Root avulsion C5–C6 = upper plexus lesion (Erb–Duchenne).",
+   "diff": 1,
+   "d": "M80,150 C170,150 190,205 250,205"
+  },
+  {
+   "id": "C6",
+   "level": "radix",
+   "short": "C6",
+   "circle": [
+    56,
+    250
+   ],
+   "name": "Radix C6 – Ramus anterior nervi spinalis C6",
+   "answers": [
+    "C6",
+    "Radix C6",
+    "Ramus anterior C6",
+    "Ramus anterior nervi spinalis C6"
+   ],
+   "en": [
+    "root C6",
+    "C6 root"
+   ],
+   "parents": [],
+   "roots": [
+    "C6"
+   ],
+   "rootText": "C6",
+   "origin": "Ramus anterior of the 6th cervical spinal nerve",
+   "course": "Runs through the Spatium interscalenum and joins C5 to form the Truncus superior.",
+   "facts": [
+    "Myotome: elbow flexion, wrist extension",
+    "Dermatome: lateral forearm and thumb",
+    "Reflex: brachioradialis reflex (C5–C6)",
+    "Gives a twig to the N. thoracicus longus"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M80,250 C170,250 190,205 250,205"
+  },
+  {
+   "id": "C7",
+   "level": "radix",
+   "short": "C7",
+   "circle": [
+    56,
+    350
+   ],
+   "name": "Radix C7 – Ramus anterior nervi spinalis C7",
+   "answers": [
+    "C7",
+    "Radix C7",
+    "Ramus anterior C7",
+    "Ramus anterior nervi spinalis C7"
+   ],
+   "en": [
+    "root C7",
+    "C7 root"
+   ],
+   "parents": [],
+   "roots": [
+    "C7"
+   ],
+   "rootText": "C7",
+   "origin": "Ramus anterior of the 7th cervical spinal nerve",
+   "course": "Runs through the Spatium interscalenum and continues alone as the Truncus medius.",
+   "facts": [
+    "Myotome: elbow extension (M. triceps brachii)",
+    "Dermatome: middle finger",
+    "Reflex: triceps reflex (C7)",
+    "Gives a twig to the N. thoracicus longus"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M80,350 L250,350"
+  },
+  {
+   "id": "C8",
+   "level": "radix",
+   "short": "C8",
+   "circle": [
+    56,
+    450
+   ],
+   "name": "Radix C8 – Ramus anterior nervi spinalis C8",
+   "answers": [
+    "C8",
+    "Radix C8",
+    "Ramus anterior C8",
+    "Ramus anterior nervi spinalis C8"
+   ],
+   "en": [
+    "root C8",
+    "C8 root"
+   ],
+   "parents": [],
+   "roots": [
+    "C8"
+   ],
+   "rootText": "C8",
+   "origin": "Ramus anterior of the 8th cervical spinal nerve",
+   "course": "Runs through the Spatium interscalenum and joins T1 to form the Truncus inferior.",
+   "facts": [
+    "Myotome: finger flexion",
+    "Dermatome: little finger and medial hand"
+   ],
+   "clinical": "Root lesion C8–T1 = lower plexus lesion (Klumpke).",
+   "diff": 1,
+   "d": "M80,450 C170,450 190,497 250,497"
+  },
+  {
+   "id": "T1",
+   "level": "radix",
+   "short": "T1",
+   "circle": [
+    56,
+    545
+   ],
+   "name": "Radix T1 – Ramus anterior nervi spinalis T1",
+   "answers": [
+    "T1",
+    "Th1",
+    "Radix T1",
+    "Ramus anterior T1",
+    "Ramus anterior nervi spinalis T1"
+   ],
+   "en": [
+    "root T1",
+    "T1 root"
+   ],
+   "parents": [],
+   "roots": [
+    "T1"
+   ],
+   "rootText": "T1",
+   "origin": "Ramus anterior of the 1st thoracic spinal nerve (its larger upper part; the rest becomes the 1st intercostal nerve)",
+   "course": "Ascends over the neck of the first rib and joins C8 to form the Truncus inferior, which lies on the first rib behind the A. subclavia.",
+   "facts": [
+    "Myotome: finger abduction/adduction (Mm. interossei)",
+    "Dermatome: medial forearm"
+   ],
+   "clinical": "Avulsion of T1 near the spinal cord can also interrupt the sympathetic fibres to the head → Horner syndrome (ptosis, miosis, anhidrosis).",
+   "diff": 1,
+   "d": "M80,545 C170,545 190,497 250,497"
+  },
+  {
+   "id": "dorsalis-scapulae",
+   "level": "ramus",
+   "of": "radix",
+   "short": "N. dorsalis scapulae",
+   "name": "Nervus dorsalis scapulae",
+   "answers": [
+    "N. dorsalis scapulae",
+    "Nervus dorsalis scapulae"
+   ],
+   "en": [
+    "dorsal scapular nerve"
+   ],
+   "parents": [
+    "C5"
+   ],
+   "roots": [
+    "C5"
+   ],
+   "rootText": "C5 (often C4)",
+   "origin": "Radix C5 (posterior aspect, before the trunk forms)",
+   "muscles": [
+    "M. levator scapulae",
+    "M. rhomboideus major",
+    "M. rhomboideus minor"
+   ],
+   "course": "Pierces M. scalenus medius and runs deep to M. levator scapulae towards the medial border of the scapula.",
+   "facts": [
+    "Supraclavicular branch – directly from a root"
+   ],
+   "clinical": null,
+   "diff": 2,
+   "d": "M130,150 C128,110 140,80 172,64",
+   "label": {
+    "x": 180,
+    "y": 66,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "thoracicus-longus",
+   "level": "ramus",
+   "of": "radix",
+   "short": "N. thoracicus longus",
+   "name": "Nervus thoracicus longus",
+   "answers": [
+    "N. thoracicus longus",
+    "Nervus thoracicus longus"
+   ],
+   "en": [
+    "long thoracic nerve",
+    "nerve of bell"
+   ],
+   "parents": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "rootText": "C5–C7",
+   "origin": "Radices C5, C6 and C7 (posterior aspect)",
+   "muscles": [
+    "M. serratus anterior"
+   ],
+   "course": "Descends behind the plexus and runs on the outer surface of M. serratus anterior along the lateral chest wall (Linea axillaris media).",
+   "facts": [
+    "Supraclavicular branch – directly from the roots",
+    "Memory: C5, 6, 7 – \"wings of heaven\""
+   ],
+   "clinical": "Injury (axillary lymph node dissection, mastectomy, heavy loads on the shoulder) → Scapula alata: the medial border of the scapula lifts off when the patient pushes against a wall; arm elevation above 90° is weak.",
+   "diff": 2,
+   "under": true,
+   "d": "M98,152 C98,195 112,215 112,255 M98,252 C100,262 110,270 112,280 M98,352 C100,362 110,370 112,380 M112,255 L112,640 C112,668 120,684 140,690",
+   "label": {
+    "x": 148,
+    "y": 694,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "truncus-superior",
+   "level": "truncus",
+   "short": "Truncus\nsuperior",
+   "name": "Truncus superior",
+   "answers": [
+    "Truncus superior"
+   ],
+   "en": [
+    "upper trunk",
+    "superior trunk"
+   ],
+   "parents": [
+    "C5",
+    "C6"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Union of the Radices C5 and C6",
+   "course": "Lies in the Trigonum cervicale laterale (posterior triangle of the neck) above the A. subclavia.",
+   "facts": [
+    "Branches: N. suprascapularis, N. subclavius",
+    "Splits into a Divisio anterior and a Divisio posterior"
+   ],
+   "clinical": "Upper trunk lesion (Erb–Duchenne palsy) – e.g. birth trauma with shoulder dystocia or a fall that pushes head and shoulder apart: arm hangs adducted and internally rotated, elbow extended, forearm pronated (\"waiter's tip\"). Loss of M. deltoideus, M. supraspinatus, M. infraspinatus, M. biceps brachii, M. brachialis.",
+   "diff": 1,
+   "d": "M250,205 L410,205",
+   "label": {
+    "x": 330,
+    "y": 236,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "truncus-medius",
+   "level": "truncus",
+   "short": "Truncus\nmedius",
+   "name": "Truncus medius",
+   "answers": [
+    "Truncus medius"
+   ],
+   "en": [
+    "middle trunk"
+   ],
+   "parents": [
+    "C7"
+   ],
+   "roots": [
+    "C7"
+   ],
+   "rootText": "C7",
+   "origin": "Continuation of the Radix C7 alone",
+   "course": "Lies in the Trigonum cervicale laterale between the upper and lower trunk.",
+   "facts": [
+    "No own branches",
+    "Splits into a Divisio anterior and a Divisio posterior"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M250,350 L410,350",
+   "label": {
+    "x": 330,
+    "y": 381,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "truncus-inferior",
+   "level": "truncus",
+   "short": "Truncus\ninferior",
+   "name": "Truncus inferior",
+   "answers": [
+    "Truncus inferior"
+   ],
+   "en": [
+    "lower trunk",
+    "inferior trunk"
+   ],
+   "parents": [
+    "C8",
+    "T1"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Union of the Radices C8 and T1",
+   "course": "Lies on the first rib behind the A. subclavia.",
+   "facts": [
+    "No own branches",
+    "Splits into a Divisio anterior and a Divisio posterior"
+   ],
+   "clinical": "Lower trunk lesion (Klumpke palsy) – sudden upward pull of the arm, birth with the arm raised, cervical rib or Pancoast tumour: weak intrinsic hand muscles → claw hand; sensory loss on the medial forearm and hand; possible Horner syndrome if T1 is involved.",
+   "diff": 1,
+   "d": "M250,497 L410,497",
+   "label": {
+    "x": 330,
+    "y": 528,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "suprascapularis",
+   "level": "ramus",
+   "of": "truncus",
+   "short": "N. suprascapularis",
+   "name": "Nervus suprascapularis",
+   "answers": [
+    "N. suprascapularis",
+    "Nervus suprascapularis"
+   ],
+   "en": [
+    "suprascapular nerve"
+   ],
+   "parents": [
+    "truncus-superior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6 (C4)",
+   "origin": "Truncus superior",
+   "muscles": [
+    "M. supraspinatus",
+    "M. infraspinatus"
+   ],
+   "course": "Passes through the Incisura scapulae below the Lig. transversum scapulae superius (the A. suprascapularis runs above the ligament), then around the neck of the scapula into the Fossa infraspinata.",
+   "facts": [
+    "Also sensory to the shoulder joint and the acromioclavicular joint",
+    "Supraclavicular branch"
+   ],
+   "clinical": "Entrapment in the Incisura scapulae → weak start of abduction (M. supraspinatus) and weak external rotation (M. infraspinatus), atrophy above and below the Spina scapulae.",
+   "diff": 2,
+   "d": "M300,205 C300,150 318,112 356,98",
+   "label": {
+    "x": 364,
+    "y": 99,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "subclavius",
+   "level": "ramus",
+   "of": "truncus",
+   "short": "N. subclavius",
+   "name": "Nervus subclavius",
+   "answers": [
+    "N. subclavius",
+    "Nervus subclavius",
+    "N. musculi subclavii",
+    "Nervus musculi subclavii"
+   ],
+   "en": [
+    "nerve to subclavius",
+    "subclavian nerve"
+   ],
+   "parents": [
+    "truncus-superior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Truncus superior (anterior surface)",
+   "muscles": [
+    "M. subclavius"
+   ],
+   "course": "Descends in front of the plexus and the A. subclavia to the M. subclavius below the clavicle.",
+   "facts": [
+    "Often gives a N. phrenicus accessorius",
+    "Supraclavicular branch"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M372,205 C374,180 386,162 408,152",
+   "label": {
+    "x": 416,
+    "y": 155,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "div-ant-sup",
+   "level": "divisio",
+   "short": "Div. ant.",
+   "name": "Divisio anterior trunci superioris",
+   "answers": [
+    "Divisio anterior",
+    "Divisio anterior trunci superioris"
+   ],
+   "en": [
+    "anterior division"
+   ],
+   "parents": [
+    "truncus-superior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Truncus superior",
+   "course": "Behind the clavicle; joins the anterior division of the Truncus medius to form the Fasciculus lateralis.",
+   "facts": [
+    "Anterior divisions carry the fibres for the flexor (anterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,205 C470,205 500,235 560,235",
+   "label": {
+    "t": 0.3,
+    "dx": 0,
+    "dy": -14,
+    "anchor": "middle",
+    "small": true
+   }
+  },
+  {
+   "id": "div-post-sup",
+   "level": "divisio",
+   "posterior": true,
+   "short": "Div. post.",
+   "name": "Divisio posterior trunci superioris",
+   "answers": [
+    "Divisio posterior",
+    "Divisio posterior trunci superioris"
+   ],
+   "en": [
+    "posterior division"
+   ],
+   "parents": [
+    "truncus-superior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Truncus superior",
+   "course": "Behind the clavicle; joins the other two posterior divisions to form the Fasciculus posterior.",
+   "facts": [
+    "Posterior divisions carry the fibres for the extensor (posterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,205 C480,210 490,370 560,370",
+   "label": {
+    "t": 0.5,
+    "dx": -38,
+    "dy": 6,
+    "anchor": "end",
+    "small": true,
+    "lead": true
+   }
+  },
+  {
+   "id": "div-ant-med",
+   "level": "divisio",
+   "short": "Div. ant.",
+   "name": "Divisio anterior trunci medii",
+   "answers": [
+    "Divisio anterior",
+    "Divisio anterior trunci medii"
+   ],
+   "en": [
+    "anterior division"
+   ],
+   "parents": [
+    "truncus-medius"
+   ],
+   "roots": [
+    "C7"
+   ],
+   "rootText": "C7",
+   "origin": "Truncus medius",
+   "course": "Behind the clavicle; joins the anterior division of the Truncus superior to form the Fasciculus lateralis.",
+   "facts": [
+    "Anterior divisions carry the fibres for the flexor (anterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,350 C480,350 500,235 560,235",
+   "label": {
+    "t": 0.22,
+    "dx": 6,
+    "dy": -16,
+    "anchor": "middle",
+    "small": true
+   }
+  },
+  {
+   "id": "div-post-med",
+   "level": "divisio",
+   "posterior": true,
+   "short": "Div. post.",
+   "name": "Divisio posterior trunci medii",
+   "answers": [
+    "Divisio posterior",
+    "Divisio posterior trunci medii"
+   ],
+   "en": [
+    "posterior division"
+   ],
+   "parents": [
+    "truncus-medius"
+   ],
+   "roots": [
+    "C7"
+   ],
+   "rootText": "C7",
+   "origin": "Truncus medius",
+   "course": "Behind the clavicle; joins the other posterior divisions to form the Fasciculus posterior.",
+   "facts": [
+    "Posterior divisions carry the fibres for the extensor (posterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,350 C470,350 500,370 560,370",
+   "label": {
+    "t": 0.25,
+    "dx": 0,
+    "dy": 24,
+    "anchor": "middle",
+    "small": true
+   }
+  },
+  {
+   "id": "div-ant-inf",
+   "level": "divisio",
+   "short": "Div. ant.",
+   "name": "Divisio anterior trunci inferioris",
+   "answers": [
+    "Divisio anterior",
+    "Divisio anterior trunci inferioris"
+   ],
+   "en": [
+    "anterior division"
+   ],
+   "parents": [
+    "truncus-inferior"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Truncus inferior",
+   "course": "Behind the clavicle; continues alone as the Fasciculus medialis.",
+   "facts": [
+    "Anterior divisions carry the fibres for the flexor (anterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,497 C470,497 500,560 560,560",
+   "label": {
+    "t": 0.55,
+    "dx": 6,
+    "dy": 22,
+    "anchor": "middle",
+    "small": true
+   }
+  },
+  {
+   "id": "div-post-inf",
+   "level": "divisio",
+   "posterior": true,
+   "short": "Div. post.",
+   "name": "Divisio posterior trunci inferioris",
+   "answers": [
+    "Divisio posterior",
+    "Divisio posterior trunci inferioris"
+   ],
+   "en": [
+    "posterior division"
+   ],
+   "parents": [
+    "truncus-inferior"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Truncus inferior",
+   "course": "Behind the clavicle; joins the other posterior divisions to form the Fasciculus posterior. It is the smallest posterior division.",
+   "facts": [
+    "Posterior divisions carry the fibres for the extensor (posterior) compartments"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M410,497 C480,497 490,370 560,370",
+   "label": {
+    "t": 0.5,
+    "dx": -36,
+    "dy": 10,
+    "anchor": "end",
+    "small": true,
+    "lead": true
+   }
+  },
+  {
+   "id": "fasciculus-lateralis",
+   "level": "fasciculus",
+   "short": "Fasciculus lateralis",
+   "name": "Fasciculus lateralis",
+   "answers": [
+    "Fasciculus lateralis",
+    "Fasc. lateralis"
+   ],
+   "en": [
+    "lateral cord"
+   ],
+   "parents": [
+    "div-ant-sup",
+    "div-ant-med"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "rootText": "C5–C7",
+   "origin": "Anterior divisions of the Truncus superior and Truncus medius",
+   "course": "Lies lateral to the 2nd part of the A. axillaris (behind M. pectoralis minor).",
+   "facts": [
+    "Branches: N. pectoralis lateralis, N. musculocutaneus, Radix lateralis n. mediani"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M560,235 L820,235",
+   "label": {
+    "x": 720,
+    "y": 222,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "fasciculus-posterior",
+   "level": "fasciculus",
+   "posterior": true,
+   "short": "Fasciculus posterior",
+   "name": "Fasciculus posterior",
+   "answers": [
+    "Fasciculus posterior",
+    "Fasc. posterior"
+   ],
+   "en": [
+    "posterior cord"
+   ],
+   "parents": [
+    "div-post-sup",
+    "div-post-med",
+    "div-post-inf"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "T1"
+   ],
+   "rootText": "C5–T1",
+   "origin": "All three posterior divisions",
+   "course": "Lies behind the 2nd part of the A. axillaris.",
+   "facts": [
+    "Branches: N. subscapularis superior, N. thoracodorsalis, N. subscapularis inferior, N. axillaris, N. radialis",
+    "Supplies the whole posterior (extensor) side of the upper limb"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M560,370 L800,370",
+   "label": {
+    "x": 690,
+    "y": 357,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "fasciculus-medialis",
+   "level": "fasciculus",
+   "short": "Fasciculus medialis",
+   "name": "Fasciculus medialis",
+   "answers": [
+    "Fasciculus medialis",
+    "Fasc. medialis"
+   ],
+   "en": [
+    "medial cord"
+   ],
+   "parents": [
+    "div-ant-inf"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Anterior division of the Truncus inferior",
+   "course": "Lies medial to the 2nd part of the A. axillaris.",
+   "facts": [
+    "Branches: N. pectoralis medialis, N. cutaneus brachii medialis, N. cutaneus antebrachii medialis, Radix medialis n. mediani, N. ulnaris"
+   ],
+   "clinical": null,
+   "diff": 1,
+   "d": "M560,560 L820,560",
+   "label": {
+    "x": 690,
+    "y": 547,
+    "anchor": "middle"
+   }
+  },
+  {
+   "id": "pectoralis-lateralis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. pectoralis lateralis",
+   "name": "Nervus pectoralis lateralis",
+   "answers": [
+    "N. pectoralis lateralis",
+    "Nervus pectoralis lateralis"
+   ],
+   "en": [
+    "lateral pectoral nerve"
+   ],
+   "parents": [
+    "fasciculus-lateralis"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "rootText": "C5–C7",
+   "origin": "Fasciculus lateralis",
+   "muscles": [
+    "M. pectoralis major"
+   ],
+   "course": "Pierces the Fascia clavipectoralis and reaches the deep surface of M. pectoralis major. A loop to the N. pectoralis medialis (Ansa pectoralis) also brings fibres to M. pectoralis minor.",
+   "facts": [
+    "Named after the cord it comes from – it lies more medial in the chest than the N. pectoralis medialis"
+   ],
+   "clinical": null,
+   "diff": 2,
+   "d": "M600,235 C600,200 610,172 634,158",
+   "label": {
+    "x": 642,
+    "y": 158,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "subscapularis-superior",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. subscapularis superior",
+   "name": "Nervus subscapularis superior",
+   "answers": [
+    "N. subscapularis superior",
+    "Nervus subscapularis superior"
+   ],
+   "en": [
+    "upper subscapular nerve",
+    "superior subscapular nerve"
+   ],
+   "parents": [
+    "fasciculus-posterior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Fasciculus posterior",
+   "muscles": [
+    "M. subscapularis"
+   ],
+   "course": "Short nerve that enters the upper part of M. subscapularis.",
+   "facts": [
+    "Supplies the upper part of M. subscapularis",
+    "In the Terminologia: one of the Nn. subscapulares"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M610,370 C612,410 612,450 614,480",
+   "label": {
+    "x": 622,
+    "y": 489,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "thoracodorsalis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. thoracodorsalis",
+   "name": "Nervus thoracodorsalis",
+   "answers": [
+    "N. thoracodorsalis",
+    "Nervus thoracodorsalis"
+   ],
+   "en": [
+    "thoracodorsal nerve",
+    "middle subscapular nerve"
+   ],
+   "parents": [
+    "fasciculus-posterior"
+   ],
+   "roots": [
+    "C6",
+    "C7",
+    "C8"
+   ],
+   "rootText": "C6–C8",
+   "origin": "Fasciculus posterior (between the two subscapular nerves)",
+   "muscles": [
+    "M. latissimus dorsi"
+   ],
+   "course": "Runs down the posterior axillary wall with the A. thoracodorsalis to the deep surface of M. latissimus dorsi.",
+   "facts": [
+    "Also called the middle subscapular nerve"
+   ],
+   "clinical": "At risk during axillary lymph node dissection; the M. latissimus dorsi with this nerve is used as a flap in breast reconstruction.",
+   "diff": 2,
+   "d": "M680,370 C682,395 684,420 686,438",
+   "label": {
+    "x": 694,
+    "y": 447,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "subscapularis-inferior",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. subscapularis inferior",
+   "name": "Nervus subscapularis inferior",
+   "answers": [
+    "N. subscapularis inferior",
+    "Nervus subscapularis inferior"
+   ],
+   "en": [
+    "lower subscapular nerve",
+    "inferior subscapular nerve"
+   ],
+   "parents": [
+    "fasciculus-posterior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Fasciculus posterior",
+   "muscles": [
+    "M. subscapularis",
+    "M. teres major"
+   ],
+   "course": "Enters the lower part of M. subscapularis and continues to M. teres major.",
+   "facts": [
+    "Supplies the lower part of M. subscapularis and the whole M. teres major"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M750,370 C752,385 754,398 756,406",
+   "label": {
+    "x": 764,
+    "y": 415,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "pectoralis-medialis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. pectoralis medialis",
+   "name": "Nervus pectoralis medialis",
+   "answers": [
+    "N. pectoralis medialis",
+    "Nervus pectoralis medialis"
+   ],
+   "en": [
+    "medial pectoral nerve"
+   ],
+   "parents": [
+    "fasciculus-medialis"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Fasciculus medialis",
+   "muscles": [
+    "M. pectoralis minor",
+    "M. pectoralis major"
+   ],
+   "course": "Pierces M. pectoralis minor (supplies it) and ends in the lower, sternocostal part of M. pectoralis major.",
+   "facts": [
+    "Named after the cord it comes from – in the chest it lies lateral to the N. pectoralis lateralis"
+   ],
+   "clinical": null,
+   "diff": 2,
+   "d": "M610,560 C612,600 610,650 612,680",
+   "label": {
+    "x": 620,
+    "y": 692,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "cutaneus-brachii-medialis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. cutaneus brachii medialis",
+   "name": "Nervus cutaneus brachii medialis",
+   "answers": [
+    "N. cutaneus brachii medialis",
+    "Nervus cutaneus brachii medialis"
+   ],
+   "en": [
+    "medial cutaneous nerve of arm",
+    "medial brachial cutaneous nerve"
+   ],
+   "parents": [
+    "fasciculus-medialis"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1 (mainly T1)",
+   "origin": "Fasciculus medialis",
+   "muscles": [],
+   "skin": "Skin of the medial side of the upper arm",
+   "course": "Purely sensory. Runs medial to the V. axillaris and connects with the N. intercostobrachialis (T2).",
+   "facts": [
+    "Smallest branch of the plexus",
+    "No muscles – sensory only"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M690,560 C692,590 694,615 696,636",
+   "label": {
+    "x": 704,
+    "y": 646,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "cutaneus-antebrachii-medialis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "N. cutaneus antebrachii medialis",
+   "name": "Nervus cutaneus antebrachii medialis",
+   "answers": [
+    "N. cutaneus antebrachii medialis",
+    "Nervus cutaneus antebrachii medialis"
+   ],
+   "en": [
+    "medial cutaneous nerve of forearm",
+    "medial antebrachial cutaneous nerve"
+   ],
+   "parents": [
+    "fasciculus-medialis"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Fasciculus medialis",
+   "muscles": [],
+   "skin": "Skin of the medial side of the forearm (and a small area over the lower medial arm)",
+   "course": "Purely sensory. Runs with the A. brachialis, pierces the deep fascia with the V. basilica in the middle of the arm.",
+   "facts": [
+    "No muscles – sensory only"
+   ],
+   "clinical": "Can be injured during venepuncture or surgery near the V. basilica.",
+   "diff": 3,
+   "d": "M760,560 C762,575 764,590 766,598",
+   "label": {
+    "x": 774,
+    "y": 608,
+    "anchor": "start"
+   }
+  },
+  {
+   "id": "musculocutaneus",
+   "level": "terminalis",
+   "short": "N. musculocutaneus",
+   "name": "Nervus musculocutaneus",
+   "answers": [
+    "N. musculocutaneus",
+    "Nervus musculocutaneus"
+   ],
+   "en": [
+    "musculocutaneous nerve"
+   ],
+   "parents": [
+    "fasciculus-lateralis"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "rootText": "C5–C7",
+   "origin": "Fasciculus lateralis",
+   "muscles": [
+    "M. coracobrachialis",
+    "M. biceps brachii",
+    "M. brachialis"
+   ],
+   "skin": "Lateral forearm – via its end branch, the N. cutaneus antebrachii lateralis",
+   "course": "Pierces M. coracobrachialis, runs between M. biceps brachii and M. brachialis and becomes the N. cutaneus antebrachii lateralis at the elbow.",
+   "facts": [
+    "Supplies all three muscles of the anterior compartment of the arm",
+    "Memory: BBC – Biceps, Brachialis, Coracobrachialis"
+   ],
+   "clinical": "Isolated injury is rare (it is well protected): weak elbow flexion and supination, loss of the biceps reflex, numb lateral forearm.",
+   "diff": 2,
+   "d": "M820,235 C880,235 910,170 1060,168",
+   "label": {
+    "x": 1070,
+    "y": 174,
+    "anchor": "start",
+    "big": true
+   }
+  },
+  {
+   "id": "axillaris",
+   "level": "terminalis",
+   "posterior": true,
+   "short": "N. axillaris",
+   "name": "Nervus axillaris",
+   "answers": [
+    "N. axillaris",
+    "Nervus axillaris"
+   ],
+   "en": [
+    "axillary nerve",
+    "circumflex nerve"
+   ],
+   "parents": [
+    "fasciculus-posterior"
+   ],
+   "roots": [
+    "C5",
+    "C6"
+   ],
+   "rootText": "C5–C6",
+   "origin": "Fasciculus posterior",
+   "muscles": [
+    "M. deltoideus",
+    "M. teres minor"
+   ],
+   "skin": "Skin over the lower deltoid (\"regimental badge\" area) – via the N. cutaneus brachii lateralis superior",
+   "course": "Passes with the A. circumflexa humeri posterior through the lateral axillary space (Spatium axillare laterale / quadrangular space) and winds around the Collum chirurgicum humeri.",
+   "facts": [
+    "Lateral axillary space = M. teres minor (above), M. teres major (below), Caput longum m. tricipitis (medial), humerus (lateral)"
+   ],
+   "clinical": "Injury after dislocation of the shoulder or fracture of the Collum chirurgicum humeri → weak abduction (15–90°) and external rotation, flat shoulder from deltoid atrophy, numb regimental badge area.",
+   "diff": 2,
+   "d": "M800,370 C860,370 900,290 1060,288",
+   "label": {
+    "x": 1070,
+    "y": 294,
+    "anchor": "start",
+    "big": true
+   }
+  },
+  {
+   "id": "radialis",
+   "level": "terminalis",
+   "posterior": true,
+   "short": "N. radialis",
+   "name": "Nervus radialis",
+   "answers": [
+    "N. radialis",
+    "Nervus radialis"
+   ],
+   "en": [
+    "radial nerve"
+   ],
+   "parents": [
+    "fasciculus-posterior"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "T1"
+   ],
+   "rootText": "C5–T1",
+   "origin": "Fasciculus posterior (largest branch)",
+   "muscles": [
+    "M. triceps brachii",
+    "M. anconeus",
+    "M. brachioradialis",
+    "M. extensor carpi radialis longus",
+    "M. extensor carpi radialis brevis",
+    "M. supinator",
+    "M. extensor digitorum",
+    "M. extensor digiti minimi",
+    "M. extensor carpi ulnaris",
+    "M. abductor pollicis longus",
+    "M. extensor pollicis brevis",
+    "M. extensor pollicis longus",
+    "M. extensor indicis"
+   ],
+   "skin": "Posterior arm and forearm; radial dorsum of the hand and the first web space (R. superficialis)",
+   "course": "Runs with the A. profunda brachii in the Sulcus nervi radialis around the humerus, then between M. brachialis and M. brachioradialis. At the elbow it splits into the R. superficialis (sensory) and the R. profundus (motor, continues as N. interosseus antebrachii posterior through M. supinator).",
+   "facts": [
+    "Supplies all extensors of arm and forearm",
+    "The R. profundus supplies the extensors of the forearm (from M. extensor carpi radialis brevis and M. supinator on)"
+   ],
+   "clinical": "Fracture of the humeral shaft (Sulcus nervi radialis) or \"Saturday night palsy\" → wrist drop, weak finger extension at the MCP joints, numb first web space. The triceps is usually spared because its branches leave higher. Crutch palsy in the axilla affects the triceps too.",
+   "diff": 2,
+   "d": "M800,370 C880,372 920,370 1060,370",
+   "label": {
+    "x": 1070,
+    "y": 376,
+    "anchor": "start",
+    "big": true
+   }
+  },
+  {
+   "id": "radix-lateralis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "Radix lateralis\nn. mediani",
+   "name": "Radix lateralis nervi mediani",
+   "answers": [
+    "Radix lateralis nervi mediani",
+    "Radix lateralis n. mediani"
+   ],
+   "en": [
+    "lateral root of median nerve",
+    "lateral root of the median nerve"
+   ],
+   "parents": [
+    "fasciculus-lateralis"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "rootText": "C(5)6–7",
+   "origin": "Fasciculus lateralis",
+   "course": "Joins the Radix medialis in front of the A. axillaris – together they form the \"M\" (Medianusgabel) with the N. musculocutaneus and the N. ulnaris.",
+   "facts": [
+    "Brings the C6–C7 fibres of the N. medianus (pronator teres, flexor carpi radialis, sensory fibres for the thumb side)"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M820,235 C890,245 910,445 950,452",
+   "label": {
+    "x": 966,
+    "y": 402,
+    "anchor": "start",
+    "lead": true,
+    "t": 0.62
+   }
+  },
+  {
+   "id": "radix-medialis",
+   "level": "ramus",
+   "of": "fasciculus",
+   "short": "Radix medialis\nn. mediani",
+   "name": "Radix medialis nervi mediani",
+   "answers": [
+    "Radix medialis nervi mediani",
+    "Radix medialis n. mediani"
+   ],
+   "en": [
+    "medial root of median nerve",
+    "medial root of the median nerve"
+   ],
+   "parents": [
+    "fasciculus-medialis"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1",
+   "origin": "Fasciculus medialis",
+   "course": "Crosses in front of the A. axillaris to join the Radix lateralis – forming the median \"M\".",
+   "facts": [
+    "Brings the C8–T1 fibres of the N. medianus (long finger flexors, thenar muscles)"
+   ],
+   "clinical": null,
+   "diff": 3,
+   "d": "M820,560 C890,555 910,460 950,452",
+   "label": {
+    "x": 966,
+    "y": 503,
+    "anchor": "start",
+    "lead": true,
+    "t": 0.55
+   }
+  },
+  {
+   "id": "medianus",
+   "level": "terminalis",
+   "short": "N. medianus",
+   "name": "Nervus medianus",
+   "answers": [
+    "N. medianus",
+    "Nervus medianus"
+   ],
+   "en": [
+    "median nerve"
+   ],
+   "parents": [
+    "radix-lateralis",
+    "radix-medialis"
+   ],
+   "roots": [
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "T1"
+   ],
+   "rootText": "C6–T1 (C5)",
+   "origin": "Radix lateralis (Fasciculus lateralis) + Radix medialis (Fasciculus medialis)",
+   "muscles": [
+    "M. pronator teres",
+    "M. flexor carpi radialis",
+    "M. palmaris longus",
+    "M. flexor digitorum superficialis",
+    "M. flexor digitorum profundus (radial part, digits II–III)",
+    "M. flexor pollicis longus",
+    "M. pronator quadratus",
+    "M. abductor pollicis brevis",
+    "M. opponens pollicis",
+    "M. flexor pollicis brevis (caput superficiale)",
+    "Mm. lumbricales I–II"
+   ],
+   "skin": "Palmar side of the lateral 3½ fingers and their nail beds; lateral palm",
+   "course": "No branches in the arm. Runs with the A. brachialis in the Sulcus bicipitalis medialis, enters the forearm between the two heads of M. pronator teres, gives the N. interosseus antebrachii anterior and passes through the Canalis carpi (carpal tunnel).",
+   "facts": [
+    "Hand muscles: LOAF – Lumbricales I–II, Opponens pollicis, Abductor pollicis brevis, Flexor pollicis brevis (superficial head)",
+    "FPL, the radial part of FDP and M. pronator quadratus come from the N. interosseus antebrachii anterior"
+   ],
+   "clinical": "Carpal tunnel syndrome → tingling in the lateral 3½ fingers (worse at night), thenar atrophy. Lesion at the elbow (supracondylar fracture) → \"hand of benediction\" when trying to make a fist.",
+   "diff": 2,
+   "d": "M950,452 L1060,452",
+   "label": {
+    "x": 1070,
+    "y": 458,
+    "anchor": "start",
+    "big": true
+   }
+  },
+  {
+   "id": "ulnaris",
+   "level": "terminalis",
+   "short": "N. ulnaris",
+   "name": "Nervus ulnaris",
+   "answers": [
+    "N. ulnaris",
+    "Nervus ulnaris"
+   ],
+   "en": [
+    "ulnar nerve"
+   ],
+   "parents": [
+    "fasciculus-medialis"
+   ],
+   "roots": [
+    "C8",
+    "T1"
+   ],
+   "rootText": "C8–T1 (often also C7)",
+   "origin": "Fasciculus medialis",
+   "muscles": [
+    "M. flexor carpi ulnaris",
+    "M. flexor digitorum profundus (ulnar part, digits IV–V)",
+    "M. palmaris brevis",
+    "M. abductor digiti minimi",
+    "M. flexor digiti minimi brevis",
+    "M. opponens digiti minimi",
+    "Mm. interossei palmares",
+    "Mm. interossei dorsales",
+    "Mm. lumbricales III–IV",
+    "M. adductor pollicis",
+    "M. flexor pollicis brevis (caput profundum)"
+   ],
+   "skin": "Palmar and dorsal side of the medial 1½ fingers and the medial hand",
+   "course": "No branches in the arm. Passes behind the Epicondylus medialis humeri (Sulcus nervi ulnaris – \"funny bone\"), enters the forearm between the two heads of M. flexor carpi ulnaris and reaches the hand through the Canalis ulnaris (Guyon's canal).",
+   "facts": [
+    "Supplies most of the intrinsic hand muscles"
+   ],
+   "clinical": "Injury at the elbow (fracture of the Epicondylus medialis, cubital tunnel) or wrist → claw hand of the ring and little finger, wasting of the Mm. interossei, positive Froment sign, numb little finger.",
+   "diff": 2,
+   "d": "M820,560 L1060,560",
+   "label": {
+    "x": 1070,
+    "y": 566,
+    "anchor": "start",
+    "big": true
+   }
+  }
+ ]
+}

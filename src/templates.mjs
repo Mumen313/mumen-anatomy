@@ -334,6 +334,7 @@ export function notFoundPage({ site }) {
 
 
 const GAME_ICONS = {
+  'learn-the-plexus': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 14h14l10 10h12M6 26h14l10-2M6 38h14l10 6h12M6 50h14l10-6M42 24l14-8M42 24l14 6M42 44l14-4M42 44l14 10" class="ln"/><circle cx="30" cy="24" r="5" class="hl"/><circle cx="30" cy="44" r="4"/></svg>`,
   'name-it': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="22" width="12" height="16" rx="3"/><rect x="21" y="22" width="12" height="16" rx="3"/><rect x="36" y="22" width="12" height="16" rx="3" class="hl"/><rect x="51" y="22" width="8" height="16" rx="3" class="dim"/><path d="M10 46h44" class="ln"/></svg>`,
   'cadaver-clip-test': `<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="12" width="44" height="40" rx="6"/><path d="M18 44l10-14 8 9 6-7 6 12" class="ln"/><circle cx="40" cy="24" r="5" class="hl"/></svg>`,
   'muscle-3d': `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l22 12v28L32 58 10 46V18z" class="ln"/><path d="M10 18l22 12 22-12M32 30v28" class="ln"/><circle cx="32" cy="30" r="6" class="hl"/></svg>`,
@@ -344,7 +345,7 @@ function gameShellTop(title, eyebrow, lede) {
   return `<div class="g-head"><a class="g-back" href="__BASE__games/">‹ All games</a><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p class="lede">${lede}</p></div>`;
 }
 
-export function gamesHubPage({ site, decks, plates, cadaver = [], m3d = [] }) {
+export function gamesHubPage({ site, decks, plates, cadaver = [], m3d = [], plexus = [] }) {
   const terms = decks.reduce((n, d) => n + d.items.length, 0);
   const pins = plates.reduce((n, p) => n + p.pins.length, 0);
   const card = (id, title, text, meta, tag, ids) => `
@@ -361,6 +362,7 @@ export function gamesHubPage({ site, decks, plates, cadaver = [], m3d = [] }) {
 <h1>Learn anatomy by playing.</h1>
 <p class="lede">Short rounds, instant feedback, best scores saved in your browser. Pick a game.</p>
 <div class="g-cards">
+  ${plexus.length ? card('learn-the-plexus', 'Learn the Plexus', 'A large interactive schematic of the Plexus brachialis: tap a nerve to see its roots, pathway and muscles – then find the hidden label.', `${plexus.length} plexus · ${plexus.reduce((n, p) => n + p.structures.length, 0)} structures`, 'New · schematic & quiz', plexus.flatMap((p) => [1, 2, 3, 0].map((l) => `plexus-${p.slug}-${l}`))) : ''}
   ${m3d.length ? card('muscle-3d', '3D muscles', 'Turn a real 3D model of the body, name the yellow muscle in Latin and learn its origin, insertion and nerve.', `${m3d.length} regions · ${m3d.reduce((n, r) => n + r.n, 0)} muscles`, 'New · interactive 3D', m3d.map((r) => 'm3d-' + r.slug)) : ''}
   ${card('name-it', 'Name it!', 'Read the clue and spell the term letter by letter. Keep your hearts, build a streak, collect stars.', `${decks.length} decks · ${terms} terms`, 'Spelling & recall', decks.map((d) => d.id))}
   ${cadaver.length ? card('cadaver-clip-test', 'Real cadaver clip test', 'Real dissection photos (Stanford Bassett Collection) – name the pinned structure in Latin.', `${cadaver.length} photos · ${cadaver.reduce((n, p) => n + p.pins.length, 0)} pins`, 'Real cadaver · most realistic', cadaver.map((p) => p.id)) : ''}
@@ -569,4 +571,59 @@ ${gameShellTop('3D muscles', 'Games · interactive 3D', 'Rotate the model with y
 <script type="application/json" id="m3dRegions">${JSON.stringify(regions.map((r) => ({ slug: r.slug, title: r.title }))).replace(/</g, '\\u003c')}</script>
 <script src="__BASE__assets/game-sound.js" defer></script>
 <script type="module" src="__BASE__assets/muscle-3d.js"></script>`;
+}
+
+export function plexusPage({ site, plexuses, planned = [] }) {
+  const have = new Set(plexuses.map((p) => p.slug));
+  const chips = planned.map((p) => `<button type="button" class="px-plexus${have.has(p.slug) ? '' : ' soon'}" data-plexus="${esc(p.slug)}"${have.has(p.slug) ? '' : ' disabled'}>${esc(p.title)}${have.has(p.slug) ? '' : ' <small>soon</small>'}</button>`).join('');
+  const lvl = (n, t, s) => `<button type="button" class="px-level" data-level="${n}"><strong>${t}</strong><small>${s}</small><small class="px-best" data-best-level="${n}"></small></button>`;
+  return `
+${gameShellTop('Learn the Plexus', 'Games · interactive schematic', 'Understand how the nerves start, join, split and reach their muscles. Tap any structure to learn it – then test yourself: one label is hidden, you name it in Latin.')}
+<div class="px" id="px" data-base="__BASE__">
+  <div class="px-top">
+    <div class="px-plexi" role="group" aria-label="Plexus">${chips}</div>
+    <div class="px-modes" role="group" aria-label="Mode">
+      <button type="button" data-mode="explore" class="on">🔍 Explore</button>
+      <button type="button" data-mode="quiz">❓ Guess the missing label</button>
+      <button type="button" id="pxSound" class="px-sound" aria-label="Sound on or off">🔊</button>
+    </div>
+  </div>
+  <div class="px-head"><h2 id="pxTitle"></h2><p id="pxIntro" class="muted"></p></div>
+  <div class="px-levels" id="pxLevels" hidden>
+    <p id="pxPrompt2" class="px-pick">Choose a level – 10 questions, the hidden structure glows yellow:</p>
+    ${lvl(1, 'Beginner', 'Radices, Trunci, Divisiones, Fasciculi')}
+    ${lvl(2, 'Intermediate', 'Terminal nerves and main branches')}
+    ${lvl(3, 'Advanced', 'Small branches and the roots of the N. medianus')}
+    ${lvl(0, 'Everything', 'All structures mixed')}
+  </div>
+  <div class="px-roots" id="pxRoots" role="group" aria-label="Highlight a spinal segment"></div>
+  <div class="px-wide">
+    <div class="px-stage" id="pxStage"></div>
+    <div class="px-legend" id="pxLegend"></div>
+    <section class="px-play" id="pxPlay" hidden>
+      <div class="px-hud" id="pxHud">
+        <span class="px-count" id="pxCount"></span>
+        <span class="px-progress"><i id="pxBar"></i></span>
+        <span>Score <strong id="pxScore">0</strong></span>
+        <span>🔥 <strong id="pxStreak">0</strong></span>
+        <button type="button" class="px-quit" id="pxQuit">End round</button>
+      </div>
+      <p class="px-prompt" id="pxPrompt"></p>
+      <form id="pxForm" class="px-form" autocomplete="off">
+        <input id="pxInput" type="text" placeholder="e.g. N. musculocutaneus" spellcheck="false" autocapitalize="off" autocorrect="off" aria-label="Latin name of the hidden structure">
+        <button class="btn primary" type="submit">Check</button>
+        <button class="btn" type="button" id="pxHint">Hint</button>
+        <button class="btn" type="button" id="pxShow">Show</button>
+      </form>
+      <p class="px-msg" id="pxMsg" aria-live="polite"></p>
+      <button class="btn primary" type="button" id="pxNext" hidden>Next ›</button>
+    </section>
+    <section class="px-end" id="pxEnd" hidden></section>
+    <section class="px-info" id="pxInfo" aria-live="polite"></section>
+  </div>
+  <p class="px-credit">Schematic, texts and clinical notes: Mumen Anatomy (Latin terminology after the Terminologia Anatomica). Muscle pictures: Sobotta, <i>Atlas and Text-book of Human Anatomy</i> (1909), public domain via Wikimedia Commons. Abbreviations: N. = Nervus, Nn. = Nervi, M. = Musculus, Mm. = Musculi, A. = Arteria, V. = Vena, R. = Ramus, Rr. = Rami, Fasc. = Fasciculus, Div. = Divisio.</p>
+</div>
+<script type="application/json" id="pxData">${JSON.stringify(plexuses).replace(/</g, '\\u003c')}</script>
+<script src="__BASE__assets/game-sound.js" defer></script>
+<script src="__BASE__assets/plexus.js" defer></script>`;
 }
